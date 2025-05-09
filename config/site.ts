@@ -1,14 +1,16 @@
-export const siteConfig = {
-  name: "Alfonso | Portafolio Profesional",
+export const siteConfig = {  name: "Alfonso | Portafolio Profesional",
   authorName: "Alfonso Ángel Mosquera A.",
   username: "foonroot01",  description:
     "Alfonso Mosquera's portfolio - A modern, responsive Next.js portfolio for developers. This open-source template can be customized to showcase your own skills, projects, and professional experience.",
-  url: "https://nbarkiya.xyz",  links: {
+  url: "https://alfonso-portafolio.vercel.app",
+  links: {
     twitter: "https://twitter.com/fonroot01",
     github: "https://github.com/fonroot01",
-  },  ogImage: "/alfonsoimage.jpg",
-  iconIco:
-    "/logo.png",  logoIcon: "/logo.png",keywords: [
+  },
+  ogImage: "/alfonsoimage.jpg",
+  iconIco: "/logo.png",
+  logoIcon: "/logo.png",
+  keywords:[
     "Alfonso Mosquera",
     "Full Stack Developer",
     "Web Developer Portfolio",
