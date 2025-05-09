@@ -21,14 +21,6 @@ import { cn } from "@/lib/utils";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
 import ScrollButton from "@/components/common/scroll-button";
 
-export const metadata: Metadata = {
-  title: "Alfonso | Web Personal",
-  description: `${pagesConfig.home.metadata.description} This open-source Next.js portfolio template is customizable to showcase your skills and projects.`,
-  alternates: {
-    canonical: siteConfig.url,
-  },
-};
-
 export default function IndexPage() {
   // Structured data for personal portfolio
   const personSchema = {
