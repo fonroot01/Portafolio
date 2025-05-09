@@ -1,8 +1,12 @@
 export interface contributionsInterface {
-  repo: string;
-  contibutionDescription: string;
-  repoOwner: string;
+  repo?: string;
+  contibutionDescription?: string;
+  repoOwner?: string;
   link: string;
+  title?: string;
+  description?: string;
+  techStack?: string[];
+  image?: string;
 }
 
 export const contributionsUnsorted: contributionsInterface[] = [
@@ -29,5 +33,33 @@ export const contributionsUnsorted: contributionsInterface[] = [
   },
 ];
 
-export const featuredContributions: contributionsInterface[] =
-  contributionsUnsorted.slice(0, 3);
+export const featuredContributions = [
+  {
+    id: "droid-specter",
+    title: "Droid Specter",
+    description: "Desarrollo de app de gestión de dispositivos Android para soporte técnico y automatización.",
+    link: "https://github.com/fonroot01/Droid-Specter?tab=readme-ov-file",
+    techStack: ["Python", "Git"],
+  },
+  {
+    id: "invensoft",
+    title: "Invensoft",
+    description: "Contribución en módulos de inventario y reportes para software empresarial.",
+    link: "https://github.com/fonroot01/Inventario-de-equipos-TI",
+    techStack: ["SQL Server", "Git"],
+  },
+  {
+    id: "usb-doctor",
+    title: "USB Doctor",
+    description: "Herramienta para análisis y recuperación de dispositivos USB comprometidos.",
+    link: "https://github.com/fonroot01/USB-Doctor?tab=readme-ov-file",
+    techStack: ["linux", "Python"],
+  },
+  {
+    id: "winpyx",
+    title: "WinPyX",
+    description: "Automatización de tareas administrativas en Windows usando Python.",
+    link: "https://github.com/fonroot01/WinPyX",
+    techStack: ["Python"],
+  },
+];

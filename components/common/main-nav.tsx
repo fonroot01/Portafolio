@@ -61,30 +61,37 @@ export function MainNav({ items, children }: MainNavProps) {
       </motion.div>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex items-center">
-          {items?.map((item, index) => (
-            <motion.div
-              key={index}
-              custom={index}
-              initial="hidden"
-              animate="visible"
-              variants={navItemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                href={item.disabled ? "#" : item.href}
-                className={cn(
-                  "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                  item.href.startsWith(`/${segment}`)
-                    ? "text-foreground"
-                    : "text-foreground/60",
-                  item.disabled && "cursor-not-allowed opacity-80"
-                )}
-              >
-                {item.title}
-              </Link>
-            </motion.div>
-          ))}
+          <motion.div
+            className="flex items-center space-x-4"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
+          >
+            {items && items.length > 0 ? (
+              items.map((item, index) => (
+                <motion.div
+                  key={item.href}
+                  variants={navItemVariants}
+                  custom={index}
+                  className="text-sm font-medium"
+                >
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "text-gray-200 hover:text-primary transition-colors duration-200",
+                      item.href === pathname ? "text-primary" : "text-gray-200"
+                    )}
+                  >
+                    {item.title}
+                  </Link>
+                </motion.div>
+              ))
+            ) : (
+              <p className="text-muted">No navigation items available</p>
+            )}
+          </motion.div>
         </nav>
       ) : null}
       <motion.button

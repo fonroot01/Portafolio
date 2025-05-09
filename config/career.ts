@@ -16,77 +16,90 @@ export interface CareerExperienceInterface {
 
 export const careerExperiences: CareerExperienceInterface[] = [
   {
-    id: "ubs",
-    position: "Software Development Engineer",
-    company: "UBS",
-    location: "Mumbai, India",
-    startDate: new Date("2024-08-01"),
-    endDate: "Present",
+    id: "icbf-hogar-gestor",
+    position: "Asistente - Hogar Gestor",
+    company: "ICBF",
+    location: "Florencia, Caquetá, Colombia",
+    startDate: new Date("2017-11-01"),
+    endDate: new Date("2017-12-31"),
     description: [
-      "Contributing to the P&L dashboard used by traders and senior stakeholders.",
-      "Leading the migration of the UI from Kendo to UBS's internal design system.",
-      "Building a daily FX rate fetcher by integrating Databricks jobs with backend services.",
+      "Apoyo en el diligenciamiento de formularios para evaluación de casos.",
+      "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales.",
+      "Acompañamiento en la gestión de documentación y seguimiento de procesos."
     ],
     achievements: [
-      "Delivered production code within 1 month of joining by contributing to the P&L dashboard used by traders and senior stakeholders.",
-      "Led the migration of the UI from Kendo to UBS's internal design system, improving frontend consistency and performance.",
-      "Built a daily FX rate fetcher by integrating Databricks jobs (Python, Spark SQL) with backend services (Java), automating exchange rate updates.",
-      "Won UBS's internal AI Venture Challenge by developing data transformation pipelines and anomaly detection models on trading datasets.",
-      "Collaborated closely with product owners and designers for user-centric features, improving usability and trader workflows.",
+      "Empatía y sensibilidad social.",
+      "Comunicación efectiva."
     ],
-    skills: ["Typescript", "React", "Databricks", "Java", "Python"],
-    companyUrl: "https://www.ubs.com",
-    logo: "/logo.png",
+    skills: [],
+    companyUrl: undefined,
+    logo: "/career/logobienestar.png"
   },
   {
-    id: "agentprod",
-    position: "Software Development Intern",
-    company: "Agentprod LLP",
-    location: "Bengaluru, India",
-    startDate: new Date("2023-10-01"),
-    endDate: new Date("2024-03-01"),
+    id: "aprendiz-soporte-ti",
+    position: "Aprendiz de Soporte y Servicio TI",
+    company: "Contrato de prácticas",
+    location: "Colombia",
+    startDate: new Date("2022-04-01"),
+    endDate: new Date("2022-10-31"),
     description: [
-      "Built backend for AI-driven chatbots using LLMs (GPT-4, Llama-2).",
-      "Developed APIs and integrated Slack, Google Workspace, and HubSpot automations.",
-      "Deployed ML models on AWS SageMaker instead of Replicate.",
+      "Mantenimiento preventivo y correctivo de equipos de cómputo, asegurando su óptimo funcionamiento.",
+      "Atención a incidentes y solicitudes de usuarios, proporcionando soporte técnico eficiente.",
+      "Supervisión de servidores en plantas y estaciones de servicio para garantizar la estabilidad de los sistemas.",
+      "Colaboración en la documentación de procedimientos y capacitación de usuarios, contribuyendo a la mejora de procesos tecnológicos y operativos."
     ],
     achievements: [
-      "Built backend for AI-driven chatbots using LLMs (GPT-4, Llama-2), improving function call accuracy by 40%.",
-      "Developed APIs and integrated Slack, Google Workspace, and HubSpot automations via FastAPI.",
-      "Deployed ML models on AWS SageMaker instead of Replicate, cutting load times by 30%.",
-      "Created a Next.js dashboard for user analytics.",
+      "Mejora de la eficiencia operativa mediante soporte técnico oportuno.",
+      "Contribución a la estabilidad de los sistemas y satisfacción de usuarios."
     ],
-    skills: ["Next.js", "React", "Node.js", "AWS", "MongoDB", "Typescript"],
-    companyUrl: "https://agentprod.com",
-    logo: "/career/agentprod-logo.png",
+    skills: ["ServiceDesk", "linux", "Git"],
+    companyUrl: undefined,
+    logo: "/career/logozeuss.png"
   },
   {
-    id: "builtdesign",
-    position: "Web Developer Intern",
-    company: "Builtdesign",
-    location: "Nagpur, India",
-    startDate: new Date("2021-07-01"),
-    endDate: new Date("2022-07-01"),
+    id: "zeuss-auxiliar-ti",
+    position: "Auxiliar de Plataformas Tecnológicas",
+    company: "Zeuss S.A.S",
+    location: "Medellín, Antioquia, Colombia",
+    startDate: new Date("2022-10-01"),
+    endDate: new Date("2023-01-31"),
     description: [
-      "Developed websites using React, Angular, and GraphQL.",
-      "Set up AWS servers and CI/CD pipelines.",
-      "Built a multi-page PDF reader for large files (>300MB).",
+      "Administración y configuración de sistemas de telefonía IP.",
+      "Gestión de software contable y control de licencias ofimáticas.",
+      "Respaldo de información y supervisión de plataformas para administración de plantas de combustible.",
+      "Gestión de inventario de equipos tecnológicos.",
+      "Soporte técnico mediante escalamiento de tickets y seguimiento de incidentes.",
+      "Documentación de casos y procedimientos para optimizar la gestión y eficiencia de procesos tecnológicos."
     ],
     achievements: [
-      "Developed websites using React, Angular, and GraphQL; reduced API load time by 30%.",
-      "Set up AWS servers and CI/CD pipelines, scaling traffic to 3,000+ users/day.",
-      "Built a multi-page PDF reader for large files (>300MB) to boost user engagement.",
+      "Mejora de la eficiencia operativa y continuidad de los servicios tecnológicos.",
+      "Optimización de la gestión documental y soporte técnico."
     ],
-    skills: [
-      "React",
-      "Angular",
-      "GraphQL",
-      "AWS",
-      "HTML 5",
-      "CSS 3",
-      "Javascript",
-    ],
-    companyUrl: "https://builtdesign.in",
-    logo: "/career/builtdesign-logo.png",
+    skills: ["3CX", "DMS", "ServiceDesk", "Microsoft 365"],
+    companyUrl: undefined,
+    logo: "/career/logozeuss.png"
   },
+  {
+    id: "formacion-autodidacta",
+    position: "Formación Autodidacta en Ciberseguridad y Sistemas",
+    company: "Autodidacta",
+    location: "Medellín, Antioquia",
+    startDate: new Date("2024-01-01"),
+    endDate: new Date("2025-05-01"),
+    description: [
+      "Dedicación al refuerzo de conocimientos técnicos en ciberseguridad y administración de sistemas mediante cursos, laboratorios y práctica constante.",
+      "Auditorías de redes WiFi con Kali Linux: desautenticación, sniffing y crackeo de contraseñas.",
+      "Pruebas de penetración con Metasploit en máquinas virtuales vulnerables.",
+      "Montaje y administración de dominios con Windows Server y Directorio Activo.",
+      "Automatización de tareas de ciberseguridad con Python.",
+      "Consultas y análisis de datos con SQL."
+    ],
+    achievements: [
+      "Adquisición de experiencia práctica y base sólida en ciberseguridad y sistemas.",
+      "Actualmente cursando Ciberseguridad con Google (Coursera/SENATIC)."
+    ],
+    skills: ["linux", "Python", "SQL Server"],
+    companyUrl: undefined,
+    logo: "/career/autodidacta.png"
+  }
 ];

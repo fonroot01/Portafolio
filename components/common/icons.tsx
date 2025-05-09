@@ -65,6 +65,12 @@ import {
   SiTailwindcss,
   SiTwitter,
   SiTypescript,
+  SiLinux,
+  SiPython,
+  SiVercel,
+  SiWindows,
+  SiGit,
+  SiMicrosoftsqlserver,
 } from "react-icons/si";
 
 export const Icons = {
@@ -173,4 +179,9 @@ export const Icons = {
   paper: Scroll,
   aurora: Sparkles,
   synthwave: Music,
+  linux: SiLinux,
+  python: SiPython,
+  vercel: SiVercel,
+  sqlserver: SiMicrosoftsqlserver,
+  gitbash: SiGit,
 };

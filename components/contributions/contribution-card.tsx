@@ -11,34 +11,39 @@ export default function ContributionCard({
   contributions,
 }: ContributionCardProps) {
   return (
-    <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 static">
+    <div className="mx-auto grid justify-center gap-3 sm:grid-cols-2 lg:grid-cols-3 static">
       {contributions.map((contribution, id) => (
-        <Link href={contribution.link} target="_blank" key={id}>
-          <div className="relative rounded-lg border bg-background p-2 hover:bg-accent hover:text-accent-foreground">
-            <Icons.externalLink
-              size={35}
-              className="absolute bottom-3 right-3 border bg-background rounded-full p-2 cursor-pointer text-muted-foreground "
-            />
-            <div className="flex h-[170px] flex-col justify-between rounded-md p-6 sm:h-[170px]">
-              <div className="flex flex-row justify-between">
-                <h3 className="font-bold flex space-x-2 items-center">
-                  <Icons.gitRepoIcon size={20} />
-                  <span>{contribution.repo}</span>
-                </h3>
-                <Icons.gitBranch size={20} />
+        <a
+          href={contribution.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          key={id}
+          className="block rounded-lg border bg-background p-3 hover:bg-accent hover:text-accent-foreground transition-all min-h-[120px]"
+        >
+          <div className="flex flex-col h-full justify-between">
+            <div>
+              <div className="font-semibold text-base flex items-center gap-2 mb-1">
+                <Icons.gitRepoIcon size={16} />
+                {contribution.title}
               </div>
-              <div className="space-y-4">
-                <p className="text-sm text-muted-foreground">
-                  {contribution.contibutionDescription}
-                </p>
-                <p className="text-sm text-muted-foreground flex space-x-2 items-center">
-                  <Icons.gitOrgBuilding size={15} />
-                  <span>{contribution.repoOwner}</span>
-                </p>
+              <div className="text-xs text-muted-foreground mb-2 line-clamp-2">
+                {contribution.description}
               </div>
+              {contribution.techStack && (
+                <div className="flex flex-wrap gap-1 mb-1">
+                  {contribution.techStack.map((tech: string, idx: number) => (
+                    <span key={idx} className="bg-primary/10 text-primary px-1.5 py-0.5 rounded text-[10px] font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="flex justify-end mt-1">
+              <Icons.externalLink size={16} className="text-muted-foreground" />
             </div>
           </div>
-        </Link>
+        </a>
       ))}
     </div>
   );

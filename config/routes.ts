@@ -1,24 +1,29 @@
 export const routesConfig: any = {
   mainNav: [
     {
-      title: "Skills",
+      title: "Habilidades",
       href: "/skills",
+      className: "text-gray-200 hover:text-primary",
     },
     {
-      title: "Experience",
+      title: "Proyectos",
       href: "/experience",
+      className: "text-gray-200 hover:text-primary",
     },
     {
-      title: "Career",
+      title: "Experiencia Profesional",
       href: "/career",
+      className: "text-gray-200 hover:text-primary",
     },
     {
-      title: "Contributions",
+      title: "Contribuciones",
       href: "/contributions",
+      className: "text-gray-200 hover:text-primary",
     },
     {
-      title: "Contact",
+      title: "Contáctame",
       href: "/contact",
+      className: "text-gray-200 hover:text-primary",
     },
   ],
 };

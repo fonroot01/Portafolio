@@ -1,4 +1,5 @@
 import { ValidPages } from "./constants";
+import { ContactPageConfig } from "./constants";
 
 type PagesConfig = {
   [key in ValidPages]: {
@@ -12,7 +13,7 @@ type PagesConfig = {
   };
 };
 
-export const pagesConfig: PagesConfig = {
+export const pagesConfig: PagesConfig & { contact: ContactPageConfig } = {
   home: {
     title: "Home",
     description: "Welcome to my portfolio website.",
@@ -22,37 +23,53 @@ export const pagesConfig: PagesConfig = {
     },
   },
   skills: {
-    title: "Skills",
-    description: "Key skills that define my professional identity.",
+    title: "Habilidades",
+    description: "Habilidades clave que definen mi identidad profesional.",
     metadata: {
-      title: "Skills",
+      title: "Habilidades",
       description:
-        "Naman Barkiya's key skills that define his professional identity.",
+        "Habilidades clave de Alfonso Mosquera que definen su identidad profesional.",
     },
   },
   experience: {
-    title: "Experience",
-    description: "Highlighting career journey and impactful projects.",
+    title: "Proyectos",
+    description: "Destacando el recorrido profesional y proyectos impactantes.",
     metadata: {
-      title: "Experience",
-      description: "Naman Barkiya's experience in building web applications.",
+      title: "Proyectos",
+      description: "Proyectos de Alfonso Mosquera en el desarrollo de aplicaciones y tecnología.",
     },
   },
   contact: {
-    title: "Contact",
-    description: "Let's connect and explore collaborations.",
+    title: "Contáctame",
+    description: "¡Conectemos y exploremos colaboraciones!",
     metadata: {
       title: "Contact",
       description: "Contact Naman Barkiya.",
     },
+    form: {
+      name: "Nombre",
+      namePlaceholder: "Ingresa tu nombre",
+      email: "Correo electrónico",
+      emailPlaceholder: "Ingresa tu correo electrónico",
+      message: "Mensaje",
+      messagePlaceholder: "Escribe tu mensaje",
+      social: "Red social (opcional)",
+      socialPlaceholder: "Enlace a tu red social",
+      submit: "Enviar",
+    },
+    template: {
+      like: "¿Te gusta este portafolio?",
+      openSource: "Es open source. Explora y contribuye en GitHub.",
+      sourceCode: "Código fuente",
+    },
   },
   contributions: {
-    title: "Contributions",
-    description: "Open-source contributions and community involvement.",
+    title: "Contribuciones",
+    description: "Contribuciones de código abierto y participación en la comunidad.",
     metadata: {
-      title: "Contributions",
+      title: "Contribuciones",
       description:
-        "Naman Barkiya's open-source contributions and community involvement.",
+        "Contribuciones de Alfonso Mosquera a proyectos de código abierto y comunidad.",
     },
   },
   resume: {
@@ -64,11 +81,11 @@ export const pagesConfig: PagesConfig = {
     },
   },
   career: {
-    title: "Career Timeline",
-    description: "Professional journey and experience timeline.",
+    title: "Línea de Carrera",
+    description: "Recorrido profesional y línea de tiempo de experiencia.",
     metadata: {
-      title: "Career Timeline",
-      description: "Naman Barkiya's professional journey and career timeline.",
+      title: "Línea de Carrera",
+      description: "Recorrido profesional y línea de tiempo de experiencia de Alfonso Mosquera.",
     },
   },
 };
