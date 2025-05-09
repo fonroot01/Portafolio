@@ -108,16 +108,17 @@ export default function IndexPage() {
               <Link
                 href={"https://github.com/fonroot01"}
                 target="_blank"
-                className={cn(buttonVariants({ size: "lg" }))}
+                className={cn(buttonVariants({ size: "lg" }), "w-48 flex items-center justify-center")}
                 aria-label="View Alfonso Mosquera's GitHub profile"
               >
                 <Icons.gitHub className="w-4 h-4 mr-2" /> GitHub
               </Link>
             </AnimatedText>
-            <AnimatedText delay={0.8}>              <Link
+            <AnimatedText delay={0.8}>
+              <Link
                 href={"https://www.linkedin.com/in/alfonso-ángel-mosquera-a-4a919b341"}
                 target="_blank"
-                className={cn(buttonVariants({ size: "lg" }))}
+                className={cn(buttonVariants({ size: "lg" }), "w-48 flex items-center justify-center")}
                 aria-label="View Alfonso Mosquera's LinkedIn profile"
               >
                 <Icons.linkedin className="w-4 h-4 mr-2" /> LinkedIn
@@ -130,7 +131,7 @@ export default function IndexPage() {
                 className={cn(
                   buttonVariants({
                     size: "lg",
-                  }), "bg-gray-200 text-black flex items-center justify-center py-2 px-4")}
+                  }), "w-48 flex items-center justify-center bg-gray-200 text-black")}
                 aria-label="Download Alfonso Mosquera's CV"
               >
                 <span className="w-4 h-4 mr-2">🫂</span> Descargar CV
@@ -219,7 +220,7 @@ export default function IndexPage() {
         className="container space-y-6 bg-muted py-10 my-14"
         id="contributions"
       >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y=4 text-center">
           <AnimatedText
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"

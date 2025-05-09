@@ -38,7 +38,7 @@ export const featuredContributions = [
     id: "droid-specter",
     title: "Droid Specter",
     description: "Desarrollo de app de gestión de dispositivos Android para soporte técnico y automatización.",
-    link: "https://github.com/fonroot01/Droid-Specter?tab=readme-ov-file",
+    link: "https://github.com/fonroot01/Droid-Specter",
     techStack: ["Python", "Git"],
   },
   {
@@ -52,7 +52,7 @@ export const featuredContributions = [
     id: "usb-doctor",
     title: "USB Doctor",
     description: "Herramienta para análisis y recuperación de dispositivos USB comprometidos.",
-    link: "https://github.com/fonroot01/USB-Doctor?tab=readme-ov-file",
+    link: "https://github.com/fonroot01/USB-Doctor",
     techStack: ["linux", "Python"],
   },
   {
@@ -60,6 +60,6 @@ export const featuredContributions = [
     title: "WinPyX",
     description: "Automatización de tareas administrativas en Windows usando Python.",
     link: "https://github.com/fonroot01/WinPyX",
-    techStack: ["Python"],
+    techStack: ["Python", "Windows"],
   },
 ];
