@@ -51,9 +51,10 @@ export const careerExperiences: CareerExperienceInterface[] = [
     achievements: [
       "Mejora de la eficiencia operativa mediante soporte técnico oportuno.",
       "Contribución a la estabilidad de los sistemas y satisfacción de usuarios."
-    ],     skills: ["ServiceDesk", "linux", "Git"],
-     companyUrl: undefined,
-     logo: "/career/logozeuss.png"
+    ],
+    skills: ["ServiceDesk", "linux", "Git"],
+    companyUrl: undefined, 
+    logo: "/career/logozeuss.png"
   },
   {
     id: "zeuss-auxiliar-ti",
