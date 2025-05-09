@@ -32,7 +32,7 @@ export const Experiences: ExperienceInterface[] = [
     id: "droid-specter",
     companyName: "Droid Specter",
     type: "Professional",
-    category: ["UI/UX", "Web Dev"],
+    category: ["python"],
     shortDescription:
       "Droid Specter es una herramienta desarrollada en Python que te permite tomar el control de tus dispositivos Android directamente desde tu PC.",
     websiteLink: undefined,
@@ -84,7 +84,7 @@ export const Experiences: ExperienceInterface[] = [
     id: "invensoft",
     companyName: "Invensoft",
     type: "Professional",
-    category: ["UI/UX", "Web Dev"],
+    category: ["python"],
     shortDescription:
       "Esta es una aplicación de escritorio desarrollada en PyQt5 para gestionar inventario de equipos TI.",
     websiteLink: undefined,
@@ -126,7 +126,7 @@ export const Experiences: ExperienceInterface[] = [
     id: "usb-doctor",
     companyName: "USB Doctor",
     type: "Professional",
-    category: ["UI/UX", "Web Dev"],
+    category: ["python"],
     shortDescription:
       "Herramienta desarrollada en Python diseñada para reparar unidades USB afectadas.",
     websiteLink: undefined,
