@@ -99,7 +99,7 @@ export default function IndexPage() {
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-blue-300 text-sm sm:text-base">
-              ¡Hola!👋🏾 Soy Ingeniero de Sistemas, curioso por naturaleza, fanático de resolver gallos tecnológicos y apasionado por la ciberseguridad. 🚀
+              ¡Hola!👋🏾 Soy Ingeniero de Sistemas, curioso por naturaleza, fanático de resolver problemas tecnológicos y apasionado por la ciberseguridad. 🚀
             </p>
           </div>
 
@@ -125,17 +125,17 @@ export default function IndexPage() {
               </Link>
             </AnimatedText>
             <AnimatedText delay={1.0}>
-              <Link
+              <a
                 href={"/CV.pdf"}
                 download
                 className={cn(
-                  buttonVariants({
-                    size: "lg",
-                  }), "w-48 flex items-center justify-center bg-gray-200 text-black")}
+                  buttonVariants({ size: "lg" }),
+                  "w-48 flex items-center justify-center bg-gray-200 text-black"
+                )}
                 aria-label="Download Alfonso Mosquera's CV"
               >
-                <span className="w-4 h-4 mr-2">🫂</span> Descargar CV
-              </Link>
+                <span className="w-4 h-4 mr-2">🫂​</span> Descargar CV
+              </a>
             </AnimatedText>
           </div>
           <AnimatedText delay={1.2}>
