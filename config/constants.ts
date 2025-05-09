@@ -1,67 +1,24 @@
+import { Server } from "lucide-react";
+
 export type ValidSkills =
   | "Next.js"
-  | "React"
-  | "GraphQL"
-  | "Nest.js"
-  | "express.js"
-  | "Node.js"
-  | "MongoDB"
-  | "Typescript"
-  | "Javascript"
-  | "HTML 5"
-  | "CSS 3"
-  | "React Native"
-  | "Angular"
-  | "Redux"
-  | "Socket.io"
-  | "Material UI"
-  | "Tailwind CSS"
-  | "AWS"
-  | "Bootstrap"
-  | "Google Auth"
-  | "MySQL"
-  | "Java"
-  | "Databricks"
   | "Python"
-  | "Docker"
-  | "Kubernetes"
-  | "PostgreSQL"
-  | "Redis"
   | "Git"
-  | "CI/CD"
-  | "Jenkins"
-  | "FastAPI"
-  | "Django"
-  | "Vue.js"
-  | "Sass"
-  | "Firebase"
-  | "Azure"
-  | "Google Cloud"
-  | "Figma"
-  | "Webpack"
-  | "Jest"
-  | "Cypress"
-  | "Storybook"
-  | "Prisma"
-  | "Supabase"
   | "Vercel"
-  | "Netlify"
-  | "Three.js"
-  | "WebGL"
-  | "TensorFlow"
-  | "PyTorch"
-  | "Spring Boot"
-  | "Laravel"
-  | "PHP";
+  | "DMS"
+  | "3CX"
+  | "Microsoft 365"
+  | "SQL Server"
+  | "linux"
+  | "Git Bash"
+  | "Active Directory"
+  | "SharePoint"
+  | "Virtualización";
+
+  ;
 
 export type ValidCategory =
-  | "Full Stack"
-  | "Frontend"
-  | "Backend"
-  | "UI/UX"
-  | "Web Dev"
-  | "Mobile Dev"
-  | "3D Modeling";
+  | "python";
 
 export type ValidExpType = "Personal Project" | "Professional";
 
@@ -73,3 +30,28 @@ export type ValidPages =
   | "contact"
   | "contributions"
   | "resume";
+
+export type ContactPageConfig = {
+  title: string;
+  description: string;
+  metadata: {
+    title: string;
+    description: string;
+  };
+  form: {
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    social: string;
+    socialPlaceholder: string;
+    submit: string;
+  };
+  template: {
+    like: string;
+    openSource: string;
+    sourceCode: string;
+  };
+};
