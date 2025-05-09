@@ -52,7 +52,7 @@ export const careerExperiences: CareerExperienceInterface[] = [
       "Mejora de la eficiencia operativa mediante soporte técnico oportuno.",
       "Contribución a la estabilidad de los sistemas y satisfacción de usuarios."
     ],
-    skills: ["linux", "Git"],
+    skills: ["Python", "Git"],
     companyUrl: undefined, 
     logo: "/career/logozeuss.png"
   },
@@ -98,7 +98,7 @@ export const careerExperiences: CareerExperienceInterface[] = [
       "Adquisición de experiencia práctica y base sólida en ciberseguridad y sistemas.",
       "Actualmente cursando Ciberseguridad con Google (Coursera/SENATIC)."
     ],
-    skills: ["linux", "Python", "SQL Server"],
+    skills: ["Python", "Python", "SQL Server"],
     companyUrl: undefined,
     logo: "/career/autodidacta.png"
   }
