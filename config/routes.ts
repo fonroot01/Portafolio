@@ -16,8 +16,8 @@ export const routesConfig: any = {
       className: "text-gray-200 hover:text-primary",
     },
     {
-      title: "Contribuciones",
-      href: "/contributions",
+      title: "Certificaciones",
+      href: "/certificaciones",
       className: "text-gray-200 hover:text-primary",
     },
     {

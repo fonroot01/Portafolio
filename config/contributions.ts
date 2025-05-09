@@ -35,31 +35,24 @@ export const contributionsUnsorted: contributionsInterface[] = [
 
 export const featuredContributions = [
   {
-    id: "droid-specter",
-    title: "Droid Specter",
-    description: "Desarrollo de app de gestión de dispositivos Android para soporte técnico y automatización.",
-    link: "https://github.com/fonroot01/Droid-Specter",
-    techStack: ["Python", "Git"],
+    id: "decision-making",
+    title: "Cómo resolver problemas y tomar decisiones con eficacia",
+    description: "Certificado de Coursera: habilidades para la toma de decisiones y resolución de problemas.",
+    link: "https://coursera.org/share/b1076915e0721e5b81fa4d4550716f46",
+    techStack: ["Coursera"]
   },
   {
-    id: "invensoft",
-    title: "Invensoft",
-    description: "Contribución en módulos de inventario y reportes para software empresarial.",
-    link: "https://github.com/fonroot01/Inventario-de-equipos-TI",
-    techStack: ["SQL Server", "Git"],
+    id: "cybersecurity-fundamentals",
+    title: "Fundamentals of Cybersecurity",
+    description: "Certificado de Coursera: fundamentos de ciberseguridad.",
+    link: "https://coursera.org/share/6ffe062b0a486c7e0c660e947991f8d5",
+    techStack: ["Coursera"]
   },
   {
-    id: "usb-doctor",
-    title: "USB Doctor",
-    description: "Herramienta para análisis y recuperación de dispositivos USB comprometidos.",
-    link: "https://github.com/fonroot01/USB-Doctor",
-    techStack: ["linux", "Python"],
-  },
-  {
-    id: "winpyx",
-    title: "WinPyX",
-    description: "Automatización de tareas administrativas en Windows usando Python.",
-    link: "https://github.com/fonroot01/WinPyX",
-    techStack: ["Python", "Windows"],
-  },
+    id: "play-it-safe",
+    title: "Play It Safe: Manage Security Risks",
+    description: "Certificado de Coursera: gestión de riesgos de seguridad.",
+    link: "https://coursera.org/share/19f5bc9304b74483e66b5e7d59437594",
+    techStack: ["Coursera"]
+  }
 ];

@@ -55,7 +55,7 @@ export function MainNav({ items, children }: MainNavProps) {
       >
         <Link href="/" className="hidden items-center space-x-2 md:flex">
           <span className={cn(norican.className, "text-2xl")}>
-            {siteConfig.authorName}
+            Portafolio
           </span>
         </Link>
       </motion.div>

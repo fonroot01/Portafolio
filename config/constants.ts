@@ -29,6 +29,7 @@ export type ValidPages =
   | "career"
   | "contact"
   | "contributions"
+  | "certificaciones"
   | "resume";
 
 export type ContactPageConfig = {

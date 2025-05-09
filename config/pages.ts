@@ -63,6 +63,15 @@ export const pagesConfig: PagesConfig & { contact: ContactPageConfig } = {
       sourceCode: "Código fuente",
     },
   },
+  certificaciones: {
+    title: "Certificaciones",
+    description: "Certificaciones obtenidas en plataformas reconocidas como Coursera.",
+    metadata: {
+      title: "Certificaciones",
+      description:
+        "Certificaciones de Alfonso Mosquera obtenidas en cursos y programas reconocidos.",
+    },
+  },
   contributions: {
     title: "Contribuciones",
     description: "Contribuciones de código abierto y participación en la comunidad.",

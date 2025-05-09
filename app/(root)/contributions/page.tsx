@@ -17,7 +17,12 @@ export default function ContributonsPage() {
       description={pagesConfig.contributions.description}
     >
       <ContributionCard
-        contributions={contributionsUnsorted}
+        contributions={contributionsUnsorted.map((c) => ({
+          title: c.repo ? c.repo : c.title,
+          description: c.contibutionDescription ? c.contibutionDescription : c.description,
+          link: c.link,
+          techStack: c.repoOwner ? [c.repoOwner] : c.techStack,
+        }))}
       />
     </PageContainer>
   );

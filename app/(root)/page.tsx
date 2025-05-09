@@ -139,7 +139,9 @@ export default function IndexPage() {
             </AnimatedText>
           </div>
           <AnimatedText delay={1.2}>
-            <ScrollButton />
+            <div className="flex justify-center mt-0 mb-16">
+              <ScrollButton />
+            </div>
           </AnimatedText>
         </div>
       </section>
@@ -166,7 +168,7 @@ export default function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/skills">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
+              <Icons.chevronDown className="mr-2 h-4 w-4" /> Ver todas
             </Button>
           </Link>
         </AnimatedText>
@@ -205,7 +207,7 @@ export default function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/experience">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
+              <Icons.chevronDown className="mr-2 h-4 w-4" /> Ver todas
             </Button>
           </Link>
         </AnimatedText>
@@ -220,7 +222,7 @@ export default function IndexPage() {
         className="container space-y-6 bg-muted py-10 my-14"
         id="contributions"
       >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y=4 text-center">
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <AnimatedText
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
@@ -236,12 +238,45 @@ export default function IndexPage() {
           </AnimatedText>
         </div>
         <div className="mx-auto justify-center gap-4 md:w-full lg:grid-cols-3">
-          <ContributionCard contributions={featuredContributions} />
+          <ContributionCard contributions={[
+            {
+              title: "Inventario de equipos TI",
+              description: "Sistema de inventario para equipos de tecnología de la información.",
+              link: "https://github.com/fonroot01/Inventario-de-equipos-TI",
+              repoOwner: "fonroot01",
+              repo: "Inventario-de-equipos-TI",
+              techStack: ["Python", "Tkinter"]
+            },
+            {
+              title: "Droid-Specter",
+              description: "Herramienta de análisis y automatización para dispositivos Android.",
+              link: "https://github.com/fonroot01/Droid-Specter",
+              repoOwner: "fonroot01",
+              repo: "Droid-Specter",
+              techStack: ["Python", "Android"]
+            },
+            {
+              title: "USB-Doctor",
+              description: "Utilidad para la protección y análisis de dispositivos USB.",
+              link: "https://github.com/fonroot01/USB-Doctor",
+              repoOwner: "fonroot01",
+              repo: "USB-Doctor",
+              techStack: ["Python", "USB"]
+            },
+            {
+              title: "WinPyX",
+              description: "Framework para automatización y utilidades en Windows usando Python.",
+              link: "https://github.com/fonroot01/WinPyX",
+              repoOwner: "fonroot01",
+              repo: "WinPyX",
+              techStack: ["Python", "Windows"]
+            }
+          ]} />
         </div>
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/contributions">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
+              <Icons.chevronDown className="mr-2 h-4 w-4" /> Ver todas
             </Button>
           </Link>
         </AnimatedText>
