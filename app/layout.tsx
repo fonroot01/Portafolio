@@ -28,10 +28,7 @@ interface RootLayoutProps {
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: "Alfonso | Web Personal",
-    template: "%s | Alfonso | Web Personal",
-  },
+  title: "Alfonso | Web Personal",
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: [
