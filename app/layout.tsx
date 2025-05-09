@@ -29,8 +29,8 @@ interface RootLayoutProps {
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: "Alfonso | Web Personal",
+    template: "%s | Alfonso | Web Personal",
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -45,30 +45,23 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: "Alfonso | Web Personal",
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: "Alfonso | Web Personal",
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: "Alfonso | Web Personal",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: "Alfonso | Web Personal",
     description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
+    images: [siteConfig.ogImage],
     creator: `@${siteConfig.username}`,
   },
   icons: {
