@@ -52,7 +52,7 @@ export const careerExperiences: CareerExperienceInterface[] = [
       "Mejora de la eficiencia operativa mediante soporte técnico oportuno.",
       "Contribución a la estabilidad de los sistemas y satisfacción de usuarios."
     ],
-    skills: ["ServiceDesk", "linux", "Git"],
+    skills: ["linux", "Git"],
     companyUrl: undefined, 
     logo: "/career/logozeuss.png"
   },
@@ -75,7 +75,7 @@ export const careerExperiences: CareerExperienceInterface[] = [
       "Mejora de la eficiencia operativa y continuidad de los servicios tecnológicos.",
       "Optimización de la gestión documental y soporte técnico."
     ],
-    skills: ["3CX", "DMS", "ServiceDesk", "Microsoft 365"],
+    skills: ["3CX", "DMS", "Microsoft 365"],
     companyUrl: undefined,
     logo: "/career/logozeuss.png"
   },
