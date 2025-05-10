@@ -11,7 +11,7 @@ export const routesConfig: any = {
       className: "text-gray-200 hover:text-primary",
     },
     {
-      title: "Experiencia Profesional",
+      title: "Experiencia laboral",
       href: "/career",
       className: "text-gray-200 hover:text-primary",
     },

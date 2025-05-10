@@ -173,10 +173,11 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
+      {/* Sección de Proyectos con estilo destacado */}
       <AnimatedSection
-        direction="right"
-        className="container space-y-6 py-10 my-14"
-        id="experience"
+        direction="left"
+        className="container space-y-6 bg-muted py-10 my-14"
+        id="projects"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <AnimatedText
@@ -193,15 +194,9 @@ export default function IndexPage() {
             {pagesConfig.experience.description}
           </AnimatedText>
         </div>
-        <div className="mx-auto grid justify-center gap-4 md:w-full lg:grid-cols-3">
-          {featuredExperiences.map((exp, index) => (
-            <AnimatedSection
-              key={exp.id}
-              delay={0.1 * (index + 1)}
-              direction="up"
-            >
-              <ProjectCard project={exp} />
-            </AnimatedSection>
+        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 py-4">
+          {featuredExperiences.map((exp) => (
+            <ProjectCard project={exp} key={exp.id} />
           ))}
         </div>
         <AnimatedText delay={0.4} className="flex justify-center">
@@ -211,18 +206,13 @@ export default function IndexPage() {
             </Button>
           </Link>
         </AnimatedText>
-        {/* <div className="mx-auto text-center md:max-w-[58rem]">
-                    <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-                        See all the relevant experiences.
-                    </p>
-                </div> */}
       </AnimatedSection>
       <AnimatedSection
         direction="left"
         className="container space-y-6 bg-muted py-10 my-14"
         id="contributions"
       >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y=4 text-center">
           <AnimatedText
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
@@ -242,7 +232,7 @@ export default function IndexPage() {
             {
               title: "Inventario de equipos TI",
               description: "Sistema de inventario para equipos de tecnología de la información.",
-              link: "https://github.com/fonroot01/Inventario-de-equipos-TI",
+              link: "https://github.com/fonroot01/Inventario-de-equipos-Ti",
               repoOwner: "fonroot01",
               repo: "Inventario-de-equipos-TI",
               techStack: ["Python", "Tkinter"]

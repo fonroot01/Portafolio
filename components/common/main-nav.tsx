@@ -47,65 +47,90 @@ export function MainNav({ items, children }: MainNavProps) {
   }, [pathname]);
 
   return (
-    <div className="flex gap-6 md:gap-10">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Link href="/" className="hidden items-center space-x-2 md:flex">
-          <span className={cn(norican.className, "text-2xl")}>
-            Portafolio
-          </span>
-        </Link>
-      </motion.div>
-      {items?.length ? (
-        <nav className="hidden gap-6 md:flex items-center">
-          <motion.div
-            className="flex items-center space-x-4"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: { transition: { staggerChildren: 0.1 } },
-            }}
-          >
-            {items && items.length > 0 ? (
-              items.map((item, index) => (
-                <motion.div
-                  key={item.href}
-                  variants={navItemVariants}
-                  custom={index}
-                  className="text-sm font-medium"
-                >
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "text-gray-200 hover:text-primary transition-colors duration-200",
-                      item.href === pathname ? "text-primary" : "text-gray-200"
-                    )}
+    <header className="sticky top-0 z-50 w-full shadow-sm transition-colors flex justify-center">
+      <div className="w-full max-w-6xl flex flex-row items-center justify-between relative" style={{ minHeight: '64px' }}>
+        {/* Botón menú solo visible en mobile, a la izquierda */}
+        <motion.button
+          className="flex items-center space-x-2 md:hidden absolute left-4 top-1/2 -translate-y-1/2 z-20"
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {showMobileMenu ? <Icons.close /> : <Icons.menu />}
+          <span className="font-bold">Menu</span>
+        </motion.button>
+        {/* Logo Portafolio más a la izquierda y visible solo en desktop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="ml-[-44px] md:ml-[-44px] flex-shrink-0 hidden md:flex"
+        >
+          <Link href="/" className="items-center space-x-2 flex">
+            <span className={cn(norican.className, "text-2xl")}>Portafolio</span>
+          </Link>
+        </motion.div>
+        {/* Menú de navegación solo visible en desktop, centrado y con menos separación */}
+        {items?.length ? (
+          <nav className="flex-1 items-center justify-center hidden md:flex">
+            <motion.div
+              className="flex items-center gap-2 mx-auto"
+              style={{ maxWidth: '650px', justifyContent: 'center', width: '100%' }}
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.1 } },
+              }}
+            >
+              {items.map((item, index) => {
+                const isActive = item.href === pathname;
+                return (
+                  <motion.div
+                    key={item.href}
+                    variants={navItemVariants}
+                    custom={index}
+                    className={
+                      cn(
+                        "text-sm font-medium flex justify-center items-center transition-colors duration-200",
+                        isActive
+                          ? "text-primary bg-zinc-800/80 font-bold shadow-md"
+                          : "text-foreground hover:text-primary"
+                      )
+                    }
+                    style={{ minWidth: 'auto' }}
                   >
-                    {item.title}
-                  </Link>
-                </motion.div>
-              ))
-            ) : (
-              <p className="text-muted">No navigation items available</p>
-            )}
-          </motion.div>
-        </nav>
-      ) : null}
-      <motion.button
-        className="flex items-center space-x-2 md:hidden"
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {showMobileMenu ? <Icons.close /> : <Icons.menu />}
-        <span className="font-bold">Menu</span>
-      </motion.button>
-      {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
-      )}
-    </div>
+                    <Link
+                      href={item.href}
+                      className={
+                        cn(
+                          "relative px-2 py-1 rounded-md text-center",
+                          isActive
+                            ? "bg-zinc-800/80 text-primary font-bold shadow-md"
+                            : "text-foreground hover:text-primary"
+                        )
+                      }
+                      style={item.title === 'Experiencia laboral' ? { whiteSpace: 'nowrap', minWidth: '120px' } : {}}
+                    >
+                      {item.title}
+                      {isActive && (
+                        <span className="absolute left-0 right-0 -bottom-1 mx-auto h-2 w-5/6 rounded-full bg-zinc-700/60 blur-sm z-[-1]" />
+                      )}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </nav>
+        ) : null}
+        {/* Icono modo oscuro siempre a la derecha */}
+        <div className="flex items-center gap-2 md:gap-5 ml-auto">
+          {children}
+        </div>
+        {/* Menú móvil desplegable */}
+        {showMobileMenu && items && (
+          <MobileNav items={items}>{children}</MobileNav>
+        )}
+      </div>
+    </header>
   );
 }
