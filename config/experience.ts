@@ -41,8 +41,8 @@ export const Experiences: ExperienceInterface[] = [
       "Python",
       "Git"
     ],
-    startDate: new Date("2023-01-01"),
-    endDate: new Date("2025-05-08"),
+    startDate: new Date("2025-02-15"),
+    endDate: new Date("2025-02-26"),
     companyLogoImg: "/experience/droid-specter/logo.jpg",
     descriptionDetails: {
       paragraphs: [
@@ -90,8 +90,8 @@ export const Experiences: ExperienceInterface[] = [
       "Python",
       "SQL Server"
     ],
-    startDate: new Date("2022-01-01"),
-    endDate: new Date("2022-12-31"),
+    startDate: new Date("2025-03-20"),
+    endDate: new Date("2025-04-08"),
     companyLogoImg: "/experience/invensoft/logoInvensoft.jpg",
     descriptionDetails: {
       paragraphs: [
@@ -144,8 +144,8 @@ export const Experiences: ExperienceInterface[] = [
       "Python",
       "Git"
     ],
-    startDate: new Date("2021-01-01"),
-    endDate: new Date("2021-12-31"),
+    startDate: new Date("2025-03-01"),
+    endDate: new Date("2025-03-04"),
     companyLogoImg: "/experience/usb-doctor/logo.jpg",
     descriptionDetails: {
       paragraphs: [
