@@ -64,7 +64,7 @@ export function MainNav({ items, children }: MainNavProps) {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="ml-[-44px] md:ml-[-44px] flex-shrink-0 hidden md:flex"
+          className="ml-[-64px] md:ml-[-64px] flex-shrink-0 hidden md:flex"
         >
           <Link href="/" className="items-center space-x-2 flex">
             <span className={cn(norican.className, "text-2xl")}>Portafolio</span>

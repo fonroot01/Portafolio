@@ -189,9 +189,9 @@ export default function IndexPage() {
           <AnimatedText
             as="p"
             delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+            className="text-muted-foreground text-lg sm:text-xl"
           >
-            {pagesConfig.experience.description}
+            Desde scripts hasta apps, esto es lo que pasa cuando la curiosidad se junta con el teclado.
           </AnimatedText>
         </div>
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 py-4">
