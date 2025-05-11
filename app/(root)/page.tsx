@@ -1,8 +1,10 @@
+'use client';
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { useCallback } from "react";
+import { TypeAnimation } from 'react-type-animation';
 
 import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
@@ -95,7 +97,33 @@ export default function IndexPage() {
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            Ingeniero de Sistemas
+            <span
+              style={{
+                whiteSpace: 'nowrap',
+                display: 'inline-block',
+                width: '25ch',
+                height: '1.5em', // Fija la altura para evitar movimiento vertical
+                textAlign: 'center',
+                verticalAlign: 'middle',
+              }}
+            >
+              <TypeAnimation
+                sequence={[
+                  '💻 Ingeniero de Sistemas', 2000,
+                  '🔐 Fan de la Ciberseguridad', 2000,
+                  '🐍 Python Dev', 2000,
+                  '⚡ Automatizo todo', 2000,
+                  '⚙ Soporte TI Pro', 2000,
+                  '🐧 Linux Lover', 2000,
+                ]}
+                wrapper="span"
+                speed={15} // Más lento al escribir (valor permitido por la librería)
+                deletionSpeed={75} // Más lento al borrar
+                repeat={Infinity}
+                cursor={true}
+                style={{ display: 'inline' }}
+              />
+            </span>
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-blue-300 text-sm sm:text-base">
@@ -219,13 +247,7 @@ export default function IndexPage() {
           >
             {pagesConfig.contributions.title}
           </AnimatedText>
-          <AnimatedText
-            as="p"
-            delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
-          >
-            {pagesConfig.contributions.description}
-          </AnimatedText>
+          {/* Eliminado el mensaje de descripción de contribuciones */}
         </div>
         <div className="mx-auto justify-center gap-4 md:w-full lg:grid-cols-3">
           <ContributionCard contributions={[
@@ -263,6 +285,45 @@ export default function IndexPage() {
             }
           ]} />
         </div>
+        {/* Efecto Snake de GitHub Contributions con typewriter */}
+        <div className="flex flex-col items-center justify-center my-8">
+          <span
+            style={{
+              whiteSpace: 'nowrap',
+              display: 'inline-block',
+              width: '32ch',
+              height: '1.5em',
+              textAlign: 'center',
+              verticalAlign: 'middle',
+              fontWeight: 500,
+              fontSize: '1.15rem',
+              marginBottom: '0.5em',
+              color: 'white',
+              transition: 'color 0.3s',
+            }}
+            className="transition-colors duration-300 text-white dark:text-white"
+          >
+            <TypeAnimation
+              sequence={[
+                '🐍 Una serpiente que se come mis contribuciones...', 2200,
+                '🧩 Cada cuadrito, una mini victoria', 2200,
+                '👀 Mira cómo crece... mi jardín de commits', 2200,
+              ]}
+              wrapper="span"
+              speed={15} // Más lento al escribir (valor permitido por la librería)
+              deletionSpeed={75} // Más lento al borrar
+              repeat={Infinity}
+              cursor={true}
+              style={{ display: 'inline' }}
+            />
+          </span>
+          <img
+            src="https://raw.githubusercontent.com/7oSkaaa/7oSkaaa/output/github-contribution-grid-snake.svg"
+            alt="GitHub Contribution Snake Animation"
+            style={{ maxWidth: '100%', height: 'auto', background: 'transparent' }}
+            loading="lazy"
+          />
+        </div>
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/contributions">
             <Button variant={"outline"} className="rounded-xl">
@@ -271,6 +332,17 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
+      <style jsx global>{`
+        @keyframes blink {
+          0%, 49% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+        .typewriter-cursor {
+          font-weight: bold;
+          color: #fff;
+          font-size: inherit;
+        }
+      `}</style>
     </ClientPageWrapper>
   );
 }
