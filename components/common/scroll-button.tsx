@@ -2,17 +2,17 @@
 
 import { Icons } from "./icons";
 
-export default function ScrollButton() {
-  const handleScrollToSkills = () => {
-    const nextSection = document.getElementById("skills");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
+export default function ScrollButton({ targetId = "skills" }: { targetId?: string }) {
+  const handleScroll = () => {
+    const section = document.getElementById(targetId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <button
-      onClick={handleScrollToSkills}
+      onClick={handleScroll}
       className="cursor-pointer"
       aria-label="Scroll to next section"
     >

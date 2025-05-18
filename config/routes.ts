@@ -1,29 +1,34 @@
 export const routesConfig: any = {
   mainNav: [
     {
-      title: "Habilidades",
-      href: "/skills",
-      className: "text-gray-200 hover:text-primary",
+      title: "Sobre mí",
+      href: "#about",
+      className: "text-gray-200 hover:text-primary"
     },
     {
       title: "Proyectos",
-      href: "/experience",
-      className: "text-gray-200 hover:text-primary",
+      href: "#projects",
+      className: "text-gray-200 hover:text-primary"
     },
     {
-      title: "Experiencia laboral",
-      href: "/career",
-      className: "text-gray-200 hover:text-primary",
+      title: "Experiencia Laboral",
+      href: "#experiencialaboral",
+      className: "text-gray-200 hover:text-primary"
     },
     {
-      title: "Certificaciones",
-      href: "/certificaciones",
-      className: "text-gray-200 hover:text-primary",
+      title: "Lab. De Ciberseguridad",
+      href: "#labs",
+      className: "text-gray-200 hover:text-primary"
     },
     {
-      title: "Contáctame",
-      href: "/contact",
-      className: "text-gray-200 hover:text-primary",
+      title: "Certificados",
+      href: "#certificados",
+      className: "text-gray-200 hover:text-primary"
     },
-  ],
+    {
+      title: "Contribuciones",
+      href: "#contributions",
+      className: "text-gray-200 hover:text-primary"
+    }
+  ]
 };

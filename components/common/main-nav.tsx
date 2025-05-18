@@ -74,7 +74,7 @@ export function MainNav({ items, children }: MainNavProps) {
         {items?.length ? (
           <nav className="flex-1 items-center justify-center hidden md:flex">
             <motion.div
-              className="flex items-center gap-2 mx-auto"
+              className="flex flex-row items-center gap-6 mx-auto whitespace-nowrap"
               style={{ maxWidth: '650px', justifyContent: 'center', width: '100%' }}
               initial="hidden"
               animate="visible"
@@ -109,7 +109,7 @@ export function MainNav({ items, children }: MainNavProps) {
                             : "text-foreground hover:text-primary"
                         )
                       }
-                      style={item.title === 'Experiencia laboral' ? { whiteSpace: 'nowrap', minWidth: '120px' } : {}}
+                      style={{ whiteSpace: 'nowrap' }}
                     >
                       {item.title}
                       {isActive && (

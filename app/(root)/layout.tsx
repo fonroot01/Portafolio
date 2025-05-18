@@ -1,7 +1,6 @@
-import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
-import { routesConfig } from "@/config/routes";
+import FloatingNav from "@/components/common/floating-nav";
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
@@ -10,28 +9,14 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="container z-50 bg-background">
-        <div className="flex h-20 items-center justify-center md:justify-between py-6">
-          <MainNav items={routesConfig.mainNav} />
-          <nav className="flex items-center gap-5">
-            {/* <Link
-                            href={"https://github.com/namanbarkiya"}
-                            target="_blank"
-                            className={cn(
-                                buttonVariants({
-                                    variant: "ghost",
-                                    size: "sm",
-                                }),
-                                "h-8 w-8 px-0"
-                            )}
-                        >
-                            <Icons.gitHub className="w-5 h-5" />
-                        </Link> */}
-            <ModeToggle />
-          </nav>
-        </div>
-      </header>
-      <main className="container flex-1">{children}</main>
+      <FloatingNav />
+      <div className="fixed top-4 right-4 z-50">
+        <ModeToggle />
+      </div>
+      <main className="flex-1 flex flex-col">
+        {/* Contenido principal */}
+        {children}
+      </main>
       <SiteFooter />
     </div>
   );

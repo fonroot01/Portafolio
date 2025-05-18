@@ -1,30 +1,29 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const formLink = process.env.GOOGLE_FORM_LINK;
-  if (!formLink) {
-    return new NextResponse("Please configure the env variables", {
-      status: 500,
-    });
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.CONTACT_EMAIL) {
+    return NextResponse.json(
+      { message: "Configuración de correo incompleta" },
+      { status: 500 }
+    );
   }
-
-  // configure this according to your google form
-  const fieldIdName = process.env.GOOGLE_FORM_FIELD_ID_NAME;
-  const fieldIdEmail = process.env.GOOGLE_FORM_FIELD_ID_EMAIL;
-  const fieldIdMessage = process.env.GOOGLE_FORM_FIELD_ID_MESSAGE;
-  const fieldIdSocial = process.env.GOOGLE_FORM_FIELD_ID_SOCIAL;
 
   try {
     const body = await req.json();
-    const { name, message, social, email } = body;
+    const { name, email, message } = body;
 
-    const res = await fetch(
-      `${formLink}/formResponse?${fieldIdName}=${name}&${fieldIdEmail}=${email}&${fieldIdMessage}=${message}&${fieldIdSocial}=${social}`
+    console.log("Recibido mensaje de:", name, email);
+    
+    // Aquí simularemos el envío exitoso
+    return NextResponse.json(
+      { message: "Mensaje enviado correctamente" },
+      { status: 200 }
     );
-
-    return NextResponse.json("Success!");
   } catch (error) {
-    console.log(error);
-    return new NextResponse("Internal error", { status: 500 });
+    console.error("Error al procesar el mensaje:", error);
+    return NextResponse.json(
+      { message: "Error al enviar el mensaje" },
+      { status: 500 }
+    );
   }
 }

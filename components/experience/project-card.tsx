@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="relative flex flex-col bg-background border border-border rounded-lg p-6 w-full max-w-[350px] min-h-[420px] mx-auto">
+    <div className="bg-background rounded-lg shadow p-6 text-left flex flex-col justify-between w-full max-w-[350px] min-h-[420px] mx-auto border border-border">
       <div className="relative w-full h-48 flex items-center justify-center mb-4">
         <Image
           className="rounded-lg border border-border object-cover"
@@ -24,7 +24,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         />
       </div>
       <div className="flex flex-col gap-2 mb-4">
-        <h5 className="text-lg font-bold tracking-tight text-foreground text-left">{project.companyName}</h5>
+        <h5 className="text-lg font-bold tracking-tight text-foreground text-left">
+          {project.id === "lame"
+            ? "Auditoría Wi-Fi con Airgeddon"
+            : project.companyName}
+        </h5>
         {project.id === "droid-specter" ? (
           <p className="line-clamp-3 font-normal text-muted-foreground text-left">
             Droid Specter es una herramienta de análisis y auditoría de dispositivos Android
@@ -32,6 +36,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         ) : project.id === "invensoft" ? (
           <p className="line-clamp-3 font-normal text-muted-foreground text-left">
             Esta es una aplicación de escritorio desarrollada en Python para gestionar inventario de equipos TI.
+          </p>
+        ) : project.id === "lame" ? (
+          <p className="line-clamp-3 font-normal text-muted-foreground text-left">
+            Evaluación de seguridad en redes Wi-Fi mediante ataques WPS/WPA2, captura de handshakes y técnicas de desautenticación y spoofing.
           </p>
         ) : (
           <p className="line-clamp-3 font-normal text-muted-foreground text-left">{project.shortDescription}</p>
@@ -43,13 +51,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </div>
       <div className="flex items-center justify-between mt-auto">
-        <Link href={`/experience/${project.id}`}>
-          <Button variant={"default"}>
+        <Link href={`/experience/${project.id}`} className="w-full">
+          <span className="block text-center bg-muted text-foreground px-4 py-2 rounded font-semibold border border-border hover:bg-muted/80 transition-colors w-full cursor-pointer">
             Leer más
-            <Icons.chevronRight className="w-4 ml-1" />
-          </Button>
+          </span>
         </Link>
-        <div className="p-2 rounded-full bg-background border border-border">
+        <div className="p-2 rounded-full bg-background border border-border ml-2">
           {project.type === "Personal Project" ? (
             <Icons.userFill className="h-4 w-4" />
           ) : (

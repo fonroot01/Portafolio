@@ -3,8 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
-import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useModalStore } from "@/hooks/use-modal-store";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(3, {
@@ -26,22 +24,18 @@ const formSchema = z.object({
   message: z.string().min(10, {
     message: "Por favor escribe un mensaje más descriptivo.",
   }),
-  social: z.string().url().optional().or(z.literal("")),
 });
 
 export function ContactForm() {
-  const storeModal = useModalStore();
-
+  const [sent, setSent] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
       message: "",
-      social: "",
     },
   });
-
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       const response = await fetch("/api/contact", {
@@ -52,27 +46,29 @@ export function ContactForm() {
         body: JSON.stringify(values),
       });
 
-      form.reset();
-
-      if (response.status === 200) {
-        storeModal.onOpen({
-          title: "¡Gracias!",
-          description:
-            "¡Tu mensaje ha sido recibido! Agradezco tu contacto y te responderé pronto.",
-          icon: Icons.successAnimated,
-        });
+      if (!response.ok) {
+        throw new Error("Error al enviar el mensaje");
       }
-    } catch (err) {
-      console.log("Err!", err);
+
+      setSent(true);
+      form.reset();
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+      alert("Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.");
     }
+  }
+
+  if (sent) {
+    return (
+      <div className="text-center text-green-600 font-semibold py-8">
+        ¡Gracias por tu mensaje! Te responderé pronto.
+      </div>
+    );
   }
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 min-w-full"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 min-w-full">
         <FormField
           control={form.control}
           name="name"
@@ -107,19 +103,6 @@ export function ContactForm() {
               <FormLabel>Mensaje</FormLabel>
               <FormControl>
                 <Textarea placeholder="Escribe tu mensaje" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="social"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Red social (opcional)</FormLabel>
-              <FormControl>
-                <Input placeholder="Enlace a tu red social" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
