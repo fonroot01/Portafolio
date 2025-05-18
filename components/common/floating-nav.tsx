@@ -1,11 +1,18 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { useMobileMenu } from "@/hooks/use-mobile-menu";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/common/icons";
+import { BiSolidUser } from "react-icons/bi";
+import { HiBriefcase } from "react-icons/hi";
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
+  const { isOpen: isMobileMenuOpen } = useMobileMenu();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,45 +26,68 @@ const FloatingNav = () => {
   }, [lastScrollY]);
 
   const links = [
-    { href: "#perfil", label: "Perfil" },
-    { href: "#proyectos", label: "Proyectos" },
-    { href: "#trayectoria", label: "Trayectoria" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
+    { href: "#proyectos", label: "Proyectos", icon: <Icons.media className="w-4 h-4" /> },
+    { href: "#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
+    { href: "#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
   ];
 
   return (
     <>
-      {/* Logo Portafolio */}
-      <a
-        href="https://alfonsom.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed top-4 left-8 z-[60] text-white text-3xl font-bold italic select-none font-[cursive] drop-shadow-lg transition-transform hover:scale-105"
-        style={{ fontFamily: 'cursive' }}
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ 
+          y: isVisible ? 0 : -20, 
+          opacity: isVisible ? 1 : 0,
+          display: isMobileMenuOpen ? "none" : "flex"
+        }}
+        transition={{ duration: 0.3 }}
+        className={cn(
+          "fixed z-50 transition-all duration-300 ease-in-out w-full flex justify-center top-4 left-0",
+          isMobileMenuOpen && "md:flex hidden"
+        )}
       >
-        Portafolio
-      </a>
-      {/* Menú flotante */}
-      <nav
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-in-out ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-        }`}
-      >
-        <div className="bg-gray-900/80 backdrop-blur-sm px-6 py-3 rounded-full border border-gray-700/50 shadow-lg">
-          <ul className="flex items-center space-x-8">
-            {links.map(({ href, label }) => (
-              <li key={href}>
-                <a
+        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 shadow-lg rounded-full">
+          <ul className="flex items-center justify-center space-x-2 md:space-x-4">
+            {links.map(({ href, label, icon }) => (
+              <li key={href} className="flex-shrink-0">
+                <motion.a
                   href={href}
-                  className="text-sm font-medium transition-colors hover:text-primary text-gray-200 hover:text-white"
+                  className={cn(
+                    "flex items-center gap-2",
+                    "px-3 py-2 md:px-4 md:py-2",
+                    "text-sm font-medium transition-colors",
+                    "text-gray-200 hover:text-white hover:text-primary",
+                    "whitespace-nowrap"
+                  )}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {label}
-                </a>
+                  <span className="md:hidden">{icon}</span>
+                  <span className="hidden md:inline">{label}</span>
+                </motion.a>
               </li>
             ))}
           </ul>
         </div>
-      </nav>
+      </motion.nav>
+      {/* Logo Portafolio - Responsive */}
+      <motion.a
+        href="/"
+        className={cn(
+          "fixed left-4 z-[60] select-none font-bold drop-shadow-lg transition-all duration-300",
+          "text-white text-2xl md:text-3xl",
+          "top-4 md:top-4",
+          "italic font-[cursive]",
+          isMobileMenuOpen ? "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto" : "hover:scale-105"
+        )}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <span className="hidden md:inline">Portafolio</span>
+        <span className="md:hidden">P</span>
+      </motion.a>
     </>
   );
 };

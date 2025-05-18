@@ -10,6 +10,7 @@ import { Icons } from "@/components/common/icons";
 import { MobileNav } from "@/components/common/mobile-nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { useMobileMenu } from "@/hooks/use-mobile-menu";
 
 interface MainNavProps {
   items?: any[];
@@ -37,75 +38,68 @@ const navItemVariants = {
   }),
 };
 
-export function MainNav({ items, children }: MainNavProps) {
+// Animation variants for the container
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+export function MainNav({ items = [], children }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
+  const { isOpen: showMobileMenu, toggle: toggleMobileMenu } = useMobileMenu();
 
   React.useEffect(() => {
-    setShowMobileMenu(false);
+    useMobileMenu.getState().onClose();
   }, [pathname]);
 
-  return (
-    <header className="sticky top-0 z-50 w-full shadow-sm transition-colors flex justify-center">
-      <div className="w-full max-w-6xl flex flex-row items-center justify-between relative" style={{ minHeight: '64px' }}>
-        {/* Botón menú solo visible en mobile, a la izquierda */}
+  return (    <header className="sticky top-0 z-50 w-full shadow-sm transition-colors flex justify-center bg-background/80 backdrop-blur-sm">
+      <div className="container flex flex-row items-center justify-between relative px-4 max-w-6xl mx-auto" style={{ minHeight: '64px' }}>
+        {/* Botón menú mobile */}
         <motion.button
-          className="flex items-center space-x-2 md:hidden absolute left-4 top-1/2 -translate-y-1/2 z-20"
-          onClick={() => setShowMobileMenu(!showMobileMenu)}
+          className="flex items-center space-x-2 md:hidden"
+          onClick={toggleMobileMenu}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {showMobileMenu ? <Icons.close /> : <Icons.menu />}
-          <span className="font-bold">Menu</span>
         </motion.button>
-        {/* Logo Portafolio: grande en desktop, minimalista en móvil */}
-        {/* Desktop: "Portafolio" grande */}
+
+        {/* Logo - Responsivo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="ml-[-96px] md:ml-[-96px] flex-shrink-0 hidden md:flex"
+          className={cn(
+            "absolute left-1/2 transform -translate-x-1/2",
+            showMobileMenu && "md:flex hidden"
+          )}
         >
           <Link href="/" className="items-center space-x-2 flex">
-            <span
-              className={cn(
-                norican.className,
-                "text-2xl transition-colors duration-300 font-bold drop-shadow-lg",
-                // Colores adaptativos para todos los temas
-                "text-zinc-900 dark:text-white cyberpunk:text-pink-400 retro:text-yellow-400 paper:text-blue-700 aurora:text-purple-400 synthwave:text-cyan-300"
-              )}
-            >
-              Portafolio
+            <span className={cn(
+              norican.className,
+              "text-xl md:text-2xl transition-colors duration-300 font-bold drop-shadow-lg",
+              "text-zinc-900 dark:text-white"
+            )}>
+              <span className="hidden md:inline">Portafolio</span>
+              <span className="md:hidden">P</span>
             </span>
           </Link>
         </motion.div>
-        {/* Mobile: solo una "P" minimalista a la izquierda, no se superpone */}
-        <div className="flex-shrink-0 flex md:hidden absolute left-4 top-2 z-10 items-center">
-          <Link href="/" className="flex items-center">
-            <span
-              className={cn(
-                norican.className,
-                "text-xl font-bold transition-colors duration-300 drop-shadow-lg",
-                "text-zinc-900 dark:text-white cyberpunk:text-pink-400 retro:text-yellow-400 paper:text-blue-700 aurora:text-purple-400 synthwave:text-cyan-300"
-              )}
-              style={{ letterSpacing: 1 }}
-            >
-              P
-            </span>
-          </Link>
-        </div>
-        {/* Menú de navegación solo visible en desktop, centrado y con menos separación */}
-        {items?.length ? (
-          <nav className="flex-1 items-center justify-center hidden md:flex">
+
+        {/* Navegación Desktop */}
+        {items.length > 0 && (
+          <nav className="hidden md:flex flex-1 items-center justify-center">
             <motion.div
-              className="flex flex-row items-center gap-6 mx-auto whitespace-nowrap"
-              style={{ maxWidth: '650px', justifyContent: 'center', width: '100%' }}
+              className="flex flex-row items-center gap-4 md:gap-6"
+              variants={containerVariants}
               initial="hidden"
               animate="visible"
-              variants={{
-                visible: { transition: { staggerChildren: 0.1 } },
-              }}
             >
               {items.map((item, index) => {
                 const isActive = item.href === pathname;
@@ -114,31 +108,24 @@ export function MainNav({ items, children }: MainNavProps) {
                     key={item.href}
                     variants={navItemVariants}
                     custom={index}
-                    className={
-                      cn(
-                        "text-sm font-medium flex justify-center items-center transition-colors duration-200",
-                        isActive
-                          ? "text-primary bg-zinc-800/80 font-bold shadow-md"
-                          : "text-foreground hover:text-primary"
-                      )
-                    }
-                    style={{ minWidth: 'auto' }}
+                    className={cn(
+                      "text-sm font-medium transition-all duration-200",
+                      isActive ? "text-primary" : "text-muted-foreground"
+                    )}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Link
                       href={item.href}
-                      className={
-                        cn(
-                          "relative px-2 py-1 rounded-md text-center",
-                          isActive
-                            ? "bg-zinc-800/80 text-primary font-bold shadow-md"
-                            : "text-foreground hover:text-primary"
-                        )
-                      }
-                      style={{ whiteSpace: 'nowrap' }}
+                      className="relative px-3 py-2 rounded-md inline-flex items-center"
                     >
                       {item.title}
                       {isActive && (
-                        <span className="absolute left-0 right-0 -bottom-1 mx-auto h-2 w-5/6 rounded-full bg-zinc-700/60 blur-sm z-[-1]" />
+                        <motion.span
+                          className="absolute inset-0 bg-primary/10 rounded-md -z-10"
+                          layoutId="activeNavItem"
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                        />
                       )}
                     </Link>
                   </motion.div>
@@ -146,12 +133,17 @@ export function MainNav({ items, children }: MainNavProps) {
               })}
             </motion.div>
           </nav>
-        ) : null}
-        {/* Icono modo oscuro siempre a la derecha, también en móvil */}
-        <div className="flex items-center gap-2 md:gap-5 ml-auto absolute right-4 top-2 md:static md:ml-auto md:relative z-10">
+        )}
+        
+        {/* Toggle de tema */}
+        <div className={cn(
+          "flex items-center gap-2",
+          showMobileMenu && "hidden md:flex"
+        )}>
           {children}
         </div>
-        {/* Menú móvil desplegable */}
+
+        {/* Menú móvil */}
         {showMobileMenu && items && (
           <MobileNav items={items}>{children}</MobileNav>
         )}
