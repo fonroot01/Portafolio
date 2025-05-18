@@ -16,8 +16,17 @@ export default function LabDetailPage({ params }: { params: { slug: string } }) 
   const lab = labsData.find((l: LabData) => l.slug === params.slug);
   if (!lab) return notFound();
 
-  return (
-    <div className="container py-10">
+  return (    <div className="container py-10">
+      <Link
+        href="/#proyectos"
+        className="mb-6 inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors"
+        replace={true}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a laboratorios
+      </Link>
       <h1 className="font-heading text-4xl mb-4">{lab.title}</h1>
       <div className="mb-4 text-muted-foreground">{lab.date}</div>
       <div className="mb-6">{lab.badges?.map((b: string) => (

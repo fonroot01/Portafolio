@@ -16,9 +16,10 @@ const CyberLabs = () => (  <div className="grid grid-cols-1 sm:grid-cols-2 lg:gr
                     {badge}
                   </span>
                 ))}
-              </div>            </div>
-            <Link
+              </div>            </div>            <Link
               href={`/labs/${lab.slug}`}
+              scroll={false}
+              shallow={true}
               className="inline-flex items-center space-x-2 px-4 py-2 rounded-md bg-white hover:bg-gray-100 text-black dark:text-black transition-all duration-200 shadow-sm"
             >
               <svg xmlns='http://www.w3.org/2000/svg' className='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
