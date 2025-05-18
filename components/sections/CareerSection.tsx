@@ -1,5 +1,114 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+
+// Definición de tipos para evitar errores de tipo implícito
+interface ExperienceItemProps {
+  experience: {
+    title: string;
+    company: string;
+    period: string;
+    location: string;
+    logo: string;
+    responsibilities: string[];
+    description?: string;
+    skills?: string[];
+  };
+}
+
+const CareerExperienceItem: React.FC<ExperienceItemProps> = ({ experience }) => {
+  const [expanded, setExpanded] = useState(false);
+  const MAX_DESC_LENGTH = 180;
+  const MAX_RESPONSIBILITIES = 2;
+  const showDescButton = experience.description && experience.description.length > MAX_DESC_LENGTH;
+  const showRespButton = experience.responsibilities.length > MAX_RESPONSIBILITIES;
+  const shortDesc = experience.description?.slice(0, MAX_DESC_LENGTH).trim();
+  const fullDesc = experience.description;
+  const shortResponsibilities = experience.responsibilities.slice(0, MAX_RESPONSIBILITIES);
+  const allResponsibilities = experience.responsibilities;
+
+  return (
+    <div className="relative pl-8 sm:pl-32 py-6 group">
+      {/* Línea vertical */}
+      <div className="hidden sm:block absolute left-0 top-0 h-full w-0.5 bg-muted-foreground group-last:h-6"></div>
+
+      {/* Contenido */}
+      <div className="flex flex-col sm:flex-row items-start mb-1 group-hover:text-primary transition-colors">
+        <div className="flex items-center mb-4 sm:mb-0">
+          {/* Logo */}
+          <div className="absolute left-0 sm:left-8 mt-1.5">
+            <Image
+              src={experience.logo}
+              alt={`${experience.company} logo`}
+              width={40}
+              height={40}
+              className="rounded-full border border-border"
+            />
+          </div>
+        </div>
+
+        {/* Periodo y ubicación */}
+        <div className="hidden sm:block absolute left-28 text-sm text-muted-foreground max-w-[130px]">
+          <span className="font-semibold">{experience.period}</span>
+          <br />
+          <span className="text-xs">{experience.location}</span>
+        </div>
+      </div>
+
+      {/* Detalles */}
+      <div className="sm:ml-[200px]">
+        <h3 className="text-lg font-semibold mb-1">{experience.title}</h3>
+        <p className="text-muted-foreground mb-3">{experience.company}</p>
+        <div className="sm:hidden text-sm text-muted-foreground mb-3">
+          <span className="font-semibold">{experience.period}</span> ·{" "}
+          {experience.location}
+        </div>
+        {experience.description && (
+          <p className="text-sm text-muted-foreground mb-4 text-justify">
+            {expanded || !showDescButton ? fullDesc : shortDesc + "..."}
+            {showDescButton && (
+              <button
+                className="ml-2 text-blue-500 hover:underline text-xs font-semibold"
+                onClick={() => setExpanded((v) => !v)}
+              >
+                {expanded ? "Ver menos" : "Ver más"}
+              </button>
+            )}
+          </p>
+        )}
+        <ul className="list-disc pl-4 text-sm text-muted-foreground space-y-2">
+          {(expanded || !showRespButton ? allResponsibilities : shortResponsibilities).map((resp: string, idx: number) => (
+            <li key={idx} className="text-justify">{resp}</li>
+          ))}
+          {showRespButton && (
+            <li className="mt-2">
+              <button
+                className="text-blue-500 hover:underline text-xs font-semibold"
+                onClick={() => setExpanded((v) => !v)}
+              >
+                {expanded ? "Ver menos" : `Ver más (${allResponsibilities.length - MAX_RESPONSIBILITIES} más)`}
+              </button>
+            </li>
+          )}
+        </ul>
+        {experience.skills && (
+          <div className="mt-6">
+            <p className="text-sm font-semibold mb-3">Aptitudes:</p>
+            <div className="flex flex-wrap gap-2">
+              {experience.skills.map((skill: string, idx: number) => (
+                <span
+                  key={idx}
+                  className="text-xs bg-background border border-border rounded-full px-3 py-1"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const CareerSection = () => {
   const experiences = [
@@ -70,7 +179,6 @@ const CareerSection = () => {
       ],
     },
   ];
-
   return (
     <section className="min-h-screen">
       <div className="container mx-auto py-20">
@@ -80,72 +188,7 @@ const CareerSection = () => {
           </h2>
           <div className="space-y-8">
             {experiences.map((experience, index) => (
-              <div
-                key={index}
-                className="relative pl-8 sm:pl-32 py-6 group"
-              >
-                {/* Línea vertical */}
-                <div className="hidden sm:block absolute left-0 top-0 h-full w-0.5 bg-muted-foreground group-last:h-6"></div>
-
-                {/* Contenido */}
-                <div className="flex flex-col sm:flex-row items-start mb-1 group-hover:text-primary transition-colors">
-                  <div className="flex items-center mb-4 sm:mb-0">
-                    {/* Logo */}
-                    <div className="absolute left-0 sm:left-8 mt-1.5">
-                      <Image
-                        src={experience.logo}
-                        alt={`${experience.company} logo`}
-                        width={40}
-                        height={40}
-                        className="rounded-full border border-border"
-                      />
-                    </div>                    {/* Periodo y ubicación */}
-                    <div className="hidden sm:block absolute left-28 text-sm text-muted-foreground max-w-[130px]">
-                      <span className="font-semibold">{experience.period}</span>
-                      <br />
-                      <span className="text-xs">{experience.location}</span>
-                    </div>
-                  </div>
-
-                  {/* Detalles */}
-                  <div className="sm:ml-[200px]">
-                    <h3 className="text-lg font-semibold mb-1">{experience.title}</h3>
-                    <p className="text-muted-foreground mb-3">
-                      {experience.company}
-                    </p>
-                    <div className="sm:hidden text-sm text-muted-foreground mb-3">
-                      <span className="font-semibold">{experience.period}</span> · {experience.location}
-                    </div>
-                    {experience.description && (
-                      <p className="text-sm text-muted-foreground mb-4 text-justify">
-                        {experience.description}
-                      </p>
-                    )}
-                    <ul className="list-disc pl-4 text-sm text-muted-foreground space-y-2">
-                      {experience.responsibilities.map((resp, idx) => (
-                        <li key={idx} className="text-justify">
-                          {resp}
-                        </li>
-                      ))}
-                    </ul>
-                    {experience.skills && (
-                      <div className="mt-6">
-                        <p className="text-sm font-semibold mb-3">Aptitudes:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {experience.skills.map((skill, idx) => (
-                            <span
-                              key={idx}
-                              className="text-xs bg-background border border-border rounded-full px-3 py-1"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <CareerExperienceItem key={index} experience={experience} />
             ))}
           </div>
         </div>
