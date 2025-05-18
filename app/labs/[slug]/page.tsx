@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { labsData } from "../../../config/labs";
 import type { LabData } from "../../../config/labs.d";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const lab = labsData.find((l: LabData) => l.slug === params.slug);

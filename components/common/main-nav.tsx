@@ -59,7 +59,8 @@ export function MainNav({ items, children }: MainNavProps) {
           {showMobileMenu ? <Icons.close /> : <Icons.menu />}
           <span className="font-bold">Menu</span>
         </motion.button>
-        {/* Logo Portafolio más a la izquierda y visible solo en desktop */}
+        {/* Logo Portafolio: grande en desktop, minimalista en móvil */}
+        {/* Desktop: "Portafolio" grande */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -67,9 +68,33 @@ export function MainNav({ items, children }: MainNavProps) {
           className="ml-[-96px] md:ml-[-96px] flex-shrink-0 hidden md:flex"
         >
           <Link href="/" className="items-center space-x-2 flex">
-            <span className={cn(norican.className, "text-2xl")}>Portafolio</span>
+            <span
+              className={cn(
+                norican.className,
+                "text-2xl transition-colors duration-300 font-bold drop-shadow-lg",
+                // Colores adaptativos para todos los temas
+                "text-zinc-900 dark:text-white cyberpunk:text-pink-400 retro:text-yellow-400 paper:text-blue-700 aurora:text-purple-400 synthwave:text-cyan-300"
+              )}
+            >
+              Portafolio
+            </span>
           </Link>
         </motion.div>
+        {/* Mobile: solo una "P" minimalista a la izquierda, no se superpone */}
+        <div className="flex-shrink-0 flex md:hidden absolute left-4 top-2 z-10 items-center">
+          <Link href="/" className="flex items-center">
+            <span
+              className={cn(
+                norican.className,
+                "text-xl font-bold transition-colors duration-300 drop-shadow-lg",
+                "text-zinc-900 dark:text-white cyberpunk:text-pink-400 retro:text-yellow-400 paper:text-blue-700 aurora:text-purple-400 synthwave:text-cyan-300"
+              )}
+              style={{ letterSpacing: 1 }}
+            >
+              P
+            </span>
+          </Link>
+        </div>
         {/* Menú de navegación solo visible en desktop, centrado y con menos separación */}
         {items?.length ? (
           <nav className="flex-1 items-center justify-center hidden md:flex">
@@ -122,8 +147,8 @@ export function MainNav({ items, children }: MainNavProps) {
             </motion.div>
           </nav>
         ) : null}
-        {/* Icono modo oscuro siempre a la derecha */}
-        <div className="flex items-center gap-2 md:gap-5 ml-auto">
+        {/* Icono modo oscuro siempre a la derecha, también en móvil */}
+        <div className="flex items-center gap-2 md:gap-5 ml-auto absolute right-4 top-2 md:static md:ml-auto md:relative z-10">
           {children}
         </div>
         {/* Menú móvil desplegable */}
