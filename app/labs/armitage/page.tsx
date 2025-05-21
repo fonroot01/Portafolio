@@ -1,7 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 export default function ArmitageLab() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="container py-8 px-4 mx-auto max-w-4xl">
       {/* Encabezado */}
