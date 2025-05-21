@@ -122,15 +122,15 @@ export default function AirgeddonLab() {
             y analizar posibles vulnerabilidades para llevar a cabo un ataque.
           </p>
 
-        {/* Sub-Paso 5: Menú de Opciones de Ataque WPA/WPA2 */}
+        {/* Sub-Paso 4: Menú de Opciones de Ataque WPA/WPA2 */}
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold mb-4">5. Menú de Opciones de Ataque WPA/WPA2</h3>
+            <h3 className="text-2xl font-semibold mb-4">4. Menú de Opciones de Ataque WPA/WPA2</h3>
             <p className="text-justify text-white mb-4">
               Airgeddon presenta un menú con diversas opciones para realizar ataques contra redes WPA/WPA2, incluyendo ataques de diccionario y de PIN WPS.
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/5.png"
+                src="/lab1/airgeddon/4.png"
                 alt="Menú de opciones de ataque WPA/WPA2"
                 width={800}
                 height={450}
@@ -142,15 +142,15 @@ export default function AirgeddonLab() {
             </div>
           </div>
 
-        {/* Sub-Paso 4: Detección y Selección de Objetivos */}
+        {/* Sub-Paso 5: Detección y Selección de Objetivos */}
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold mb-4">4. Detección y Selección de Objetivos</h3>
+            <h3 className="text-2xl font-semibold mb-4">5. Detección y Selección de Objetivos</h3>
             <p className="text-justify text-white mb-4">
               Airgeddon escanea el entorno para mostrar las redes Wi-Fi disponibles. Se selecciona la red a auditar de la lista.
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/6.png" // Vuelve a usar 6.png temporalmente
+                src="/lab1/airgeddon/5.png" // Vuelve a usar 6.png temporalmente
                 alt="Exploración de objetivos WPS"
                 width={800}
                 height={450}
@@ -170,7 +170,7 @@ export default function AirgeddonLab() {
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/7.png"
+                src="/lab1/airgeddon/6.png"
                 alt="Resultado de explotación WPS exitosa"
                 width={600}
                 height={300}
