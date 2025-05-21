@@ -11,35 +11,45 @@ export default function ArmitageLab() {
   return (
     <div className="container py-8 px-4 mx-auto max-w-4xl">
       {/* Encabezado */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+      <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
         Explotación de Vulnerabilidades en Windows con Armitage
       </h1>
 
-      {/* Objetivo Principal */}
-      <div className="bg-card rounded-lg p-6 mb-8 shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Objetivo Principal</h2>        <p className="text-muted-foreground text-justify">
-          Demostrar el proceso de identificación y explotación de vulnerabilidades en un sistema Windows utilizando
-          la interfaz gráfica de Armitage. Este laboratorio proporciona una comprensión práctica de la metodología
-          de pentesting y las capacidades de las herramientas de explotación.
+      {/* Objetivo */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4">Objetivo Principal</h2>
+        {/* Línea divisoria */}
+        <hr className="mb-6 border-t border-gray-700" />
+        {/* Cambiado a text-white */}
+        <p className="text-justify text-white">
+          Demostrar el proceso de identificación y explotación de vulnerabilidades en un sistema Windows
+          utilizando la interfaz gráfica de Armitage. Este laboratorio proporciona una comprensión práctica
+          de la metodología de pentesting y las capacidades de las herramientas de explotación.
         </p>
-      </div>
+      </section>
 
-      {/* Descripción del Laboratorio */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Descripción del Laboratorio</h2>        <p className="text-muted-foreground mb-4 text-justify">
-          Este laboratorio guía a través del proceso de utilizar Armitage para realizar un escaneo de vulnerabilidades
-          y posteriormente explotar una de ellas en un sistema Windows objetivo. Se demuestra cómo una herramienta
-          gráfica puede simplificar el flujo de trabajo del pentesting y proporcionar una visión clara de las
-          vulnerabilidades en un sistema.
+      {/* Descripción */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4">Descripción del Laboratorio</h2>
+        {/* Línea divisoria */}
+        <hr className="mb-6 border-t border-gray-700" />
+        {/* Cambiado a text-white */}
+        <p className="text-justify text-white">
+          Este laboratorio guía a través del proceso de utilizar Armitage para realizar un escaneo de
+          vulnerabilidades y posteriormente explotar una de ellas en un sistema Windows objetivo. Se demuestra
+          cómo una herramienta gráfica puede simplificar el flujo de trabajo del pentesting y proporcionar
+          una visión clara de las vulnerabilidades en un sistema.
         </p>
-      </div>
+      </section>
 
-      {/* Pasos Detallados */}
-      <div className="space-y-12">
-        {/* Paso 1: Inicio de Armitage */}
+      {/* Pasos */}
+      <section className="space-y-16">
+
+        {/* Paso 1 */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">1. Inicio de Armitage</h2>
-          <p className="text-muted-foreground mb-4">
+          <h3 className="text-2xl font-semibold mb-4">1. Inicio de Armitage</h3>
+          {/* Cambiado a text-white */}
+          <p className="text-justify text-white mb-4">
             El primer paso es iniciar Armitage y conectarse al servicio de Metasploit. Esto requiere que
             PostgreSQL esté funcionando y la base de datos de Metasploit esté inicializada.
           </p>
@@ -57,18 +67,19 @@ export default function ArmitageLab() {
             alt="Inicio de Armitage"
             width={800}
             height={450}
-            className="rounded-lg shadow-md mb-4"
+            className="rounded-lg shadow-md mx-auto"
           />
         </div>
 
-        {/* Paso 2: Escaneo de Objetivos */}
+        {/* Paso 2 */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">2. Escaneo de Objetivos</h2>
-          <p className="text-muted-foreground mb-4">
+          <h3 className="text-2xl font-semibold mb-4">2. Escaneo de Objetivos</h3>
+          {/* Cambiado a text-white */}
+          <p className="text-justify text-white mb-4">
             Una vez iniciado Armitage, el siguiente paso es agregar y escanear los hosts objetivo para
             identificar servicios y posibles vulnerabilidades.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <Image
               src="/lab1/armitage/2.png"
               alt="Agregar host objetivo"
@@ -86,10 +97,11 @@ export default function ArmitageLab() {
           </div>
         </div>
 
-        {/* Paso 3: Análisis de Vulnerabilidades */}
+        {/* Paso 3 */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">3. Análisis de Vulnerabilidades</h2>
-          <p className="text-muted-foreground mb-4">
+          <h3 className="text-2xl font-semibold mb-4">3. Análisis de Vulnerabilidades</h3>
+          {/* Cambiado a text-white */}
+          <p className="text-justify text-white mb-4">
             Armitage resalta los servicios vulnerables y muestra los exploits disponibles. Esta fase es crucial
             para identificar los vectores de ataque potenciales.
           </p>
@@ -98,34 +110,36 @@ export default function ArmitageLab() {
             alt="Análisis de vulnerabilidades"
             width={800}
             height={450}
-            className="rounded-lg shadow-md mb-4"
+            className="rounded-lg shadow-md mx-auto"
           />
         </div>
 
-        {/* Paso 4: Selección y Configuración del Exploit */}
+        {/* Paso 4 */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">4. Selección y Configuración del Exploit</h2>
-          <p className="text-muted-foreground mb-4">
+          <h3 className="text-2xl font-semibold mb-4">4. Selección y Configuración del Exploit</h3>
+          {/* Cambiado a text-white */}
+          <p className="text-justify text-white mb-4">
             La interfaz gráfica de Armitage facilita la selección y configuración de exploits. Es importante
-            configurar correctamente los parámetros como RHOST y LHOST.
+            configurar correctamente los parámetros como <code>RHOST</code> y <code>LHOST</code>.
           </p>
           <Image
             src="/lab1/armitage/5.png"
             alt="Configuración del exploit"
             width={800}
             height={450}
-            className="rounded-lg shadow-md mb-4"
+            className="rounded-lg shadow-md mx-auto"
           />
         </div>
 
-        {/* Paso 5: Explotación y Acceso */}
+        {/* Paso 5 */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">5. Explotación y Acceso</h2>
-          <p className="text-muted-foreground mb-4">
+          <h3 className="text-2xl font-semibold mb-4">5. Explotación y Acceso</h3>
+          {/* Cambiado a text-white */}
+          <p className="text-justify text-white mb-4">
             Una vez configurado el exploit, se procede a la explotación. Si es exitosa, se obtiene una sesión
             de Meterpreter que permite interactuar con el sistema comprometido.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <Image
               src="/lab1/armitage/6.png"
               alt="Explotación exitosa"
@@ -143,33 +157,35 @@ export default function ArmitageLab() {
           </div>
         </div>
 
-        {/* Comandos Útiles */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Comandos Útiles de Meterpreter</h2>
+        {/* Comandos */}
+        <div>
+          <h3 className="text-2xl font-semibold mb-4">Comandos Útiles de Meterpreter</h3>
           <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm">
+            <pre className="text-sm text-white"> {/* El texto del código también será blanco */}
               <code>
-                sysinfo      # Obtener información del sistema{'\n'}
-                getuid      # Obtener el usuario actual{'\n'}
-                ps          # Listar procesos{'\n'}
-                screenshot  # Capturar pantalla{'\n'}
-                hashdump    # Extraer hashes de contraseñas{'\n'}
-                shell      # Obtener shell del sistema
+                sysinfo      # Obtener información del sistema{'\n'}
+                getuid      # Obtener el usuario actual{'\n'}
+                ps          # Listar procesos{'\n'}
+                screenshot  # Capturar pantalla{'\n'}
+                hashdump    # Extraer hashes de contraseñas{'\n'}
+                shell       # Obtener shell del sistema
               </code>
             </pre>
           </div>
         </div>
 
-        {/* Aviso Legal */}
-        <div className="bg-destructive/10 p-6 rounded-lg mt-8">
+        {/* Aviso */}
+        <div className="bg-destructive/10 p-6 rounded-lg mt-10">
           <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
-          <p className="text-muted-foreground">
+          {/* Cambiado a text-white */}
+          <p className="text-justify text-white">
             Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito.
             La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo
             es puramente educativo para comprender las vulnerabilidades y mejorar las defensas de los sistemas.
           </p>
         </div>
-      </div>
+
+      </section>
     </div>
   );
 }
