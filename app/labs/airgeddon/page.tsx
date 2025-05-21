@@ -44,12 +44,11 @@ export default function AirgeddonLab() {
       {/* Pasos Detallados con Imágenes */}
       <section className="space-y-16">
 
-        {/* Paso 1: Instalación */}
+        {/* Paso 1: Instalación y Ejecución de Airgeddon */}
         <div>
-          <h3 className="text-2xl font-semibold mb-4">1. Instalación de Airgeddon</h3>
-          {/* Cambiado a text-white */}
+          <h3 className="text-2xl font-semibold mb-4">1. Instalación y Ejecución de Airgeddon</h3>
           <p className="text-justify text-white mb-4">
-            A continuación, se detallan los comandos para clonar y ejecutar la herramienta Airgeddon.
+            Los siguientes comandos permiten clonar el repositorio de Airgeddon, acceder a su directorio y ejecutar el script principal de la herramienta.
           </p>
           <div className="bg-muted p-4 rounded-md mb-4 overflow-x-auto">
             <pre className="text-sm text-left">
@@ -62,38 +61,34 @@ export default function AirgeddonLab() {
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/lab1/airgeddon/1.png" // Corregido a .png
-              alt="Instalación de Airgeddon"
+              src="/lab1/airgeddon/1.png"
+              alt="Inicio y requisitos de Airgeddon"
               width={800}
               height={450}
               className="rounded-lg shadow-md mb-2"
             />
-            {/* Cambiado a text-white */}
             <p className="text-sm text-white text-left w-full max-w-[800px]">
-              Captura de pantalla del proceso de instalación y ejecución inicial de Airgeddon.
+              La imagen muestra el inicio de Airgeddon, verificando los requisitos del sistema y el estado de la conexión a internet.
             </p>
           </div>
         </div>
 
-        {/* Paso 2: Ejecución y Selección del Adaptador */}
+        {/* Paso 2: Selección del Adaptador de Red Inalámbrico */}
         <div>
-          <h3 className="text-2xl font-semibold mb-4">2. Ejecución y Selección del Adaptador</h3>
-          {/* Cambiado a text-white */}
+          <h3 className="text-2xl font-semibold mb-4">2. Selección del Adaptador de Red Inalámbrico</h3>
           <p className="text-justify text-white mb-4">
-            Selecciona el adaptador de red inalámbrico que utilizarás para la auditoría. Es importante verificar
-            la compatibilidad del adaptador con el modo monitor.
+            Para este laboratorio, se utilizó la tarjeta de red inalámbrica (TPLink WN722n V3). Se procede a seleccionar el adaptador de red inalámbrico (`wlan0`) que se utilizará para las operaciones de auditoría.
           </p>
           <div className="flex flex-col items-center">
             <Image
-              src="/lab1/airgeddon/2.png" // Corregido a .png
+              src="/lab1/airgeddon/2.png"
               alt="Selección del adaptador de red"
-              width={800}
-              height={450}
+              width={400}
+              height={400}
               className="rounded-lg shadow-md mb-2"
             />
-            {/* Cambiado a text-white */}
             <p className="text-sm text-white text-left w-full max-w-[800px]">
-              Selección del adaptador de red inalámbrico dentro de la interfaz de Airgeddon.
+              Interfaz de Airgeddon solicitando al usuario que elija el adaptador de red inalámbrico, mostrando `wlan0` con chipset TP-Link TL-WN722N v2/v3, como la opción seleccionada.
             </p>
           </div>
         </div>
@@ -101,22 +96,19 @@ export default function AirgeddonLab() {
         {/* Paso 3: Activación del Modo Monitor */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">3. Activación del Modo Monitor</h3>
-          {/* Cambiado a text-white */}
           <p className="text-justify text-white mb-4">
-            El modo monitor es esencial para capturar el tráfico de red. (Airgeddon) automatiza este proceso
-            y te permite confirmar que la tarjeta está operando en el modo correcto.
+            Es fundamental activar el modo monitor en el adaptador seleccionado para poder capturar los paquetes de la red inalámbrica. Airgeddon facilita esta tarea.
           </p>
           <div className="flex flex-col items-center">
             <Image
-              src="/lab1/airgeddon/3.png" // Corregido a .png (aunque la imagen de Metasploit era .jpg, en Airgeddon era .png)
-              alt="Modo monitor activado"
+              src="/lab1/airgeddon/3.png"
+              alt="Activación del modo monitor"
               width={800}
               height={450}
               className="rounded-lg shadow-md mb-2"
             />
-            {/* Cambiado a text-white */}
             <p className="text-sm text-white text-left w-full max-w-[800px]">
-              Confirmación de la activación exitosa del modo monitor para la tarjeta de red.
+              La herramienta informa que el adaptador `wlan0` se ha puesto con éxito en modo monitor (`wlan0mon`).
             </p>
           </div>
         </div>
@@ -125,54 +117,67 @@ export default function AirgeddonLab() {
         <div>
           <h2 className="text-3xl font-bold mb-4">Auditoría de Redes Wi-Fi</h2>
           <hr className="mb-6 border-t border-gray-700" />
-          {/* Cambiado a text-white */}
           <p className="text-justify text-white mb-6">
             Una vez que el entorno está configurado, el siguiente paso es identificar las redes Wi-Fi disponibles
             y analizar posibles vulnerabilidades para llevar a cabo un ataque.
           </p>
 
-          {/* Sub-Paso 4: Exploración de Objetivos (WPS) */}
+        {/* Sub-Paso 5: Menú de Opciones de Ataque WPA/WPA2 */}
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold mb-4">4. Exploración de Objetivos (WPS)</h3>
-            {/* Cambiado a text-white */}
+            <h3 className="text-2xl font-semibold mb-4">5. Menú de Opciones de Ataque WPA/WPA2</h3>
             <p className="text-justify text-white mb-4">
-              Airgeddon permite escanear redes y obtener información relevante, como el ESSID, BSSID y si WPS está habilitado.
-              Esto es crucial para identificar redes vulnerables a ataques de PIN WPS.
+              Airgeddon presenta un menú con diversas opciones para realizar ataques contra redes WPA/WPA2, incluyendo ataques de diccionario y de PIN WPS.
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/6.png" // Corregido a .png
+                src="/lab1/airgeddon/5.png"
+                alt="Menú de opciones de ataque WPA/WPA2"
+                width={800}
+                height={450}
+                className="rounded-lg shadow-md mb-2"
+              />
+              <p className="text-sm text-white text-left w-full max-w-[800px]">
+                Menú de Airgeddon ofreciendo múltiples métodos de ataque para redes WPA/WPA2, con opciones como "WPS attacks menu" y "Handshake/PMKID tools menu".
+              </p>
+            </div>
+          </div>
+
+ {/* Sub-Paso 4: Detección y Selección de Objetivos */}
+          <div className="mb-8">
+            <h3 className="text-2xl font-semibold mb-4">4. Detección y Selección de Objetivos</h3>
+            <p className="text-justify text-white mb-4">
+              Airgeddon escanea el entorno para mostrar las redes Wi-Fi disponibles. Se selecciona la red a auditar de la lista.
+            </p>
+            <div className="flex flex-col items-center">
+              <Image
+                src="/lab1/airgeddon/6.png" // Vuelve a usar 6.png temporalmente
                 alt="Exploración de objetivos WPS"
                 width={800}
                 height={450}
                 className="rounded-lg shadow-md mb-2"
               />
-              {/* Cambiado a text-white */}
               <p className="text-sm text-white text-left w-full max-w-[800px]">
-                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado.
+                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado, con "JOSE LUIS" como ejemplo de ESSID.
               </p>
             </div>
           </div>
 
-          {/* Sub-Paso 5: Explotación WPS y Obtención de Clave */}
+          {/* Sub-Paso 6: Ejecución Exitosa del Ataque WPS */}
           <div>
-            <h3 className="text-2xl font-semibold mb-4">5. Explotación WPS y Obtención de Clave</h3>
-            {/* Cambiado a text-white */}
+            <h3 className="text-2xl font-semibold mb-4">6. Ejecución Exitosa del Ataque WPS</h3>
             <p className="text-justify text-white mb-4">
-              Una vez identificado un objetivo con WPS vulnerable, Airgeddon puede intentar descifrar el PIN y,
-              con éxito, obtener la clave WPA/WPA2 de la red.
+              Se observa la ejecución exitosa del ataque WPS, donde Airgeddon ha logrado descifrar el PIN y ha mostrado la clave WPA/WPA2 de la red.
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/7.png" // Corregido a .png
+                src="/lab1/airgeddon/7.png"
                 alt="Resultado de explotación WPS exitosa"
                 width={600}
                 height={300}
                 className="rounded-lg shadow-md mb-2"
               />
-              {/* Cambiado a text-white */}
               <p className="text-sm text-white text-left w-full max-w-[600px]">
-                Confirmación del PIN WPS y la clave WPA/WPA2 obtenidos tras un ataque exitoso.
+                Confirmación visual del PIN WPS ('24028554') y la clave WPA/WPA2 de la red ('Nosemeolvida?$'), obtenidos exitosamente mediante el ataque.
               </p>
             </div>
           </div>
@@ -180,12 +185,10 @@ export default function AirgeddonLab() {
 
         {/* Funcionalidades Adicionales */}
         <div>
-          <h3 className="text-2xl font-semibold mb-4">6. Funcionalidades Adicionales</h3>
-          {/* Cambiado a text-white */}
+          <h3 className="text-2xl font-semibold mb-4">7. Funcionalidades Adicionales</h3>
           <p className="text-justify text-white mb-4">
             Además de los ataques básicos, (Airgeddon) proporciona un conjunto de funcionalidades avanzadas:
           </p>
-          {/* Cambiado a text-white en los <li> */}
           <ul className="list-disc pl-6 space-y-1">
             <li className="text-white">WEP Cracking: Obtención de claves WEP.</li>
             <li className="text-white">WPA/WPA2 Cracking: Recuperación de contraseñas mediante fuerza bruta o diccionario.</li>
@@ -199,11 +202,10 @@ export default function AirgeddonLab() {
         {/* Aviso Legal */}
         <div className="bg-destructive/10 p-6 rounded-lg mt-10">
           <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
-          {/* Cambiado a text-white */}
           <p className="text-justify text-white">
             Las técnicas demostradas en este laboratorio deben utilizarse únicamente en redes para las que se
             tenga permiso explícito. El uso no autorizado de estas herramientas puede tener consecuencias legales.
-            Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi.
+            Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi. (Para esta actividad se pidio permiso al propietario de la red). 
           </p>
         </div>
 
