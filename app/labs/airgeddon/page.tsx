@@ -170,7 +170,7 @@ export default function AirgeddonLab() {
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/6.png"
+                src="/lab1/airgeddon/6 - copia.png"
                 alt="Resultado de explotación WPS exitosa"
                 width={600}
                 height={320}
