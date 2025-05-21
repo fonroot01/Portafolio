@@ -173,7 +173,7 @@ export default function AirgeddonLab() {
                 src="/lab1/airgeddon/6.png"
                 alt="Resultado de explotación WPS exitosa"
                 width={600}
-                height={300}
+                height={320}
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-white text-left w-full max-w-[600px]">
