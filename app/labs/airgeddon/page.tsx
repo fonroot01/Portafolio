@@ -137,12 +137,12 @@ export default function AirgeddonLab() {
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-white text-left w-full max-w-[800px]">
-                Menú de Airgeddon ofreciendo múltiples métodos de ataque para redes WPA/WPA2, con opciones como "WPS attacks menu" y "Handshake/PMKID tools menu".
+                Menú de Airgeddon ofreciendo múltiples métodos de ataque para redes WPA/WPA2, con opciones como &quot;WPS attacks menu&quot; y &quot;Handshake/PMKID tools menu&quot;.
               </p>
             </div>
           </div>
 
- {/* Sub-Paso 4: Detección y Selección de Objetivos */}
+        {/* Sub-Paso 4: Detección y Selección de Objetivos */}
           <div className="mb-8">
             <h3 className="text-2xl font-semibold mb-4">4. Detección y Selección de Objetivos</h3>
             <p className="text-justify text-white mb-4">
@@ -157,7 +157,7 @@ export default function AirgeddonLab() {
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-white text-left w-full max-w-[800px]">
-                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado, con "JOSE LUIS" como ejemplo de ESSID.
+                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado, con &quot;JOSE LUIS&quot; como ejemplo de ESSID.
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function AirgeddonLab() {
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-white text-left w-full max-w-[600px]">
-                Confirmación visual del PIN WPS ('24028554') y la clave WPA/WPA2 de la red ('Nosemeolvida?$'), obtenidos exitosamente mediante el ataque.
+                Confirmación visual del PIN WPS (&apos;24028554&apos;) y la clave WPA/WPA2 de la red (&apos;Nosemeolvida?$ &apos;), obtenidos exitosamente mediante el ataque.
               </p>
             </div>
           </div>
@@ -205,7 +205,7 @@ export default function AirgeddonLab() {
           <p className="text-justify text-white">
             Las técnicas demostradas en este laboratorio deben utilizarse únicamente en redes para las que se
             tenga permiso explícito. El uso no autorizado de estas herramientas puede tener consecuencias legales.
-            Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi. (Para esta actividad se pidio permiso al propietario de la red). 
+            Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi. (Para esta actividad se pidió permiso al propietario de la red).
           </p>
         </div>
 
