@@ -62,7 +62,7 @@ export default function AirgeddonLab() {
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/lab1/airgeddon/1.png"
+              src="/lab1/airgeddon/1.png" // Corregido a .png
               alt="Instalación de Airgeddon"
               width={800}
               height={450}
@@ -85,7 +85,7 @@ export default function AirgeddonLab() {
           </p>
           <div className="flex flex-col items-center">
             <Image
-              src="/lab1/airgeddon/2.png"
+              src="/lab1/airgeddon/2.png" // Corregido a .png
               alt="Selección del adaptador de red"
               width={800}
               height={450}
@@ -108,7 +108,7 @@ export default function AirgeddonLab() {
           </p>
           <div className="flex flex-col items-center">
             <Image
-              src="/lab1/airgeddon/3.png"
+              src="/lab1/airgeddon/3.png" // Corregido a .png (aunque la imagen de Metasploit era .jpg, en Airgeddon era .png)
               alt="Modo monitor activado"
               width={800}
               height={450}
@@ -141,7 +141,7 @@ export default function AirgeddonLab() {
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/6.png"
+                src="/lab1/airgeddon/6.png" // Corregido a .png
                 alt="Exploración de objetivos WPS"
                 width={800}
                 height={450}
@@ -164,7 +164,7 @@ export default function AirgeddonLab() {
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/7.png"
+                src="/lab1/airgeddon/7.png" // Corregido a .png
                 alt="Resultado de explotación WPS exitosa"
                 width={600}
                 height={300}
