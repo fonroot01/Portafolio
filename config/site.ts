@@ -1,10 +1,12 @@
-export const siteConfig = {  name: "Alfonso | Portafolio Profesional",
+import { Linkedin } from "lucide-react";
+
+export const siteConfig = {  name: "Portafolio de Alfonso",
   authorName: "Alfonso Ángel Mosquera A.",
   username: "foonroot01",  description:
-    "Alfonso Mosquera's portfolio - A modern, responsive Next.js portfolio for developers. This open-source template can be customized to showcase your own skills, projects, and professional experience.",
+    "Ingeniero TI con experiencia en soporte técnico, redes, sistemas y ciberseguridad. Buscando nuevos retos.",
   url: "https://alfonso-portafolio.vercel.app",
   links: {
-    twitter: "https://twitter.com/fonroot01",
+    Linkedin: "www.linkedin.com/in/alfonso-ángel-mosquera-a-4a919b341",
     github: "https://github.com/fonroot01",
   },
   ogImage: "/alfonsoimage.jpg",
