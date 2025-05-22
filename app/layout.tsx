@@ -28,7 +28,7 @@ interface RootLayoutProps {
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Portafolio | Alfonso",
+  title: "Portafolio de Alfonso",
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: [
@@ -42,15 +42,15 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "Portafolio | Alfonso",
+    title: "Portafolio de Alfonso",
     description: siteConfig.description,
-    siteName: "Portafolio | Alfonso",
+    siteName: "Portafolio de Alfonso",
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Portafolio | Alfonso",
+        alt: "Portafolio de Alfonso",
       },
     ],
   },
