@@ -35,8 +35,8 @@ const AboutMe = () => (
                 alt="SQL"
               />
               <img
-                src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff"
-                alt="TypeScript"
+                src="https://img.shields.io/badge/Markdown-%23000000.svg?logo=markdown&logoColor=white"
+                alt="Markdown"
               />
             </div>
             <h3 className="font-bold text-xl mb-2 mt-6 text-center text-primary/90 transition-colors duration-300">
@@ -56,16 +56,16 @@ const AboutMe = () => (
                 alt="Git"
               />
               <img
-                src="https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white"
-                alt="Windows"
-              />
-              <img
-                src="https://img.shields.io/badge/GitHub%20Copilot-000?logo=githubcopilot&logoColor=fff"
-                alt="GitHub Copilot"
+                src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white"
+                alt="GitHub"
               />
               <img
                 src="https://img.shields.io/badge/VirtualBox-%23007ACC.svg?style=flat&logo=virtualbox&logoColor=white"
                 alt="VirtualBox"
+              />
+              <img
+                src="https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white"
+                alt="Windows"
               />
               <img
                 src="https://img.shields.io/badge/Windows_Server-0078D6.svg?style=flat&logo=windows&logoColor=white"
@@ -77,8 +77,8 @@ const AboutMe = () => (
             </h3>
             <div className="flex flex-wrap justify-center gap-2 mb-4">
               <img
-                src="https://img.shields.io/badge/VS_Code-007ACC.svg?style=flat&logo=visual-studio-code&logoColor=white"
-                alt="VS Code"
+                src="https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white"
+                alt="Visual Studio Code"
               />
               <img
                 src="https://img.shields.io/badge/Git_Bash-%23181717.svg?style=flat&logo=git&logoColor=white"
@@ -101,8 +101,8 @@ const AboutMe = () => (
                 src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white"
                 alt="Next.js"
               />              <img
-                src="https://img.shields.io/badge/Vue.js-4FC08D?logo=vuedotjs&logoColor=fff"
-                alt="Vue.js"
+                src="https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white"
+                alt="NodeJS"
               />
             </div>
           </div>
