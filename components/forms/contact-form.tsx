@@ -74,7 +74,7 @@ export function ContactForm() {
   if (formspreeState.succeeded) {
     return (
       <div className="text-center text-green-600 font-semibold py-8">
-        ¡Gracias por tu mensaje! Te responderé pronto.
+        ¡Ya recibí tu mensaje! Te contesto en un momento.
       </div>
     );
   }

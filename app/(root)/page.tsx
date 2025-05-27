@@ -43,7 +43,7 @@ export default function IndexPage() {
               repeat={Infinity}
             />
           </div><p className="text-sky-400 dark:text-sky-300 text-base sm:text-lg text-center mb-8 max-w-xl transition-colors duration-300 font-medium">
-            ¡Hola!👋🏾 Soy Ingeniero de Sistemas, curioso por naturaleza, fanático de resolver problemas tecnológicos y apasionado por la ciberseguridad. 🚀
+            ¡Hola!👋🏾 Soy Ingeniero de Sistemas, curioso por naturaleza, fanático de resolver problemas informaticos y apasionado por la ciberseguridad. 🚀
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mb-8">            <Link
               href="https://github.com/fonroot01"
