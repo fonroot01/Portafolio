@@ -54,7 +54,7 @@ export const metadata = {
   creator: siteConfig.username,
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "es_ES",
     url: siteConfig.url,
     title: "Portafolio de Alfonso",
     description: siteConfig.description,
@@ -82,7 +82,9 @@ export const metadata = {
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
   alternates: {
-    canonical: siteConfig.url,
+    canonical: siteConfig.url,  },
+  verification: {
+    google: "hZ0s0SPBF2iVW3cNfUNMTIg1L2V19jW50fDXRyk3sBY",
   },
   robots: {
     index: true,
@@ -103,7 +105,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head />
       <body
         className={cn(

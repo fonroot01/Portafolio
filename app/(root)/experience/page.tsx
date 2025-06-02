@@ -35,10 +35,9 @@ export default function ExperiencePage() {
       description={pagesConfig.experience.description}
     >
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="conatiner grid max-w-[30rem] grid-cols-3">
-          <TabsTrigger value="all">All</TabsTrigger>
+        <TabsList className="conatiner grid max-w-[30rem] grid-cols-3">          <TabsTrigger value="all">Todos</TabsTrigger>
           <TabsTrigger value="personal">Personal</TabsTrigger>
-          <TabsTrigger value="professional">Professional</TabsTrigger>
+          <TabsTrigger value="professional">Profesional</TabsTrigger>
         </TabsList>
         <TabsContent value="all" className="w-full">
           {renderContent("all")}

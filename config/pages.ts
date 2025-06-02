@@ -17,9 +17,8 @@ export const pagesConfig: PagesConfig & { contact: ContactPageConfig } = {
   home: {
     title: "Home",
     description: "Desde scripts hasta apps, esto es lo que pasa cuando la curiosidad se junta con el teclado.",
-    metadata: {
-      title: "Home",
-      description: "Naman Barkiya's portfolio website.",
+    metadata: {      title: "Inicio",
+      description: "Portafolio web de Alfonso Mosquera.",
     },
   },
   skills: {
@@ -42,9 +41,8 @@ export const pagesConfig: PagesConfig & { contact: ContactPageConfig } = {
   contact: {
     title: "Contáctame",
     description: "¡Conectemos y exploremos colaboraciones!",
-    metadata: {
-      title: "Contact",
-      description: "Contact Naman Barkiya.",
+    metadata: {      title: "Contacto",
+      description: "Contacta con Alfonso Mosquera.",
     },
     form: {
       name: "Nombre",
