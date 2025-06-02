@@ -1,421 +1,357 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from "react";
 
-// Definición de tipos para evitar errores de tipo implícito
-interface ExperienceItemProps {
-  experience: {
-    title: string;
-    company: string;
-    period: string;
-    location: string;
-    logo: string;
-    responsibilities: string[];
-    description?: string;
-    skills?: string[];
-  };
+// Define una interfaz para las props del componente CompanyIcon
+interface CompanyIconProps {
+  children: React.ReactNode;
+  isActive?: boolean;
 }
 
-const CareerExperienceItem: React.FC<ExperienceItemProps> = ({ experience }) => {
-  const [expanded, setExpanded] = useState(false);
-  const MAX_DESC_LENGTH = 180;
-  const MAX_RESPONSIBILITIES = 2;
-  const showDescButton = experience.description && experience.description.length > MAX_DESC_LENGTH;
-  const showRespButton = experience.responsibilities.length > MAX_RESPONSIBILITIES;
-  const shortDesc = experience.description?.slice(0, MAX_DESC_LENGTH).trim();
-  const fullDesc = experience.description;
-  const shortResponsibilities = experience.responsibilities.slice(0, MAX_RESPONSIBILITIES);
-  const allResponsibilities = experience.responsibilities;
+const CompanyIcon: React.FC<CompanyIconProps> = ({ children, isActive = false }) => (
+  <div className={`
+    flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center 
+    transition-all duration-500 ease-out transform
+    ${isActive 
+      ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white scale-110 shadow-lg shadow-blue-500/30' 
+      : 'bg-primary/10 text-primary hover:bg-primary/20 hover:scale-105'
+    }
+  `}>
+    {children}
+  </div>
+);
 
-  return (
-    <div className="relative pl-8 sm:pl-32 py-6 group">
-      {/* Línea vertical */}
-      <div className="hidden sm:block absolute left-0 top-0 h-full w-0.5 bg-muted-foreground group-last:h-6"></div>
+const ExperienceSection = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
 
-      {/* Contenido */}
-      <div className="flex flex-col sm:flex-row items-start mb-1 group-hover:text-primary transition-colors">
-        <div className="flex items-center mb-4 sm:mb-0">
-          {/* Logo */}
-          <div className="absolute left-0 sm:left-8 mt-1.5">
-            <Image
-              src={experience.logo}
-              alt={`${experience.company} logo`}
-              width={40}
-              height={40}
-              className="rounded-full border border-border"
-            />
-          </div>
-        </div>
-
-        {/* Periodo y ubicación */}
-        <div className="hidden sm:block absolute left-28 text-sm text-muted-foreground max-w-[130px]">
-          <span className="font-semibold">{experience.period}</span>
-          <br />
-          <span className="text-xs">{experience.location}</span>
-        </div>
-      </div>
-
-      {/* Detalles */}
-      <div className="sm:ml-[200px]">
-        <h3 className="text-lg font-semibold mb-1">{experience.title}</h3>
-        <p className="text-muted-foreground mb-3">{experience.company}</p>
-        <div className="sm:hidden text-sm text-muted-foreground mb-3">
-          <span className="font-semibold">{experience.period}</span> ·{" "}
-          {experience.location}
-        </div>
-        {experience.description && (
-          <p className="text-sm text-muted-foreground mb-4 text-justify">
-            {expanded || !showDescButton ? fullDesc : shortDesc + "..."}
-            {showDescButton && (
-              <button
-                className="ml-2 text-blue-500 hover:underline text-xs font-semibold"
-                onClick={() => setExpanded((v) => !v)}
-              >
-                {expanded ? "Ver menos" : "Ver más"}
-              </button>
-            )}
-          </p>
-        )}
-        <ul className="list-disc pl-4 text-sm text-muted-foreground space-y-2">
-          {(expanded || !showRespButton ? allResponsibilities : shortResponsibilities).map((resp: string, idx: number) => (
-            <li key={idx} className="text-justify">{resp}</li>
-          ))}
-          {showRespButton && (
-            <li className="mt-2">
-              <button
-                className="text-blue-500 hover:underline text-xs font-semibold"
-                onClick={() => setExpanded((v) => !v)}
-              >
-                {expanded ? "Ver menos" : `Ver más (${allResponsibilities.length - MAX_RESPONSIBILITIES} más)`}
-              </button>
-            </li>
-          )}
-        </ul>
-        {experience.skills && (
-          <div className="mt-6">
-            <p className="text-sm font-semibold mb-3">Aptitudes:</p>
-            <div className="flex flex-wrap gap-2">
-              {experience.skills.map((skill: string, idx: number) => (
-                <span
-                  key={idx}
-                  className="text-xs bg-background border border-border rounded-full px-3 py-1"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const CareerSection = () => {
   const experiences = [
     {
-      title: "Formación técnica y práctica en ciberseguridad",
-      company: "Formación Autodidacta",
-      period: "ene. 2024 - may. 2025",
-      location: "Colombia",
-      logo: "/career/autodidacta.png",
-      responsibilities: [
-        "Automatización con Python para tareas de ciberseguridad",
-        "Consulta y análisis de datos mediante SQL",
-        "Auditorías de redes WiFi con Kali Linux: técnicas de desautenticación, captura de paquetes (sniffing) y crackeo de contraseñas.",
-        "Pruebas de penetración en entornos controlados con máquinas vulnerables.",
-        "Configuración de entornos con Windows Server y administración de Active Directory.",
-      ],
-      description:
-     
-      "Durante este tiempo, he reforzado mis conocimientos técnicos mediante cursos, laboratorios y práctica constante en entornos controlados. Como consiguiente les comparto lo aprendido en este periodo:",
-      skills: [
-        "Automatización con Python",
-        "SQL",
-        "Pentesting",
-        "Kali Linux",
-        "Administración de redes y servidores",
-        "Formación continua",
-      ],
-    },
-    {
-      title: "Auxiliar de Plataformas TI",
+      id: 1,
+      role: "Auxiliar de Plataformas Tecnológicas",
       company: "Zeuss S.A.S",
-      period: "oct. 2022 - ene. 2023",
-      location: "Medellín, Antioquia, Colombia · Híbrido",
-      logo: "/career/logozeuss.png",
-      responsibilities: [
-        "Configurar y monitorear sistemas de telefonía IP (3CX)",
+      dates: "oct. 2022 - ene. 2023",
+      duration: "4 meses",
+      description: [
+        "Como auxiliar de plataformas tecnológicas, mis responsabilidades incluyeron:",
+        "Configurar y monitorear sistemas de telefonía IP (3CX).",
         "Gestión de usuarios y permisos en Directorio Activo.",
-        "Realizar backup de información y verificación de licencias en entorno Microsoft 365",
-        "Mantenimiento y seguimiento de plataformas (ERP, DMS)",
+        "Realizar backup de información y verificación de licencias en ecosistema MS365",
+        "Mantenimiento y seguimiento de plataformas (ERP, DMS).",
+        "Brindar soporte técnico a usuarios internos y externos.",
       ],
       skills: [
-        "Servicio de soporte técnico",
-        "Configuración de sistemas de telefonía IP",
-        "Gestion de usuarios y permisos",
-        "Backup y verificación de licencias",
-        "Aplicacion de buenas prácticas de seguridad",
+        "3cx y telefonía IP",
+        "Microsoft 365",
+        "Active Directory",
+        "Soporte técnico",
+        "ERP y DMS",
       ],
+      color: "from-blue-500 to-cyan-500",
+      icon: (
+        <img 
+          src="/career/logozeuss.png" 
+          alt="Zeuss Logo" 
+          className="w-8 h-8 object-contain"
+          onError={(e) => {
+            // Fallback to SVG icon if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.nextElementSibling?.classList.remove('hidden');
+          }}
+        />
+      ),
+      fallbackIcon: (
+        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+        </svg>
+      ),
     },
     {
-      title: "Aprendiz de Soporte y Servicio TI",
+      id: 2,
+      role: "Aprendiz de Soporte y Servicio TI",
       company: "Zeuss S.A.S",
-      period: "abr. 2022 - oct. 2022",
-      location: "Medellín, Antioquia, Colombia · Híbrido",
-      logo: "/career/logozeuss.png",
-      responsibilities: [
-        "Brindar soporte técnico, escalamiento de tickets y seguimiento básico de incidentes",
-        "Realizar actividades de mantenimiento preventivo y correctivo de equipos de cómputo",
+      dates: "abr. 2022 - oct. 2022",
+      duration: "6 meses",
+      description: [
+        "Como auxiliar de soporte y servicio TI, mis responsabilidades incluyeron:",
+        "Brindar soporte técnico",
+        "Realizar actividades de mantenimiento preventivo y correctivo a equipos",
         "Tareas de supervisión de servidores en plantas y estaciones de servicio.",
-        "Documentar procedimientos y sesiones básicas de capacitación a usuarios",
+        "Documentar procedimientos y sesiones básicas de capacitación a usuarios.",
         "Gestionar y actualizar inventario de equipos tecnológicos",
+
       ],
       skills: [
-        "Soporte técnico",
-        "Documentación tecnica",
-        "mantenimiento y reparaciones",
-        "Gestion de inventario",
+        "Mesa de ayuda",
+        "Mantenimiento y reparaciones",
+        "Gestión de inventario",
         "Capacitación a usuarios",
       ],
+      color: "from-purple-500 to-pink-500",
+      icon: (
+        <img 
+          src="/career/logozeuss.png" 
+          alt="Zeuss Logo" 
+          className="w-8 h-8 object-contain"
+          onError={(e) => {
+            // Fallback to SVG icon if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.nextElementSibling?.classList.remove('hidden');
+          }}
+        />
+      ),
+      fallbackIcon: (
+        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+        </svg>
+      ),
     },
     {
-      title: "Asistente - Hogar Gestor",
-      company: "ICBF",
-      period: "nov. 2017 - dic. 2017",
-      location: "Florencia, Caquetá, Colombia · Presencial",
-      logo: "/career/logobienestar.png",
-      responsibilities: [
-        "Apoyo del diligenciamiento de formularios para evaluación de casos",
-        "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales",
-        "Acompañamiento en la gestión de documentación y seguimiento de procesos",
+      id: 3,
+      role: "Asistente - Hogar Gestor",
+      company: "ICBF (Instituto Colombiano de Bienestar Familiar)",
+      dates: "nov. 2017 - dic. 2017",
+      duration: "2 meses",
+      description: [
+        "Como asistente en el programa Hogar Gestor del ICBF, mis responsabilidades incluyeron:",
+        "Apoyo del diligenciamiento de formularios para evaluación de casos.",
+        "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales.",
+        "Acompañamiento en la gestión de documentación y seguimiento de procesos.",
       ],
       skills: [
-        "Empatia y sensibilidad social",
-        "Comunicación efectiva",
+        "Empatía y sensibilidad social",
         "Manejo de la confidencialidad",
+        "Documentación de casos",
       ],
+      color: "from-green-500 to-teal-500",
+      icon: (
+        <img 
+          src="/career/logoicbf.png" 
+          alt="ICBF Logo" 
+          className="w-8 h-8 object-contain"
+          onError={(e) => {
+            // Fallback to SVG icon if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.nextElementSibling?.classList.remove('hidden');
+          }}
+        />
+      ),
+      fallbackIcon: (
+        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 18c-3.87 0-7-3.13-7-7V6.39l7-3.11V19z" />
+        </svg>
+      ),
     },
   ];
+
+  // Intersection Observer para animaciones al hacer scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cardId = parseInt(entry.target.getAttribute('data-card-id') || '0');
+            setVisibleCards(prev => new Set(Array.from(prev).concat(cardId)));
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    const cards = document.querySelectorAll('[data-card-id]');
+    cards.forEach(card => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="min-h-screen">
-      <div className="container mx-auto py-20">
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">
+    <section className="py-16 px-4 bg-background relative overflow-hidden">
+      {/* Decorative background elements - más sutiles y sin reflejo */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto max-w-5xl relative z-10">
+        {/* Header con animación - más compacto */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"💼"}</span> 
             Experiencia Laboral
           </h2>
-          <div className="space-y-8">
-            {experiences.map((experience, index) => (
-              <CareerExperienceItem key={index} experience={experience} />
-            ))}
-          </div>
+          <p className="text-base text-muted-foreground max-w-xl mx-auto">
+            Mi trayectoria profesional en tecnología y servicio social
+          </p>
+          <div className="w-16 h-0.5 bg-primary/50 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Resto del contenido existente (sección de GitHub) */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Contribuciones en GitHub
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* GestorIP */}
-            <div className="rounded-xl border border-border bg-muted/30 p-6 shadow-md flex flex-col items-start relative transition-colors duration-300">
-              <div className="flex items-center w-full justify-between">
-                <span className="font-bold text-lg text-foreground">GestorIP</span>
-                <a
-                  href="https://github.com/fonroot01/GestorIP"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
-                  title="Ver en GitHub"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h7v2H7.41l9.3 9.29-1.42 1.42L5 7.41V14h2v7H3v-7h2V5Z"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <p className="text-muted-foreground mt-2 mb-4">
-                Aplicación para la gestión y control de direcciones IP en redes
-                empresariales.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Python
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Tkinter
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  SQLite
-                </span>
-              </div>
-            </div>
-            {/* Droid Specter */}
-            <div className="rounded-xl border border-border bg-muted/30 p-6 shadow-md flex flex-col items-start relative transition-colors duration-300">
-              <div className="flex items-center w-full justify-between">
-                <span className="font-bold text-lg text-foreground">Droid-Specter</span>
-                <a
-                  href="https://github.com/fonroot01/Droid-Specter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
-                  title="Ver en GitHub"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h7v2H7.41l9.3 9.29-1.42 1.42L5 7.41V14h2v7H3v-7h2V5Z"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <p className="text-muted-foreground mt-2 mb-4">
-                Herramienta de análisis y automatización para dispositivos Android.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Python
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Android
-                </span>
-              </div>
-            </div>
-            {/* Invensoft */}
-            <div className="rounded-xl border border-border bg-muted/30 p-6 shadow-md flex flex-col items-start relative transition-colors duration-300">
-              <div className="flex items-center w-full justify-between">
-                <span className="font-bold text-lg text-foreground">Invensoft</span>
-                <a
-                  href="https://github.com/fonroot01/Inventario-de-equipos-TI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
-                  title="Ver en GitHub"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h7v2H7.41l9.3 9.29-1.42 1.42L5 7.41V14h2v7H3v-7h2V5Z"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <p className="text-muted-foreground mt-2 mb-4">
-                Sistema para inventario y control de equipos de TI en
-                organizaciones.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Python
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Tkinter
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  SQLite
-                </span>
-              </div>
-            </div>
-            {/* USB Doctor */}
-            <div className="rounded-xl border border-border bg-muted/30 p-6 shadow-md flex flex-col items-start relative transition-colors duration-300">
-              <div className="flex items-center w-full justify-between">
-                <span className="font-bold text-lg text-foreground">USB Doctor</span>
-                <a
-                  href="https://github.com/fonroot01/USB-Doctor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
-                  title="Ver en GitHub"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h7v2H7.41l9.3 9.29-1.42 1.42L5 7.41V14h2v7H3v-7h2V5Z"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <p className="text-muted-foreground mt-2 mb-4">
-                Utilidad para analizar y limpiar dispositivos USB de amenazas
-                comunes.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Python
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Tkinter
-                </span>
+        {/* Timeline container con fondo sólido */}
+        <div className="relative bg-background/95 backdrop-blur-sm rounded-lg p-6">
+          {/* Línea de tiempo central más sutil */}
+          <div className="absolute left-8 md:left-1/2 md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-border/50 rounded-full">
+            <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse blur-sm"></div>
+          </div>
+
+          {experiences.map((exp, index) => (
+            <div 
+              key={exp.id} 
+              data-card-id={exp.id}
+              className={`
+                mb-16 relative transition-all duration-1000 ease-out
+                ${visibleCards.has(exp.id) 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+                }
+              `}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
+              {/* Experience card con fondo más sólido */}
+              <div 
+                className={`
+                  ml-16 md:ml-0 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 md:items-start max-w-5xl mx-auto
+                  bg-card/95 backdrop-blur-sm rounded-xl shadow-sm
+                  ${index % 2 === 0 ? '' : 'md:grid-flow-dense'}
+                `}
+                onMouseEnter={() => setActiveCard(exp.id)}
+                onMouseLeave={() => setActiveCard(null)}
+              >
+                {/* Company info */}
+                <div className={`
+                  mb-6 md:mb-0 ${index % 2 === 0 ? '' : 'md:col-start-2 md:text-right'}
+                  transform transition-all duration-500 ease-out p-4
+                  ${activeCard === exp.id ? 'scale-105' : ''}
+                `}>
+                  <div className={`
+                    flex items-center gap-4 mb-4
+                    ${index % 2 === 0 ? '' : 'md:flex-row-reverse md:justify-end'}
+                  `}>
+                    <CompanyIcon isActive={activeCard === exp.id}>
+                      {exp.icon}
+                      {exp.fallbackIcon}
+                    </CompanyIcon>
+                    <div className={index % 2 === 0 ? '' : 'md:text-right'}>
+                      <h3 className="text-2xl font-bold text-foreground mb-1 leading-tight">
+                        {exp.role}
+                      </h3>
+                      <p className="text-lg font-semibold text-muted-foreground">
+                        {exp.company}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className={`
+                    flex items-center gap-4 text-sm text-muted-foreground
+                    ${index % 2 === 0 ? '' : 'md:justify-end'}
+                  `}>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 11H7v8h2v-8zm4 0h-2v8h2v-8zm4 0h-2v8h2v-8zm2.5-9L21 4v2h-1.5l-2.5 14H7L4.5 6H3V4l1.5-2h12zM6.5 8h11l-1 6h-9l-1-6z"/>
+                      </svg>
+                      {exp.dates}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 17.5c-3.04 0-5.5-2.46-5.5-5.5 0-.55.45-1 1-1s1 .45 1 1c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-.55.45-1 1-1s1 .45 1 1c0 3.04-2.46 5.5-5.5 5.5z"/>
+                      </svg>
+                      {exp.duration}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Experience details */}
+                <div className={`
+                  ${index % 2 === 0 ? '' : 'md:col-start-1'}
+                  transform transition-all duration-500 ease-out
+                  ${activeCard === exp.id ? 'scale-105' : ''}
+                `}>
+                  <div className={`
+                    relative p-6 sm:p-8 rounded-2xl transition-all duration-500 ease-out
+                    bg-card/80 backdrop-blur-sm
+                    border border-border
+                    h-full
+                    ${activeCard === exp.id 
+                      ? 'bg-primary/5' 
+                      : ''
+                    }
+                  `}>
+                    {/* Description */}
+                    <div className="mb-6 relative z-10">
+                      {exp.description.map((line, descIndex) => (
+                        <p key={descIndex} className="text-foreground mb-2 last:mb-0 leading-relaxed">
+                          {descIndex === 0 ? (
+                            <span className="font-semibold">{line}</span>
+                          ) : (
+                            <span className="flex items-start gap-2">
+                              <span className="text-primary mt-2 text-xs">▶</span>
+                              {line.replace('• ', '')}
+                            </span>
+                          )}
+                        </p>
+                      ))}
+                    </div>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2 relative z-10">
+                      {exp.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className={`
+                            px-4 py-2 rounded-full text-sm font-medium
+                            transition-all duration-300 ease-out
+                            cursor-pointer transform hover:scale-105
+                            ${activeCard === exp.id
+                              ? 'bg-primary/20 text-primary'
+                              : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                            }
+                          `}
+                          style={{ 
+                            animationDelay: `${skillIndex * 100}ms`,
+                            animation: activeCard === exp.id ? 'fadeInUp 0.5s ease-out forwards' : ''
+                          }}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            {/* WinPyX */}
-            <div className="rounded-xl border border-border bg-muted/30 p-6 shadow-md flex flex-col items-start relative transition-colors duration-300">
-              <div className="flex items-center w-full justify-between">
-                <span className="font-bold text-lg text-foreground">WinPyX</span>
-                <a
-                  href="https://github.com/fonroot01/WinPyX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
-                  title="Ver en GitHub"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h7v2H7.41l9.3 9.29-1.42 1.42L5 7.41V14h2v7H3v-7h2V5Z"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <p className="text-muted-foreground mt-2 mb-4">
-                Colección de scripts y utilidades para automatización de tareas en
-                sistemas Windows.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  Python
-                </span>
-                <span className="bg-background border border-border rounded px-2 py-1 text-xs font-semibold">
-                  PowerShell
-                </span>
-              </div>
-            </div>
+          ))}
+        </div>
+
+        {/* Stats section con fondo sólido */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
+            <div className="text-3xl font-bold text-primary mb-2">2</div>
+            <div className="text-sm text-muted-foreground">Empresas</div>
+          </div>
+          <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
+            <div className="text-3xl font-bold text-primary mb-2">12</div>
+            <div className="text-sm text-muted-foreground">Meses de Experiencia</div>
+          </div>
+          <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
+            <div className="text-3xl font-bold text-primary mb-2">15+</div>
+            <div className="text-sm text-muted-foreground">Habilidades Técnicas</div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
-export default CareerSection;
+export default ExperienceSection;

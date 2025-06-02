@@ -75,18 +75,40 @@ const FloatingNav = () => {
       <motion.a
         href="/"
         className={cn(
-          "fixed left-4 z-[60] select-none font-bold drop-shadow-lg transition-all duration-300",
-          "text-white text-2xl md:text-3xl",
-          "top-4 md:top-4",
-          "italic font-[cursive]",
-          isMobileMenuOpen ? "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto" : "hover:scale-105"
+          "fixed left-4 z-[60] select-none transition-all duration-300",
+          "text-primary font-bold tracking-tight",
+          "text-xl sm:text-2xl md:text-3xl lg:text-4xl",
+          "p-2 rounded-lg",
+          "top-3 sm:top-4",
+          "hover:scale-105 active:scale-95",
+          "bg-background/80 backdrop-blur-sm",
+          "shadow-lg hover:shadow-xl",
+          "border border-border/50",
+          "flex items-center justify-center",
+          "min-w-[40px] sm:min-w-[auto]",
+          isMobileMenuOpen ? "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto" : ""
         )}
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        animate={{ 
+          opacity: 1, 
+          y: 0,
+          scale: isMobileMenuOpen ? 0.8 : 1
+        }}
+        transition={{ 
+          duration: 0.5,
+          ease: "easeOut"
+        }}
+        whileHover={{ 
+          scale: 1.05,
+          transition: { duration: 0.2 }
+        }}
+        whileTap={{ 
+          scale: 0.95,
+          transition: { duration: 0.1 }
+        }}
       >
-        <span className="hidden md:inline">Portafolio</span>
-        <span className="md:hidden">P</span>
+        <span className="hidden sm:inline font-heading">Portafolio</span>
+        <span className="sm:hidden font-heading">P</span>
       </motion.a>
     </>
   );

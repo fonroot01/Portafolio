@@ -1,3 +1,38 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'CalSans';
+  src: url('/assets/fonts/CalSans-SemiBold.woff2') format('woff2'),
+       url('/assets/fonts/CalSans-SemiBold.woff') format('woff'),
+       url('/assets/fonts/CalSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -255,9 +290,11 @@
   display: inline-block;
   margin-left: 2px;
   color: inherit;
-  font-weight: bold;
+  font-weight: 800;
   animation: blink-cursor 1s steps(2, start) infinite;
-  font-size: 1em;
+  font-size: 1.1em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-text-stroke: 0.5px currentColor;
 }
 
 @keyframes blink-cursor {
@@ -274,11 +311,27 @@
     @apply border-border;
   }
 
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  p, span, div {
+    font-family: var(--font-sans);
   }
 }
 
@@ -497,4 +550,153 @@
   100% {
     stroke-dashoffset: 0;
   }
+}
+/* --- Estilos para el carrusel de tecnologías (efecto Marquee) --- */
+
+/* Contenedor principal - Define la "ventana" del carrusel */
+.tecnologias-carrusel-contenedor {
+  width: 100%;
+  overflow: hidden; /* Oculta lo que se sale del contenedor */
+  white-space: nowrap; /* Evita que las imágenes se envuelvan */
+  position: relative; /* Para la máscara de degradado */
+  padding: 15px 0; /* Espacio vertical para los ítems */
+  margin-top: 10px; /* Separación del título */
+  display: flex; /* Para alinear los ítems correctamente */
+  align-items: center; /* Centra verticalmente los ítems */
+  /* El color de fondo es el de tu sección, que Tailwind ya aplica. */
+  /* Si el degradado no funciona bien, ajusta el rgba de las máscaras a tu color de fondo. */
+}
+
+/* Contenedor interno - Donde se mueven los ítems */
+.tecnologias-carrusel-interno {
+  display: inline-flex; /* Hace que los ítems se alineen en una fila */
+  animation-iteration-count: infinite; /* Repetir infinitamente */
+  animation-timing-function: linear; /* Velocidad constante */
+  min-width: 100%; /* Asegura que el contenido sea lo suficientemente largo para el scroll */
+  /* Esto es crucial: asegura que haya suficiente contenido para el scroll infinito */
+  /* Podrías necesitar un min-width mayor si tus elementos son muy pocos o muy anchos */
+}
+
+/* Estilo para los ítems individuales (tus img tags) */
+/* Añadí un margen lateral para que no estén pegados */
+.tecnologia-item {
+  height: 30px; /* Ajusta este valor si los badges se ven muy grandes o pequeños */
+  margin: 0 10px; /* Espacio entre cada ítem. Ajusta si es necesario. */
+  flex-shrink: 0; /* Evita que los ítems se encojan en pantallas pequeñas */
+  display: inline-block; /* Asegura que cada imagen se trate como un bloque en línea para el flex */
+}
+
+/* --- Definición de las animaciones Keyframes --- */
+
+/* Animación para mover de derecha a izquierda */
+@keyframes scroll-derecha {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* Se desplaza la mitad del ancho del contenido duplicado */
+  }
+}
+
+/* Animación para mover de izquierda a derecha */
+/* Esta es la que usarías para las "Herramientas y Plataformas" */
+@keyframes scroll-izquierda {
+  0% {
+    transform: translateX(-50%); /* Empieza con la segunda copia visible al inicio de la ventana */
+  }
+  100% {
+    transform: translateX(0%); /* Termina cuando la primera copia vuelve a estar al inicio */
+  }
+}
+
+/* --- Aplicación de las animaciones a las clases --- */
+
+/* Velocidad para la sección de Lenguajes de Programación */
+.tecnologias-animation-derecha {
+  animation-name: scroll-derecha;
+  animation-duration: 30s; /* Ajusta esta duración para cambiar la velocidad (más segundos = más lento) */
+}
+
+/* Velocidad para la sección de Herramientas y Plataformas */
+.tecnologias-animation-izquierda {
+  animation-name: scroll-izquierda;
+  animation-duration: 35s; /* Ajusta esta duración para cambiar la velocidad */
+}
+
+/* --- Pausar animación al hover (usando Tailwind group-hover) --- */
+/* Esta regla funciona junto con la clase 'group' en el contenedor principal en tu HTML */
+.group:hover .tecnologias-carrusel-interno {
+  animation-play-state: paused;
+}
+
+/* --- Máscara de degradado (Opcional, pero muy recomendado para un efecto "bufet" suave) --- */
+/* Esto hace que parezca que las tecnologías "entran" y "salen" gradualmente de los bordes */
+.tecnologias-carrusel-contenedor::before,
+.tecnologias-carrusel-contenedor::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 10%; /* Ancho del degradado. Ajusta si lo quieres más o menos amplio. */
+  height: 100%;
+  pointer-events: none; /* Permite hacer clic a través de la máscara */
+  z-index: 10; /* Asegura que esté por encima de los ítems */
+}
+
+/* Degradado izquierdo (para el lado donde los ítems entran/salen) */
+.tecnologias-carrusel-contenedor::before {
+  left: 0;
+  /* El color rgba debe coincidir con el color de fondo de tu sección AboutMe */
+  /* Según tu tema "dark", el fondo es --background: 224 71% 4%;, que es un negro muy oscuro */
+  background: linear-gradient(to right, hsl(var(--background)) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Degradado derecho (para el lado opuesto) */
+.tecnologias-carrusel-contenedor::after {
+  right: 0;
+  /* El color rgba debe coincidir con el color de fondo de tu sección AboutMe */
+  background: linear-gradient(to left, hsl(var(--background)) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Si los degradados no se ven bien, prueba con colores fijos para el fondo oscuro */
+/*
+.tecnologias-carrusel-contenedor::before {
+  left: 0;
+  background: linear-gradient(to right, #0a0a0a 0%, rgba(0,0,0,0) 100%);
+}
+.tecnologias-carrusel-contenedor::after {
+  right: 0;
+  background: linear-gradient(to left, #0a0a0a 0%, rgba(0,0,0,0) 100%);
+}
+*/
+
+/* Estilos para textos rotativos */
+.rotating-text {
+  font-family: var(--font-heading);
+  font-weight: 800; /* Aumentado de 700 a 800 para más negrita */
+  font-size: 1.2em; /* Aumentado de 1.1em a 1.2em */
+  letter-spacing: 0.03em; /* Aumentado espaciado */
+  -webkit-text-stroke: 0.5px currentColor; /* Añadir contorno */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s ease;
+  color: hsl(var(--foreground));
+}
+
+.dark .rotating-text {
+  text-shadow: 
+    0 2px 4px rgba(255, 255, 255, 0.2),
+    0 4px 8px rgba(255, 255, 255, 0.1),
+    0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.rotating-text:hover {
+  transform: scale(1.05);
+  text-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 16px 32px rgba(0, 0, 0, 0.1);
 }

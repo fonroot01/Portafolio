@@ -25,10 +25,5 @@ export const routesConfig: any = {
       href: "#certificados",
       className: "text-gray-200 hover:text-primary"
     },
-    {
-      title: "Contribuciones",
-      href: "#contributions",
-      className: "text-gray-200 hover:text-primary"
-    }
   ]
 };

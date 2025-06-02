@@ -3,10 +3,10 @@ import {
   ArrowRight,
   BookMarked,
   Building,
-  Check,
-  ChevronDown,
+  Check,  ChevronDown,
   ChevronLeft,
   ChevronRight,
+  ChevronUp,
   CreditCard,
   File,
   FileText,
@@ -73,8 +73,7 @@ import {
   SiMicrosoftsqlserver,
 } from "react-icons/si";
 
-export const Icons = {
-  contact: Phone,
+export const Icons = {  contact: Phone,
   gitRepoIcon: BookMarked,
   gitOrgBuilding: Building,
   gitBranch: IoIosGitBranch,
@@ -82,6 +81,7 @@ export const Icons = {
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  chevronUp: ChevronUp,
   trash: Trash,
   post: FileText,
   page: File,

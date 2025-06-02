@@ -4,6 +4,7 @@ export const labsData = [  {
     description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
     date: "Domingo, 6 de abril de 2025",
     badges: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
+    teamType: "red", // Cambio a Red Team por ser herramienta ofensiva
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
         <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
@@ -82,7 +83,8 @@ exploit</pre>
     title: "Explotación de Vulnerabilidades en Windows con Armitage",
     description: "Explotación gráfica de vulnerabilidades y gestión visual de sesiones con Metasploit. Demostración del proceso completo de pentesting desde el escaneo hasta la post-explotación.",
     date: "Martes, 11 de marzo de 2025",
-    badges: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Red Team", "Post-Explotación", "Windows"],
+    badges: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación", "Windows"],
+    teamType: "red", // Corrección a Red Team por ser actividad ofensiva
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
         <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
@@ -166,6 +168,7 @@ sudo armitage</pre>
     description: "Evaluación de seguridad en redes Wi-Fi mediante ataques WPS/WPA2, captura de handshakes y técnicas de desautenticación y spoofing.",
     date: "Viernes, 29 de noviembre de 2024",
     badges: ["Pentesting Wi-Fi", "Análisis de Protocolos", "Ingeniería Social"],
+    teamType: "red", // Red Team por ser herramienta de ataque Wi-Fi
     details: `<div class="space-y-6">
       <p>Demostración del proceso de auditoría de seguridad en redes Wi-Fi utilizando la suite Aircrack-ng, facilitada por la herramienta Airogeddon. Este laboratorio tiene fines educativos y de concienciación sobre la seguridad de las redes inalámbricas.</p>
       
@@ -205,6 +208,7 @@ sudo bash airogeddon.sh</pre>
     description: "Demostración práctica de control de ancho de banda en redes LAN mediante técnicas de ARP spoofing y herramientas especializadas de gestión de tráfico.",
     date: "Jueves, 17 de octubre de 2024",
     badges: ["Análisis de Red", "Control de Tráfico", "ARP Spoofing"],
+    teamType: "blue", // Blue Team por ser herramienta de control y monitorización
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
         <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>

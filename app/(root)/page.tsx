@@ -5,12 +5,12 @@ import Link from "next/link";
 import { TypeAnimation } from 'react-type-animation';
 import { Icons } from "@/components/common/icons";
 import { Button, buttonVariants } from "@/components/ui/button";
-import ScrollButton from "@/components/common/scroll-button";
+import { ScrollButton } from "@/components/common/scroll-button";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
 import ProfileSection from "@/components/sections/ProfileSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import CareerSection from "@/components/sections/CareerSection";
-import ContactSection from "@/components/sections/ContactSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function IndexPage() {
   return (
@@ -69,8 +69,7 @@ export default function IndexPage() {
             >
               <span className="w-4 h-4 mr-2" role="img" aria-label="CV">🗂️</span> Descargar CV
             </a>
-          </div>
-          <div className="flex justify-center mt-2">
+          </div>          <div className="flex justify-center mt-8">
             <ScrollButton targetId="perfil" />
           </div>
         </div>
