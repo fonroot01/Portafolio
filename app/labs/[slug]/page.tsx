@@ -1,5 +1,3 @@
-'use client';
-
 import { notFound } from "next/navigation";
 import { labsData } from "../../../config/labs";
 import type { LabData } from "../../../config/labs.d";
