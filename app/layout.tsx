@@ -79,12 +79,12 @@ export const metadata = {
     icon: siteConfig.iconIco,
     shortcut: siteConfig.logoIcon,
     apple: siteConfig.logoIcon,
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  },  manifest: `${siteConfig.url}/site.webmanifest`,
   alternates: {
-    canonical: siteConfig.url,  },
+    canonical: siteConfig.url,
+  },
   verification: {
-    google: "hZ0s0SPBF2iVW3cNfUNMTIg1L2V19jW50fDXRyk3sBY",
+    google: "hZ0s0SPBF2iVW3cNfUNMTIg1L2V19jW50fDXRyk3sBY"
   },
   robots: {
     index: true,
@@ -95,9 +95,6 @@ export const metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
   },
 };
 
