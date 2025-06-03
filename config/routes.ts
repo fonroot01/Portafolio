@@ -2,27 +2,27 @@ export const routesConfig: any = {
   mainNav: [
     {
       title: "Sobre mí",
-      href: "#about",
+      href: "/#about",
       className: "text-gray-200 hover:text-primary"
     },
     {
       title: "Proyectos",
-      href: "#projects",
+      href: "/#projects",
       className: "text-gray-200 hover:text-primary"
     },
     {
       title: "Experiencia Laboral",
-      href: "#experiencialaboral",
+      href: "/#experiencialaboral",
       className: "text-gray-200 hover:text-primary"
     },
     {
       title: "Lab. De Ciberseguridad",
-      href: "#labs",
+      href: "/#labs",
       className: "text-gray-200 hover:text-primary"
     },
     {
       title: "Certificados",
-      href: "#certificados",
+      href: "/#certificados",
       className: "text-gray-200 hover:text-primary"
     },
   ]

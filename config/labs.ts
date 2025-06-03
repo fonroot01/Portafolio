@@ -7,8 +7,8 @@ export const labsData = [  {
     teamType: "red", // Cambio a Red Team por ser herramienta ofensiva
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
-        <p class="text-muted-foreground">
+        <h2 class="text-2xl font-semibold mb-4 text-foreground">Objetivo Principal</h2>
+        <p class="text-foreground">
           Demostrar el proceso de identificación y explotación de vulnerabilidades en un sistema Windows utilizando 
           la interfaz de línea de comandos (CLI) del Metasploit Framework. Este laboratorio tiene fines educativos 
           para comprender en profundidad el funcionamiento de Metasploit y la metodología de pentesting.
@@ -87,8 +87,8 @@ exploit</pre>
     teamType: "red", // Corrección a Red Team por ser actividad ofensiva
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
-        <p class="text-muted-foreground">
+        <h2 class="text-2xl font-semibold mb-4 text-foreground">Objetivo Principal</h2>
+        <p class="text-foreground">
           Demostrar el proceso de identificación y explotación de vulnerabilidades en un sistema Windows utilizando la interfaz gráfica de Armitage, 
           que facilita el uso del Metasploit Framework. Este laboratorio tiene fines educativos para comprender la metodología de pentesting y las 
           capacidades de las herramientas de explotación.
@@ -211,8 +211,8 @@ sudo bash airogeddon.sh</pre>
     teamType: "blue", // Blue Team por ser herramienta de control y monitorización
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
-        <p class="text-muted-foreground">
+        <h2 class="text-2xl font-semibold mb-4 text-foreground">Objetivo Principal</h2>
+        <p class="text-foreground">
           Demostrar cómo utilizar Evil Limiter para limitar el ancho de banda de otros dispositivos conectados a la misma red local (LAN).
           Este laboratorio tiene fines educativos y de concienciación sobre las posibles vulnerabilidades en redes compartidas.
         </p>
@@ -266,7 +266,8 @@ sudo python3 evil-limiter.py</pre>
           no autorizado puede tener consecuencias legales.
         </p>
       </div>
-    </div>`,    images: [
+    </div>`,
+    images: [
       "/lab1/evillimiter/1.png",
       "/lab1/evillimiter/2.png",
       "/lab1/evillimiter/3.png",
@@ -275,6 +276,86 @@ sudo python3 evil-limiter.py</pre>
     ],
     links: [
       { label: "Repositorio Evil Limiter", url: "https://github.com/jafarlihi/evil-limiter" }
+    ]
+  },
+  {
+    slug: "john-the-ripper",
+    title: "Auditoría de contraseñas en archivos .rar utilizando John the Ripper",
+    description: "Demostración práctica del uso de John the Ripper para evaluar la fortaleza de contraseñas en archivos .rar mediante un ataque de diccionario con wordlists filtradas.",
+    date: "Lunes, 3 de junio de 2025",
+    badges: ["Auditoría de Contraseñas", "Red Team", "Análisis Forense", "Seguridad Ofensiva"],
+    teamType: "red",
+    details: `<div class="space-y-6">
+      <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4 text-foreground">Objetivo Principal</h2>
+        <p class="text-foreground">
+          Aplicar un ataque de diccionario con John the Ripper para evaluar la fortaleza de la contraseña de un 
+          archivo .rar, utilizando un diccionario de contraseñas reales filtradas (rockyou.txt). Se busca demostrar 
+          cómo un atacante del tipo Red Team podría comprometer archivos protegidos mediante contraseñas débiles.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Herramientas Utilizadas</h3>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>🔓 <code>John the Ripper</code> con soporte para RAR5</li>
+          <li>📦 <code>rar2john</code> (utilidad incluida en John)</li>
+          <li>📚 <code>rockyou.txt</code> (diccionario con contraseñas reales filtradas)</li>
+          <li>🐧 <code>Kali Linux</code> o distribución compatible</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 mb-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Paso a Paso</h3>
+          <div class="bg-muted p-4 rounded-md overflow-x-auto">
+            <pre>
+# 1. Preparar el entorno
+sudo apt update
+sudo apt install john
+
+# 2. Descomprimir el diccionario
+sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
+
+# 3. Ubicarse en el directorio correcto
+cd ~/Escritorio
+
+# 4. Extraer el hash del archivo .rar
+sudo rar2john archivo.rar > archivo.hash
+
+# 5. Ejecutar John the Ripper con el diccionario
+john --wordlist=/usr/share/wordlists/rockyou.txt archivo.hash</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Resultados y Monitoreo</h3>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>📊 <code>john --status</code> - Ver estado actual del proceso</li>
+          <li>📍 <code>bash</code> - Verificar el progreso</li>
+          <li>🔍 <code>sudo john --show archivo.hash</code> - Mostrar contraseña si fue descubierta</li>
+        </ul>
+      </div>
+
+      <div class="bg-destructive/10 p-6 rounded-lg mt-8">
+        <h4 class="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso de Seguridad</h4>
+        <p class="text-muted-foreground">
+          Este laboratorio se ha realizado exclusivamente con fines educativos y de concienciación en ciberseguridad.
+          Todas las pruebas fueron efectuadas en entornos controlados y con archivos creados específicamente para este
+          propósito. Las técnicas mostradas deben utilizarse únicamente en sistemas y archivos propios o con autorización
+          explícita.
+        </p>
+      </div>
+    </div>`,    images: [
+      "/lab1/johntheripper/extraccion-hash.png",
+      "/lab1/johntheripper/ejecucion-john.png",
+      "/lab1/johntheripper/resultados-john.png",
+      "/lab1/johntheripper/verificacion-resultados.png"
+    ],
+    links: [
+      { label: "Documentación de John the Ripper", url: "https://www.openwall.com/john/doc/" },
+      { label: "GitHub de John the Ripper", url: "https://github.com/openwall/john" }
     ]
   }
 ];

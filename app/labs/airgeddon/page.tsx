@@ -18,7 +18,7 @@ export default function AirgeddonLab() {
       {/* Objetivo Principal */}
       <section className="mb-10">
         <h2 className="text-3xl font-bold mb-4">Objetivo Principal</h2>
-        <hr className="mb-6 border-t border-gray-700" />
+        <hr className="mb-6 border-t border-border" />
         {/* Cambiado a text-white */}
         <p className="text-justify text-white">
           Demostrar el proceso de auditoría de seguridad en redes Wi-Fi utilizando la suite (Aircrack-ng),
@@ -30,9 +30,9 @@ export default function AirgeddonLab() {
       {/* Descripción del Laboratorio */}
       <section className="mb-10">
         <h2 className="text-3xl font-bold mb-4">Descripción del Laboratorio</h2>
-        <hr className="mb-6 border-t border-gray-700" />
+        <hr className="mb-6 border-t border-border" />
         {/* Cambiado a text-white */}
-        <p className="text-justify text-white">
+        <p className="text-justify text-foreground mb-4">
           Este laboratorio guía a través de los pasos necesarios para realizar una auditoría básica de seguridad
           en una red Wi-Fi utilizando la herramienta (Airgeddon), que simplifica el uso de la potente suite (Aircrack-ng).
           El objetivo es ilustrar cómo se pueden identificar posibles vulnerabilidades en redes inalámbricas y la
@@ -76,7 +76,7 @@ export default function AirgeddonLab() {
         {/* Paso 2: Selección del Adaptador de Red Inalámbrico */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">2. Selección del Adaptador de Red Inalámbrico</h3>
-          <p className="text-justify text-white mb-4">
+          <p className="text-justify text-foreground mb-4">
             Para este laboratorio, se utilizó la tarjeta de red inalámbrica (TPLink WN722n V3). Se procede a seleccionar el adaptador de red inalámbrico (`wlan0`) que se utilizará para las operaciones de auditoría.
           </p>
           <div className="flex flex-col items-center">
@@ -87,8 +87,8 @@ export default function AirgeddonLab() {
               height={400}
               className="rounded-lg shadow-md mb-2"
             />
-            <p className="text-sm text-white text-left w-full max-w-[800px]">
-              Interfaz de Airgeddon solicitando al usuario que elija el adaptador de red inalámbrico, mostrando `wlan0` con chipset TP-Link TL-WN722N v2/v3, como la opción seleccionada.
+            <p className="text-sm text-foreground text-left w-full max-w-[800px]">
+              Interfaz de Airgeddon solicitando al usuario que elija el adaptador de red inalámbrico.
             </p>
           </div>
         </div>
@@ -145,19 +145,19 @@ export default function AirgeddonLab() {
         {/* Sub-Paso 5: Detección y Selección de Objetivos */}
           <div className="mb-8">
             <h3 className="text-2xl font-semibold mb-4">5. Detección y Selección de Objetivos</h3>
-            <p className="text-justify text-white mb-4">
+            <p className="text-justify text-foreground mb-4">
               Airgeddon escanea el entorno para mostrar las redes Wi-Fi disponibles. Se selecciona la red a auditar de la lista.
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/5.png" // Vuelve a usar 6.png temporalmente
+                src="/lab1/airgeddon/5.png"
                 alt="Exploración de objetivos WPS"
                 width={800}
                 height={450}
                 className="rounded-lg shadow-md mb-2"
               />
-              <p className="text-sm text-white text-left w-full max-w-[800px]">
-                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado, con &quot;JOSE LUIS&quot; como ejemplo de ESSID.
+              <p className="text-sm text-foreground text-left w-full max-w-[800px]">
+                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado.
               </p>
             </div>
           </div>
@@ -190,22 +190,22 @@ export default function AirgeddonLab() {
             Además de los ataques básicos, (Airgeddon) proporciona un conjunto de funcionalidades avanzadas:
           </p>
           <ul className="list-disc pl-6 space-y-1">
-            <li className="text-white">WEP Cracking: Obtención de claves WEP.</li>
-            <li className="text-white">WPA/WPA2 Cracking: Recuperación de contraseñas mediante fuerza bruta o diccionario.</li>
-            <li className="text-white">WPS PIN Attack: Explotación de vulnerabilidades WPS.</li>
-            <li className="text-white">Deauthentication Attack: Desconexión de clientes para forzar handshakes.</li>
-            <li className="text-white">Man-in-the-Middle (MITM) Attacks: Intercepción de comunicaciones.</li>
-            <li className="text-white">Evil Twin Attacks: Creación de puntos de acceso falsos.</li>
+            <li className="text-foreground">WEP Cracking: Obtención de claves WEP.</li>
+            <li className="text-foreground">WPA/WPA2 Cracking: Recuperación de contraseñas mediante fuerza bruta o diccionario.</li>
+            <li className="text-foreground">WPS PIN Attack: Explotación de vulnerabilidades WPS.</li>
+            <li className="text-foreground">Deauthentication Attack: Desconexión de clientes para forzar handshakes.</li>
+            <li className="text-foreground">Man-in-the-Middle (MITM) Attacks: Intercepción de comunicaciones.</li>
+            <li className="text-foreground">Evil Twin Attacks: Creación de puntos de acceso falsos.</li>
           </ul>
         </div>
 
         {/* Aviso Legal */}
         <div className="bg-destructive/10 p-6 rounded-lg mt-10">
           <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
-          <p className="text-justify text-white">
+          <p className="text-justify text-foreground">
             Las técnicas demostradas en este laboratorio deben utilizarse únicamente en redes para las que se
             tenga permiso explícito. El uso no autorizado de estas herramientas puede tener consecuencias legales.
-            Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi. (Para esta actividad se pidió permiso al propietario de la red).
+            Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi.
           </p>
         </div>
 

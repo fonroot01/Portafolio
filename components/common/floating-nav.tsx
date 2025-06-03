@@ -24,12 +24,11 @@ const FloatingNav = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
-
   const links = [
-    { href: "#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
-    { href: "#proyectos", label: "Proyectos", icon: <Icons.media className="w-4 h-4" /> },
-    { href: "#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
-    { href: "#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
+    { href: "/#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
+    { href: "/#proyectos", label: "Proyectos", icon: <Icons.media className="w-4 h-4" /> },
+    { href: "/#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
+    { href: "/#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
   ];
 
   return (
@@ -71,9 +70,8 @@ const FloatingNav = () => {
           </ul>
         </div>
       </motion.nav>
-      {/* Logo Portafolio - Responsive */}
-      <motion.a
-        href="/"
+      {/* Logo Portafolio - Responsive */}      <motion.a
+        href="/#"
         className={cn(
           "fixed left-4 z-[60] select-none transition-all duration-300",
           "text-primary font-bold tracking-tight",
