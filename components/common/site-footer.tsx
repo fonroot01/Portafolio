@@ -11,7 +11,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     <footer className={cn(className)}>
       <div className="container flex items-center justify-center mt-10 py-10 md:h-24">
         <div className="w-full text-center text-muted-foreground text-sm font-medium">
-          © 2025 Alfonso Mosquera A. Este portafolio fue auditado por mi curiosidad y protegido por mi firewall mental 🔒🔥
+          © 2025 Alfonso Mosquera. Detrás de cada línea, hay café, curiosidad y unas cuantas noches sin dormir.
         </div>
       </div>
     </footer>
