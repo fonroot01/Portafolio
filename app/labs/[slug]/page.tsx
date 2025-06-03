@@ -40,7 +40,7 @@ export default function LabDetailPage({ params }: { params: { slug: string } }) 
           <p>{lab.description}</p>
           {lab.details && <div dangerouslySetInnerHTML={{ __html: lab.details }} />}
         </div>
-        {lab.images?.length > 0 && (
+        {Array.isArray(lab.images) && lab.images.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {lab.images.map((img: string, i: number) => (
               <img key={i} src={img} alt={lab.title + " imagen " + (i + 1)} className="rounded shadow w-full object-cover" />
