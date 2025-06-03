@@ -73,8 +73,8 @@ export default function EvilLimiterLab() {
           <Image
             src="/lab1/evillimiter/1.png" /* Imagen 1.png */
             alt="Proceso de instalación de Evil Limiter con setup.py"
-            width={800}
-            height={450}
+            width={500}
+            height={320}
             className="rounded-lg shadow-md mb-2"
           />
           <p className="text-sm text-white text-center max-w-[800px]">
@@ -109,8 +109,8 @@ export default function EvilLimiterLab() {
             <Image
               src="/lab1/evillimiter/2.png" /* Imagen 2.png */
               alt="Navegación y edición de archivos de Evil Limiter"
-              width={800}
-              height={450}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-white text-center max-w-[800px]">
@@ -121,8 +121,8 @@ export default function EvilLimiterLab() {
             <Image
               src="/lab1/evillimiter/3.png" /* Se mantiene .png */
               alt="Ajuste del nivel de logging en scan.py"
-              width={800}
-              height={450}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-white text-center max-w-[800px]">
@@ -142,8 +142,8 @@ export default function EvilLimiterLab() {
             <Image
               src="/lab1/evillimiter/4.png" /* Imagen 4.png */
               alt="Pantalla de inicio de Evil Limiter"
-              width={800}
-              height={450}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-white text-center max-w-[800px]">
@@ -164,8 +164,8 @@ export default function EvilLimiterLab() {
             <Image
               src="/lab1/evillimiter/5.png" /* Imagen 5.png */
               alt="Listado de hosts y comandos de limitación/liberación de ancho de banda"
-              width={800}
-              height={450}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-white text-center max-w-[800px]">

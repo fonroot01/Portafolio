@@ -1,7 +1,8 @@
-export const labsData = [  {
+export const labsData = [
+  {
     slug: "metasploit",
     title: "Explotación de Vulnerabilidades en Windows con Metasploit",
-    description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
+    description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional. Permite identificar vulnerabilidades, explotarlas y realizar acciones de post-explotación en sistemas Windows de manera profesional y controlada.",
     date: "Domingo, 6 de abril de 2025",
     badges: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
     teamType: "red", // Cambio a Red Team por ser herramienta ofensiva
@@ -70,9 +71,7 @@ exploit</pre>
         </p>
       </div>
     </div>`,
-    images: [
-      "/lab1/metasploit/1.png"
-    ],
+    image: "/lab1/metasploit/1.png",
     links: [
       { label: "Documentación de Metasploit", url: "https://docs.metasploit.com/" },
       { label: "Metasploit Framework Github", url: "https://github.com/rapid7/metasploit-framework" }
@@ -163,7 +162,8 @@ sudo armitage</pre>
       { label: "Metasploit Framework", url: "https://github.com/rapid7/metasploit-framework" }
     ]
   },
-  {    slug: "airgeddon",
+  {
+    slug: "airgeddon",
     title: "Auditoría Wi-Fi con Airgeddon",
     description: "Evaluación de seguridad en redes Wi-Fi mediante ataques WPS/WPA2, captura de handshakes y técnicas de desautenticación y spoofing.",
     date: "Viernes, 29 de noviembre de 2024",
@@ -203,7 +203,8 @@ sudo bash airogeddon.sh</pre>
       { label: "Repositorio de Airgeddon", url: "https://github.com/v1s1d/Airogeddon" }
     ]
   },
-  {    slug: "evillimiter",
+  {
+    slug: "evillimiter",
     title: "Limitación de Ancho de Banda en la Red con Evil Limiter",
     description: "Demostración práctica de control de ancho de banda en redes LAN mediante técnicas de ARP spoofing y herramientas especializadas de gestión de tráfico.",
     date: "Jueves, 17 de octubre de 2024",
@@ -280,82 +281,45 @@ sudo python3 evil-limiter.py</pre>
   },
   {
     slug: "john-the-ripper",
-    title: "Auditoría de contraseñas en archivos .rar utilizando John the Ripper",
-    description: "Demostración práctica del uso de John the Ripper para evaluar la fortaleza de contraseñas en archivos .rar mediante un ataque de diccionario con wordlists filtradas.",
+    title: "Auditoría de Contraseñas con John the Ripper",
+    description: "Demostración práctica del uso de John the Ripper para evaluar la fortaleza de contraseñas en archivos .rar mediante ataques de diccionario.",
     date: "Lunes, 3 de junio de 2025",
-    badges: ["Auditoría de Contraseñas", "Red Team", "Análisis Forense", "Seguridad Ofensiva"],
+    badges: ["Red Team", "Auditoría", "Forense"],
     teamType: "red",
     details: `<div class="space-y-6">
       <div class="bg-card rounded-lg p-6 mb-8 shadow-lg">
-        <h2 class="text-2xl font-semibold mb-4 text-foreground">Objetivo Principal</h2>
+        <h2 class="text-2xl font-semibold mb-4">Objetivo Principal</h2>
         <p class="text-foreground">
-          Aplicar un ataque de diccionario con John the Ripper para evaluar la fortaleza de la contraseña de un 
-          archivo .rar, utilizando un diccionario de contraseñas reales filtradas (rockyou.txt). Se busca demostrar 
-          cómo un atacante del tipo Red Team podría comprometer archivos protegidos mediante contraseñas débiles.
+          Aplicar un ataque de diccionario con John the Ripper para evaluar la fortaleza de contraseñas
+          en archivos .rar, utilizando un diccionario de contraseñas reales filtradas (rockyou.txt).
+          Se busca demostrar cómo un atacante puede comprometer archivos protegidos mediante contraseñas débiles.
         </p>
       </div>
 
       <div class="mb-8">
         <h3 class="text-xl font-semibold mb-4">Herramientas Utilizadas</h3>
         <ul class="list-disc pl-6 space-y-2">
-          <li>🔓 <code>John the Ripper</code> con soporte para RAR5</li>
-          <li>📦 <code>rar2john</code> (utilidad incluida en John)</li>
-          <li>📚 <code>rockyou.txt</code> (diccionario con contraseñas reales filtradas)</li>
-          <li>🐧 <code>Kali Linux</code> o distribución compatible</li>
-        </ul>
-      </div>
-
-      <div class="grid grid-cols-1 gap-6 mb-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Paso a Paso</h3>
-          <div class="bg-muted p-4 rounded-md overflow-x-auto">
-            <pre>
-# 1. Preparar el entorno
-sudo apt update
-sudo apt install john
-
-# 2. Descomprimir el diccionario
-sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
-
-# 3. Ubicarse en el directorio correcto
-cd ~/Escritorio
-
-# 4. Extraer el hash del archivo .rar
-sudo rar2john archivo.rar > archivo.hash
-
-# 5. Ejecutar John the Ripper con el diccionario
-john --wordlist=/usr/share/wordlists/rockyou.txt archivo.hash</pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl font-semibold mb-4">Resultados y Monitoreo</h3>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>📊 <code>john --status</code> - Ver estado actual del proceso</li>
-          <li>📍 <code>bash</code> - Verificar el progreso</li>
-          <li>🔍 <code>sudo john --show archivo.hash</code> - Mostrar contraseña si fue descubierta</li>
+          <li><code>John the Ripper</code> con soporte para RAR5</li>
+          <li><code>rar2john</code> (utilidad incluida en John)</li>
+          <li><code>rockyou.txt</code> (diccionario con contraseñas filtradas)</li>
         </ul>
       </div>
 
       <div class="bg-destructive/10 p-6 rounded-lg mt-8">
-        <h4 class="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso de Seguridad</h4>
+        <h4 class="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal</h4>
         <p class="text-muted-foreground">
-          Este laboratorio se ha realizado exclusivamente con fines educativos y de concienciación en ciberseguridad.
-          Todas las pruebas fueron efectuadas en entornos controlados y con archivos creados específicamente para este
-          propósito. Las técnicas mostradas deben utilizarse únicamente en sistemas y archivos propios o con autorización
-          explícita.
+          Este laboratorio debe realizarse únicamente con fines educativos y en archivos propios.
+          El uso no autorizado de estas técnicas puede tener consecuencias legales.
         </p>
       </div>
-    </div>`,    images: [
-      "/lab1/johntheripper/extraccion-hash.png",
-      "/lab1/johntheripper/ejecucion-john.png",
-      "/lab1/johntheripper/resultados-john.png",
-      "/lab1/johntheripper/verificacion-resultados.png"
+    </div>`,
+    images: [
+      "/lab1/johntheripper/1.png",
+      "/lab1/johntheripper/2.png",
+      "/lab1/johntheripper/3.png"
     ],
     links: [
-      { label: "Documentación de John the Ripper", url: "https://www.openwall.com/john/doc/" },
-      { label: "GitHub de John the Ripper", url: "https://github.com/openwall/john" }
+      { label: "Documentación de John the Ripper", url: "https://www.openwall.com/john/doc/" }
     ]
   }
 ];

@@ -62,8 +62,8 @@ export default function ArmitageLab() {
           <Image
             src="/lab1/armitage/1.png"
             alt="Inicio de Armitage"
-            width={800}
-            height={450}
+            width={500}
+            height={320}
             className="rounded-lg shadow-md mx-auto"
           />
         </div>
@@ -80,15 +80,15 @@ export default function ArmitageLab() {
             <Image
               src="/lab1/armitage/2.png"
               alt="Agregar host objetivo"
-              width={400}
-              height={300}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md"
             />
             <Image
               src="/lab1/armitage/3.png"
               alt="Escaneo de servicios"
-              width={400}
-              height={300}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md"
             />
           </div>
@@ -104,8 +104,8 @@ export default function ArmitageLab() {
           <Image
             src="/lab1/armitage/4.png"
             alt="Análisis de vulnerabilidades"
-            width={800}
-            height={450}
+            width={500}
+            height={320}
             className="rounded-lg shadow-md mx-auto"
           />
         </div>
@@ -120,8 +120,8 @@ export default function ArmitageLab() {
           <Image
             src="/lab1/armitage/5.png"
             alt="Configuración del exploit"
-            width={800}
-            height={450}
+            width={500}
+            height={320}
             className="rounded-lg shadow-md mx-auto"
           />
         </div>
@@ -138,15 +138,15 @@ export default function ArmitageLab() {
             <Image
               src="/lab1/armitage/6.png"
               alt="Explotación exitosa"
-              width={400}
-              height={300}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md"
             />
             <Image
               src="/lab1/armitage/7.png"
               alt="Sesión de Meterpreter"
-              width={400}
-              height={300}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md"
             />
           </div>

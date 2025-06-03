@@ -4,8 +4,8 @@ import { labsData } from "@/config/labs";
 
 const CyberLabs = () => {
   const [showAllLabs, setShowAllLabs] = useState(false);
-  const visibleLabs = showAllLabs ? labsData : labsData.slice(0, 4);
-  const hasMoreLabs = labsData.length > 4;
+  const visibleLabs = showAllLabs ? labsData : labsData.slice(0, 3);
+  const hasMoreLabs = labsData.length > 3;
 
   return (
     <section className="space-y-8 container mx-auto py-8 px-4">
@@ -15,11 +15,11 @@ const CyberLabs = () => {
             key={lab.slug} 
             className="rounded-xl border border-border bg-muted/30 p-4 shadow-md flex flex-col items-center relative transition-all duration-300 hover:bg-muted/50 hover:scale-105"
           >
-            {/* Icono del laboratorio en círculo */}
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-3 shadow-sm">
+            {/* Icono del laboratorio */}
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
               <svg 
                 xmlns='http://www.w3.org/2000/svg' 
-                className='h-6 w-6 text-gray-700' 
+                className='h-6 w-6 text-primary' 
                 fill='none' 
                 viewBox='0 0 24 24' 
                 stroke='currentColor'
@@ -72,7 +72,7 @@ const CyberLabs = () => {
         <div className="flex justify-center mt-8">
           <button
             onClick={() => setShowAllLabs(!showAllLabs)}
-            className="bg-white hover:bg-gray-50 text-gray-900 px-6 py-3 rounded-xl shadow-sm min-w-[220px] flex items-center justify-center gap-2 text-sm font-medium transition-all duration-300"
+            className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-md flex items-center justify-center gap-2"
           >
             <span>{showAllLabs ? 'Ver menos' : 'Ver más laboratorios'}</span>
             <svg

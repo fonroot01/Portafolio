@@ -63,8 +63,8 @@ export default function AirgeddonLab() {
             <Image
               src="/lab1/airgeddon/1.png"
               alt="Inicio y requisitos de Airgeddon"
-              width={800}
-              height={450}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-white text-left w-full max-w-[800px]">
@@ -83,12 +83,12 @@ export default function AirgeddonLab() {
             <Image
               src="/lab1/airgeddon/2.png"
               alt="Selección del adaptador de red"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-foreground text-left w-full max-w-[800px]">
-              Interfaz de Airgeddon solicitando al usuario que elija el adaptador de red inalámbrico.
+              Adaptador de red usado en este laboratorio: `wlan0`. Airgeddon permite seleccionar el adaptador adecuado para las operaciones de auditoría.
             </p>
           </div>
         </div>
@@ -103,8 +103,8 @@ export default function AirgeddonLab() {
             <Image
               src="/lab1/airgeddon/3.png"
               alt="Activación del modo monitor"
-              width={800}
-              height={450}
+              width={500}
+              height={320}
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-white text-left w-full max-w-[800px]">
@@ -132,8 +132,8 @@ export default function AirgeddonLab() {
               <Image
                 src="/lab1/airgeddon/4.png"
                 alt="Menú de opciones de ataque WPA/WPA2"
-                width={800}
-                height={450}
+                width={500}
+                height={320}
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-white text-left w-full max-w-[800px]">
@@ -152,8 +152,8 @@ export default function AirgeddonLab() {
               <Image
                 src="/lab1/airgeddon/5.png"
                 alt="Exploración de objetivos WPS"
-                width={800}
-                height={450}
+                width={500}
+                height={320}
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-foreground text-left w-full max-w-[800px]">
@@ -172,7 +172,7 @@ export default function AirgeddonLab() {
               <Image
                 src="/lab1/airgeddon/6 - copia.png"
                 alt="Resultado de explotación WPS exitosa"
-                width={600}
+                width={500}
                 height={320}
                 className="rounded-lg shadow-md mb-2"
               />

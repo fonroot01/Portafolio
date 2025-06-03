@@ -48,44 +48,57 @@ const ProjectsSection = () => {
       image: "/portadasp/winpyx.png",
     },
   ];
-
   // Array de laboratorios para mejor manejo
   const labs = [
     {
       id: 1,
+      slug: "metasploit",
       title: "Explotación de Vulnerabilidades en Windows con Metasploit",
       description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
-      tags: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
+      badges: ["Post-Explotación", "Escalamiento de Privilegios", "CLI"],
       teamType: "red",
-      link: "/labs/metasploit",
-      slug: "metasploit"
+      date: "Domingo, 6 de abril de 2025",
+      link: "/labs/metasploit"
     },
     {
       id: 2,
+      slug: "armitage",
       title: "Explotación de Vulnerabilidades en Windows con Armitage",
       description: "Explotación gráfica de vulnerabilidades y gestión visual de sesiones con Metasploit. Demostración del proceso completo de pentesting desde el escaneo hasta la post-explotación.",
-      tags: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación", "Windows"],
-      teamType: "red", // Corregido a Red Team por ser una herramienta de pentesting ofensivo
-      link: "/labs/armitage",
-      slug: "armitage"
+      badges: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación"],
+      teamType: "red",
+      date: "Martes, 11 de marzo de 2025",
+      link: "/labs/armitage"
     },
     {
       id: 3,
+      slug: "airgeddon",
       title: "Auditoría Wi-Fi con Airgeddon",
       description: "Evaluación de seguridad en redes Wi-Fi mediante ataques WPS/WPA2, captura de handshakes y técnicas de desautenticación y spoofing.",
-      tags: ["Pentesting Wi-Fi", "Análisis de Protocolos", "Ingeniería Social"],
+      badges: ["Pentesting Wi-Fi", "Análisis de Protocolos", "Ingeniería Social"],
       teamType: "red",
-      link: "/labs/airgeddon",
-      slug: "airgeddon"
+      date: "Viernes, 29 de noviembre de 2024",
+      link: "/labs/airgeddon"
     },
     {
       id: 4,
+      slug: "evillimiter",
       title: "Limitación de Ancho de Banda en la Red con Evil Limiter",
       description: "Demostración práctica de control de ancho de banda en redes LAN mediante técnicas de ARP spoofing y herramientas especializadas de gestión de tráfico.",
-      tags: ["Análisis de Red", "Control de Tráfico", "ARP Spoofing"],
+      badges: ["Análisis de Red", "Control de Tráfico", "ARP Spoofing"],
       teamType: "blue",
-      link: "/labs/evillimiter",
-      slug: "evillimiter"
+      date: "Jueves, 17 de octubre de 2024",
+      link: "/labs/evillimiter"
+    },
+    {
+      id: 5,
+      slug: "john-the-ripper",
+      title: "Auditoría de Contraseñas con John the Ripper",
+      description: "Demostración práctica del uso de John the Ripper para evaluar la fortaleza de contraseñas en archivos .rar mediante ataques de diccionario.",
+      badges: ["Red Team", "Auditoría", "Forense"],
+      teamType: "red",
+      date: "Lunes, 3 de junio de 2025",
+      link: "/labs/john-the-ripper"
     }
   ];
 
@@ -151,6 +164,11 @@ const ProjectsSection = () => {
   // Lógica para mostrar solo los primeros 4 proyectos o todos
   const projectsToShow = showAllProjects ? projects : projects.slice(0, 4);
   const hasMoreProjects = projects.length > 4;
+
+  // Lógica para mostrar solo los primeros 4 laboratorios o todos
+  const [showAllLabs, setShowAllLabs] = useState(false);
+  const labsToShow = showAllLabs ? labs : labs.slice(0, 4);
+  const hasMoreLabs = labs.length > 4;
 
   return (
     <section className="min-h-screen">
@@ -309,7 +327,7 @@ const ProjectsSection = () => {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {labs.map((lab) => (
+            {labsToShow.map((lab) => (
               <div
                 key={lab.id}
                 className={`
@@ -360,12 +378,12 @@ const ProjectsSection = () => {
 
                 {/* Tags - Centrados */}
                 <div className="flex flex-wrap gap-2.5 mb-4 justify-center">
-                  {lab.tags.map((tag, index) => (
+                  {lab.badges.map((badge, index) => (
                     <span
                       key={index}
                       className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-semibold font-heading"
                     >
-                      {tag}
+                      {badge}
                     </span>
                   ))}
                 </div>
@@ -385,6 +403,51 @@ const ProjectsSection = () => {
               </div>
             ))}
           </div>
+
+          {hasMoreLabs && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAllLabs(!showAllLabs)}
+                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-md"
+              >
+                {showAllLabs ? (
+                  <>
+                    <span>Ver menos laboratorios</span>
+                    <svg
+                      className="w-4 h-4 ml-2 inline-block transform rotate-180"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span>Ver más laboratorios</span>
+                    <svg
+                      className="w-4 h-4 ml-2 inline-block"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
