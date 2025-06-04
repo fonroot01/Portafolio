@@ -55,7 +55,7 @@ const ProjectsSection = () => {
       slug: "metasploit",
       title: "Explotación de Vulnerabilidades en Windows con Metasploit",
       description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
-      badges: ["Post-Explotación", "Escalamiento de Privilegios", "CLI"],
+      badges: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
       teamType: "red",
       date: "Domingo, 6 de abril de 2025",
       link: "/labs/metasploit"
@@ -65,7 +65,7 @@ const ProjectsSection = () => {
       slug: "armitage",
       title: "Explotación de Vulnerabilidades en Windows con Armitage",
       description: "Explotación gráfica de vulnerabilidades y gestión visual de sesiones con Metasploit. Demostración del proceso completo de pentesting desde el escaneo hasta la post-explotación.",
-      badges: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación"],
+      badges: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación", "Windows"],
       teamType: "red",
       date: "Martes, 11 de marzo de 2025",
       link: "/labs/armitage"
