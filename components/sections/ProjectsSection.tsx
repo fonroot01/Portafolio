@@ -43,7 +43,7 @@ const ProjectsSection = () => {
       id: 5,
       title: "WinPyX",
       description: "Herramienta para limpiar archivos temporales, eliminar el historial de navegadores y vaciar la papelera de reciclaje en Windows.",
-      githubUrl: "https://github.com/fonroot01/USB-Doctor",
+      githubUrl: "https://github.com/fonroot01/WinPyX",
       tags: ["Python", "Tkinter"],
       image: "/portadasp/winpyx.png",
     },
