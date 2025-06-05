@@ -30,7 +30,7 @@ function InfiniteCarousel({ techs, direction = "right" }: { techs: { name: strin
             key={idx}
             className="flex flex-col items-center bg-background rounded-xl shadow-md border border-muted px-6 py-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg"
           >
-            <Image src={tech.src} alt={tech.name} width={60} height={60} className="mb-2" />
+            <Image src={tech.src} alt={tech.name} width={60} height={60} className={`mb-2 ${tech.name === "Kali Linux" ? "!w-[60px] !h-[60px] object-contain" : ""}`} />
             <span className="text-sm font-semibold text-center mt-1">{tech.name}</span>
           </div>
         ))}
