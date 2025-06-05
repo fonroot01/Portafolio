@@ -139,8 +139,8 @@ hashdump       # Extraer hashes de contraseñas</code></pre>
               <Image
                 src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.png"
                 alt="Captura de pantalla del sistema víctima"
-                width={500}
-                height={320}
+                width={900}
+                height={600}
                 className="rounded-lg shadow mb-4"
               />
             </div>
