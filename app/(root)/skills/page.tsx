@@ -1,9 +1,8 @@
 import { Metadata } from "next";
 
 import PageContainer from "@/components/common/page-container";
-import SkillsCard from "@/components/skills/skills-card";
+import TechStackCarousel from "@/components/skills/TechStackCarousel";
 import { pagesConfig } from "@/config/pages";
-import { skills } from "@/config/skills";
 
 export const metadata: Metadata = {
   title: pagesConfig.skills.metadata.title,
@@ -16,7 +15,8 @@ export default function SkillsPage() {
       title={pagesConfig.skills.title}
       description={pagesConfig.skills.description}
     >
-      <SkillsCard skills={skills} />
+      <TechStackCarousel />
+      {/* <SkillsCard skills={skills} /> */}
     </PageContainer>
   );
 }
