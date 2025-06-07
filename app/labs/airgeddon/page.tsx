@@ -88,7 +88,7 @@ export default function AirgeddonLab() {
               className="rounded-lg shadow-md mb-2"
             />
             <p className="text-sm text-foreground text-left w-full max-w-[800px]">
-              Adaptador de red usado en este laboratorio: `wlan0`. Airgeddon permite seleccionar el adaptador adecuado para las operaciones de auditoría.
+              Airgeddon permite seleccionar el adaptador adecuado para las operaciones de auditoría.
             </p>
           </div>
         </div>

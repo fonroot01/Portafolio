@@ -7,16 +7,17 @@ const techs1 = [
   { name: "Git", src: "/logos_svg_stacks/git.svg" },
   { name: "GitHub", src: "/logos_svg_stacks/github.svg" },
   { name: "Bash", src: "/logos_svg_stacks/bash.svg" },
-  { name: "Visual Studio Code", src: "/logos_svg_stacks/vscode.svg" },
+  { name: "Power Shell", src: "/logos_svg_stacks/powershell.svg" },
+  { name: "VS Code", src: "/logos_svg_stacks/vscode.svg" },
 ];
 
 const techs2 = [
   { name: "Linux", src: "/logos_svg_stacks/linux.svg" },
   { name: "Kali Linux", src: "/logos_svg_stacks/Kali, Linux.svg" },
-  { name: "SQL Server", src: "/logos_svg_stacks/sqlserver.svg" },
-  { name: "Windows Server", src: "/logos_svg_stacks/Windows Server.svg" },
-  { name: "VirtualBox", src: "/logos_svg_stacks/VirtualBox.svg" },
   { name: "VMware", src: "/logos_svg_stacks/Vmware.svg" },
+  { name: "Windows Server", src: "/logos_svg_stacks/Windows Server.svg" },
+  { name: "SQL Server", src: "/logos_svg_stacks/sqlserver.svg" },
+  { name: "Vercel", src: "/logos_svg_stacks/vercel.svg" },
 ];
 
 function InfiniteCarousel({ techs, direction = "right" }: { techs: { name: string; src: string }[]; direction?: "right" | "left" }) {

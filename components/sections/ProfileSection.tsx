@@ -156,7 +156,7 @@ const ProfileSection = () => {
                   
                   {/* Tag de categoría */}
                   <div className="mb-3">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
+                    <span className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-semibold font-heading">
                       {cert.category}
                     </span>
                   </div>

@@ -38,13 +38,6 @@ const ExperienceSection = () => {
         "Mantenimiento y seguimiento de plataformas (ERP, DMS).",
         "Brindar soporte técnico a usuarios internos y externos.",
       ],
-      skills: [
-        "3cx y telefonía IP",
-        "Microsoft 365",
-        "Active Directory",
-        "Soporte técnico",
-        "ERP y DMS",
-      ],
       color: "from-blue-500 to-cyan-500",
       icon: (
         <img 
@@ -78,13 +71,6 @@ const ExperienceSection = () => {
         "Tareas de supervisión de servidores en plantas y estaciones de servicio.",
         "Documentar procedimientos y sesiones básicas de capacitación a usuarios.",
         "Gestionar y actualizar inventario de equipos tecnológicos",
-
-      ],
-      skills: [
-        "Mesa de ayuda",
-        "Mantenimiento y reparaciones",
-        "Gestión de inventario",
-        "Capacitación a usuarios",
       ],
       color: "from-purple-500 to-pink-500",
       icon: (
@@ -117,11 +103,6 @@ const ExperienceSection = () => {
         "Apoyo del diligenciamiento de formularios para evaluación de casos.",
         "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales.",
         "Acompañamiento en la gestión de documentación y seguimiento de procesos.",
-      ],
-      skills: [
-        "Empatía y sensibilidad social",
-        "Manejo de la confidencialidad",
-        "Documentación de casos",
       ],
       color: "from-green-500 to-teal-500",
       icon: (
@@ -180,9 +161,6 @@ const ExperienceSection = () => {
             <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"💼"}</span> 
             Experiencia Laboral
           </h2>
-          <p className="text-base text-muted-foreground max-w-xl mx-auto">
-            Mi trayectoria profesional en tecnología y servicio social
-          </p>
           <div className="w-16 h-0.5 bg-primary/50 mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -288,30 +266,6 @@ const ExperienceSection = () => {
                             </span>
                           )}
                         </p>
-                      ))}
-                    </div>
-
-                    {/* Skills */}
-                    <div className="flex flex-wrap gap-2 relative z-10">
-                      {exp.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className={`
-                            px-4 py-2 rounded-full text-sm font-medium
-                            transition-all duration-300 ease-out
-                            cursor-pointer transform hover:scale-105
-                            ${activeCard === exp.id
-                              ? 'bg-primary/20 text-primary'
-                              : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                            }
-                          `}
-                          style={{ 
-                            animationDelay: `${skillIndex * 100}ms`,
-                            animation: activeCard === exp.id ? 'fadeInUp 0.5s ease-out forwards' : ''
-                          }}
-                        >
-                          {skill}
-                        </span>
                       ))}
                     </div>
                   </div>

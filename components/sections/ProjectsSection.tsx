@@ -247,7 +247,8 @@ const ProjectsSection = () => {
                   {project.title}
                 </span>
 
-                <p className="text-base text-muted-foreground text-center leading-relaxed mb-4 line-clamp-3 font-heading">
+                {/* Descripción del proyecto centrada y fuente más pequeña */}
+                <p className="mb-4 text-foreground/90 text-center font-medium transition-colors duration-300 text-sm sm:text-sm md:text-base">
                   {project.description}
                 </p>
 
@@ -372,7 +373,7 @@ const ProjectsSection = () => {
                 </h3>
 
                 {/* Descripción - Centrada */}
-                <p className="text-base text-muted-foreground leading-relaxed mb-5 text-center line-clamp-4 font-heading">
+                <p className="mb-4 text-foreground/90 text-center font-medium transition-colors duration-300 text-sm sm:text-sm md:text-base">
                   {lab.description}
                 </p>
 
