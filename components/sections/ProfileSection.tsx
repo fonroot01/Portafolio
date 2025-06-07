@@ -59,7 +59,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Juega a los seguro.png",
       issuer: "Google Career Certificates",
       year: "2024",
-      category: "Cruso de Ciberseguridad"
+      category: "Curso de Ciberseguridad"
     },
     {
       id: 6,
