@@ -26,7 +26,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Diplomado en ciberseguridad y desarrollo organizacional.png",
       issuer: "Universidad Americana",
       year: "2024",
-      category: "Diplomado"
+      category: "Diplomado opción de grado"
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Diplomado en ciberseguridad informatica.png",
       issuer: "Universidad Americana",
       year: "2024",
-      category: "Seguridad Informática"
+      category: "Diplomado electiva"
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Fundamentos de la ciberseguridad.png",
       issuer: "Google Career Certificates",
       year: "2024",
-      category: "Ciberseguridad"
+      category: "Curso de Ciberseguridad"
     },
     {
       id: 5,
@@ -59,7 +59,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Juega a los seguro.png",
       issuer: "Google Career Certificates",
       year: "2024",
-      category: "Gestión de Riesgos"
+      category: "Cruso de Ciberseguridad"
     },
     {
       id: 6,
@@ -70,7 +70,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/como resolver problemas con eficacia.png",
       issuer: "University of California, Irvine",
       year: "2024",
-      category: "Resolución de Problemas"
+      category: "Curso pensamiento crítico"
     }
   ]; // Aquí estaba el problema - faltaba cerrar el array
 
