@@ -62,7 +62,7 @@ export default function IndexPage() {
               <Icons.linkedin className="w-4 h-4 mr-2" /> LinkedIn
             </Link>
             <a
-              href="/CV.pdf"
+              href="/CV_IngAlfonsoMosquera.pdf"
               download
               className={buttonVariants({ size: "default" }) + " flex items-center justify-center w-full sm:w-44 px-4 py-2 bg-gray-200 text-black dark:bg-gray-800 dark:text-white"}
               aria-label="Descargar CV"
