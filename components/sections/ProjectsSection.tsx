@@ -279,32 +279,40 @@ const ProjectsSection = () => {
                     Ver proyecto
                   </a>                  {/* Botón de instalar solo para proyectos específicos */}
                   {(project.title === "GIP Pro" ||
-                  project.title === "Droid Specter" || 
-                    project.title === "GestorIP" || 
-                    project.title === "USB Doctor" || 
-                    project.title === "WinPyX") && (
-                    <a                      href={`/Instaladores/${project.title.toLowerCase().replace(/\s+/g, '')}_setup.exe`}
-                      className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
-                      download
-                    >
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        width="16" 
-                        height="16" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      >
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                      </svg>
-                      Instalar
-                    </a>
-                  )}
+  project.title === "Droid Specter" || 
+  project.title === "GestorIP" || 
+  project.title === "USB Doctor" || 
+  project.title === "WinPyX") && (
+  <a
+    // Modificar esta línea para que coincida con los nombres exactos de los archivos
+    href={`/Instaladores/${
+      project.title === "GIP Pro" ? "GIPPro_setup" :
+      project.title === "Droid Specter" ? "DroidSpecter_setup" :
+      project.title === "GestorIP" ? "GestorIP_setup" :
+      project.title === "USB Doctor" ? "USBDoctor_setup" :
+      "WinPyX_setup"
+    }.rar`}
+    className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
+    download
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="16" 
+      height="16" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+    Instalar
+  </a>
+)}
                 </div>
               </div>
             ))}
