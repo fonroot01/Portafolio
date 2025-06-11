@@ -276,7 +276,7 @@ const ProjectsSection = () => {
                     rel="noopener noreferrer"
                     className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors"
                   >
-                    Ver proyecto
+                    Ver en GitHub
                   </a>                  {/* Botón de instalar solo para proyectos específicos */}
                   {(project.title === "GIP Pro" ||
   project.title === "Droid Specter" || 
