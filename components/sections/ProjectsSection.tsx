@@ -9,30 +9,38 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "GestorIP",
-      description: "Aplicación para la gestión y control de direcciones IP",
-      githubUrl: "https://github.com/fonroot01/GestorIP",
-      tags: ["Python", "Tkinter", "Networking"],
-      image: "/portadasp/gestorip.png",
+      title: "GIP Pro",
+      description: "Permite gestionar de manera gráfica y sencilla la configuración de interfaces de red, servidores DNS y configuraciones de proxy.",
+      githubUrl: "https://github.com/fonroot01/GIP-Pro-V1.0",
+      tags: ["Python", "CSS", "Tkinter", "Networking", "Multiplataforma", "GUI"],
+      image: "/portadasp/gippro.png",
     },
     {
       id: 2,
       title: "Droid Specter",
-      description: "Herramienta grafica para análisis y auditoria en entornos Android.",
+      description: "Herramienta de análisis y auditoría de dispositivos Android, diseñada para facilitar tareas de reconocimiento, extracción de información y pruebas de seguridad en entornos móviles.",
       githubUrl: "https://github.com/fonroot01/Droid-Specter",
-      tags: ["Python", "Android", "Seguridad Móvil"],
+      tags: ["Python", "Tkinter", "Android", "Seguridad Móvil"],
       image: "/portadasp/droid.png",
     },
     {
       id: 3,
-      title: "InvenSoft",
-      description: "Sistema para la gestión de inventario de equipos TI.",
-      githubUrl: "https://github.com/fonroot01/Inventario-de-equipos-TI",
-      tags: ["Python", "Tkinter", "PyQt"],
-      image: "/portadasp/invensoft.png",
+      title: "GestorIP",
+      description: "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola.",
+      githubUrl: "https://github.com/fonroot01/GestorIP",
+      tags: ["Python", "Tkinter", "Network Tools"],
+      image: "/portadasp/gestorip.png",
     },
     {
       id: 4,
+      title: "InvenSoft",
+      description: "Sistema para la gestión de inventario de equipos TI.",
+      githubUrl: "https://github.com/fonroot01/Inventario-de-equipos-TI",
+      tags: ["Python", "Tkinter", "PyQt5", "SQL Server"],
+      image: "/portadasp/invensoft.png",
+    },
+    {
+      id: 5,
       title: "USB Doctor",
       description: "Utilidad grafica para reparar unidades USB afectadas.",
       githubUrl: "https://github.com/fonroot01/USB-Doctor",
@@ -40,7 +48,7 @@ const ProjectsSection = () => {
       image: "/portadasp/usbdoctor.png",
     },
     {
-      id: 5,
+      id: 6,
       title: "WinPyX",
       description: "Herramienta para limpiar archivos temporales, eliminar el historial de navegadores y vaciar la papelera de reciclaje en Windows.",
       githubUrl: "https://github.com/fonroot01/WinPyX",
@@ -261,16 +269,43 @@ const ProjectsSection = () => {
                       {tag}
                     </span>
                   ))}
+                </div>                <div className="mt-4 flex flex-row items-center justify-center space-x-4">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors"
+                  >
+                    Ver proyecto
+                  </a>                  {/* Botón de instalar solo para proyectos específicos */}
+                  {(project.title === "GIP Pro" ||
+                  project.title === "Droid Specter" || 
+                    project.title === "GestorIP" || 
+                    project.title === "USB Doctor" || 
+                    project.title === "WinPyX") && (
+                    <a                      href={`/Instaladores/${project.title.toLowerCase().replace(/\s+/g, '')}_setup.exe`}
+                      className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
+                      download
+                    >
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="16" 
+                        height="16" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      Instalar
+                    </a>
+                  )}
                 </div>
-
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors"
-                >
-                  Ver proyecto
-                </a>
               </div>
             ))}
           </div>
