@@ -6,8 +6,7 @@ import { Icons } from "../common/icons";
 export const ContactSection: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center" id="contacto">
-      <div className="w-full max-w-xl p-8 rounded-xl shadow-lg bg-white/90 dark:bg-gray-800/90">
-        <h2 className="text-4xl font-bold mb-6 text-center">
+      <div className="w-full max-w-xl p-8 rounded-xl shadow-lg bg-white/90 dark:bg-gray-800/90">        <h2 className="font-heading text-4xl tracking-tight text-center text-foreground mb-6">
           <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"📧"}</span>
           Contacta conmigo
         </h2>

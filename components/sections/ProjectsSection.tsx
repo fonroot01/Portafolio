@@ -4,6 +4,7 @@ import Link from "next/link";
 const ProjectsSection = () => {
   // Estados para controlar la visibilidad de los proyectos
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showDemoModal, setShowDemoModal] = useState(false);
 
   // Array de proyectos para mejor manejo
   const projects = [
@@ -34,7 +35,7 @@ const ProjectsSection = () => {
     {
       id: 4,
       title: "InvenSoft",
-      description: "Sistema para la gestión de inventario de equipos TI.",
+      description: "Sistema de inventario de equipos TI. Permite registrar, buscar y gestionar equipos de forma eficiente.",
       githubUrl: "https://github.com/fonroot01/Inventario-de-equipos-TI",
       tags: ["Python", "Tkinter", "PyQt5", "SQL Server"],
       image: "/portadasp/invensoft.png",
@@ -277,7 +278,28 @@ const ProjectsSection = () => {
                     className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors"
                   >
                     Ver en GitHub
-                  </a>                  {/* Botón de instalar solo para proyectos específicos */}
+                  </a>                  {project.title === "InvenSoft" && (
+                    <button
+                      onClick={() => setShowDemoModal(true)}
+                      className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                      </svg>
+                      Ver Demo
+                    </button>
+                  )}
+                  {/* Botón de instalar solo para proyectos específicos */}
                   {(project.title === "GIP Pro" ||
   project.title === "Droid Specter" || 
   project.title === "GestorIP" || 
@@ -494,6 +516,47 @@ const ProjectsSection = () => {
           )}
         </div>
       </div>
+
+      {/* Modal de demostración */}
+      {showDemoModal && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowDemoModal(false)}
+        >
+          <div 
+            className="relative bg-background rounded-lg shadow-xl max-w-4xl w-full animate-fadeIn"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowDemoModal(false)}
+              className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full p-2 hover:bg-primary/90 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            
+            <div className="aspect-video relative overflow-hidden rounded-lg">
+              <img
+                src="/gif_invensoft.gif"
+                alt="InvenSoft Demo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
