@@ -19,7 +19,7 @@ const ProjectsSection = () => {
     {
       id: 2,
       title: "Droid Specter",
-      description: "Herramienta para reconocimiento, extracción de información y pruebas de seguridad en entornos móviles.",
+      description: "Herramienta que permite interactuar con dispositivos Android de forma remota, ideal para pruebas de seguridad móvil.",
       githubUrl: "https://github.com/fonroot01/Droid-Specter",
       tags: ["Python", "Tkinter", "Android", "Seguridad Móvil"],
       image: "/portadasp/droid.png",
@@ -43,7 +43,7 @@ const ProjectsSection = () => {
     {
       id: 5,
       title: "USB Doctor",
-      description: "Utilidad grafica para reparar unidades USB afectadas.",
+      description: "Utilidad grafica para reparar unidades USB afectadas por virus, eliminando archivos sospechosos y restaurando la funcionalidad de la unidad.",
       githubUrl: "https://github.com/fonroot01/USB-Doctor",
       tags: ["Python", "Tkinter"],
       image: "/portadasp/usbdoctor.png",
@@ -431,14 +431,12 @@ const ProjectsSection = () => {
                   <div className="w-10 h-10 rounded-full bg-muted/50 flex-shrink-0 flex items-center justify-center">
                     <ShieldIcon />
                   </div>
-                </div>
-
-                {/* Título de la tarjeta - Centrado de forma independiente */}                <h3 className="text-xl font-bold text-foreground leading-tight text-center mb-3 font-heading">
+                </div>                {/* Título de la tarjeta - Centrado de forma independiente */}                
+                <h3 className="text-xl font-bold text-foreground dark:text-foreground light:text-foreground retro:text-foreground paper:text-foreground leading-tight text-center mb-3 font-heading">
                   {lab.title}
                 </h3>
 
-                {/* Descripción - Centrada */}
-                <p className="mb-4 text-foreground/90 text-center font-medium transition-colors duration-300 text-sm sm:text-sm md:text-base">
+                {/* Descripción - Centrada */}                <p className="mb-4 text-foreground text-center font-medium transition-colors duration-300 text-sm sm:text-sm md:text-base">
                   {lab.description}
                 </p>
 

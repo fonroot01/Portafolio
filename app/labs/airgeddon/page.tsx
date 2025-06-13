@@ -19,11 +19,11 @@ export default function AirgeddonLab() {
       <section className="mb-10">
         <h2 className="text-3xl font-bold mb-4">Objetivo Principal</h2>
         <hr className="mb-6 border-t border-border" />
-        {/* Cambiado a text-white */}
-        <p className="text-justify text-white">
+        <p className="text-justify text-foreground">
           Demostrar el proceso de auditoría de seguridad en redes Wi-Fi utilizando la suite (Aircrack-ng),
           facilitada por la herramienta (Airgeddon). Este laboratorio tiene fines educativos y de concienciación
-          sobre la seguridad de las redes inalámbricas.
+          sobre la importancia de asegurar adecuadamente las redes inalámbricas. Es fundamental resaltar que las técnicas
+          demostradas en este laboratorio se realizan con el permiso explícito del propietario de la red auditada.
         </p>
       </section>
 
@@ -47,7 +47,7 @@ export default function AirgeddonLab() {
         {/* Paso 1: Instalación y Ejecución de Airgeddon */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">1. Instalación y Ejecución de Airgeddon</h3>
-          <p className="text-justify text-white mb-4">
+          <p className="text-justify text-foreground mb-4">
             Los siguientes comandos permiten clonar el repositorio de Airgeddon, acceder a su directorio y ejecutar el script principal de la herramienta.
           </p>
           <div className="bg-muted p-4 rounded-md mb-4 overflow-x-auto">
@@ -67,7 +67,7 @@ export default function AirgeddonLab() {
               height={320}
               className="rounded-lg shadow-md mb-2"
             />
-            <p className="text-sm text-white text-left w-full max-w-[800px]">
+            <p className="text-sm text-foreground text-left w-full max-w-[800px]">
               La imagen muestra el inicio de Airgeddon, verificando los requisitos del sistema y el estado de la conexión a internet.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function AirgeddonLab() {
         {/* Paso 3: Activación del Modo Monitor */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">3. Activación del Modo Monitor</h3>
-          <p className="text-justify text-white mb-4">
+          <p className="text-justify text-foreground mb-4">
             Es fundamental activar el modo monitor en el adaptador seleccionado para poder capturar los paquetes de la red inalámbrica. Airgeddon facilita esta tarea.
           </p>
           <div className="flex flex-col items-center">
@@ -107,25 +107,16 @@ export default function AirgeddonLab() {
               height={320}
               className="rounded-lg shadow-md mb-2"
             />
-            <p className="text-sm text-white text-left w-full max-w-[800px]">
-              La herramienta informa que el adaptador `wlan0` se ha puesto con éxito en modo monitor (`wlan0mon`).
+            <p className="text-sm text-foreground text-left w-full max-w-[800px]">
+              El modo monitor permite capturar todo el tráfico inalámbrico, incluso los paquetes que no están destinados a nuestra interfaz.
             </p>
           </div>
         </div>
 
-        {/* NUEVA SECCIÓN: Auditoría de Redes */}
+        {/* Sub-Paso 4: Menú de Opciones de Ataque */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">Auditoría de Redes Wi-Fi</h2>
-          <hr className="mb-6 border-t border-gray-700" />
-          <p className="text-justify text-white mb-6">
-            Una vez que el entorno está configurado, el siguiente paso es identificar las redes Wi-Fi disponibles
-            y analizar posibles vulnerabilidades para llevar a cabo un ataque.
-          </p>
-
-        {/* Sub-Paso 4: Menú de Opciones de Ataque WPA/WPA2 */}
-          <div className="mb-8">
             <h3 className="text-2xl font-semibold mb-4">4. Menú de Opciones de Ataque WPA/WPA2</h3>
-            <p className="text-justify text-white mb-4">
+            <p className="text-justify text-foreground mb-4">
               Airgeddon presenta un menú con diversas opciones para realizar ataques contra redes WPA/WPA2, incluyendo ataques de diccionario y de PIN WPS.
             </p>
             <div className="flex flex-col items-center">
@@ -136,7 +127,7 @@ export default function AirgeddonLab() {
                 height={320}
                 className="rounded-lg shadow-md mb-2"
               />
-              <p className="text-sm text-white text-left w-full max-w-[800px]">
+              <p className="text-sm text-foreground text-left w-full max-w-[800px]">
                 Menú de Airgeddon ofreciendo múltiples métodos de ataque para redes WPA/WPA2, con opciones como &quot;WPS attacks menu&quot; y &quot;Handshake/PMKID tools menu&quot;.
               </p>
             </div>
@@ -157,7 +148,7 @@ export default function AirgeddonLab() {
                 className="rounded-lg shadow-md mb-2"
               />
               <p className="text-sm text-foreground text-left w-full max-w-[800px]">
-                Interfaz de Airgeddon mostrando el escaneo de redes Wi-Fi y la identificación de objetivos con WPS habilitado.
+                La herramienta muestra detalles como el BSSID, canal, potencia de señal y tipo de cifrado de cada red detectada.
               </p>
             </div>
           </div>
@@ -165,7 +156,7 @@ export default function AirgeddonLab() {
           {/* Sub-Paso 6: Ejecución Exitosa del Ataque WPS */}
           <div>
             <h3 className="text-2xl font-semibold mb-4">6. Ejecución Exitosa del Ataque WPS</h3>
-            <p className="text-justify text-white mb-4">
+            <p className="text-justify text-foreground mb-4">
               Se observa la ejecución exitosa del ataque WPS, donde Airgeddon ha logrado descifrar el PIN y ha mostrado la clave WPA/WPA2 de la red.
             </p>
             <div className="flex flex-col items-center">
@@ -176,17 +167,16 @@ export default function AirgeddonLab() {
                 height={320}
                 className="rounded-lg shadow-md mb-2"
               />
-              <p className="text-sm text-white text-left w-full max-w-[600px]">
+              <p className="text-sm text-foreground text-left w-full max-w-[600px]">
                 Confirmación visual del PIN WPS (&apos;24028554&apos;) y la clave WPA/WPA2 de la red (&apos;Nosemeolvida?$ &apos;), obtenidos exitosamente mediante el ataque.
               </p>
             </div>
           </div>
-        </div>
 
         {/* Funcionalidades Adicionales */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">7. Funcionalidades Adicionales</h3>
-          <p className="text-justify text-white mb-4">
+          <p className="text-justify text-foreground mb-4">
             Además de los ataques básicos, (Airgeddon) proporciona un conjunto de funcionalidades avanzadas:
           </p>
           <ul className="list-disc pl-6 space-y-1">

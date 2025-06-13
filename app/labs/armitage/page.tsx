@@ -42,7 +42,6 @@ export default function ArmitageLab() {
 
       {/* Pasos */}
       <section className="space-y-16">
-
         {/* Paso 1 */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">1. Inicio de Armitage</h3>
@@ -71,8 +70,7 @@ export default function ArmitageLab() {
         {/* Paso 2 */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">2. Escaneo de Objetivos</h3>
-          {/* Cambiado a text-white */}
-          <p className="text-justify text-white mb-4">
+          <p className="text-justify text-foreground mb-4">
             Una vez iniciado Armitage, el siguiente paso es agregar y escanear los hosts objetivo para
             identificar servicios y posibles vulnerabilidades.
           </p>
@@ -129,57 +127,38 @@ export default function ArmitageLab() {
         {/* Paso 5 */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">5. Explotación y Acceso</h3>
-          {/* Cambiado a text-white */}
-          <p className="text-justify text-white mb-4">
+          <p className="text-justify text-foreground mb-4">
             Una vez configurado el exploit, se procede a la explotación. Si es exitosa, se obtiene una sesión
             de Meterpreter que permite interactuar con el sistema comprometido.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <Image
               src="/lab1/armitage/6.png"
-              alt="Explotación exitosa"
+              alt="Sesión de Meterpreter"
               width={500}
               height={320}
               className="rounded-lg shadow-md"
             />
             <Image
               src="/lab1/armitage/7.png"
-              alt="Sesión de Meterpreter"
+              alt="Post-explotación"
               width={500}
               height={320}
               className="rounded-lg shadow-md"
             />
           </div>
         </div>
-
-        {/* Comandos */}
-        <div>
-          <h3 className="text-2xl font-semibold mb-4">Comandos Útiles de Meterpreter</h3>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm text-foreground">
-              <code>
-                sysinfo      # Obtener información del sistema{'\n'}
-                getuid      # Obtener el usuario actual{'\n'}
-                ps          # Listar procesos{'\n'}
-                screenshot  # Capturar pantalla{'\n'}
-                hashdump    # Extraer hashes de contraseñas{'\n'}
-                shell       # Obtener shell del sistema
-              </code>
-            </pre>
-          </div>
-        </div>
-
-        {/* Aviso */}
-        <div className="bg-destructive/10 p-6 rounded-lg mt-8">
-          <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
-          <p className="text-foreground">
-            Este laboratorio debe realizarse únicamente en un entorno controlado y con permiso explícito.
-            La explotación no autorizada de sistemas puede tener graves consecuencias legales. El objetivo
-            es puramente educativo para comprender las vulnerabilidades y mejorar las defensas de los sistemas.
-          </p>
-        </div>
-
       </section>
+
+      {/* Aviso Legal */}
+      <div className="bg-destructive/10 p-6 rounded-lg mt-10">
+        <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
+        <p className="text-justify text-foreground">
+          Las técnicas demostradas en este laboratorio deben utilizarse únicamente en sistemas para los que se
+          tenga permiso explícito. El uso no autorizado de herramientas de explotación puede tener consecuencias
+          legales graves. Este laboratorio tiene fines educativos y de concienciación sobre ciberseguridad.
+        </p>
+      </div>
     </div>
   );
 }
