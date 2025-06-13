@@ -110,10 +110,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable,
           fontHeading.variable
         )}
-      >
-        <ThemeProvider
+      >        <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           themes={[
             "light",
