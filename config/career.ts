@@ -17,11 +17,11 @@ export interface CareerExperienceInterface {
 export const careerExperiences: CareerExperienceInterface[] = [
   {
     id: "icbf-hogar-gestor",
-    position: "Asistente - Hogar Gestor",
+    position: "Asistente de Hogar Gestor",
     company: "ICBF",
     location: "Florencia, Caquetá, Colombia",
-    startDate: new Date("2017-11-01"),
-    endDate: new Date("2017-12-31"),
+    startDate: new Date("2017-04-18"),
+    endDate: new Date("2017-04-30"),
     description: [
       "Apoyo en el diligenciamiento de formularios para evaluación de casos.",
       "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales.",

@@ -94,10 +94,10 @@ const ExperienceSection = () => {
     },
     {
       id: 3,
-      role: "Asistente - Hogar Gestor",
+      role: "Asistente de Hogar Gestor",
       company: "ICBF (Instituto Colombiano de Bienestar Familiar)",
-      dates: "nov. 2017 - dic. 2017",
-      duration: "2 meses",
+      dates: "abr. 2017 - abr. 2017",
+      duration: "1 meses",
       description: [
         "Como asistente en el programa Hogar Gestor del ICBF, mis responsabilidades incluyeron:",
         "Apoyo del diligenciamiento de formularios para evaluación de casos.",
