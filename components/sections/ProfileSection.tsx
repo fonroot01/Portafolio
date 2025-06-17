@@ -34,7 +34,7 @@ const ProfileSection = () => {
       alt: "Americana",      
       title: "Diplomado en seguridad informática",
       pdfPath: "/Diplomado_en_seguridad_informatica.pdf",
-      previewImage: "/imagenes diplomados/Diplomado_en_seguridad_informatica-1.png",
+      previewImage: "/imagenes diplomados/Diplomado_en_seguridad_informatica.png",
       issuer: "Universidad Americana",
       year: "2024",
       category: "Diplomado electiva"
