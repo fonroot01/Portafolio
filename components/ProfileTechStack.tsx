@@ -8,16 +8,16 @@ const techs1 = [
   { name: "GitHub", src: "/logos_svg_stacks/github.svg" },
   { name: "Bash", src: "/logos_svg_stacks/bash.svg" },
   { name: "Power Shell", src: "/logos_svg_stacks/powershell.svg" },
-  { name: "VS Code", src: "/logos_svg_stacks/vscode.svg" },
+  { name: "Node.js", src: "/logos_svg_stacks/nodejs.svg" },
 ];
 
 const techs2 = [
   { name: "Linux", src: "/logos_svg_stacks/linux.svg" },
   { name: "Kali Linux", src: "/logos_svg_stacks/Kali, Linux.svg" },
-  { name: "VMware", src: "/logos_svg_stacks/Vmware.svg" },
   { name: "Windows Server", src: "/logos_svg_stacks/Windows Server.svg" },
   { name: "SQL Server", src: "/logos_svg_stacks/sqlserver.svg" },
   { name: "Vercel", src: "/logos_svg_stacks/vercel.svg" },
+  { name: "Next.js", src: "/logos_svg_stacks/nextjs.svg" },
 ];
 
 function InfiniteCarousel({ techs, direction = "right" }: { techs: { name: string; src: string }[]; direction?: "right" | "left" }) {
