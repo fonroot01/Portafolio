@@ -41,6 +41,17 @@ const ProfileSection = () => {
     },
     {
       id: 4,
+      logo: "", 
+      alt: "Polisura",      
+      title: "Diplomado en Docencia Universitaria",
+      pdfPath: "/Certificado_en_Docencia_Universitaria.pdf",
+      previewImage: "/imagenes diplomados/Diplomado Docencia Universitaria.png",
+      issuer: "Politécnico de Suramérica",
+      year: "2025",
+      category: "Diplomado Docencia Universitaria"
+    },
+    {
+      id: 5,
       logo: "/googlelogo.png",
       alt: "Google",
       title: "Fundamentos de la ciberseguridad",
@@ -51,7 +62,7 @@ const ProfileSection = () => {
       category: "Curso de Ciberseguridad"
     },
     {
-      id: 5,
+      id: 6,
       logo: "/googlelogo.png",
       alt: "Google", 
       title: "Juega a los Seguro, Gestiona los riesgos de seguridad",
@@ -62,7 +73,7 @@ const ProfileSection = () => {
       category: "Curso de Ciberseguridad"
     },
     {
-      id: 6,
+      id: 7,
       logo: "/logouci.png",
       alt: "UCI",
       title: "Cómo resolver problemas y tomar decisiones con eficacia",
