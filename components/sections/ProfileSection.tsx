@@ -21,23 +21,23 @@ const ProfileSection = () => {
       id: 2,
       logo: "/logoamericana.png",
       alt: "Americana",
-      title: "Diplomado en ciberseguridad y desarrollo organizacional",
+      title: "Diplomado en Ciberseguridad y Desarrollo Organizacional",
       pdfPath: "/Certificado_del_diplomado_en_ciberseguridad_y_desarrollo_organizacional_.pdf",
       previewImage: "/imagenes diplomados/Diplomado en ciberseguridad y desarrollo organizacional.png",
       issuer: "Universidad Americana",
       year: "2024",
-      category: "Diplomado opción de grado"
+      category: "Diplomado Opción de Grado"
     },
      {
       id: 3,
       logo: "/logoamericana.png", 
       alt: "Americana",      
-      title: "Diplomado en seguridad informática",
+      title: "Diplomado en Seguridad Informática",
       pdfPath: "/Diplomado_en_seguridad_informatica.pdf",
       previewImage: "/imagenes diplomados/Diplomado_en_seguridad_informatica.png",
       issuer: "Universidad Americana",
       year: "2024",
-      category: "Diplomado electiva"
+      category: "Diplomado Electiva Profesional"
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ const ProfileSection = () => {
       id: 6,
       logo: "/googlelogo.png",
       alt: "Google",
-      title: "Fundamentos de la ciberseguridad",
+      title: "Fundamentos de la Ciberseguridad",
       pdfPath: "/Fundamentos de la ciberseguridad.pdf",
       previewImage: "/imagenes diplomados/Fundamentos de la ciberseguridad.png",
       issuer: "Google Career Certificates",
@@ -87,7 +87,7 @@ const ProfileSection = () => {
       id: 8,
       logo: "/logouci.png",
       alt: "UCI",
-      title: "Cómo resolver problemas y tomar decisiones con eficacia",
+      title: "Cómo Resolver Problemas y Tomar Decisiones con Eficacia",
       pdfPath: "/Cómo resolver problemas y tomar decisiones con eficacia.pdf",
       previewImage: "/imagenes diplomados/como resolver problemas con eficacia.png",
       issuer: "University of California, Irvine",
