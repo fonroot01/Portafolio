@@ -28,7 +28,7 @@ const ProfileSection = () => {
       year: "2024",
       category: "Diplomado opción de grado"
     },
-    {
+     {
       id: 3,
       logo: "/logoamericana.png", 
       alt: "Americana",      
@@ -50,8 +50,19 @@ const ProfileSection = () => {
       year: "2025",
       category: "Diplomado Docencia Universitaria"
     },
-    {
+     {
       id: 5,
+      logo: "", 
+      alt: "Cisco Networking Academy",      
+      title: "Introducción a la Ciberseguridad",
+      pdfPath: "/Introducción a la Ciberseguridad.pdf",
+      previewImage: "/imagenes diplomados/Introducción a la Ciberseguridad - Cisco.png",
+      issuer: "Cirsco Networking Academy",
+      year: "2025",
+      category: "Curso de Ciberseguridad de Cisco"
+    },
+    {
+      id: 6,
       logo: "/googlelogo.png",
       alt: "Google",
       title: "Fundamentos de la ciberseguridad",
@@ -59,10 +70,10 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Fundamentos de la ciberseguridad.png",
       issuer: "Google Career Certificates",
       year: "2024",
-      category: "Curso de Ciberseguridad"
+      category: "Curso de Ciberseguridad de Google"
     },
     {
-      id: 6,
+      id: 7,
       logo: "/googlelogo.png",
       alt: "Google", 
       title: "Juega a los Seguro, Gestiona los riesgos de seguridad",
@@ -70,10 +81,10 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/Juega a los seguro.png",
       issuer: "Google Career Certificates",
       year: "2024",
-      category: "Curso de Ciberseguridad"
+      category: "Curso de Ciberseguridad de Google"
     },
     {
-      id: 7,
+      id: 8,
       logo: "/logouci.png",
       alt: "UCI",
       title: "Cómo resolver problemas y tomar decisiones con eficacia",
@@ -81,7 +92,7 @@ const ProfileSection = () => {
       previewImage: "/imagenes diplomados/como resolver problemas con eficacia.png",
       issuer: "University of California, Irvine",
       year: "2024",
-      category: "Curso pensamiento crítico"
+      category: "Curso de UCI"
     }
   ]; // Aquí estaba el problema - faltaba cerrar el array
 
