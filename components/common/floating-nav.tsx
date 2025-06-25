@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/common/icons";
 import { BiSolidUser } from "react-icons/bi";
 import { HiBriefcase } from "react-icons/hi";
+import { MdMiscellaneousServices, MdOutlineWorkspaces } from "react-icons/md";
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -27,10 +28,10 @@ const FloatingNav = () => {
   
   const links = [
     { href: "/#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <Icons.media className="w-4 h-4" /> },
+    { href: "/#proyectos", label: "Proyectos", icon: <MdOutlineWorkspaces className="w-4 h-4" /> },
     { href: "/#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
     { href: "/#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
-    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <HiBriefcase className="w-4 h-4" /> },
+    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <MdMiscellaneousServices className="w-4 h-4" /> },
   ];
 
   return (
