@@ -24,11 +24,13 @@ const FloatingNav = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+  
   const links = [
     { href: "/#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
     { href: "/#proyectos", label: "Proyectos", icon: <Icons.media className="w-4 h-4" /> },
     { href: "/#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
     { href: "/#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
+    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <HiBriefcase className="w-4 h-4" /> },
   ];
 
   return (
@@ -46,31 +48,79 @@ const FloatingNav = () => {
           isMobileMenuOpen && "md:flex hidden"
         )}
       >
-        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 shadow-lg rounded-full">
-          <ul className="flex items-center justify-center space-x-2 md:space-x-4">
+        <motion.div 
+          className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 shadow-lg rounded-full"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        >
+          <ul className="flex items-center justify-center space-x-1 md:space-x-2">
             {links.map(({ href, label, icon }) => (
               <li key={href} className="flex-shrink-0">
-                <motion.a
-                  href={href}
-                  className={cn(
-                    "flex items-center gap-2",
-                    "px-3 py-2 md:px-4 md:py-2",
-                    "text-sm font-medium transition-colors",
-                    "text-gray-200 hover:text-white hover:text-primary",
-                    "whitespace-nowrap"
-                  )}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="md:hidden">{icon}</span>
-                  <span className="hidden md:inline">{label}</span>
-                </motion.a>
+                {href.startsWith('http') ? (
+                  <motion.a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "flex items-center gap-2",
+                      "px-3 py-2 md:px-4 md:py-2",
+                      "text-sm font-medium transition-colors",
+                      "text-gray-200 hover:text-white hover:text-primary",
+                      "whitespace-nowrap rounded-full",
+                      "transition-all duration-200"
+                    )}
+                    whileHover={{ 
+                      scale: 1.1,
+                      backgroundColor: "rgba(255, 255, 255, 0.1)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                  >
+                    <motion.span 
+                      className="md:hidden"
+                      whileHover={{ rotate: 5 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                    >
+                      {icon}
+                    </motion.span>
+                    <span className="hidden md:inline">{label}</span>
+                  </motion.a>
+                ) : (
+                  <motion.a
+                    href={href}
+                    className={cn(
+                      "flex items-center gap-2",
+                      "px-3 py-2 md:px-4 md:py-2",
+                      "text-sm font-medium transition-colors",
+                      "text-gray-200 hover:text-white hover:text-primary",
+                      "whitespace-nowrap rounded-full",
+                      "transition-all duration-200"
+                    )}
+                    whileHover={{ 
+                      scale: 1.1,
+                      backgroundColor: "rgba(255, 255, 255, 0.1)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                  >
+                    <motion.span 
+                      className="md:hidden"
+                      whileHover={{ rotate: 5 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                    >
+                      {icon}
+                    </motion.span>
+                    <span className="hidden md:inline">{label}</span>
+                  </motion.a>
+                )}
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </motion.nav>
-      {/* Logo Portafolio - Responsive */}      <motion.a
+      
+      {/* Logo Portafolio - Responsive */}
+      <motion.a
         href="/#"
         className={cn(
           "fixed left-4 z-[60] select-none transition-all duration-300",
@@ -78,7 +128,6 @@ const FloatingNav = () => {
           "text-xl sm:text-2xl md:text-3xl lg:text-4xl",
           "p-2 rounded-lg",
           "top-3 sm:top-4",
-          "hover:scale-105 active:scale-95",
           "bg-background/80 backdrop-blur-sm",
           "shadow-lg hover:shadow-xl",
           "border border-border/50",
@@ -97,11 +146,11 @@ const FloatingNav = () => {
           ease: "easeOut"
         }}
         whileHover={{ 
-          scale: 1.05,
-          transition: { duration: 0.2 }
+          scale: 1.08,
+          transition: { type: 'spring', stiffness: 300, damping: 15 }
         }}
         whileTap={{ 
-          scale: 0.95,
+          scale: 0.92,
           transition: { duration: 0.1 }
         }}
       >

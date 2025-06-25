@@ -79,12 +79,13 @@ export const metadata = {
     icon: siteConfig.iconIco,
     shortcut: siteConfig.logoIcon,
     apple: siteConfig.logoIcon,
-  },  manifest: `${siteConfig.url}/site.webmanifest`,
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
   alternates: {
     canonical: siteConfig.url,
   },
   verification: {
-    google: "hZ0s0SPBF2iVW3cNfUNMTIg1L2V19jW50fDXRyk3sBY"
+    google: "hZ0s0SPBF2iVW3cNfUNMTIg1L2V19jW50fDXRyk3sBY",
   },
   robots: {
     index: true,
@@ -103,14 +104,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <html lang="es" suppressHydrationWarning>
-      <head />
+      <head>
+        {/* Favicon principal */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        {/* Puedes agregar otros tamaños/formatos si lo deseas */}
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
           fontHeading.variable
         )}
-      >        <ThemeProvider
+      >
+        <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
