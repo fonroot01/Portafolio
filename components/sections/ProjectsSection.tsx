@@ -383,7 +383,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Sección de Laboratorios de Ciberseguridad */}
-        <div className="mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight">
+        <div id="labs" className="mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight">
             <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"🔒"}</span>
             Laboratorios de Ciberseguridad
           </h2>
