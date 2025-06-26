@@ -30,8 +30,8 @@ const FloatingNav = () => {
     { href: "/#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
     { href: "/#proyectos", label: "Proyectos", icon: <MdOutlineWorkspaces className="w-4 h-4" /> },
     { href: "/#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
-    { href: "/#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
     { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <MdMiscellaneousServices className="w-4 h-4" /> },
+    { href: "/#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
   ];
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ProjectsSection = () => {
   // Estados para controlar la visibilidad de los proyectos
@@ -194,21 +195,16 @@ const ProjectsSection = () => {
                 className="rounded-xl border border-border bg-muted/30 p-4 shadow-md flex flex-col items-center relative transition-all duration-300 hover:bg-muted/50 hover:scale-105 group overflow-hidden"
               >
                 <div className="w-full h-48 rounded-lg overflow-hidden mb-4 relative bg-gradient-to-br from-muted/30 to-muted/60">
-                  <img
-                    src={project.image}
+                  <Image
+                    src={project.image.replace('.png', '.webp')}
                     alt={`${project.title} preview`}
                     className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      objectPosition: 'center 20%'
-                    }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const nextElement = target.nextSibling as HTMLElement;
-                      if (nextElement) {
-                        nextElement.style.display = 'flex';
-                      }
-                    }}
+                    style={{ objectPosition: 'center 20%' }}
+                    width={600}
+                    height={192}
+                    quality={80}
+                    // Solo una de las dos props: priority para la primera imagen, loading="lazy" para las demás
+                    {...(project.id === 1 ? { priority: true } : { loading: 'lazy' })}
                   />
                   <div className="w-full h-full bg-muted/40 backdrop-blur-sm flex items-center justify-center absolute inset-0" style={{display: 'none'}}>
                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
@@ -270,7 +266,7 @@ const ProjectsSection = () => {
                       {tag}
                     </span>
                   ))}
-                </div>                <div className="mt-4 flex flex-row items-center justify-center space-x-4">
+                </div>                <div className="mt-4 flex flex-row items-center justify-center space-x-4" role="group" aria-label="Acciones del proyecto">
                   <a
                     href={project.githubUrl}
                     target="_blank"
@@ -520,6 +516,9 @@ const ProjectsSection = () => {
         <div
           className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setShowDemoModal(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Demo de InvenSoft"
         >
           <div 
             className="relative bg-background rounded-lg shadow-xl max-w-4xl w-full animate-fadeIn"
