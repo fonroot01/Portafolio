@@ -455,6 +455,29 @@
   outline-offset: 3px;
 }
 
+/* Animación y resplandor para el botón Descargar CV */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 16px 2px rgba(59,130,246,0.6);
+    border-color: #3b82f6;
+  }
+  50% {
+    box-shadow: 0 0 32px 8px rgba(59,130,246,0.9);
+    border-color: #60a5fa;
+  }
+}
+.pulse-glow-btn {
+  border-width: 2px !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 16px 2px rgba(59,130,246,0.6);
+  animation: pulse-glow 2s infinite;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pulse-glow-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 32px 4px rgba(59,130,246,0.8);
+}
+
 @media (hover: hover) and (min-width: 600px) {
   .card:after {
     transform: translateY(0);

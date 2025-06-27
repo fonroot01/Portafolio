@@ -7,10 +7,13 @@ import { Icons } from "@/components/common/icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ScrollButton } from "@/components/common/scroll-button";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
-import ProfileSection from "@/components/sections/ProfileSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
-import CareerSection from "@/components/sections/CareerSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+import dynamic from "next/dynamic";
+
+// Dynamic imports para code splitting (client components)
+const ProfileSection = dynamic(() => import("@/components/sections/ProfileSection"), { ssr: false });
+const ProjectsSection = dynamic(() => import("@/components/sections/ProjectsSection"), { ssr: false });
+const CareerSection = dynamic(() => import("@/components/sections/CareerSection"), { ssr: false });
+const ContactSection = dynamic(() => import("@/components/sections/ContactSection"), { ssr: false });
 
 export default function IndexPage() {
   return (
@@ -62,13 +65,17 @@ export default function IndexPage() {
               <Icons.linkedin className="w-4 h-4 mr-2" /> LinkedIn
             </Link>
             <a
-              href="/CV_IngAlfonsoMosquera.pdf"
-              download
-              className={buttonVariants({ size: "default" }) + " flex items-center justify-center w-full sm:w-44 px-4 py-2 bg-gray-200 text-black dark:bg-gray-800 dark:text-white"}
-              aria-label="Descargar CV"
-            >
-              <span className="w-4 h-4 mr-2" role="img" aria-label="CV">🗂️</span> Descargar CV
-            </a>
+  href="/CV_IngAlfonsoMosquera.pdf"
+  download
+  className={
+    buttonVariants({ size: "default" }) +
+    " flex items-center justify-center w-full sm:w-44 px-4 py-2 bg-gray-200 text-black dark:bg-gray-800 dark:text-white pulse-glow-btn"
+  }
+  aria-label="Descargar CV"
+>
+  <Icons.user className="w-4 h-4 mr-2" />
+  Descargar CV
+</a>
           </div>          <div className="flex justify-center mt-8">
             <ScrollButton targetId="perfil" />
           </div>

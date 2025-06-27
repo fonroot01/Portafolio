@@ -1,5 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import AboutMe from "../AboutMe";
+
+// Componente memoizado para cada tarjeta de certificado
+const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
+  const [imgError, setImgError] = useState(false);
+  const [logoError, setLogoError] = useState(false);
+
+  // Responsive sizes para optimizar transferencia
+  const imgSizes = "(max-width: 768px) 100vw, 400px";
+
+  return (
+    <div 
+      key={cert.id}
+      className="rounded-xl border border-border bg-muted/30 p-4 shadow-md flex flex-col relative transition-all duration-300 hover:bg-muted/50 hover:scale-105"
+      aria-label={`Certificado: ${cert.title}`}
+      role="region"
+    >
+      {/* Preview del certificado */}
+      <div className="w-full max-w-[400px] h-48 mb-4 rounded-lg overflow-hidden relative bg-gray-100 mx-auto">
+        {!imgError ? (
+          <picture>
+            <source srcSet={cert.previewImage.replace('.png', '.avif')} type="image/avif" />
+            <source srcSet={cert.previewImage.replace('.png', '.webp')} type="image/webp" />
+            <img 
+              src={cert.previewImage} 
+              alt={`Certificado: ${cert.title} emitido por ${cert.issuer}`} 
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
+              width={400}
+              height={192}
+              sizes={imgSizes}
+              srcSet={
+                cert.previewImage.replace('.png', '-400.png') + ' 400w, ' +
+                cert.previewImage.replace('.png', '-600.png') + ' 600w'
+              }
+              onError={() => setImgError(true)}
+            />
+          </picture>
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 flex flex-col items-center justify-center text-white p-4">
+            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3 mx-auto backdrop-blur-sm">
+              {!logoError && cert.logo ? (
+                <img 
+                  src={cert.logo} 
+                  alt={cert.alt} 
+                  className="w-6 h-6 object-contain" 
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <span className="text-white font-bold text-lg">{cert.alt?.charAt(0) || '?'}</span>
+              )}
+            </div>
+            <h3 className="text-sm font-semibold mb-2 text-center line-clamp-2 leading-tight">
+              {cert.title}
+            </h3>
+            <p className="text-xs opacity-90 text-center">
+              {cert.issuer}
+            </p>
+          </div>
+        )}
+        {/* Overlay sutil para mejor legibilidad */}
+        <div className="absolute inset-0 bg-black/5 hover:bg-black/0 transition-colors duration-300" aria-hidden="true"></div>
+      </div>
+      {/* Información del certificado */}
+      <div className="flex flex-col items-center flex-grow">
+        <span className="font-semibold text-base text-foreground text-center leading-tight mb-3">
+          {cert.title}
+        </span>
+        {/* Tag de categoría */}
+        <div className="mb-3">
+          <span className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-semibold font-heading">
+            {cert.category}
+          </span>
+        </div>
+        <a 
+          href={cert.pdfPath} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors mt-auto"
+          aria-label={`Ver certificado: ${cert.title}`}
+        >
+          Ver certificado
+        </a>
+      </div>
+    </div>
+  );
+});
 
 const ProfileSection = () => {
   const [showAll, setShowAll] = useState(false);
@@ -106,114 +194,35 @@ const ProfileSection = () => {
         <AboutMe />
         <div className="mt-12 pb-12">
           <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
-            <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"📜"}</span>
+            <span className="inline-block align-middle mr-3 text-xl animate-bounce" aria-hidden="true">{"📜"}</span>
             Diplomas y Certificados
           </h2>
-          
           {/* Grid de certificados */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {certificatesToShow.map((cert) => (
-              <div 
-                key={cert.id}
-                className="rounded-xl border border-border bg-muted/30 p-4 shadow-md flex flex-col relative transition-all duration-300 hover:bg-muted/50 hover:scale-105"
-              >
-                {/* Preview del certificado */}
-                <div className="w-full h-48 mb-4 rounded-lg overflow-hidden relative bg-gray-100">
-                  <img 
-                    src={cert.previewImage} 
-                    alt={`Preview de ${cert.title}`}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    onError={(e) => {
-                      // Fallback si la imagen no carga
-                      const target = e.currentTarget as HTMLImageElement;
-                      const nextElement = target.nextElementSibling as HTMLElement;
-                      target.style.display = 'none';
-                      if (nextElement) {
-                        nextElement.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  
-                  {/* Fallback con gradiente si la imagen no carga */}
-                  <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 hidden flex-col items-center justify-center text-white p-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3 mx-auto backdrop-blur-sm">
-                      <img 
-                        src={cert.logo} 
-                        alt={cert.alt} 
-                        className="w-6 h-6 object-contain" 
-                        onError={(e) => {
-                          const target = e.currentTarget as HTMLImageElement;
-                          const nextElement = target.nextElementSibling as HTMLElement;
-                          target.style.display = 'none';
-                          if (nextElement) {
-                            nextElement.style.display = 'block';
-                          }
-                        }} 
-                      />
-                      <span 
-                        className="text-white font-bold text-lg hidden"
-                      >
-                        {cert.alt.charAt(0)}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-sm font-semibold mb-2 text-center line-clamp-2 leading-tight">
-                      {cert.title}
-                    </h3>
-                    
-                    <p className="text-xs opacity-90 text-center">
-                      {cert.issuer}
-                    </p>
-                  </div>
-                  
-                  {/* Overlay sutil para mejor legibilidad */}
-                  <div className="absolute inset-0 bg-black/5 hover:bg-black/0 transition-colors duration-300"></div>
-                </div>
-
-                {/* Información del certificado */}
-                <div className="flex flex-col items-center flex-grow">
-                  <span className="font-semibold text-base text-foreground text-center leading-tight mb-3">
-                    {cert.title}
-                  </span>
-                  
-                  {/* Tag de categoría */}
-                  <div className="mb-3">
-                    <span className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-semibold font-heading">
-                      {cert.category}
-                    </span>
-                  </div>
-                  
-                  <a 
-                    href={cert.pdfPath} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors mt-auto"
-                  >
-                    Ver certificado
-                  </a>
-                </div>
-              </div>
+              <CertificateCard cert={cert} key={cert.id} />
             ))}
           </div>
-
           {/* Botón Ver más/Ver menos */}
           {hasMoreCertificates && (
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAll(!showAll)}
                 className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-md"
+                aria-expanded={showAll}
+                aria-controls="certificados-lista"
               >
                 {showAll ? (
                   <>
                     <span>Ver menos</span>
-                    <svg className="w-4 h-4 ml-2 inline-block transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 ml-2 inline-block transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </>
                 ) : (
                   <>
                     <span>Ver más certificados</span>
-                    <svg className="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </>
