@@ -69,7 +69,7 @@ msfconsole</code></pre>
             </div>
             <div className="flex justify-center my-4">
               <Image
-                src="/lab1/metasploit/0.png"
+                src="/lab1/metasploit/0.webp"
                 alt="Inicio de msfconsole"
                 width={500}
                 height={320}
@@ -95,7 +95,7 @@ Versión: Windows 7 Ultimate SP1 (6.1.7601)</code></pre>
                 </div>
                 <div className="flex justify-center my-4">
                   <Image
-                    src="/lab1/metasploit/2.png"
+                    src="/lab1/metasploit/2.webp"
                     alt="Configuración IP de Windows"
                     width={500}
                     height={320}
@@ -119,7 +119,7 @@ run</code></pre>
             </div>
             <div className="flex justify-center my-4">
               <Image
-                src="/lab1/metasploit/3.png"
+                src="/lab1/metasploit/3.webp"
                 alt="Configuración del exploit"
                 width={500}
                 height={320}
@@ -143,7 +143,7 @@ hashdump       # Extraer hashes de contraseñas</code></pre>
               <div>
                 <h4 className="text-lg font-semibold mb-2">Información del sistema comprometido</h4>
                 <Image
-                  src="/lab1/metasploit/lanzamos el primer ataque para ver la info del sistema.png"
+                  src="/lab1/metasploit/lanzamos el primer ataque para ver la info del sistema.webp"
                   alt="Información del sistema"
                   width={500}
                   height={320}
@@ -153,7 +153,7 @@ hashdump       # Extraer hashes de contraseñas</code></pre>
               <div>
                 <h4 className="text-lg font-semibold mb-2">Captura de pantalla remota</h4>
                 <Image
-                  src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.png"
+                  src="/lab1/metasploit/segundo ataque, screenshot, pantallazo a la pantalla del equipo de la victima.webp"
                   alt="Captura de pantalla del sistema víctima"
                   width={900}
                   height={600}
@@ -163,7 +163,7 @@ hashdump       # Extraer hashes de contraseñas</code></pre>
               <div>
                 <h4 className="text-lg font-semibold mb-2">Shell del sistema y escalamiento de privilegios</h4>
                 <Image
-                  src="/lab1/metasploit/tercer ataque, shell,escalamiento de privilegios.png"
+                  src="/lab1/metasploit/tercer ataque, shell,escalamiento de privilegios.webp"
                   alt="Shell del sistema"
                   width={500}
                   height={320}

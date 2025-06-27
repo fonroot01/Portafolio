@@ -78,7 +78,7 @@ export default function AirgeddonLab() {
             </div>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/1.png"
+                src="/lab1/airgeddon/1.webp"
                 alt="Inicio y requisitos de Airgeddon"
                 width={500}
                 height={320}
@@ -98,7 +98,7 @@ export default function AirgeddonLab() {
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/2.png"
+                src="/lab1/airgeddon/2.webp"
                 alt="Selección del adaptador de red"
                 width={300}
                 height={300}
@@ -118,7 +118,7 @@ export default function AirgeddonLab() {
             </p>
             <div className="flex flex-col items-center">
               <Image
-                src="/lab1/airgeddon/3.png"
+                src="/lab1/airgeddon/3.webp"
                 alt="Activación del modo monitor"
                 width={500}
                 height={320}
@@ -138,7 +138,7 @@ export default function AirgeddonLab() {
               </p>
               <div className="flex flex-col items-center">
                 <Image
-                  src="/lab1/airgeddon/4.png"
+                  src="/lab1/airgeddon/4.webp"
                   alt="Menú de opciones de ataque WPA/WPA2"
                   width={500}
                   height={320}
@@ -158,7 +158,7 @@ export default function AirgeddonLab() {
               </p>
               <div className="flex flex-col items-center">
                 <Image
-                  src="/lab1/airgeddon/5.png"
+                  src="/lab1/airgeddon/5.webp"
                   alt="Exploración de objetivos WPS"
                   width={500}
                   height={320}
@@ -178,7 +178,7 @@ export default function AirgeddonLab() {
               </p>
               <div className="flex flex-col items-center">
                 <Image
-                  src="/lab1/airgeddon/6 - copia.png"
+                  src="/lab1/airgeddon/6 - copia.webp"
                   alt="Resultado de explotación WPS exitosa"
                   width={500}
                   height={320}

@@ -32,7 +32,7 @@ export default function EvilLimiterLab() {
         </h1>
 
         {/* Objetivo Principal */}
-        <div className="bg-card rounded-lg p-6 mb-8 shadow-lg">
+         <section className="mb-10">
           <h2 className="text-2xl font-semibold mb-4">Objetivo Principal</h2>
           {/* Línea divisoria como en Airgeddon */}
           <hr className="mb-6 border-t border-gray-700" /> 
@@ -40,7 +40,7 @@ export default function EvilLimiterLab() {
             Demostrar el uso de Evillimiter para la gestión y limitación del ancho de banda en redes locales (LAN),
             con fines educativos y de análisis de seguridad en entornos controlados.
           </p>
-        </div>
+        </section>
 
         {/* Descripción del Laboratorio */}
         <div className="mb-8">
@@ -87,7 +87,7 @@ export default function EvilLimiterLab() {
           </div>
           <div className="flex flex-col items-center mb-6">
             <Image
-              src="/lab1/evillimiter/1.png"
+              src="/lab1/evillimiter/1.webp"
               alt="Proceso de instalación de Evil Limiter con setup.py"
               width={500}
               height={320}
@@ -123,7 +123,7 @@ export default function EvilLimiterLab() {
             </p>
             <div className="flex flex-col items-center mb-6">
               <Image
-                src="/lab1/evillimiter/2.png"
+                src="/lab1/evillimiter/2.webp"
                 alt="Navegación y edición de archivos de Evil Limiter"
                 width={500}
                 height={320}
@@ -135,7 +135,7 @@ export default function EvilLimiterLab() {
             </div>
             <div className="flex flex-col items-center mb-6">
               <Image
-                src="/lab1/evillimiter/3.png"
+                src="/lab1/evillimiter/3.webp"
                 alt="Ajuste del nivel de logging en scan.py"
                 width={500}
                 height={320}
@@ -156,7 +156,7 @@ export default function EvilLimiterLab() {
             </p>
             <div className="flex flex-col items-center mb-6">
               <Image
-                src="/lab1/evillimiter/4.png"
+                src="/lab1/evillimiter/4.webp"
                 alt="Pantalla de inicio de Evil Limiter"
                 width={500}
                 height={320}
@@ -178,7 +178,7 @@ export default function EvilLimiterLab() {
             </p>
             <div className="flex flex-col items-center mb-6">
               <Image
-                src="/lab1/evillimiter/5.png"
+                src="/lab1/evillimiter/5.webp"
                 alt="Listado de hosts y comandos de limitación/liberación de ancho de banda"
                 width={500}
                 height={320}

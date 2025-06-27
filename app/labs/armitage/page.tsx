@@ -75,7 +75,7 @@ export default function ArmitageLab() {
               </pre>
             </div>
             <Image
-              src="/lab1/armitage/1.png"
+              src="/lab1/armitage/1.webp"
               alt="Inicio de Armitage"
               width={500}
               height={320}
@@ -92,14 +92,14 @@ export default function ArmitageLab() {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
               <Image
-                src="/lab1/armitage/2.png"
+                src="/lab1/armitage/2.webp"
                 alt="Agregar host objetivo"
                 width={500}
                 height={320}
                 className="rounded-lg shadow-md"
               />
               <Image
-                src="/lab1/armitage/3.png"
+                src="/lab1/armitage/3.webp"
                 alt="Escaneo de servicios"
                 width={500}
                 height={320}
@@ -116,7 +116,7 @@ export default function ArmitageLab() {
               para identificar los vectores de ataque potenciales.
             </p>
             <Image
-              src="/lab1/armitage/4.png"
+              src="/lab1/armitage/4.webp"
               alt="Análisis de vulnerabilidades"
               width={500}
               height={320}
@@ -132,7 +132,7 @@ export default function ArmitageLab() {
               configurar correctamente los parámetros como <code>RHOST</code> y <code>LHOST</code>.
             </p>
             <Image
-              src="/lab1/armitage/5.png"
+              src="/lab1/armitage/5.webp"
               alt="Configuración del exploit"
               width={500}
               height={320}
@@ -149,14 +149,14 @@ export default function ArmitageLab() {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
               <Image
-                src="/lab1/armitage/6.png"
+                src="/lab1/armitage/6.webp"
                 alt="Sesión de Meterpreter"
                 width={500}
                 height={320}
                 className="rounded-lg shadow-md"
               />
               <Image
-                src="/lab1/armitage/7.png"
+                src="/lab1/armitage/7.webp"
                 alt="Post-explotación"
                 width={500}
                 height={320}

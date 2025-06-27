@@ -57,7 +57,7 @@ export default function JohnthereaperLab() {
               <h3 className="text-xl font-semibold mb-2">1. Crear archivo .rar protegido con contraseña</h3>
               <p className="mb-4">Antes de comenzar, crea un archivo .rar y asígnale una contraseña segura.</p>
               <div className="flex justify-center my-4">
-                <Image src={"/lab1/johntheripper/1_colocandole_contraseña_al_rar.png"} alt="Colocando contraseña al archivo .rar" width={500} height={320} className="rounded-lg shadow" />
+                <Image src={"/lab1/johntheripper/1_colocandole_contraseña_al_rar.webp"} alt="Colocando contraseña al archivo .rar" width={500} height={320} className="rounded-lg shadow" />
               </div>
             </div>
             {/* Paso 2 */}
@@ -77,7 +77,7 @@ export default function JohnthereaperLab() {
                 <pre className="text-sm"><code>gzip -d /usr/share/wordlists/rockyou.txt.gz</code></pre>
               </div>
               <div className="flex justify-center my-4">
-                <Image src={"/lab1/johntheripper/3_descomprimiendo_diccionario.png"} alt="Descomprimiendo el diccionario rockyou.txt" width={500} height={320} className="rounded-lg shadow" />
+                <Image src={"/lab1/johntheripper/3_descomprimiendo_diccionario.webp"} alt="Descomprimiendo el diccionario rockyou.txt" width={500} height={320} className="rounded-lg shadow" />
               </div>
             </div>
 
@@ -89,7 +89,7 @@ export default function JohnthereaperLab() {
                 <pre className="text-sm"><code>rar2john archivo_protegido.rar &gt; prueba1.txt</code></pre>
               </div>
               <div className="flex justify-center my-4">
-                <Image src={"/lab1/johntheripper/4_extraer_hash.png"} alt="Extraer hash" width={500} height={320} className="rounded-lg shadow" />
+                <Image src={"/lab1/johntheripper/4_extraer_hash.webp"} alt="Extraer hash" width={500} height={320} className="rounded-lg shadow" />
               </div>
             </div>
             {/* Paso 5 */}
@@ -100,7 +100,7 @@ export default function JohnthereaperLab() {
                 <pre className="text-sm"><code>john --wordlist=/usr/share/wordlists/rockyou.txt prueba1.txt</code></pre>
               </div>
               <div className="flex justify-center my-4">
-                <Image src={"/lab1/johntheripper/5_ejecutar_ataque de_diccionario.png"} alt="Ejecutar ataque de diccionario" width={500} height={320} className="rounded-lg shadow" />
+                <Image src={"/lab1/johntheripper/5_ejecutar_ataque de_diccionario.webp"} alt="Ejecutar ataque de diccionario" width={500} height={320} className="rounded-lg shadow" />
               </div>
             </div>
             {/* Paso 6 */}
@@ -111,7 +111,7 @@ export default function JohnthereaperLab() {
                 <pre className="text-sm"><code>john --show hash.txt</code></pre>
               </div>
               <div className="flex justify-center my-4">
-                <Image src={"/lab1/johntheripper/6_Verifica_los_resultados.png"} alt="Verificando los resultados" width={500} height={320} className="rounded-lg shadow" />
+                <Image src={"/lab1/johntheripper/6_Verifica_los_resultados.webp"} alt="Verificando los resultados" width={500} height={320} className="rounded-lg shadow" />
               </div>
             </div>
           </div>
