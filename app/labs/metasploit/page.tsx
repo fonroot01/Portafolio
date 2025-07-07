@@ -41,6 +41,19 @@ export default function MetasploitLab() {
           </p>
         </section>
 
+         {/* Descripción */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-semibold mb-4">Descripción del Laboratorio</h2>
+          {/* Línea divisoria */}
+          <hr className="mb-6 border-t border-border" />
+          <p className="text-justify text-foreground">
+            Este laboratorio se centra en la explotación de la vulnerabilidad MS17-010, conocida como EternalBlue, que afecta a sistemas Windows 7.
+            Utilizando Metasploit, se demuestra cómo un atacante puede aprovechar esta vulnerabilidad para obtener
+            acceso remoto al sistema víctima. El proceso incluye la configuración del entorno, la identificación de la vulnerabilidad,
+            la explotación y la post-explotación para obtener información sensible del sistema comprometido.
+          </p>
+        </section>
+
         {/* Herramientas utilizadas */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-3">Herramientas utilizadas</h2>
