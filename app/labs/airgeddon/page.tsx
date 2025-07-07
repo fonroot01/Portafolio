@@ -191,7 +191,7 @@ export default function AirgeddonLab() {
             </div>
 
           {/* Funcionalidades Adicionales */}
-          <div>
+          <div className="mb-16"> {/* Espacio extra para separar de conclusiones */}
             <h3 className="text-2xl font-semibold mb-4">7. Funcionalidades Adicionales</h3>
             <p className="text-justify text-foreground mb-4">
               Además de los ataques básicos, (Airgeddon) proporciona un conjunto de funcionalidades avanzadas:
@@ -205,6 +205,20 @@ export default function AirgeddonLab() {
               <li className="text-foreground">Evil Twin Attacks: Creación de puntos de acceso falsos.</li>
             </ul>
           </div>
+        </section>
+
+        {/* Resultados esperados */}
+        <section className="mb-10 mt-16"> {/* Espacio extra arriba */}
+          <h2 className="text-2xl font-bold mb-3">Conclusiones</h2>
+          <hr className="mb-6 border-t border-border" />
+          Una vez completado este laboratorio se deberían haber alcanzado los siguientes objetivos:
+          <ul className="list-disc pl-6 space-y-1">
+            <li className="text-foreground">Instalar y ejecutar Airgeddon correctamente.</li>
+            <li className="text-foreground">Seleccionar y configurar un adaptador de red inalámbrico en modo monitor.</li>
+            <li className="text-foreground">Identificar redes Wi-Fi vulnerables y realizar ataques básicos de auditoría.</li>
+            <li className="text-foreground">Comprender la importancia de asegurar las redes inalámbricas y las implicaciones legales de las auditorías.</li>
+          </ul>
+        </section>
 
           {/* Aviso Legal */}
           <div className="bg-destructive/10 p-6 rounded-lg mt-10">
@@ -214,9 +228,9 @@ export default function AirgeddonLab() {
               tenga permiso explícito. El uso no autorizado de estas herramientas puede tener consecuencias legales.
               Este laboratorio tiene fines educativos para comprender mejor la seguridad de las redes Wi-Fi.
             </p>
-          </div>
 
-        </section>
+          </div>
+                    
       </div>
     </>
   );

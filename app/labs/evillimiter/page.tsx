@@ -191,6 +191,28 @@ export default function EvilLimiterLab() {
           </div>
         </div>
 
+{/* Resultados esperados */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
+          <hr className="mb-6 border-t border-border" />
+          <p className="text-foreground text-justify">
+            Al completar este laboratorio, se espera comprender como utilizar Evil Limiter
+            para gestionar el ancho de banda en una red local. Los resultados incluyen la identificación de dispositivos
+            conectados, la aplicación de límites de ancho de banda y la observación del impacto en el rendimiento de la red.
+          </p>
+        </section>
+
+        {/* Conclusiones */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold mb-3">Conclusiones</h2>
+          <hr className="mb-6 border-t border-border" />
+          <ul className="list-disc pl-6 space-y-2 text-foreground">
+            <li>Evil Limiter es una herramienta poderosa para gestionar el ancho de banda en redes locales, permitiendo a los administradores controlar el tráfico de red de manera efectiva.</li>
+            <li>El uso de ARP spoofing para redirigir el tráfico es una técnica efectiva, pero debe realizarse con precaución y siempre con el permiso del propietario de la red.</li>
+            <li>La identificación de dispositivos conectados a la red es crucial para aplicar políticas de seguridad y gestión de ancho de banda.</li>
+          </ul>
+        </section>
+
         {/* Aviso Legal */}
         <div className="bg-destructive/10 p-6 rounded-lg mt-8">
           <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>

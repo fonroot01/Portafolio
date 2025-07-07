@@ -166,6 +166,18 @@ export default function ArmitageLab() {
           </div>
         </section>
 
+        {/* Resultados esperados */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
+          <hr className="mb-6 border-t border-border" />
+          <p className="text-foreground text-justify">
+            Al finalizar este laboratorio, deberías ser capaz de poder identificar y explotar vulnerabilidades en un sistema
+            Windows utilizando Armitage. Además, deberías tener una comprensión clara de cómo las herramientas gráficas
+            pueden facilitar el proceso de pentesting y cómo se pueden utilizar para realizar un análisis de vulnerabilidades
+            de manera más eficiente.
+          </p>
+        </section>
+
         {/* Aviso Legal */}
         <div className="bg-destructive/10 p-6 rounded-lg mt-10">
           <h4 className="text-lg font-semibold mb-2 text-destructive">⚠️ Aviso Legal Importante</h4>
