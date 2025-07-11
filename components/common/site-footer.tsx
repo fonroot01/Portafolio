@@ -12,7 +12,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     <footer className={cn(className)}>
       <div className="container flex items-center justify-center mt-10 py-10 md:h-24">
         <div className="w-full text-center text-muted-foreground text-sm font-medium">
-          Template hecho por Naman Barkiya y adapatado por su servidor, Alfonso Mosquera, con mucho cariño{" "}
+          Template hecho por Naman Barkiya y adapatado por su servidor, Alfonso Mosquera, con mucho cariño. {" "}
           <HeartBeat className="text-red-500" />
         </div>
       </div>
