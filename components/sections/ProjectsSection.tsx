@@ -28,7 +28,7 @@ const ProjectsSection = () => {
     {
       id: 3,
       title: "GestorIP",
-      description: "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola. Interfaz intuitiva para administradores de red y profesionales IT.",
+      description: "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola. Permite gestionar múltiples conexiones de red y restablecer dhcp.",
       githubUrl: "https://github.com/fonroot01/GestorIP",
       tags: ["Python", "Tkinter", "Network Tools"],
       image: "/portadasp/gestorip.png",
