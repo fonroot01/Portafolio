@@ -126,12 +126,12 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
 
       {/* Información del certificado */}
       <div className="p-2.5 flex flex-col items-center gap-2">
-        <p className="text-foreground/90 text-sm leading-tight text-center max-w-md">
+        <p className="text-foreground/90 text-base leading-tight text-center max-w-md">
           {cert.issuer}
         </p>
         {/* Tag de categoría */}
         <div className="flex flex-wrap gap-1.5 justify-center">
-          <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium font-heading">
+          <span className="text-sm bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium font-heading">
             {cert.category}
           </span>
         </div>

@@ -256,7 +256,7 @@ const ExperienceSection = () => {
                     {/* Description */}
                     <div className="mb-6 relative z-10">
                       {exp.description.map((line, descIndex) => (
-                        <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-sm'}`}>
+                        <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-base'}`}>
                           {descIndex === 0 ? (
                             <span className="text-xl font-extrabold text-foreground font-heading block">{line}</span>
                           ) : (

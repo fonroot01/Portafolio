@@ -39,7 +39,7 @@ const CyberLabs = () => {
             </span>
 
             {/* Descripción breve */}
-            <p className="text-sm text-foreground text-center leading-relaxed mb-3 line-clamp-3">
+            <p className="text-base text-foreground text-center leading-relaxed mb-3 line-clamp-3">
               {lab.description}
             </p>
 
@@ -48,7 +48,7 @@ const CyberLabs = () => {
               {lab.badges?.map(badge => (
                 <span 
                   key={badge}
-                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium"
+                  className="text-base bg-primary/10 text-primary px-2 py-1 rounded-full font-medium"
                 >
                   {badge}
                 </span>

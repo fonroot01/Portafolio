@@ -6,6 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { Icons } from "@/components/common/icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ScrollButton } from "@/components/common/scroll-button";
+import WavingHand from "@/components/common/WavingHand";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
 import dynamic from "next/dynamic";
 
@@ -45,8 +46,8 @@ export default function IndexPage() {
               style={{ fontSize: 'inherit', display: 'inline-block' }}
               repeat={Infinity}
             />
-          </div><p className="text-sky-400 dark:text-sky-300 text-base sm:text-lg text-center mb-8 max-w-xl transition-colors duration-300 font-medium">
-            ¡Hola!👋🏾 Soy Ingeniero de Sistemas, curioso por naturaleza, fanático de resolver problemas informaticos y apasionado por la ciberseguridad. 🚀
+          </div>          <p className="text-sky-400 dark:text-sky-300 text-base sm:text-base text-center mb-8 max-w-xl transition-colors duration-300 font-medium">
+            <WavingHand /> ¡Bienvenido a mi portafolio!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mb-8">            <Link
               href="https://github.com/fonroot01"

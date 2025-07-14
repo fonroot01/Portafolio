@@ -217,7 +217,7 @@ const ProjectsSection = () => {
 
                 {/* Contenido de la tarjeta */}
                 <div className="p-4 flex flex-col items-center gap-3">
-                  <p className="text-foreground/90 text-sm leading-relaxed text-center max-w-md">
+                  <p className="text-foreground/90 text-base leading-relaxed text-center max-w-md">
                     {project.description}
                   </p>
 
@@ -226,7 +226,7 @@ const ProjectsSection = () => {
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full font-medium font-heading"
+                        className="text-sm bg-primary/10 text-primary px-2.5 py-1 rounded-full font-medium font-heading"
                       >
                         {tag}
                       </span>
@@ -387,7 +387,7 @@ const ProjectsSection = () => {
                 </h3>
 
                 {/* Descripción */}
-                <p className="text-foreground/90 text-sm leading-relaxed text-center max-w-md mb-3">
+                <p className="text-foreground/90 text-base leading-relaxed text-center max-w-md mb-3">
                   {lab.description}
                 </p>
 
@@ -396,7 +396,7 @@ const ProjectsSection = () => {
                   {lab.badges.map((badge, index) => (
                     <span
                       key={index}
-                      className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full font-medium font-heading"
+                      className="text-sm bg-primary/10 text-primary px-2.5 py-1 rounded-full font-medium font-heading"
                     >
                       {badge}
                     </span>
