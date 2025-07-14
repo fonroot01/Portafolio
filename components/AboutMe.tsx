@@ -17,9 +17,15 @@ const AboutMe = () => (
             </h2>
           </div>
           <div className="space-y-4 w-full">
-            <p className="mb-8 text-foreground/90 text-justify pl-0 pr-0 sm:pl-4 sm:pr-2 font-medium transition-colors duration-300 text-base sm:text-base md:text-lg">
-              Soy Ingeniero de Sistemas, pero sobre todo, alguien que disfruta entender cómo funcionan las cosas para mejorarlas. Mi camino en la tecnología empezó resolviendo problemas en soporte técnico y fue creciendo hacia la administración de sistemas y la ciberseguridad. He trabajado con entornos Windows y Linux, gestionando infraestructura TI, directorios, redes y plataformas empresariales como MS365 y sistemas de telefonía IP. Con Python desarrollo herramientas que automatizan tareas, analizan entornos y hacen la vida más fácil a usuarios y técnicos. Me gusta lo práctico, lo que funciona, pero también lo que se puede hacer mejor.
-            </p>
+            <div className="mb-8 space-y-4 text-foreground/90 pl-0 pr-0 sm:pl-4 sm:pr-2 transition-colors duration-300">
+              <p className="text-base sm:text-base md:text-lg text-justify mb-6">
+                Soy Ingeniero de Sistemas con experiencia en soporte técnico y gestión de plataformas tecnológicas, enfocado en mantener la continuidad operativa y brindar soluciones efectivas en entornos empresariales. He trabajado con herramientas como MS365, Active Directory, SharePoint, sistemas ERP e IP PBX, asegurando una atención oportuna y resolutiva para los usuarios.
+              </p>
+              
+              <p className="text-base sm:text-base md:text-lg text-justify">
+                Complemento mi perfil con formación en ciberseguridad, tanto autodidacta como certificada, lo que me ha permitido desarrollar habilidades prácticas en análisis de vulnerabilidades, auditoría de redes, evaluación de contraseñas, monitoreo de tráfico de red y automatización de tareas con Python. Me apasiona explorar nuevas herramientas, fortalecer mi enfoque técnico y transformar el conocimiento en soluciones útiles.
+              </p>
+            </div>
             <ProfileTechStack />
           </div>
         </div>

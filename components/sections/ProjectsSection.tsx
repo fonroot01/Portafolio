@@ -15,7 +15,7 @@ const ProjectsSection = () => {
       description: "Permite gestionar de manera gráfica y sencilla la configuración de interfaces de red, servidores DNS y configuraciones de proxy.",
       githubUrl: "https://github.com/fonroot01/GIP-Pro-V1.0",
       tags: ["Python", "CSS", "Tkinter", "Networking"],
-      image: "/portadasp/gippro.png",
+      image: "/portadasp/gippro.webp",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const ProjectsSection = () => {
       description: "Herramienta que permite interactuar con dispositivos Android de forma remota, ideal para pruebas de seguridad móvil.",
       githubUrl: "https://github.com/fonroot01/Droid-Specter",
       tags: ["Python", "Tkinter", "Android", "Seguridad Móvil"],
-      image: "/portadasp/droid.png",
+      image: "/portadasp/droid.webp",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const ProjectsSection = () => {
       description: "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola. Permite gestionar múltiples conexiones de red y restablecer dhcp.",
       githubUrl: "https://github.com/fonroot01/GestorIP",
       tags: ["Python", "Tkinter", "Network Tools"],
-      image: "/portadasp/gestorip.png",
+      image: "/portadasp/gestorip.webp",
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ const ProjectsSection = () => {
       description: "Sistema de inventario de equipos TI. Permite registrar, buscar y gestionar equipos de forma eficiente.",
       githubUrl: "https://github.com/fonroot01/Inventario-de-equipos-TI",
       tags: ["Python", "Tkinter", "PyQt5", "SQL Server"],
-      image: "/portadasp/invensoft.png",
+      image: "/portadasp/invensoft.webp",
     },
     {
       id: 5,
@@ -47,7 +47,7 @@ const ProjectsSection = () => {
       description: "Utilidad grafica para reparar unidades USB afectadas por virus, eliminando archivos sospechosos y restaurando la funcionalidad de la unidad.",
       githubUrl: "https://github.com/fonroot01/USB-Doctor",
       tags: ["Python", "Tkinter"],
-      image: "/portadasp/usbdoctor.png",
+      image: "/portadasp/usbdoctor.webp",
     },
     {
       id: 6,
@@ -55,7 +55,7 @@ const ProjectsSection = () => {
       description: "Herramienta para limpiar archivos temporales, eliminar el historial de navegadores y vaciar la papelera de reciclaje en Windows.",
       githubUrl: "https://github.com/fonroot01/WinPyX",
       tags: ["Python", "Tkinter"],
-      image: "/portadasp/winpyx.png",
+      image: "/portadasp/winpyx.webp",
     },
   ];
   // Array de laboratorios para mejor manejo
@@ -192,145 +192,98 @@ const ProjectsSection = () => {
             {projectsToShow.map((project) => (
               <div
                 key={project.id}
-                className="rounded-xl border border-border bg-muted/30 p-4 shadow-md flex flex-col items-center relative transition-all duration-300 hover:bg-muted/50 hover:scale-105 group overflow-hidden"
+                className="bg-card rounded-xl overflow-hidden flex flex-col h-full shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group border border-border"
               >
-                <div className="w-full h-48 rounded-lg overflow-hidden mb-4 relative bg-gradient-to-br from-muted/30 to-muted/60">
-                  <Image
-                    src={project.image.replace('.png', '.webp')}
-                    alt={`${project.title} preview`}
-                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    style={{ objectPosition: 'center 20%' }}
-                    width={600}
-                    height={192}
-                    quality={80}
-                    // Solo una de las dos props: priority para la primera imagen, loading="lazy" para las demás
-                    {...(project.id === 1 ? { priority: true } : { loading: 'lazy' })}
-                  />
-                  <div className="w-full h-full bg-muted/40 backdrop-blur-sm flex items-center justify-center absolute inset-0" style={{display: 'none'}}>
-                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-gray-700"
+                {/* Contenedor de imagen mejorado */}
+                <div className="relative w-full h-[250px] bg-background rounded-t-xl overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className="transition-transform duration-300 group-hover:scale-105"
+                      priority={project.id === 1}
+                      quality={100}
+                    />
+                  </div>
+                  {/* Overlay con título */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-5">
+                    <h3 className="text-2xl font-bold text-foreground text-shadow-lg">
+                      {project.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Contenido de la tarjeta */}
+                <div className="p-4 flex flex-col items-center gap-3">
+                  <p className="text-foreground/90 text-sm leading-relaxed text-center max-w-md">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full font-medium font-heading"
                       >
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                      </svg>
-                    </div>
+                        {tag}
+                      </span>
+                    ))}
                   </div>
 
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  {/* Botones de acción */}
+                  <div className="flex flex-row items-center justify-center gap-3 mt-1" role="group" aria-label="Acciones del proyecto">
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white/90 backdrop-blur-sm rounded-full p-3 hover:bg-white transition-colors"
+                      className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors flex items-center gap-2"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-gray-700"
-                      >
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                       </svg>
+                      Ver en GitHub
                     </a>
-                  </div>
-                </div>                <span className="font-bold text-lg text-foreground text-center leading-tight mb-3 font-heading">
-                  {project.title}
-                </span>
 
-                {/* Descripción del proyecto centrada y fuente más pequeña */}
-                <p className="mb-4 text-foreground/90 text-center font-medium transition-colors duration-300 text-sm sm:text-sm md:text-base">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 justify-center mb-3">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-semibold font-heading"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>                <div className="mt-4 flex flex-row items-center justify-center space-x-4" role="group" aria-label="Acciones del proyecto">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors"
-                  >
-                    Ver en GitHub
-                  </a>                  {project.title === "InvenSoft" && (
-                    <button
-                      onClick={() => setShowDemoModal(true)}
-                      className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    {project.title === "InvenSoft" && (
+                      <button
+                        onClick={() => setShowDemoModal(true)}
+                        className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
                       >
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                      </svg>
-                      Ver Demo
-                    </button>
-                  )}
-                  {/* Botón de instalar solo para proyectos específicos */}
-                  {(project.title === "GIP Pro" ||
-  project.title === "Droid Specter" || 
-  project.title === "GestorIP" || 
-  project.title === "USB Doctor" || 
-  project.title === "WinPyX") && (
-  <a
-    // Modificar esta línea para que coincida con los nombres exactos de los archivos
-    href={`/Instaladores/${
-      project.title === "GIP Pro" ? "GIPPro_setup" :
-      project.title === "Droid Specter" ? "DroidSpecter_setup" :
-      project.title === "GestorIP" ? "GestorIP_setup" :
-      project.title === "USB Doctor" ? "USBDoctor_setup" :
-      "WinPyX_setup"
-    }.rar`}
-    className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
-    download
-  >
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="16" 
-      height="16" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="12" y1="15" x2="12" y2="3" />
-    </svg>
-    Instalar
-  </a>
-)}
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        Ver Demo
+                      </button>
+                    )}
+
+                    {(project.title === "GIP Pro" ||
+                      project.title === "Droid Specter" || 
+                      project.title === "GestorIP" || 
+                      project.title === "USB Doctor" || 
+                      project.title === "WinPyX") && (
+                      <a
+                        href={`/Instaladores/${
+                          project.title === "GIP Pro" ? "GIPPro_setup" :
+                          project.title === "Droid Specter" ? "DroidSpecter_setup" :
+                          project.title === "GestorIP" ? "GestorIP_setup" :
+                          project.title === "USB Doctor" ? "USBDoctor_setup" :
+                          "WinPyX_setup"
+                        }.rar`}
+                        className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
+                        download
+                      >
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                          <polyline points="7 10 12 15 17 10"/>
+                          <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Instalar
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -393,8 +346,8 @@ const ProjectsSection = () => {
               <div
                 key={lab.id}
                 className={`
-                  rounded-xl border border-border bg-muted/30 p-6 shadow-md
-                  relative transition-all duration-300 hover:bg-muted/50 hover:scale-[1.02]
+                  rounded-xl border border-border bg-card p-6 shadow-lg
+                  relative transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2
                   group overflow-hidden
                   ${lab.teamType === 'red' ? 'hover:border-red-500/30' : 'hover:border-blue-500/30'}
                 `}
@@ -427,21 +380,23 @@ const ProjectsSection = () => {
                   <div className="w-10 h-10 rounded-full bg-muted/50 flex-shrink-0 flex items-center justify-center">
                     <ShieldIcon />
                   </div>
-                </div>                {/* Título de la tarjeta - Centrado de forma independiente */}                
-                <h3 className="text-xl font-bold text-foreground dark:text-foreground light:text-foreground retro:text-foreground paper:text-foreground leading-tight text-center mb-3 font-heading">
+                </div>
+                {/* Título de la tarjeta */}
+                <h3 className="text-xl font-bold text-foreground leading-tight text-center mb-3 font-heading">
                   {lab.title}
                 </h3>
 
-                {/* Descripción - Centrada */}                <p className="mb-4 text-foreground text-center font-medium transition-colors duration-300 text-sm sm:text-sm md:text-base">
+                {/* Descripción */}
+                <p className="text-foreground/90 text-sm leading-relaxed text-center max-w-md mb-3">
                   {lab.description}
                 </p>
 
                 {/* Tags - Centrados */}
-                <div className="flex flex-wrap gap-2.5 mb-4 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center">
                   {lab.badges.map((badge, index) => (
                     <span
                       key={index}
-                      className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-semibold font-heading"
+                      className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full font-medium font-heading"
                     >
                       {badge}
                     </span>
@@ -451,7 +406,7 @@ const ProjectsSection = () => {
                 {/* Overlay de hover con icono y texto "Auditar laboratorio" */}
                 <Link
                   href={lab.link}
-                  className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center cursor-pointer text-center"
+                  className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center cursor-pointer text-center"
                 >                  <div className="transform scale-90 group-hover:scale-100 transition-transform duration-300 mb-3">
                     {lab.teamType === 'red' ? <RedTeamHoverIcon /> : <BlueTeamHoverIcon />}
                   </div>

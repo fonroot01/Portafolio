@@ -157,7 +157,7 @@ const ExperienceSection = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Header con animación - más compacto */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+          <h2 className="text-4xl font-extrabold mb-3 text-center text-foreground font-heading tracking-tight">
             <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"💼"}</span> 
             Experiencia Laboral
           </h2>
@@ -209,10 +209,10 @@ const ExperienceSection = () => {
                       {exp.fallbackIcon}
                     </CompanyIcon>
                     <div className={index % 2 === 0 ? '' : 'md:text-right'}>
-                      <h3 className="text-2xl font-bold text-foreground mb-1 leading-tight">
+                      <h3 className="text-2xl font-bold text-foreground mb-1 leading-tight font-heading">
                         {exp.role}
                       </h3>
-                      <p className="text-lg font-semibold text-muted-foreground">
+                      <p className="text-lg font-semibold text-muted-foreground font-heading">
                         {exp.company}
                       </p>
                     </div>
@@ -256,13 +256,13 @@ const ExperienceSection = () => {
                     {/* Description */}
                     <div className="mb-6 relative z-10">
                       {exp.description.map((line, descIndex) => (
-                        <p key={descIndex} className="text-foreground mb-2 last:mb-0 leading-relaxed">
+                        <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-sm'}`}>
                           {descIndex === 0 ? (
-                            <span className="font-semibold">{line}</span>
+                            <span className="text-xl font-extrabold text-foreground font-heading block">{line}</span>
                           ) : (
                             <span className="flex items-start gap-2">
-                              <span className="text-primary mt-2 text-xs">▶</span>
-                              {line.replace('• ', '')}
+                              <span className="text-primary mt-1.5 text-xs">▶</span>
+                              <span className="text-foreground/90">{line.replace('• ', '')}</span>
                             </span>
                           )}
                         </p>
@@ -278,16 +278,16 @@ const ExperienceSection = () => {
         {/* Stats section con fondo sólido */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-bold text-primary mb-2">2</div>
-            <div className="text-sm text-muted-foreground">Empresas</div>
+            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">2</div>
+            <div className="text-sm text-muted-foreground font-heading">Empresas</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-bold text-primary mb-2">12</div>
-            <div className="text-sm text-muted-foreground">Meses de Experiencia</div>
+            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">12</div>
+            <div className="text-sm text-muted-foreground font-heading">Meses de Experiencia</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-bold text-primary mb-2">15+</div>
-            <div className="text-sm text-muted-foreground">Habilidades Técnicas</div>
+            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">15+</div>
+            <div className="text-sm text-muted-foreground font-heading">Habilidades Técnicas</div>
           </div>
         </div>
       </div>
