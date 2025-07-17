@@ -19,7 +19,6 @@ export default function ContributonsPage() {
     >
       <AnimatedText
         as="p"
-        delay={0.2}
         className="text-muted-foreground text-lg sm:text-xl"
       >
         Repos públicos con soluciones reales, ideas en desarrollo y aprendizaje continuo.

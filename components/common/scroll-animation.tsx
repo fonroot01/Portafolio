@@ -2,6 +2,7 @@
 
 
 import { ReactNode, useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -43,9 +44,9 @@ export const ScrollAnimation = ({
   })();
 
   return (
-    <div ref={ref} className={className} style={animationStyle}>
+    <motion.div ref={ref} className={className} style={animationStyle}>
       {children}
-    </$1>
+    </motion.div>
   );
 };
 

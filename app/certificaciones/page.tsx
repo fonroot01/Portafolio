@@ -15,7 +15,6 @@ export default function CertificacionesPage() {
   return (
     <ClientPageWrapper>
       <AnimatedSection
-        direction="left"
         className="container space-y-6 bg-muted py-10 my-14"
         id="certificaciones"
       >
@@ -28,7 +27,6 @@ export default function CertificacionesPage() {
           </AnimatedText>
           <AnimatedText
             as="p"
-            delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
             {pagesConfig.certificaciones.description}
