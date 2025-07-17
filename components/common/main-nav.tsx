@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import { Norican } from "next/font/google";
 import Link from "next/link";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
@@ -61,20 +61,20 @@ export function MainNav({ items = [], children }: MainNavProps) {
   return (    <header className="sticky top-0 z-50 w-full shadow-sm transition-colors flex justify-center bg-background/80 backdrop-blur-sm">
       <div className="container flex flex-row items-center justify-between relative px-4 max-w-6xl mx-auto" style={{ minHeight: '64px' }}>
         {/* Botón menú mobile */}
-        <motion.button
+        <button
           className="flex items-center space-x-2 md:hidden"
           onClick={toggleMobileMenu}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          }
+          }
         >
           {showMobileMenu ? <Icons.close /> : <Icons.menu />}
-        </motion.button>
+        </$1>
 
         {/* Logo - Responsivo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+        <div
+          }
+          }
+          }
           className={cn(
             "absolute left-1/2 transform -translate-x-1/2",
             showMobileMenu && "md:flex hidden"
@@ -90,30 +90,28 @@ export function MainNav({ items = [], children }: MainNavProps) {
               <span className="md:hidden">P</span>
             </span>
           </Link>
-        </motion.div>
+        </$1>
 
         {/* Navegación Desktop */}
         {items.length > 0 && (
           <nav className="hidden md:flex flex-1 items-center justify-center">
-            <motion.div
+            <div
               className="flex flex-row items-center gap-4 md:gap-6"
-              variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {items.map((item, index) => {
                 const isActive = item.href === pathname;
                 return (
-                  <motion.div
+                  <div
                     key={item.href}
-                    variants={navItemVariants}
                     custom={index}
                     className={cn(
                       "text-sm font-medium transition-all duration-200",
                       isActive ? "text-primary" : "text-muted-foreground"
                     )}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    }
+                    }
                   >
                     <Link
                       href={item.href}
@@ -121,17 +119,17 @@ export function MainNav({ items = [], children }: MainNavProps) {
                     >
                       {item.title}
                       {isActive && (
-                        <motion.span
+                        <span
                           className="absolute inset-0 bg-primary/10 rounded-md -z-10"
                           layoutId="activeNavItem"
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                          }
                         />
                       )}
                     </Link>
-                  </motion.div>
+                  </$1>
                 );
               })}
-            </motion.div>
+            </$1>
           </nav>
         )}
         
@@ -151,3 +149,4 @@ export function MainNav({ items = [], children }: MainNavProps) {
     </header>
   );
 }
+

@@ -1,6 +1,4 @@
-"use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -40,13 +38,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <div className="flex mb-8 relative">
         {/* Timeline dot and date */}
         <div className="relative">
-          <motion.div
-            className="w-8 h-8 sm:w-16 sm:h-16 rounded-full flex items-center justify-center z-10 relative"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            whileHover={{ scale: 1.05 }}
-          >
+          <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-full flex items-center justify-center z-10 relative hover:scale-105 transition-transform">
             {experience.logo ? (
               <div className="relative w-8 h-8 sm:w-16 sm:h-16 rounded-full border-2 border-primary overflow-hidden bg-white">
                 <Image
@@ -61,25 +53,18 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                 <Icons.work className="w-4 h-4 sm:w-8 sm:h-8 text-white" />
               </div>
             )}
-          </motion.div>
+          </div>
         </div>
 
         {/* Content card */}
-        <motion.div
-          className="ml-3 sm:ml-6 flex-1"
-          initial={{ x: -10, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.4 }}
-        >
-          <motion.div
+        <div className="ml-3 sm:ml-6 flex-1">
+          <div
             className={`
               p-3 sm:p-5 rounded-lg border border-border bg-card hover:shadow-lg 
               transition-all duration-300 cursor-pointer
               ${isExpanded ? "shadow-md" : ""}
             `}
             onClick={() => toggleExpand(experience.id)}
-            whileHover={{ y: -2 }}
-            layout
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
               <div>
@@ -113,24 +98,15 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                       " - " +
                       getYearFromDate(experience.endDate)}
                 </div>
-                <motion.div
-                  animate={{ rotate: isExpanded ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Icons.chevronDown className="w-5 h-5 text-muted-foreground" />
-                </motion.div>
+                <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2">
+                  <div>
+                    <Icons.chevronDown className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                </div>
               </div>
             </div>
 
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{
-                height: isExpanded ? "auto" : 0,
-                opacity: isExpanded ? 1 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-            >
+            <div className="overflow-hidden">
               {isExpanded && (
                 <div className="pt-3 mt-3 sm:pt-4 sm:mt-4 border-t border-border">
                   <div className="mb-3 sm:mb-4">
@@ -176,9 +152,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                   </Link>
                 </div>
               )}
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

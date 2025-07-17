@@ -10,6 +10,9 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    rotate: {
+      '5': '5deg',
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -18,6 +21,15 @@ module.exports = {
       },
     },
     extend: {
+      perspective: {
+        '1000': '1000px',
+      },
+      rotate: {
+        '5': '5deg',
+      },
+      transformStyle: {
+        '3d': 'preserve-3d',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
@@ -44,14 +43,9 @@ export default function ProfileTechStack() {
   return (
     <section className="w-full max-w-4xl mx-auto my-10 select-none">
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
-        <motion.span
-          animate={{ rotate: [0, 360] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-          className="inline-block"
-        >
-          {/* Tuerca unicode */}
+        <span className="inline-block gear-icon">
           <span style={{fontSize: 32, display: 'inline-block'}} role="img" aria-label="tuerca">⚙️</span>
-        </motion.span>
+        </span>
         Stack Tecnológico
       </h2>
       <div className="group">

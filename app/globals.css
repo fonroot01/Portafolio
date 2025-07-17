@@ -795,3 +795,20 @@
 .animate-heartbeat {
   animation: heartbeat 1.2s infinite;
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gear-icon {
+  animation: spin 4s linear infinite;
+}
+
+.gear-icon:hover {
+  animation-play-state: paused;
+}

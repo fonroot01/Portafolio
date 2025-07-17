@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import { ReactNode, useRef } from "react";
 
 interface ScrollAnimationProps {
@@ -43,8 +43,9 @@ export const ScrollAnimation = ({
   })();
 
   return (
-    <motion.div ref={ref} className={className} style={animationStyle}>
+    <div ref={ref} className={className} style={animationStyle}>
       {children}
-    </motion.div>
+    </$1>
   );
 };
+

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/common/icons";
@@ -35,15 +35,15 @@ const FloatingNav = () => {
   ];
 
   return (
-    <>
+    <AnimatePresence>
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ 
           y: isVisible ? 0 : -20, 
-          opacity: isVisible ? 1 : 0,
-          display: isMobileMenuOpen ? "none" : "flex"
+          opacity: isVisible ? 1 : 0
         }}
         transition={{ duration: 0.3 }}
+        style={{ display: isMobileMenuOpen ? "none" : "flex" }}
         className={cn(
           "fixed z-50 transition-all duration-300 ease-in-out w-full flex justify-center top-4 left-0",
           isMobileMenuOpen && "md:flex hidden"
@@ -158,7 +158,7 @@ const FloatingNav = () => {
         <span className="hidden sm:inline font-heading">Portafolio</span>
         <span className="sm:hidden font-heading">P</span>
       </motion.a>
-    </>
+    </AnimatePresence>
   );
 };
 
