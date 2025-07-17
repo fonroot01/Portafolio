@@ -19,11 +19,17 @@ const AboutMe = () => (
           <div className="space-y-4 w-full">
             <div className="mb-8 space-y-4 text-foreground/90 pl-0 pr-0 sm:pl-4 sm:pr-2 transition-colors duration-300">
               <p className="text-sm sm:text-sm md:text-base text-justify mb-6">
-                Soy Ingeniero de Sistemas con experiencia en soporte técnico y gestión de plataformas tecnológicas, enfocado en mantener la continuidad operativa y brindar soluciones efectivas en entornos empresariales. He trabajado con herramientas como MS365, Active Directory, SharePoint, sistemas ERP e IP PBX, asegurando una atención oportuna y resolutiva para los usuarios.
-              </p>
-              
-              <p className="text-sm sm:text-sm md:text-base text-justify">
-                Complemento mi perfil con formación en ciberseguridad, tanto autodidacta como certificada, lo que me ha permitido desarrollar habilidades prácticas en análisis de vulnerabilidades, auditoría de redes, evaluación de contraseñas, monitoreo de tráfico de red y automatización de tareas con Python. Me apasiona explorar nuevas herramientas, fortalecer mi enfoque técnico y transformar el conocimiento en soluciones útiles.
+                Soy Ingeniero de Sistemas con experiencia en soporte técnico y gestión de plataformas tecnológicas. He brindado apoyo en entornos empresariales con soluciones 
+                como MS365, Active Directory, SharePoint, IP PBX y sistemas ERP. Mi trabajo se ha enfocado en mantener la continuidad operativa y ofrecer soporte oportuno a los usuarios.
+                </p>
+          
+              <p className="text-sm sm:text-sm md:text-base text-justify mb-6">
+                También he profundizado en el campo de la ciberseguridad, aprendiendo tanto de forma autodidacta como a través de formación certificada. 
+                Esto me ha permitido aplicar mis conocimientos en proyectos propios con enfoque en automatización, buenas prácticas de seguridad y uso de IA para optimizar procesos. 
+              </p>   
+
+              <p className="text-sm sm:text-sm md:text-base text-justify mb-6">
+              Me gusta resolver problemas, aprender nuevas tecnologías y hacer que la tecnología trabaje a favor de las personas.
               </p>
             </div>
             <ProfileTechStack />
