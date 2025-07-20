@@ -48,12 +48,11 @@ export default function EvilLimiterLab() {
           {/* Línea divisoria como en Airgeddon */}
           <hr className="mb-6 border-t border-gray-700" />
           <p className="text-foreground mb-4 text-justify">
-            Este laboratorio explora las capacidades de Evil Limiter para controlar el tráfico de red mediante
-            técnicas de ARP spoofing. La herramienta permite identificar dispositivos conectados a la red local
-            y aplicar limitaciones de ancho de banda específicas, lo que resulta útil para comprender la
-            importancia de la seguridad en redes compartidas.
-            Es fundamental destacar que todas las demostraciones en este laboratorio se realizan con el permiso explícito
-            del propietario de la red y los dispositivos involucrados.
+            En este laboratorio, se utilizará Evillimiter, una herramienta de Python que permite gestionar el ancho de banda
+            de dispositivos conectados a una red local. A través de técnicas de ARP spoofing, Evillimiter redirige el tráfico de red
+            de los dispositivos seleccionados, permitiendo aplicar límites de ancho de banda o liberarlos según sea necesario.
+            Este laboratorio guiará a través de los pasos necesarios para instalar, configurar y utilizar Evillimiter,
+            proporcionando una comprensión práctica de su funcionamiento y aplicaciones en la gestión de redes.
           </p>
         </div>
 
@@ -196,21 +195,9 @@ export default function EvilLimiterLab() {
           <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
           <hr className="mb-6 border-t border-border" />
           <p className="text-foreground text-justify">
-            Al completar este laboratorio, se espera comprender como utilizar Evil Limiter
-            para gestionar el ancho de banda en una red local. Los resultados incluyen la identificación de dispositivos
-            conectados, la aplicación de límites de ancho de banda y la observación del impacto en el rendimiento de la red.
+            Se pudo identificar y gestionar el ancho de banda de dispositivos conectados a la red local utilizando Evillimiter.
+            La herramienta permitió aplicar límites de ancho de banda a dispositivos específicos, demostrando su efectividad.
           </p>
-        </section>
-
-        {/* Conclusiones */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-3">Conclusiones</h2>
-          <hr className="mb-6 border-t border-border" />
-          <ul className="list-disc pl-6 space-y-2 text-foreground">
-            <li>Evil Limiter es una herramienta poderosa para gestionar el ancho de banda en redes locales, permitiendo a los administradores controlar el tráfico de red de manera efectiva.</li>
-            <li>El uso de ARP spoofing para redirigir el tráfico es una técnica efectiva, pero debe realizarse con precaución y siempre con el permiso del propietario de la red.</li>
-            <li>La identificación de dispositivos conectados a la red es crucial para aplicar políticas de seguridad y gestión de ancho de banda.</li>
-          </ul>
         </section>
 
         {/* Aviso Legal */}

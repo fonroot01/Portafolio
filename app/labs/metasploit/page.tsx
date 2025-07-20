@@ -35,9 +35,8 @@ export default function MetasploitLab() {
           <h2 className="text-2xl font-bold mb-3">Objetivo del laboratorio</h2>
           <hr className="mb-6 border-t border-border" />
           <p className="text-foreground text-justify">
-            Este laboratorio detalla el proceso de explotación de la vulnerabilidad MS17-010 (EternalBlue) en un sistema Windows 7
-            utilizando la interfaz de línea de comandos (CLI) del Metasploit Framework. El objetivo es demostrar cómo identificar,
-            explotar y realizar acciones post-explotación en un sistema vulnerable.
+            El objetivo de este laboratorio es demostrar el proceso de explotación de vulnerabilidades en un sistema Windows utilizando Metasploit.
+            Se guiará a través de los pasos necesarios para identificar y explotar una vulnerabilidad, proporcionando una comprensión práctica de la metodología de pentesting.
           </p>
         </section>
 
@@ -192,14 +191,11 @@ hashdump       # Extraer hashes de contraseñas</code></pre>
           <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
           <hr className="mb-6 border-t border-border" />
           <p className="text-foreground text-justify">
-            Al completar este laboratorio, se habrá logrado:
+           En este lanoratorio se logro explotar exitosamente la vulnerabilidad MS17-010 en un sistema Windows 7,
+           obteniendo acceso a través de una sesión de Meterpreter. Se pudo realizar post-explotación para obtener información del sistema,
+           capturar la pantalla y ejecutar comandos remotos. Este laboratorio demuestra la efectividad de Metasploit como herramienta de pentesting,
+           proporcionando una comprensión práctica de la explotación de vulnerabilidades y la importancia de mantener los sistemas actualizados.
           </p>
-          <ul className="list-disc pl-6 space-y-2 text-foreground mt-4">
-            <li>Explotar exitosamente la vulnerabilidad MS17-010 en Windows 7</li>
-            <li>Obtener acceso remoto al sistema mediante una sesión Meterpreter</li>
-            <li>Ejecutar comandos de post-explotación para extraer información sensible</li>
-            <li>Demostrar el impacto de sistemas desactualizados en la seguridad</li>
-          </ul>
         </section>
 
         {/* Aviso legal */}

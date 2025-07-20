@@ -50,11 +50,9 @@ export default function AirgeddonLab() {
           <hr className="mb-6 border-t border-border" />
           {/* Cambiado a text-white */}
           <p className="text-justify text-foreground mb-4">
-            Este laboratorio guía a través de los pasos necesarios para realizar una auditoría básica de seguridad
-            en una red Wi-Fi utilizando la herramienta (Airgeddon), que simplifica el uso de la potente suite (Aircrack-ng).
-            El objetivo es ilustrar cómo se pueden identificar posibles vulnerabilidades en redes inalámbricas y la
-            importancia de implementar medidas de seguridad robustas. Es fundamental destacar que todas las auditorías
-            demostradas en este laboratorio se realizan con el permiso explícito del propietario de la red auditada.
+            En este laboratorio, se utilizará (Airgeddon), una interfaz gráfica para la suite (Aircrack-ng), para realizar una auditoría de seguridad en redes Wi-Fi.
+            Se demostrará cómo instalar y ejecutar Airgeddon, seleccionar un adaptador de red inalámbrico,
+            activar el modo monitor y realizar ataques básicos para identificar vulnerabilidades en redes WPA/WPA2.
           </p>
         </section>
 
@@ -211,13 +209,8 @@ export default function AirgeddonLab() {
         <section className="mb-10 mt-16"> {/* Espacio extra arriba */}
           <h2 className="text-2xl font-bold mb-3">Conclusiones</h2>
           <hr className="mb-6 border-t border-border" />
-          Una vez completado este laboratorio se deberían haber alcanzado los siguientes objetivos:
-          <ul className="list-disc pl-6 space-y-1">
-            <li className="text-foreground">Instalar y ejecutar Airgeddon correctamente.</li>
-            <li className="text-foreground">Seleccionar y configurar un adaptador de red inalámbrico en modo monitor.</li>
-            <li className="text-foreground">Identificar redes Wi-Fi vulnerables y realizar ataques básicos de auditoría.</li>
-            <li className="text-foreground">Comprender la importancia de asegurar las redes inalámbricas y las implicaciones legales de las auditorías.</li>
-          </ul>
+          En este laboratorio, se ha demostrado cómo realizar una auditoría básica de seguridad en redes Wi-Fi utilizando (Airgeddon) y la suite (Aircrack-ng). Los pasos incluyen la instalación de Airgeddon, la selección del adaptador de red inalámbrico,
+          la activación del modo monitor y la ejecución de ataques básicos para identificar vulnerabilidades en redes WPA/WPA2.
         </section>
 
           {/* Aviso Legal */}

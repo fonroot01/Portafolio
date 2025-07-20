@@ -49,10 +49,10 @@ export default function ArmitageLab() {
           {/* Línea divisoria */}
           <hr className="mb-6 border-t border-border" />
           <p className="text-justify text-foreground">
-            Este laboratorio guía a través del proceso de utilizar Armitage para realizar un escaneo de
-            vulnerabilidades y posteriormente explotar una de ellas en un sistema Windows objetivo. Se demuestra
-            cómo una herramienta gráfica puede simplificar el flujo de trabajo del pentesting y proporcionar
-            una visión clara de las vulnerabilidades en un sistema.
+            En este laboratorio, se utilizará Armitage, una herramienta de pentesting que proporciona una interfaz gráfica
+            para interactuar con Metasploit. El objetivo es demostrar cómo identificar y explotar vulnerabilidades en un
+            sistema Windows, facilitando el proceso de explotación a través de una interfaz visual intuitiva.
+            Se cubrirán los pasos desde el inicio de Armitage hasta la explotación exitosa de un sistema objetivo.
           </p>
         </section>
 
@@ -171,10 +171,10 @@ export default function ArmitageLab() {
           <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
           <hr className="mb-6 border-t border-border" />
           <p className="text-foreground text-justify">
-            Al finalizar este laboratorio, deberías ser capaz de poder identificar y explotar vulnerabilidades en un sistema
-            Windows utilizando Armitage. Además, deberías tener una comprensión clara de cómo las herramientas gráficas
-            pueden facilitar el proceso de pentesting y cómo se pueden utilizar para realizar un análisis de vulnerabilidades
-            de manera más eficiente.
+           Se pudo identificar y explotar una vulnerabilidad en un sistema Windows, obteniendo acceso a través de una sesión de Meterpreter.
+           La interfaz gráfica de Armitage facilitó el proceso de explotación, permitiendo una visualización clara de los hosts, servicios y vulnerabilidades.
+           Este laboratorio demuestra la efectividad de Armitage como herramienta de pentesting, simplificando  el flujo de trabajo y proporcionando una 
+           experiencia más intuitiva para los profesionales de la ciberseguridad.
           </p>
         </section>
 
