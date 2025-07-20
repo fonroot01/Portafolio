@@ -191,7 +191,7 @@ hashdump       # Extraer hashes de contraseñas</code></pre>
           <h2 className="text-2xl font-bold mb-3">Resultados esperados</h2>
           <hr className="mb-6 border-t border-border" />
           <p className="text-foreground text-justify">
-           En este lanoratorio se logro explotar exitosamente la vulnerabilidad MS17-010 en un sistema Windows 7,
+           En este laboratorio se logro explotar exitosamente la vulnerabilidad MS17-010 en un sistema Windows 7,
            obteniendo acceso a través de una sesión de Meterpreter. Se pudo realizar post-explotación para obtener información del sistema,
            capturar la pantalla y ejecutar comandos remotos. Este laboratorio demuestra la efectividad de Metasploit como herramienta de pentesting,
            proporcionando una comprensión práctica de la explotación de vulnerabilidades y la importancia de mantener los sistemas actualizados.
