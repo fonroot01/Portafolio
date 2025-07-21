@@ -233,6 +233,14 @@ const ProfileSection = () => {
       issuer: "Cómo Resolver Problemas y Tomar Decisiones con Eficacia",
       year: "2024",
       category: "Curso de UCI"
+    },
+    {
+      id: 9,
+      pdfPath: "/Introducción a la programación en Python I.pdf",
+      previewImage: "/imagenes diplomados/Introducción a la programación en Python I.png",
+      issuer: "Introducción a la programación en Python I",
+      year: "2025",
+      category: "Curso de Python I UC-Chile"
     }
   ]; // Aquí estaba el problema - faltaba cerrar el array
 
