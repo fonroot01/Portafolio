@@ -71,7 +71,7 @@ export function SuccessModal() {
             ¡Gracias por tu mensaje!
           </h3>
           <p className="text-sm text-center text-foreground/70">
-            Te responderé en un momento... Saludos.
+            Te responderé en un momento. Saludos.
           </p>
           
           <button
