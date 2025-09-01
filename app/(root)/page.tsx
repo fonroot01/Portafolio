@@ -7,6 +7,7 @@ import { Icons } from "@/components/common/icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ScrollButton } from "@/components/common/scroll-button";
 import WavingHand from "@/components/common/WavingHand";
+import { Heart } from "lucide-react";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
 import dynamic from "next/dynamic";
 
@@ -31,24 +32,16 @@ export default function IndexPage() {
           />
           <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold text-foreground text-center mb-2 transition-colors duration-300">
             Alfonso Mosquera
-          </h1>          <div className="font-heading text-lg sm:text-2xl md:text-3xl text-foreground text-center min-h-[2.5rem] mb-4 transition-colors duration-300">
-            <TypeAnimation
-              sequence={[
-                'Ingeniero de Sistemas 💻', 2000,
-                'Fan de la Ciberseguridad 🔐', 2000,
-                'Python Dev 🐍', 2000,
-                'Automatizo todo ⚡', 2000,
-                'Soporte TI Pro ⚙️', 2000,
-                'Linux Lover 🐧', 2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              style={{ fontSize: 'inherit', display: 'inline-block' }}
-              repeat={Infinity}
-            />
-          </div>          <p className="text-sky-400 dark:text-sky-300 text-base sm:text-base text-center mb-8 max-w-xl transition-colors duration-300 font-medium">
-            <WavingHand /> ¡Bienvenido a mi portafolio!
-          </p>
+          </h1>          
+          <div className="text-center space-y-4 mb-8">
+            <div className="text-foreground font-heading text-2xl sm:text-3xl mb-2">
+              Ingeniero de Sistemas
+            </div>
+            <div className="text-sky-400 dark:text-sky-300 text-xl sm:text-2xl transition-colors duration-300 font-medium flex items-center justify-center">
+              
+                
+            </div>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mb-8">            <Link
               href="https://github.com/fonroot01"
               target="_blank"

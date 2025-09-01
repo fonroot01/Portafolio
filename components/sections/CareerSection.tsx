@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Briefcase } from "lucide-react";
 
 // Define una interfaz para las props del componente CompanyIcon
 interface CompanyIconProps {
@@ -157,8 +158,8 @@ const ExperienceSection = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Header con animación - más compacto */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold mb-3 text-center text-foreground font-heading tracking-tight">
-            <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"💼"}</span> 
+          <h2 className="text-4xl font-extrabold mb-3 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
+            <Briefcase className="w-8 h-8 animate-bounce" />
             Experiencia Laboral
           </h2>
           <div className="w-16 h-0.5 bg-primary/50 mx-auto mt-4 rounded-full"></div>

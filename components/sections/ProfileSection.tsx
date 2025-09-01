@@ -1,5 +1,7 @@
 import React, { useState, memo } from "react";
 import AboutMe from "../AboutMe";
+import { ScrollText } from "lucide-react";
+import { User, Briefcase, GraduationCap, Code, Mail, FileText } from "lucide-react";
 
 // Componente memoizado para cada tarjeta de certificado
 // Interfaz para el modal
@@ -253,8 +255,8 @@ const ProfileSection = () => {
       <div className="container mx-auto pt-8 px-4">
         <AboutMe />
         <div className="mt-12 pb-12">
-          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
-            <span className="inline-block align-middle mr-3 text-xl animate-bounce" aria-hidden="true">{"📜"}</span>
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground flex items-center justify-center gap-4">
+            <ScrollText className="w-8 h-8 animate-bounce" />
             Diplomas y Certificados
           </h2>
           {/* Grid de certificados */}

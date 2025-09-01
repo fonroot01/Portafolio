@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Folder, Shield, Wrench } from "lucide-react";
 
 const ProjectsSection = () => {
   // Estados para controlar la visibilidad de los proyectos
@@ -184,8 +185,9 @@ const ProjectsSection = () => {
     <section className="min-h-screen">
       <div className="container mx-auto py-20 px-4">
         {/* Sección de Proyectos */}
-        <div className="mb-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight">
-            <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"🛠️"}</span> Proyectos
+        <div className="mb-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
+            <Wrench className="w-8 h-8 animate-bounce" />
+            Proyectos
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -336,8 +338,8 @@ const ProjectsSection = () => {
         </div>
 
         {/* Sección de Laboratorios de Ciberseguridad */}
-        <div id="labs" className="mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight">
-            <span className="inline-block align-middle mr-3 text-xl animate-bounce">{"🔒"}</span>
+        <div id="labs" className="mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
+            <Shield className="w-8 h-8 animate-bounce" />
             Laboratorios de Ciberseguridad
           </h2>
 

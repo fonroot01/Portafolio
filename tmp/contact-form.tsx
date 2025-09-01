@@ -31,7 +31,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const [formspreeState, handleSubmitFormspree] = useFormspree('xqaqoygp');
-  const { openModal } = useModalStore();
+  const { isOpen, openModal, closeModal } = useModalStore();
 
   const form = useHookForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,18 +42,41 @@ export function ContactForm() {
     },
   });
 
-  // Función para resetear el formulario cuando el modal se cierra
-  const { isOpen } = useModalStore();
-  
+  // Función para resetear el formulario
+  const resetForm = useCallback(() => {
+    form.reset({
+      name: "",
+      email: "",
+      message: "",
+    });
+  }, [form]);
+
+  // Función personalizada para cerrar el modal
+  const handleCloseModal = useCallback(() => {
+    console.log('handleCloseModal llamado'); // Debug log
+    closeModal();
+    // Resetear el formulario después de cerrar
+    setTimeout(() => {
+      resetForm();
+      console.log('Formulario reseteado'); // Debug log
+    }, 150);
+  }, [closeModal, resetForm]);
+
+  // Auto-cierre de emergencia después de 10 segundos
   useEffect(() => {
-    if (!isOpen) {
-      form.reset({
-        name: "",
-        email: "",
-        message: "",
-      });
+    let timer: NodeJS.Timeout;
+    if (isOpen) {
+      timer = setTimeout(() => {
+        console.log('Auto-cerrando modal por timeout');
+        handleCloseModal();
+      }, 10000); // 10 segundos
     }
-  }, [isOpen, form]);
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [isOpen, handleCloseModal]);
 
   // Efecto para manejar el éxito del envío
   useEffect(() => {
@@ -98,7 +121,7 @@ export function ContactForm() {
                   <Input 
                     placeholder="Ingresa tu nombre" 
                     {...field} 
-                    className="bg-black/20 dark:bg-black/40 backdrop-blur-sm border border-white/20 text-foreground placeholder:text-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
+                    className="bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm border border-white/20 text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
                   />
                 </FormControl>
                 <ValidationError 
@@ -122,7 +145,7 @@ export function ContactForm() {
                     placeholder="Ingresa tu correo electrónico" 
                     type="email" 
                     {...field} 
-                    className="bg-black/20 dark:bg-black/40 backdrop-blur-sm border border-white/20 text-foreground placeholder:text-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
+                    className="bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm border border-white/20 text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
                   />
                 </FormControl>
                 <ValidationError 
@@ -144,7 +167,7 @@ export function ContactForm() {
                 <FormControl>
                   <Textarea
                     placeholder="Escribe tu mensaje aquí"
-                    className="resize-y w-full h-[100px] min-h-[100px] max-h-[400px] bg-black/20 dark:bg-black/40 backdrop-blur-sm border border-white/20 text-foreground placeholder:text-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
+                    className="resize-none min-h-[150px] bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm border border-white/20 text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
                     {...field}
                   />
                 </FormControl>
@@ -169,6 +192,19 @@ export function ContactForm() {
       </Form>
 
       <SuccessModal />
+      
+      {/* Botón de emergencia para cerrar modal (solo visible si está abierto) */}
+      {isOpen && (
+        <div className="fixed top-4 right-4 z-[60]">
+          <button
+            onClick={handleCloseModal}
+            className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm font-medium"
+            title="Cerrar modal (emergencia)"
+          >
+            ✕ Cerrar
+          </button>
+        </div>
+      )}
     </>
   );
 }

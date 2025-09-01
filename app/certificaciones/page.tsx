@@ -5,6 +5,7 @@ import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
 import ContributionCard from "@/components/contributions/contribution-card";
 import { pagesConfig } from "@/config/pages";
 import { featuredContributions } from "@/config/contributions";
+import { GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: pagesConfig.certificaciones.title,
@@ -21,8 +22,9 @@ export default function CertificacionesPage() {
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <AnimatedText
             as="h2"
-            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
+            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl flex items-center justify-center gap-4"
           >
+            <GraduationCap className="w-10 h-10 animate-bounce" />
             {pagesConfig.certificaciones.title}
           </AnimatedText>
           <AnimatedText

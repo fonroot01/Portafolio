@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
+    "@headlessui/react": "^2.2.7",
     "@hookform/resolvers": "^3.10.0",
     "@next/third-parties": "^14.1.0",
     "@radix-ui/react-accordion": "^1.1.2",
@@ -43,7 +44,7 @@
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
     "zod": "^3.24.4",
-    "zustand": "^4.4.1"
+    "zustand": "^4.5.7"
   },
   "devDependencies": {
     "@types/node": "24.0.4"

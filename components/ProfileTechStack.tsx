@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { Cog } from "lucide-react";
 
 const techs1 = [
   { name: "Python", src: "/logos_svg_stacks/python.svg" },
@@ -43,9 +44,7 @@ export default function ProfileTechStack() {
   return (
     <section className="w-full max-w-4xl mx-auto my-10 select-none">
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
-        <span className="inline-block gear-icon">
-          <span style={{fontSize: 32, display: 'inline-block'}} role="img" aria-label="tuerca">⚙️</span>
-        </span>
+        <Cog className="w-8 h-8 animate-[spin_3s_linear_infinite]" />
         Stack Tecnológico
       </h2>
       <div className="group">

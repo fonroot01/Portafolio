@@ -37,6 +37,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @keyframes check {
+    0% {
+      transform: scale(0) rotate(-45deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-up {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-check {
+    animation: check 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
