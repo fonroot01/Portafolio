@@ -23,7 +23,7 @@ const ProjectsSection = () => {
       title: "Droid Specter",
       description: "Herramienta que permite interactuar con dispositivos Android de forma remota, ideal para pruebas de seguridad móvil.",
       githubUrl: "https://github.com/fonroot01/Droid-Specter",
-      tags: ["Python", "Tkinter", "Android", "Seguridad Móvil"],
+      tags: ["Python", "Tkinter", "ADB"],
       image: "/portadasp/droid.webp",
     },
     {
@@ -31,7 +31,7 @@ const ProjectsSection = () => {
       title: "GestorIP",
       description: "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola. Permite gestionar múltiples conexiones de red y restablecer dhcp.",
       githubUrl: "https://github.com/fonroot01/GestorIP",
-      tags: ["Python", "Tkinter", "Network Tools"],
+      tags: ["Python", "Tkinter"],
       image: "/portadasp/gestorip.webp",
     },
     {
