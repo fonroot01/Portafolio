@@ -15,7 +15,7 @@ const ProjectsSection = () => {
       title: "GIP Pro",
       description: "Permite gestionar de manera gráfica y sencilla la configuración de interfaces de red, servidores DNS y configuraciones de proxy.",
       githubUrl: "https://github.com/fonroot01/GIP-Pro-V1.0",
-      tags: ["Python", "CSS", "Tkinter", "Networking"],
+      tags: ["Gen IA", "Python", "PyQt5", "Tkinter"],
       image: "/portadasp/gippro.webp",
     },
     {
