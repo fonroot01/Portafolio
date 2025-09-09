@@ -16,24 +16,28 @@ export interface CareerExperienceInterface {
 
 export const careerExperiences: CareerExperienceInterface[] = [
   {
-    id: "icbf-hogar-gestor",
-    position: "Asistente de Hogar Gestor",
-    company: "ICBF",
-    location: "Florencia, Caquetá, Colombia",
-    startDate: new Date("2017-04-18"),
-    endDate: new Date("2017-04-30"),
+    id: "profesional-universitario",
+    position: "Profesional Universitario - Auxiliar Administrativo de Sistemas",
+    company: "Instituto Tecnológico del Putumayo",
+    location: "Mocoa, Putumayo, Colombia",
+    startDate: new Date("2025-01-01"),
+    endDate: "Present",
     description: [
-      "Apoyo en el diligenciamiento de formularios para evaluación de casos.",
-      "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales.",
-      "Acompañamiento en la gestión de documentación y seguimiento de procesos."
+      "Gestión y mantenimiento de sistemas informáticos institucionales",
+      "Administración de redes y servicios tecnológicos",
+      "Soporte técnico a usuarios y equipos",
+      "Implementación de políticas de seguridad informática",
+      "Desarrollo y mantenimiento de soluciones tecnológicas",
+      "Gestión de inventario de recursos tecnológicos"
     ],
     achievements: [
-      "Empatía y sensibilidad social.",
-      "Comunicación efectiva."
+      "Optimización de procesos tecnológicos institucionales",
+      "Mejora en la seguridad de sistemas informáticos",
+      "Implementación de soluciones eficientes"
     ],
-    skills: [],
+    skills: ["Active Directory", "SQL Server", "Microsoft 365", "Virtualización"],
     companyUrl: undefined,
-    logo: "/career/logobienestar.png"
+    logo: "/career/logoutch.png"
   },
   {
     id: "aprendiz-soporte-ti",

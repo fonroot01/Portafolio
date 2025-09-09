@@ -27,6 +27,40 @@ const ExperienceSection = () => {
   const experiences = [
     {
       id: 1,
+      role: "Profesional Universitario - Auxiliar Administrativo de Sistemas",
+      company: "Universidad Tecnológica del Chocó",
+      dates: "sep. 2025 - presente",
+      duration: "actual",
+      description: [
+        "Actualmente mis labores comprenden en:",
+        "Soporte técnico a dependencias administrativas",
+        "Gestión de plataformas institucionales",
+        "Administración de redes y servicios digitales",
+        "Respaldo y seguridad de la información institucional",
+        "Documentación de procesos y asistencia a usuarios",
+      ],
+      color: "from-blue-500 to-indigo-500",
+      icon: (
+        <img 
+          src="/career/logoutch.png" 
+          alt="UTCh Logo" 
+          className="w-8 h-8 object-contain"
+          onError={(e) => {
+            // Fallback to SVG icon if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.nextElementSibling?.classList.remove('hidden');
+          }}
+        />
+      ),
+      fallbackIcon: (
+        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 18c-3.87 0-7-3.13-7-7V6.39l7-3.11V19z" />
+        </svg>
+      ),
+    },
+    {
+      id: 2,
       role: "Auxiliar de Plataformas Tecnológicas",
       company: "Zeuss S.A.S",
       dates: "oct. 2022 - ene. 2023",
@@ -60,13 +94,13 @@ const ExperienceSection = () => {
       ),
     },
     {
-      id: 2,
+      id: 3,
       role: "Aprendiz de Soporte y Servicio TI",
       company: "Zeuss S.A.S",
       dates: "abr. 2022 - oct. 2022",
       duration: "6 meses",
       description: [
-        "Como auxiliar de soporte y servicio TI, mis responsabilidades incluyeron:",
+        "Como auxiliar de soporte y servicio TI, mis tareas fueron:",
         "Brindar soporte técnico",
         "Realizar actividades de mantenimiento preventivo y correctivo a equipos",
         "Tareas de supervisión de servidores en plantas y estaciones de servicio.",
@@ -90,38 +124,6 @@ const ExperienceSection = () => {
       fallbackIcon: (
         <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
-        </svg>
-      ),
-    },
-    {
-      id: 3,
-      role: "Asistente de Hogar Gestor",
-      company: "ICBF (Instituto Colombiano de Bienestar Familiar)",
-      dates: "abr. 2017 - abr. 2017",
-      duration: "1 meses",
-      description: [
-        "Como asistente en el programa Hogar Gestor del ICBF, mis responsabilidades incluyeron:",
-        "Apoyo del diligenciamiento de formularios para evaluación de casos.",
-        "Revisión y organización de casos relacionados con violencia intrafamiliar, abuso, abandono y otros factores psicosociales.",
-        "Acompañamiento en la gestión de documentación y seguimiento de procesos.",
-      ],
-      color: "from-green-500 to-teal-500",
-      icon: (
-        <img 
-          src="/career/logoicbf.png" 
-          alt="ICBF Logo" 
-          className="w-8 h-8 object-contain"
-          onError={(e) => {
-            // Fallback to SVG icon if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            target.nextElementSibling?.classList.remove('hidden');
-          }}
-        />
-      ),
-      fallbackIcon: (
-        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 18c-3.87 0-7-3.13-7-7V6.39l7-3.11V19z" />
         </svg>
       ),
     },
@@ -283,7 +285,7 @@ const ExperienceSection = () => {
             <div className="text-sm text-muted-foreground font-heading">Empresas</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">12</div>
+            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">10</div>
             <div className="text-sm text-muted-foreground font-heading">Meses de Experiencia</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
