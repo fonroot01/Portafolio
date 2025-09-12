@@ -5,9 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/common/icons";
-import { BiSolidUser } from "react-icons/bi";
+import { 
+  User,
+  Wrench,
+  Settings,
+  Phone
+} from "lucide-react";
 import { HiBriefcase } from "react-icons/hi";
-import { MdMiscellaneousServices, MdOutlineWorkspaces } from "react-icons/md";
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -27,11 +31,31 @@ const FloatingNav = () => {
   }, [lastScrollY]);
   
   const links = [
-    { href: "/#perfil", label: "Perfil", icon: <BiSolidUser className="w-4 h-4" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <MdOutlineWorkspaces className="w-4 h-4" /> },
-    { href: "/#trayectoria", label: "Trayectoria", icon: <HiBriefcase className="w-4 h-4" /> },
-    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <MdMiscellaneousServices className="w-4 h-4" /> },
-    { href: "/#contacto", label: "Contacto", icon: <Icons.contact className="w-4 h-4" /> },
+    { 
+      href: "/#perfil", 
+      label: "Perfil", 
+      icon: <User className="w-4 h-4" /> // Icono de usuario para perfil
+    },
+    { 
+      href: "/#proyectos", 
+      label: "Proyectos", 
+      icon: <Wrench className="w-4 h-4" /> // Icono de llave para proyectos
+    },
+    { 
+      href: "/#trayectoria", 
+      label: "Trayectoria", 
+      icon: <HiBriefcase className="w-4 h-4" /> // Maletín para trayectoria profesional
+    },
+    { 
+      href: "https://alfonsosupport.vercel.app/", 
+      label: "Servicios", 
+      icon: <Settings className="w-4 h-4" /> // Engranaje para servicios
+    },
+    { 
+      href: "/#contacto", 
+      label: "Contacto", 
+      icon: <Phone className="w-4 h-4" /> // Teléfono para contacto
+    },
   ];
 
   return (
@@ -63,55 +87,71 @@ const FloatingNav = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "flex items-center gap-2",
-                      "px-3 py-2 md:px-4 md:py-2",
+                      "flex items-center md:flex-row flex-col justify-center",
+                      "px-2 py-1.5 md:px-4 md:py-2", // Padding reducido en móvil
                       "text-sm font-medium transition-colors",
                       "text-gray-200 hover:text-white hover:text-primary",
                       "whitespace-nowrap rounded-full",
-                      "transition-all duration-200"
+                      "transition-all duration-200",
+                      "min-w-[3.5rem] md:min-w-0" // Ancho mínimo en móvil
                     )}
                     whileHover={{ 
-                      scale: 1.1,
-                      backgroundColor: "rgba(255, 255, 255, 0.1)"
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 255, 255, 0.08)"
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   >
                     <motion.span 
-                      className="md:hidden"
+                      className="md:hidden mb-1"
                       whileHover={{ rotate: 5 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                     >
                       {icon}
                     </motion.span>
-                    <span className="hidden md:inline">{label}</span>
+                    <span className={cn(
+                      "md:text-sm text-[10px]",
+                      "font-medium leading-none",
+                      "transition-opacity",
+                      "md:opacity-100 opacity-70"
+                    )}>
+                      {label}
+                    </span>
                   </motion.a>
                 ) : (
                   <motion.a
                     href={href}
                     className={cn(
-                      "flex items-center gap-2",
-                      "px-3 py-2 md:px-4 md:py-2",
+                      "flex items-center md:flex-row flex-col justify-center",
+                      "px-2 py-1.5 md:px-4 md:py-2", // Padding reducido en móvil
                       "text-sm font-medium transition-colors",
                       "text-gray-200 hover:text-white hover:text-primary",
                       "whitespace-nowrap rounded-full",
-                      "transition-all duration-200"
+                      "transition-all duration-200",
+                      "min-w-[3.5rem] md:min-w-0" // Ancho mínimo en móvil
                     )}
                     whileHover={{ 
-                      scale: 1.1,
-                      backgroundColor: "rgba(255, 255, 255, 0.1)"
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 255, 255, 0.08)"
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   >
                     <motion.span 
-                      className="md:hidden"
+                      className="md:hidden mb-1"
                       whileHover={{ rotate: 5 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                     >
                       {icon}
                     </motion.span>
-                    <span className="hidden md:inline">{label}</span>
+                    <span className={cn(
+                      "md:text-sm text-[10px]",
+                      "font-medium leading-none",
+                      "transition-opacity",
+                      "md:opacity-100 opacity-70"
+                    )}>
+                      {label}
+                    </span>
                   </motion.a>
                 )}
               </li>
