@@ -3,8 +3,10 @@
 import { Norican } from "next/font/google";
 import Link from "next/link";
 import * as React from "react";
-import { BiSolidUser } from "react-icons/bi";
-import { HiBriefcase } from "react-icons/hi";
+import { BsPerson, BsCodeSlash } from "react-icons/bs";
+import { HiOutlineBriefcase } from "react-icons/hi";
+import { BiSupport } from "react-icons/bi";
+import { GoProject } from "react-icons/go";
 
 import { Icons } from "@/components/common/icons";
 import { siteConfig } from "@/config/site";
@@ -31,13 +33,15 @@ export function MobileNav({ items, children }: MobileNavProps) {
   const getIcon = (title: string) => {
     switch (title.toLowerCase()) {
       case "perfil":
-        return <BiSolidUser className="w-5 h-5" />;
+        return <BsPerson className="w-5 h-5" />;
       case "proyectos":
-        return <Icons.media className="w-5 h-5" />;
+        return <GoProject className="w-5 h-5" />;
       case "trayectoria":
-        return <HiBriefcase className="w-5 h-5" />;
+        return <HiOutlineBriefcase className="w-5 h-5" />;
+      case "servicios":
+        return <BsCodeSlash className="w-5 h-5" />;
       case "contacto":
-        return <Icons.contact className="w-5 h-5" />;
+        return <BiSupport className="w-5 h-5" />;
       default:
         return null;
     }
