@@ -502,9 +502,11 @@ const ProjectsSection = () => {
             </button>
             
             <div className="aspect-video relative overflow-hidden rounded-lg">
-              <img
+              <Image
                 src="/gif_invensoft.gif"
                 alt="InvenSoft Demo"
+                width={640}
+                height={360}
                 className="w-full h-full object-contain"
               />
             </div>

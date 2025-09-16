@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Briefcase } from "lucide-react";
 
 // Define una interfaz para las props del componente CompanyIcon
@@ -41,15 +42,17 @@ const ExperienceSection = () => {
       ],
       color: "from-blue-500 to-indigo-500",
       icon: (
-        <img 
+        <Image
           src="/career/logoutch.png" 
           alt="UTCh Logo" 
-          className="w-8 h-8 object-contain"
+          width={32}
+          height={32}
+          className="object-contain"
           onError={(e) => {
             // Fallback to SVG icon if image fails to load
             const target = e.target as HTMLImageElement;
             target.style.display = 'none';
-            target.nextElementSibling?.classList.remove('hidden');
+            (e.currentTarget as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
           }}
         />
       ),
@@ -75,15 +78,17 @@ const ExperienceSection = () => {
       ],
       color: "from-blue-500 to-cyan-500",
       icon: (
-        <img 
+        <Image
           src="/career/logozeuss.png" 
           alt="Zeuss Logo" 
-          className="w-8 h-8 object-contain"
+          width={32}
+          height={32}
+          className="object-contain"
           onError={(e) => {
             // Fallback to SVG icon if image fails to load
             const target = e.target as HTMLImageElement;
             target.style.display = 'none';
-            target.nextElementSibling?.classList.remove('hidden');
+            (e.currentTarget as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
           }}
         />
       ),
@@ -109,10 +114,12 @@ const ExperienceSection = () => {
       ],
       color: "from-purple-500 to-pink-500",
       icon: (
-        <img 
+        <Image
           src="/career/logozeuss.png" 
           alt="Zeuss Logo" 
-          className="w-8 h-8 object-contain"
+          width={32}
+          height={32}
+          className="object-contain"
           onError={(e) => {
             // Fallback to SVG icon if image fails to load
             const target = e.target as HTMLImageElement;

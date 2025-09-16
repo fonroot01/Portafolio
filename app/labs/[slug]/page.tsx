@@ -3,6 +3,7 @@ import { labsData } from "../../../config/labs";
 import type { LabData } from "../../../config/labs.d";
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatedPageTransition } from "@/components/common/animated-page-transition";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -43,7 +44,14 @@ export default function LabDetailPage({ params }: { params: { slug: string } }) 
         {Array.isArray(lab.images) && lab.images.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {lab.images.map((img: string, i: number) => (
-              <img key={i} src={img} alt={lab.title + " imagen " + (i + 1)} className="rounded shadow w-full object-cover" />
+              <Image 
+                key={i} 
+                src={img} 
+                alt={lab.title + " imagen " + (i + 1)} 
+                width={800}
+                height={450}
+                className="rounded shadow w-full object-cover" 
+              />
             ))}
           </div>
         )}

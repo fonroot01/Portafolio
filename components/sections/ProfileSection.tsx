@@ -1,4 +1,5 @@
 import React, { useState, memo } from "react";
+import Image from "next/image";
 import AboutMe from "../AboutMe";
 import { ScrollText } from "lucide-react";
 import { User, Briefcase, GraduationCap, Code, Mail, FileText } from "lucide-react";
@@ -50,9 +51,11 @@ const CertificateModal = ({ isOpen, onClose, cert }: ModalProps) => {
           </button>
           
           <div className="aspect-[1.414/1] relative overflow-hidden rounded-lg">
-            <img
+            <Image
               src={cert.previewImage}
               alt={`${cert.title} - ${cert.issuer}`}
+              width={800}
+              height={566}
               className="w-full h-full object-contain bg-background"
             />
           </div>
@@ -84,24 +87,26 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
             <picture className="w-full h-full">
               <source srcSet={cert.previewImage.replace('.png', '.avif')} type="image/avif" />
               <source srcSet={cert.previewImage.replace('.png', '.webp')} type="image/webp" />
-              <img 
+              <Image 
                 src={cert.previewImage} 
                 alt={`Certificado: ${cert.title} emitido por ${cert.issuer}`} 
+                width={400}
+                height={200}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                fetchPriority="low"
-                sizes={imgSizes}
+                priority={false}
                 onError={() => setImgError(true)}
+                sizes={imgSizes}
               />
             </picture>
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-background to-muted flex flex-col items-center justify-center p-4">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
                 {!logoError && cert.logo ? (
-                  <img 
+                  <Image
                     src={cert.logo} 
                     alt={cert.alt} 
+                    width={24}
+                    height={24}
                     className="w-6 h-6 object-contain" 
                     onError={() => setLogoError(true)}
                   />

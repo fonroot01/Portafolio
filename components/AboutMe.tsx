@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import ProfileTechStack from "@/components/ProfileTechStack";
 import WavingHand from "@/components/common/WavingHand";
 import { User } from "lucide-react";
@@ -24,10 +25,12 @@ const AboutMe = () => (
         </div>
       </div>
       <div className="relative w-full flex items-end justify-end md:w-1/2">
-        <img
+        <Image
           src="/fondo_sobremi.png"
           alt="Fondo sobre mí"
-          className="w-full h-75 object-contain rounded-xl shadow-lg"
+          width={600}
+          height={350}
+          className="w-full object-contain rounded-xl shadow-lg"
           style={{
             maxHeight: '350px',
             maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
