@@ -28,8 +28,8 @@ const FloatingNav = () => {
   }, [lastScrollY]);
   
   const links = [
-    { href: "/#perfil", label: "Perfil", icon: <FaUser className="w-6 h-6" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <BiCode className="w-6 h-6" /> },
+    { href: "/#perfil", label: "Perfil", icon: <FaUser className="w-5 h-6" /> },
+    { href: "/#proyectos", label: "Proyectos", icon: <BiCode className="w-9 h-7" /> },
     { href: "/#trayectoria", label: "Trayectoria", icon: <IoMdBriefcase className="w-6 h-6" /> },
     { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <BiSupport className="w-6 h-6" /> },
     { href: "/#contacto", label: "Contacto", icon: <HiMail className="w-6 h-6" /> },
