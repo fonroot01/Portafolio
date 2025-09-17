@@ -4,12 +4,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/common/icons";
-import { CgProfile } from "react-icons/cg";
-import { VscProject } from "react-icons/vsc";
+import { FaUserAlt } from "react-icons/fa";
+import { AiFillProject } from "react-icons/ai";
 import { MdWorkOutline } from "react-icons/md";
-import { MdMiscellaneousServices } from "react-icons/md";
-import { RiCustomerService2Line } from "react-icons/ri";
+import { RiCustomerServiceFill } from "react-icons/ri";
+import { IoMdContacts } from "react-icons/io";
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -29,11 +28,11 @@ const FloatingNav = () => {
   }, [lastScrollY]);
   
   const links = [
-    { href: "/#perfil", label: "Perfil", icon: <CgProfile className="w-5 h-5" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <VscProject className="w-5 h-5" /> },
-    { href: "/#trayectoria", label: "Trayectoria", icon: <MdWorkOutline className="w-5 h-5" /> },
-    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <MdMiscellaneousServices className="w-5 h-5" /> },
-    { href: "/#contacto", label: "Contacto", icon: <RiCustomerService2Line className="w-5 h-5" /> },
+    { href: "/#perfil", label: "Perfil", icon: <FaUserAlt className="w-4 h-4" /> },
+    { href: "/#proyectos", label: "Proyectos", icon: <AiFillProject className="w-4 h-4" /> },
+    { href: "/#trayectoria", label: "Trayectoria", icon: <MdWorkOutline className="w-4 h-4" /> },
+    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <RiCustomerServiceFill className="w-4 h-4" /> },
+    { href: "/#contacto", label: "Contacto", icon: <IoMdContacts className="w-4 h-4" /> },
   ];
 
   return (

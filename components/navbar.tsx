@@ -1,10 +1,10 @@
 import { routesConfig } from "@/config/routes";
-import { MainNav } from "./common/main-nav";
+import FloatingNav from "./common/floating-nav";
 
 export default function Navbar() {
   return (
     <nav className="w-full flex justify-center py-4">
-      <MainNav items={routesConfig.mainNav} />
+      <FloatingNav />
     </nav>
   );
 }
