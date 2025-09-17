@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/common/icons";
-import { BsPerson, BsTools } from "react-icons/bs";
-import { HiOutlineBriefcase } from "react-icons/hi";
-import { BiSupport } from "react-icons/bi";
-import { GiAutoRepair } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
+import { VscProject } from "react-icons/vsc";
+import { MdWorkOutline } from "react-icons/md";
+import { MdMiscellaneousServices } from "react-icons/md";
+import { RiCustomerService2Line } from "react-icons/ri";
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -28,11 +29,11 @@ const FloatingNav = () => {
   }, [lastScrollY]);
   
   const links = [
-    { href: "/#perfil", label: "Perfil", icon: <BsPerson className="w-4 h-4" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <BsTools className="w-4 h-4" /> },
-    { href: "/#trayectoria", label: "Trayectoria", icon: <HiOutlineBriefcase className="w-4 h-4" /> },
-    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <GiAutoRepair className="w-4 h-4" /> },
-    { href: "/#contacto", label: "Contacto", icon: <BiSupport className="w-4 h-4" /> },
+    { href: "/#perfil", label: "Perfil", icon: <CgProfile className="w-5 h-5" /> },
+    { href: "/#proyectos", label: "Proyectos", icon: <VscProject className="w-5 h-5" /> },
+    { href: "/#trayectoria", label: "Trayectoria", icon: <MdWorkOutline className="w-5 h-5" /> },
+    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <MdMiscellaneousServices className="w-5 h-5" /> },
+    { href: "/#contacto", label: "Contacto", icon: <RiCustomerService2Line className="w-5 h-5" /> },
   ];
 
   return (
