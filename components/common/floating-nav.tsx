@@ -4,11 +4,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { cn } from "@/lib/utils";
-import { FaUserAlt } from "react-icons/fa";
-import { AiFillProject } from "react-icons/ai";
-import { MdWorkOutline } from "react-icons/md";
-import { RiCustomerServiceFill } from "react-icons/ri";
-import { IoMdContacts } from "react-icons/io";
+import { FaUser } from "react-icons/fa";            // Icono de perfil más simple y reconocible
+import { BiCode } from "react-icons/bi";            // Icono de código para proyectos de desarrollo
+import { IoMdBriefcase } from "react-icons/io";     // Icono de maletín más grande y claro
+import { BiSupport } from "react-icons/bi";         // Icono de soporte más universal
+import { HiMail } from "react-icons/hi";            // Icono de mail más simple y directo
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -28,11 +28,11 @@ const FloatingNav = () => {
   }, [lastScrollY]);
   
   const links = [
-    { href: "/#perfil", label: "Perfil", icon: <FaUserAlt className="w-4 h-4" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <AiFillProject className="w-4 h-4" /> },
-    { href: "/#trayectoria", label: "Trayectoria", icon: <MdWorkOutline className="w-4 h-4" /> },
-    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <RiCustomerServiceFill className="w-4 h-4" /> },
-    { href: "/#contacto", label: "Contacto", icon: <IoMdContacts className="w-4 h-4" /> },
+    { href: "/#perfil", label: "Perfil", icon: <FaUser className="w-6 h-6" /> },
+    { href: "/#proyectos", label: "Proyectos", icon: <BiCode className="w-6 h-6" /> },
+    { href: "/#trayectoria", label: "Trayectoria", icon: <IoMdBriefcase className="w-6 h-6" /> },
+    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <BiSupport className="w-6 h-6" /> },
+    { href: "/#contacto", label: "Contacto", icon: <HiMail className="w-6 h-6" /> },
   ];
 
   return (

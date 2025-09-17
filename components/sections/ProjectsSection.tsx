@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Folder, Shield, Wrench } from "lucide-react";
+import { Code2, Shield, Wrench } from "lucide-react";
 
 const ProjectsSection = () => {
   // Estados para controlar la visibilidad de los proyectos
@@ -186,7 +186,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto py-20 px-4">
         {/* Sección de Proyectos */}
         <div className="mb-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
-            <Wrench className="w-8 h-8 animate-bounce" />
+            <Code2 className="w-8 h-8 animate-bounce" />
             Proyectos
           </h2>
 
