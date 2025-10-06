@@ -9,6 +9,7 @@ import { ScrollButton } from "@/components/common/scroll-button";
 import WavingHand from "@/components/common/WavingHand";
 import { Heart } from "lucide-react";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
+import ProfileSpecialties from '@/components/common/ProfileSpecialties';
 import dynamic from "next/dynamic";
 
 // Dynamic imports para code splitting (client components)
@@ -22,14 +23,9 @@ export default function IndexPage() {
     <>
       {/* Sección de bienvenida */}      <section id="inicio" className="min-h-screen flex flex-col items-center justify-center px-4 pt-16 bg-background transition-colors duration-300">
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
-          <Image
-            src={alfonsoImg}
-            height={180}
-            width={180}
-            className="rounded-full border-8 border-primary mb-6 object-cover shadow-lg"
-            alt="Alfonso Mosquera"
-            priority
-          />
+          <div className="mb-6">
+            <ProfileSpecialties src={alfonsoImg} alt="Alfonso Mosquera" size={180} />
+          </div>
           <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold text-foreground text-center mb-2 transition-colors duration-300">
             Alfonso Mosquera
           </h1>          
