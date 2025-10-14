@@ -11,7 +11,8 @@ import ScrollToSavedHash from "../common/ScrollToSavedHash";
 
 const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
   const [imgError, setImgError] = useState(false);
-  const [logoError, setLogoError] = useState(false);
+  // Toggle para mostrar el texto completo del badge
+  const [showFullBadge, setShowFullBadge] = useState(false);
 
   // Responsive sizes para optimizar transferencia
   const imgSizes = "(max-width: 768px) 100vw, 400px";
@@ -31,7 +32,7 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
             <source srcSet={cert.previewImage.replace('.png', '.webp')} type="image/webp" />
             <Image
               src={cert.previewImage}
-              alt={`${cert.title} - ${cert.issuer}`}
+              alt={`${cert.title ?? cert.institution}`}
               width={420}
               height={280}
               className="w-full h-auto object-cover rounded-md md:rounded-none md:rounded-l"
@@ -42,11 +43,7 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
         ) : (
           <div className="w-full h-28 flex items-center justify-center">
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              {!logoError && cert.logo ? (
-                <Image src={cert.logo} alt={cert.alt} width={24} height={24} className="object-contain" onError={() => setLogoError(true)} />
-              ) : (
-                <span className="text-foreground font-bold">{cert.alt?.charAt(0) || '?'}</span>
-              )}
+              <span className="text-foreground font-bold">{(cert.title || cert.institution)?.charAt(0) || '?'}</span>
             </div>
           </div>
         )}
@@ -55,10 +52,22 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
       <div className="flex-1 p-4 flex flex-col justify-between gap-3">
         <div>
           <h3 className="text-lg font-semibold text-foreground">{cert.title}</h3>
-          <p className="text-sm text-foreground/80 mt-1">{cert.institution || cert.issuer}</p>
+          {/* Mostrar preferentemente la institución; si no existe, usar issuer */}
+          <p className="text-sm text-foreground/80 mt-1 truncate max-w-full">{cert.institution ?? cert.issuer}</p>
           <div className="mt-2 flex items-center gap-2 flex-wrap">
-            <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">{cert.category}</span>
-            <span className="text-xs text-foreground/60">• {cert.year}</span>
+            {/* Badge normalizado: tamaño, padding y truncamiento para no cambiar su apariencia entre tarjetas */}
+            <button
+              type="button"
+              aria-expanded={showFullBadge}
+              onClick={() => setShowFullBadge(!showFullBadge)}
+              className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full font-medium max-w-[14rem] truncate inline-block text-left"
+              title={cert.category}
+            >
+              {showFullBadge ? cert.category : (
+                <span className="truncate block">{cert.category}</span>
+              )}
+            </button>
+            <span className="text-sm text-foreground/60">• {cert.year}</span>
           </div>
         </div>
 

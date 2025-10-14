@@ -18,7 +18,7 @@ export default function CertificatePage({ params }: Props) {
     <main className="min-h-screen bg-background text-foreground p-6">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold">{cert.title || cert.issuer}</h1>
+          <h1 className="text-2xl font-bold">{cert.title ?? cert.institution}</h1>
           <div className="flex items-center gap-3">
             <BackToList />
             <a
@@ -36,13 +36,13 @@ export default function CertificatePage({ params }: Props) {
           <div className="w-full relative overflow-hidden rounded">
               <Image
                 src={cert.previewImage}
-                alt={`${cert.title} - ${cert.issuer}`}
+                alt={`${cert.title ?? cert.institution}`}
                 width={1200}
                 height={850}
                 className="w-full h-auto object-contain"
               />
             </div>
-          <p className="mt-4 text-sm text-foreground/80">Emitido por: {cert.institution || cert.issuer} — {cert.year}</p>
+          <p className="mt-4 text-sm text-foreground/80">Emitido por: {cert.institution ?? cert.title} — {cert.year}</p>
         </div>
       </div>
     </main>
