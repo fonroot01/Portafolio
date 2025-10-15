@@ -109,6 +109,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         {/* Favicon principal */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        {/* Flaticon icons */}
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css' />
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-straight/css/uicons-regular-straight.css' />
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-straight/css/uicons-solid-straight.css' />
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css' />
         {/* Puedes agregar otros tamaños/formatos si lo deseas */}
       </head>
       <body

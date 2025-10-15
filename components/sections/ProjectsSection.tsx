@@ -187,7 +187,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto py-20 px-4">
         {/* Sección de Proyectos */}
         <div className="mb-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
-            <Code2 className="w-8 h-8 animate-bounce" />
+            <i className="fi fi-sr-terminal w-8 h-8 animate-bounce"></i>
             Proyectos
           </h2>
 
@@ -331,7 +331,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Sección de Laboratorios de Ciberseguridad */}
-        <div id="laboratorios-de-ciberseguridad" className="mt-20 pt-20 -mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
+        <div id="laboratorios-de-ciberseguridad" className="mt-20 scroll-mt-24">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
             <Shield className="w-8 h-8 animate-bounce" />
             Laboratorios de Ciberseguridad
           </h2>
