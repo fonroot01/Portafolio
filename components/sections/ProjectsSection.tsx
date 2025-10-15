@@ -253,11 +253,13 @@ const ProjectsSection = () => {
                       <button
                         onClick={() => setShowDemoModal(true)}
                         className="flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium gap-2"
+                        aria-label={`Ver demo de ${project.title}`}
                       >
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        {/* Icono de reproducción (play) */}
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M8 5v14l11-7z" />
                         </svg>
-                        Ver Demo
+                        <span>Ver Demo</span>
                       </button>
                     )}
 

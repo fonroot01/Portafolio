@@ -4,11 +4,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { cn } from "@/lib/utils";
-import { FaUser } from "react-icons/fa";            // Icono de perfil más simple y reconocible
-import { BiCode } from "react-icons/bi";            // Icono de código para proyectos de desarrollo
-import { IoMdBriefcase } from "react-icons/io";     // Icono de maletín más grande y claro
-import { BiSupport } from "react-icons/bi";         // Icono de soporte más universal
-import { HiMail } from "react-icons/hi";            // Icono de mail más simple y directo
+// Usamos SVGs locales minimalistas en /public/icons para mantener estilo outline
 
 const FloatingNav = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -28,11 +24,57 @@ const FloatingNav = () => {
   }, [lastScrollY]);
   
   const links = [
-    { href: "/#perfil", label: "Perfil", icon: <FaUser className="w-5 h-6" /> },
-    { href: "/#proyectos", label: "Proyectos", icon: <BiCode className="w-9 h-7" /> },
-    { href: "/#trayectoria", label: "Trayectoria", icon: <IoMdBriefcase className="w-6 h-6" /> },
-    { href: "https://alfonsosupport.vercel.app/", label: "Servicios", icon: <BiSupport className="w-6 h-6" /> },
-    { href: "/#contacto", label: "Contacto", icon: <HiMail className="w-6 h-6" /> },
+    {
+      href: "/#perfil",
+      label: "Perfil",
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      ),
+    },
+    {
+      href: "/#proyectos",
+      label: "Proyectos",
+      icon: (
+        <svg className="w-6 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      ),
+    },
+    {
+      href: "/#trayectoria",
+      label: "Trayectoria",
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 7V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2" />
+        </svg>
+      ),
+    },
+    {
+      href: "https://alfonsosupport.vercel.app/",
+      label: "Servicios",
+      icon: (
+        <svg className="w-6 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M3 18v-2a9 9 0 0 1 18 0v2" />
+          <rect x="4" y="13" width="4" height="7" rx="1" />
+          <rect x="16" y="13" width="4" height="7" rx="1" />
+        </svg>
+      ),
+    },
+    {
+      href: "/#contacto",
+      label: "Contacto",
+      icon: (
+        <svg className="w-6 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
+          <polyline points="3 7 12 13 21 7" />
+        </svg>
+      ),
+    },
   ];
 
   return (
