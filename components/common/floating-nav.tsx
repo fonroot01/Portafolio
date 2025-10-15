@@ -45,23 +45,23 @@ const FloatingNav = () => {
       ),
     },
     {
-      href: "/#trayectoria",
-      label: "Trayectoria",
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-          <path d="M16 7V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2" />
-        </svg>
-      ),
-    },
-    {
-      href: "https://alfonsosupport.vercel.app/",
-      label: "Servicios",
+      href: "/#laboratorios-de-ciberseguridad",
+      label: "Laboratorios",
       icon: (
         <svg className="w-6 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M3 18v-2a9 9 0 0 1 18 0v2" />
           <rect x="4" y="13" width="4" height="7" rx="1" />
           <rect x="16" y="13" width="4" height="7" rx="1" />
+        </svg>
+      ),
+    },
+    {
+      href: "/#trayectoria",
+      label: "Experiencia",
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 7V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2" />
         </svg>
       ),
     },

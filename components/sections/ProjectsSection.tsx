@@ -331,7 +331,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Sección de Laboratorios de Ciberseguridad */}
-        <div id="labs" className="mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
+        <div id="laboratorios-de-ciberseguridad" className="mt-20 pt-20 -mt-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
             <Shield className="w-8 h-8 animate-bounce" />
             Laboratorios de Ciberseguridad
           </h2>
