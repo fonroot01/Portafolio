@@ -25,7 +25,7 @@ export default function CertificatePage({ params }: Props) {
               href={cert.pdfPath}
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-2 bg-primary text-primary-foreground rounded-md text-sm hover:opacity-95"
+              className="inline-flex items-center gap-2 px-3 py-2 bg-primary text-primary-foreground rounded-md text-sm hover:opacity-95 transition h-9 min-w-[88px] leading-none"
             >
               Abrir PDF
             </a>

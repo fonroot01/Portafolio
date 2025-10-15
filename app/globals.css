@@ -37,6 +37,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos para el botón de GitHub */
+@layer components {
+  .github-btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-transparent border shadow-sm;
+    border-color: #2D2D2D;
+    transition: all 0.3s ease;
+  }
+
+  .github-icon {
+    @apply w-5 h-5;
+    transition: color 0.3s ease;
+  }
+
+  .github-text {
+    transition: color 0.3s ease;
+  }
+
+  .github-btn:hover .github-icon,
+  .github-btn:hover .github-text {
+    color: #ff0000;
+  }
+
+  .ver-en {
+    @apply text-current;
+  }
+
+  .dark .github-btn {
+    @apply text-gray-200;
+  }
+
+  .dark .ver-en {
+    @apply text-gray-200;
+  }
+}
+
 @layer utilities {
   @keyframes check {
     0% {
@@ -806,6 +841,14 @@
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
+}
+
+/* Estilos para el botón Abrir PDF */
+.pdf-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  white-space: nowrap !important;
 }
 
 @keyframes heartbeat {
