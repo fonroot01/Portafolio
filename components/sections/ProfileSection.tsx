@@ -146,7 +146,7 @@ const ProfileSection = () => {
                   </>
                 ) : (
                   <>
-                    <span>{t('profile.certificates.view_more')}</span>
+                    <span>{t('profile.certificates.view_more_button')}</span>
                     <svg className="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>

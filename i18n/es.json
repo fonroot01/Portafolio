@@ -30,7 +30,8 @@
     },
     "certificates": {
       "title": "Diplomas y Certificados",
-      "view_more": "Ver"
+      "view_more": "Ver",
+      "view_more_button": "Ver más certificados"
     }
   },
   "projects": {
