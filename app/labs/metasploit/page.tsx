@@ -14,7 +14,17 @@ export default function MetasploitLab() {
     <>
       {/* Botón Volver */}
       <button
-        onClick={() => router.push('/#labs')}
+        onClick={() => {
+          // Restaurar scroll al volver
+          const scrollPos = sessionStorage.getItem('labsScrollPosition');
+          router.push('/#labs');
+          if (scrollPos) {
+            setTimeout(() => {
+              window.scrollTo(0, parseInt(scrollPos));
+              sessionStorage.removeItem('labsScrollPosition');
+            }, 100);
+          }
+        }}
         className="fixed top-6 left-6 z-50 bg-muted/80 hover:bg-muted/60 text-foreground px-4 py-2 rounded-lg shadow-md flex items-center gap-2 transition-colors"
         style={{ minWidth: 90 }}
         aria-label="Volver"

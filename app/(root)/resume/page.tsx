@@ -1,10 +1,14 @@
-"use client";
+'use client';
 import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function ResumePage() {
+  const { t } = useTranslation();
+  
   useEffect(() => {
     redirect(process.env.NEXT_PUBLIC_RESUME_LINK || "/");
   }, []);
-  return <div>Redirecting to the resume...</div>;
+  
+  return <div>{t('common.loading')}...</div>;
 }

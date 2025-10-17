@@ -1,0 +1,231 @@
+{
+  "nav": {
+    "profile": "Perfil",
+    "projects": "Proyectos",
+    "labs": "Laboratorios",
+    "experience": "Experiencia",
+    "contact": "Contacto",
+    "portfolio": "Portafolio"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "title": "Ingeniero de Sistemas",
+    "subtitle": "Especializado en Ciberseguridad y Desarrollo Full Stack",
+    "cta_github": "GitHub",
+    "cta_contact": "Contáctame",
+    "download_cv": "Descargar CV",
+    "scroll_down": "Desplázate para explorar"
+  },
+  "profile": {
+    "title": "Perfil",
+    "description": "Ingeniero de Sistemas apasionado por la ciberseguridad y el desarrollo de software. Experiencia en análisis de vulnerabilidades, pentesting y desarrollo full stack.",
+    "specialties": "Especialidades",
+    "cybersecurity": "Ciberseguridad",
+    "fullstack": "Desarrollo Full Stack",
+    "cloud": "Cloud Computing",
+    "devops": "DevOps",
+    "about_me": {
+      "title": "Sobre mí",
+      "description": "Combino experiencia técnica en entornos corporativos con enfoque práctico en ciberseguridad, automatización y uso responsable de IA. Como Ingeniero de Sistemas, he gestionado plataformas clave, asegurando soporte continuo y aplicando mis conocimientos en soluciones que funcionan y hacen la tecnología más accesible."
+    },
+    "certificates": {
+      "title": "Diplomas y Certificados",
+      "view_more": "Ver"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "view_project": "Ver Proyecto",
+    "view_code": "Ver Código",
+    "technologies": "Tecnologías",
+    "all_projects": "Ver todos los proyectos",
+    "items": {
+      "gippro": {
+        "title": "GIP Pro",
+        "description": "Permite gestionar de manera gráfica y sencilla la configuración de interfaces de red, servidores DNS y configuraciones de proxy."
+      },
+      "droid_specter": {
+        "title": "Droid Specter",
+        "description": "Herramienta que permite interactuar con dispositivos Android de forma remota, ideal para pruebas de seguridad móvil."
+      },
+      "gestorip": {
+        "title": "GestorIP",
+        "description": "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola. Permite gestionar múltiples conexiones de red y restablecer dhcp."
+      },
+      "invensoft": {
+        "title": "InvenSoft",
+        "description": "Sistema de inventario de equipos TI. Permite registrar, buscar y gestionar equipos de forma eficiente."
+      },
+      "usb_doctor": {
+        "title": "USB Doctor",
+        "description": "Utilidad gráfica para reparar unidades USB afectadas por virus, eliminando archivos sospechosos y restaurando la funcionalidad de la unidad."
+      },
+      "winpyx": {
+        "title": "WinPyX",
+        "description": "Herramienta para limpiar archivos temporales, eliminar el historial de navegadores y vaciar la papelera de reciclaje en Windows."
+      }
+    }
+  },
+  "labs": {
+    "title": "Laboratorios de Ciberseguridad",
+    "scan_ports": "Escaneo de puertos y detección de servicios",
+    "antivirus_evasion": "Pruebas de evasión de antivirus",
+    "vuln_analysis": "Análisis de vulnerabilidades con Nmap y Nessus",
+    "brute_force": "Ataques de fuerza bruta con Hydra",
+    "sniffing_lab": "Laboratorio de sniffing y spoofing",
+    "view_lab": "Ver Laboratorio",
+    "all_labs": "Ver todos los laboratorios",
+    "show_more": "Ver más laboratorios",
+    "show_less": "Ver menos",
+    "items": {
+      "metasploit": {
+        "title": "Explotación de Vulnerabilidades en Windows con Metasploit",
+        "description": "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
+        "badges": ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"]
+      },
+      "armitage": {
+        "title": "Explotación de Vulnerabilidades en Windows con Armitage",
+        "description": "Explotación gráfica de vulnerabilidades y gestión visual de sesiones con Metasploit. Demostración del proceso completo de pentesting desde el escaneo hasta la post-explotación.",
+        "badges": ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación", "Windows"]
+      },
+      "airgeddon": {
+        "title": "Auditoría Wi-Fi con Airgeddon",
+        "description": "Evaluación de seguridad en redes Wi-Fi mediante ataques WPS/WPA2, captura de handshakes y técnicas de desautenticación y spoofing.",
+        "badges": ["Pentesting Wi-Fi", "Análisis de Protocolos", "Ingeniería Social"]
+      },
+      "evillimiter": {
+        "title": "Limitación de Ancho de Banda en la Red con Evil Limiter",
+        "description": "Demostración práctica de control de ancho de banda en redes LAN mediante técnicas de ARP spoofing y herramientas especializadas de gestión de tráfico.",
+        "badges": ["Análisis de Red", "Control de Tráfico", "ARP Spoofing"]
+      },
+      "john_the_ripper": {
+        "title": "Auditoría de Contraseñas con John the Ripper",
+        "description": "Demostración práctica del uso de John the Ripper para evaluar la fortaleza de contraseñas en archivos .rar mediante ataques de diccionario.",
+        "badges": ["Red Team", "Auditoría", "Forense"]
+      }
+    }
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "current": "Actual",
+    "view_details": "Ver Detalles",
+    "responsibilities": "Responsabilidades",
+    "achievements": "Logros",
+    "companies": "Empresas",
+    "months": "Meses de Experiencia",
+    "items": {
+      "utch": {
+        "role": "Profesional Universitario - Auxiliar Administrativo de Sistemas",
+        "company": "Universidad Tecnológica del Chocó",
+        "dates": "sep. 2025 - presente",
+        "duration": "actual",
+        "description": [
+          "Actualmente mis labores comprenden en:",
+          "Soporte técnico a dependencias administrativas",
+          "Gestión de plataformas institucionales",
+          "Administración de redes y servicios digitales",
+          "Respaldo y seguridad de la información institucional",
+          "Documentación de procesos y asistencia a usuarios"
+        ]
+      },
+      "zeuss_tech": {
+        "role": "Auxiliar de Plataformas Tecnológicas",
+        "company": "Zeuss S.A.S",
+        "dates": "oct. 2022 - ene. 2023",
+        "duration": "4 meses",
+        "description": [
+          "Como auxiliar de plataformas tecnológicas, mis responsabilidades incluyeron:",
+          "Configurar y monitorear sistemas de telefonía IP (3CX).",
+          "Gestión de usuarios y permisos en Directorio Activo.",
+          "Realizar backup de información y verificación de licencias en ecosistema MS365",
+          "Mantenimiento y seguimiento de plataformas (ERP, DMS).",
+          "Brindar soporte técnico a usuarios internos y externos."
+        ]
+      },
+      "zeuss_support": {
+        "role": "Aprendiz de Soporte y Servicio TI",
+        "company": "Zeuss S.A.S",
+        "dates": "abr. 2022 - oct. 2022",
+        "duration": "6 meses",
+        "description": [
+          "Como auxiliar de soporte y servicio TI, mis tareas fueron:",
+          "Brindar soporte técnico",
+          "Realizar actividades de mantenimiento preventivo y correctivo a equipos",
+          "Tareas de supervisión de servidores en plantas y estaciones de servicio.",
+          "Documentar procedimientos y sesiones básicas de capacitación a usuarios.",
+          "Gestionar y actualizar inventario de equipos tecnológicos"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "languages": "Lenguajes de Programación",
+    "frameworks": "Frameworks y Librerías",
+    "tools": "Herramientas",
+    "security": "Seguridad",
+    "databases": "Bases de Datos"
+  },
+  "contact": {
+    "title": "Contacta Conmigo",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "name": "Nombre",
+    "name_placeholder": "Ingresa tu nombre",
+    "email": "Correo electrónico",
+    "email_placeholder": "Ingresa tu correo electrónico",
+    "message": "Mensaje",
+    "message_placeholder": "Escribe tu mensaje aquí",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar el mensaje. Inténtalo de nuevo.",
+    "social": "Redes Sociales",
+    "validation": {
+      "name_min": "El nombre debe tener al menos 3 caracteres.",
+      "email_invalid": "Por favor ingresa un correo válido.",
+      "message_min": "Por favor escribe un mensaje más descriptivo."
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "built_with": "Construido con",
+    "and": "y"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "read_more": "Leer más",
+    "view_more": "Ver más",
+    "show_less": "Mostrar menos",
+    "all": "Todos",
+    "personal": "Personal",
+    "professional": "Profesional"
+  },
+  "pages": {
+    "home": {
+      "title": "Inicio",
+      "description": "Desde scripts hasta apps, esto es lo que pasa cuando la curiosidad se junta con el teclado."
+    },
+    "skills": {
+      "title": "Habilidades",
+      "description": "Habilidades clave que definen mi identidad profesional."
+    },
+    "experience": {
+      "title": "Proyectos",
+      "description": "Destacando el recorrido profesional y proyectos impactantes."
+    },
+    "resume": {
+      "title": "Currículum",
+      "description": "Mi trayectoria profesional y académica."
+    },
+    "career": {
+      "title": "Trayectoria",
+      "description": "Mi camino profesional y experiencias laborales."
+    }
+  }
+}

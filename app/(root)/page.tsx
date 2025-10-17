@@ -1,5 +1,6 @@
 'use client';
 
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from 'react-type-animation';
@@ -10,6 +11,7 @@ import WavingHand from "@/components/common/WavingHand";
 import { Heart } from "lucide-react";
 import alfonsoImg from "@/public/alfonsoimage.jpg";
 import ProfileSpecialties from '@/components/common/ProfileSpecialties';
+import { useTranslation } from "@/hooks/useTranslation";
 import dynamic from "next/dynamic";
 
 // Dynamic imports para code splitting (client components)
@@ -19,6 +21,8 @@ const CareerSection = dynamic(() => import("@/components/sections/CareerSection"
 const ContactSection = dynamic(() => import("@/components/sections/ContactSection"), { ssr: false });
 
 export default function IndexPage() {
+  const { t } = useTranslation();
+  
   return (
     <>
       {/* Sección de bienvenida */}      <section id="inicio" className="min-h-screen flex flex-col items-center justify-center px-4 pt-16 bg-background transition-colors duration-300">
@@ -31,7 +35,7 @@ export default function IndexPage() {
           </h1>          
           <div className="text-center space-y-4 mb-8">
             <div className="text-foreground font-heading text-2xl sm:text-3xl mb-2">
-              Ingeniero de Sistemas
+              {t('hero.title')}
             </div>
             <div className="text-sky-400 dark:text-sky-300 text-xl sm:text-2xl transition-colors duration-300 font-medium flex items-center justify-center">
               
@@ -47,7 +51,7 @@ export default function IndexPage() {
               <Icons.gitHub className="w-4 h-4 mr-2" /> GitHub
             </Link>
             <Link
-              href="https://www.linkedin.com/in/alfonso-ángel-mosquera-a-4a919b341"
+              href="https://www.linkedin.com/in/alfonso-mosquera-4a919b341/"
               target="_blank"
               className={buttonVariants({ size: "default" }) + " flex items-center justify-center w-full sm:w-44 px-4 py-2"}
               aria-label="LinkedIn"
@@ -64,7 +68,7 @@ export default function IndexPage() {
   aria-label="Descargar CV"
 >
   <Icons.user className="w-4 h-4 mr-2" />
-  Descargar CV
+  {t('hero.download_cv')}
 </a>
           </div>          <div className="flex justify-center mt-8">
             <ScrollButton targetId="perfil" />

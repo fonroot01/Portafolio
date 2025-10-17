@@ -1,114 +1,143 @@
+'use client';
 import React, { useState } from "react";
 import Link from "next/link";
 import GitHubButton from "@/components/common/GitHubButton";
 import Image from "next/image";
 import { Code2, Shield, Wrench } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const ProjectsSection = () => {
+  const { t } = useTranslation();
   // Estados para controlar la visibilidad de los proyectos
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showDemoModal, setShowDemoModal] = useState(false);
 
-  // Array de proyectos para mejor manejo
+  // Array de proyectos con traducciones dinámicas
   const projects = [
     {
       id: 1,
-      title: "GIP Pro",
-      description: "Permite gestionar de manera gráfica y sencilla la configuración de interfaces de red, servidores DNS y configuraciones de proxy.",
+      key: "gippro",
+      title: t('projects.items.gippro.title'),
+      description: t('projects.items.gippro.description'),
       githubUrl: "https://github.com/fonroot01/GIP-Pro-V1.0",
       tags: ["Gen IA", "Python", "PyQt5", "Tkinter"],
       image: "/portadasp/gippro.webp",
     },
     {
       id: 2,
-      title: "Droid Specter",
-      description: "Herramienta que permite interactuar con dispositivos Android de forma remota, ideal para pruebas de seguridad móvil.",
+      key: "droid_specter",
+      title: t('projects.items.droid_specter.title'),
+      description: t('projects.items.droid_specter.description'),
       githubUrl: "https://github.com/fonroot01/Droid-Specter",
       tags: ["Python", "Tkinter", "ADB"],
       image: "/portadasp/droid.webp",
     },
     {
       id: 3,
-      title: "GestorIP",
-      description: "Cambia tu dirección IP de forma rápida y sencilla, sin necesidad de usar la consola. Permite gestionar múltiples conexiones de red y restablecer dhcp.",
+      key: "gestorip",
+      title: t('projects.items.gestorip.title'),
+      description: t('projects.items.gestorip.description'),
       githubUrl: "https://github.com/fonroot01/GestorIP",
       tags: ["Python", "Tkinter"],
       image: "/portadasp/gestorip.webp",
     },
     {
       id: 4,
-      title: "InvenSoft",
-      description: "Sistema de inventario de equipos TI. Permite registrar, buscar y gestionar equipos de forma eficiente.",
+      key: "invensoft",
+      title: t('projects.items.invensoft.title'),
+      description: t('projects.items.invensoft.description'),
       githubUrl: "https://github.com/fonroot01/Inventario-de-equipos-TI",
       tags: ["Python", "Tkinter", "PyQt5", "SQL Server"],
       image: "/portadasp/invensoft.webp",
     },
     {
       id: 5,
-      title: "USB Doctor",
-      description: "Utilidad grafica para reparar unidades USB afectadas por virus, eliminando archivos sospechosos y restaurando la funcionalidad de la unidad.",
+      key: "usb_doctor",
+      title: t('projects.items.usb_doctor.title'),
+      description: t('projects.items.usb_doctor.description'),
       githubUrl: "https://github.com/fonroot01/USB-Doctor",
       tags: ["Python", "Tkinter"],
       image: "/portadasp/usbdoctor.webp",
     },
     {
       id: 6,
-      title: "WinPyX",
-      description: "Herramienta para limpiar archivos temporales, eliminar el historial de navegadores y vaciar la papelera de reciclaje en Windows.",
+      key: "winpyx",
+      title: t('projects.items.winpyx.title'),
+      description: t('projects.items.winpyx.description'),
       githubUrl: "https://github.com/fonroot01/WinPyX",
       tags: ["Python", "Tkinter"],
       image: "/portadasp/winpyx.webp",
     },
   ];
-  // Array de laboratorios para mejor manejo
+  // Helper function para obtener badges como array
+  const getBadges = (key: string): string[] => {
+    const badges = t(`labs.items.${key}.badges`);
+    // Si t() retorna un string que parece ser la clave, usar array vacío
+    if (typeof badges === 'string' && badges.startsWith('labs.items.')) {
+      return [];
+    }
+    // Si es un array, retornarlo directamente
+    if (Array.isArray(badges)) {
+      return badges;
+    }
+    // Fallback a array vacío
+    return [];
+  };
+
+  // Array de laboratorios con traducciones dinámicas
   const labs = [
     {
       id: 1,
       slug: "metasploit",
-      title: "Explotación de Vulnerabilidades en Windows con Metasploit",
-      description: "Ejecución detallada de exploits y payloads utilizando la interfaz de línea de comandos (CLI) de Metasploit Framework para pentesting profesional.",
-      badges: ["Post-Explotación", "Escalamiento de Privilegios", "Análisis de Vulnerabilidades", "CLI", "Windows"],
-      teamType: "red",
+      key: "metasploit",
+      title: t('labs.items.metasploit.title'),
+      description: t('labs.items.metasploit.description'),
+      badges: getBadges('metasploit'),
+      teamType: "red" as const,
       date: "Domingo, 6 de abril de 2025",
       link: "/labs/metasploit"
     },
     {
       id: 2,
       slug: "armitage",
-      title: "Explotación de Vulnerabilidades en Windows con Armitage",
-      description: "Explotación gráfica de vulnerabilidades y gestión visual de sesiones con Metasploit. Demostración del proceso completo de pentesting desde el escaneo hasta la post-explotación.",
-      badges: ["Pentesting Ofensivo", "Explotación de Vulnerabilidades", "Post-Explotación", "Windows"],
-      teamType: "red",
+      key: "armitage",
+      title: t('labs.items.armitage.title'),
+      description: t('labs.items.armitage.description'),
+      badges: getBadges('armitage'),
+      teamType: "red" as const,
       date: "Martes, 11 de marzo de 2025",
       link: "/labs/armitage"
     },
     {
       id: 3,
       slug: "airgeddon",
-      title: "Auditoría Wi-Fi con Airgeddon",
-      description: "Evaluación de seguridad en redes Wi-Fi mediante ataques WPS/WPA2, captura de handshakes y técnicas de desautenticación y spoofing.",
-      badges: ["Pentesting Wi-Fi", "Análisis de Protocolos", "Ingeniería Social"],
-      teamType: "red",
+      key: "airgeddon",
+      title: t('labs.items.airgeddon.title'),
+      description: t('labs.items.airgeddon.description'),
+      badges: getBadges('airgeddon'),
+      teamType: "red" as const,
       date: "Viernes, 29 de noviembre de 2024",
       link: "/labs/airgeddon"
     },
     {
       id: 4,
       slug: "evillimiter",
-      title: "Limitación de Ancho de Banda en la Red con Evil Limiter",
-      description: "Demostración práctica de control de ancho de banda en redes LAN mediante técnicas de ARP spoofing y herramientas especializadas de gestión de tráfico.",
-      badges: ["Análisis de Red", "Control de Tráfico", "ARP Spoofing"],
-      teamType: "blue",
+      key: "evillimiter",
+      title: t('labs.items.evillimiter.title'),
+      description: t('labs.items.evillimiter.description'),
+      badges: getBadges('evillimiter'),
+      teamType: "blue" as const,
       date: "Jueves, 17 de octubre de 2024",
       link: "/labs/evillimiter"
     },
     {
       id: 5,
       slug: "john-the-ripper",
-      title: "Auditoría de Contraseñas con John the Ripper",
-      description: "Demostración práctica del uso de John the Ripper para evaluar la fortaleza de contraseñas en archivos .rar mediante ataques de diccionario.",
-      badges: ["Red Team", "Auditoría", "Forense"],
-      teamType: "red",
+      key: "john_the_ripper",
+      title: t('labs.items.john_the_ripper.title'),
+      description: t('labs.items.john_the_ripper.description'),
+      badges: getBadges('john_the_ripper'),
+      teamType: "red" as const,
       date: "Lunes, 3 de junio de 2025",
       link: "/labs/john-the-ripper"
     }
@@ -188,7 +217,7 @@ const ProjectsSection = () => {
         {/* Sección de Proyectos */}
         <div className="mb-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
             <i className="fi fi-sr-terminal w-8 h-8 animate-bounce"></i>
-            Proyectos
+            {t('projects.title')}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -331,9 +360,9 @@ const ProjectsSection = () => {
         </div>
 
         {/* Sección de Laboratorios de Ciberseguridad */}
-        <div id="laboratorios-de-ciberseguridad" className="mt-20 scroll-mt-24">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
+        <div id="labs" className="mt-20 scroll-mt-24">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
             <Shield className="w-8 h-8 animate-bounce" />
-            Laboratorios de Ciberseguridad
+            {t('labs.title')}
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -401,12 +430,16 @@ const ProjectsSection = () => {
                 {/* Overlay de hover con icono y texto "Auditar laboratorio" */}
                 <Link
                   href={lab.link}
+                  onClick={() => {
+                    // Guardar posición del scroll antes de navegar
+                    sessionStorage.setItem('labsScrollPosition', window.scrollY.toString());
+                  }}
                   className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center cursor-pointer text-center"
                 >                  <div className="transform scale-90 group-hover:scale-100 transition-transform duration-300 mb-3">
                     {lab.teamType === 'red' ? <RedTeamHoverIcon /> : <BlueTeamHoverIcon />}
                   </div>
                   <span className="text-xl font-extrabold text-foreground tracking-wide font-heading">
-                    Auditar Laboratorio
+                    {t('labs.view_lab')}
                   </span>
                   <div className="w-1/2 h-0.5 bg-gradient-to-r from-transparent via-foreground to-transparent mt-2 opacity-50"></div>
                 </Link>
@@ -422,7 +455,7 @@ const ProjectsSection = () => {
               >
                 {showAllLabs ? (
                   <>
-                    <span>Ver menos laboratorios</span>
+                    <span>{t('labs.show_less')}</span>
                     <svg
                       className="w-4 h-4 ml-2 inline-block transform rotate-180"
                       fill="none"
@@ -439,7 +472,7 @@ const ProjectsSection = () => {
                   </>
                 ) : (
                   <>
-                    <span>Ver más laboratorios</span>
+                    <span>{t('labs.show_more')}</span>
                     <svg
                       className="w-4 h-4 ml-2 inline-block"
                       fill="none"

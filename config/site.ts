@@ -6,7 +6,7 @@ export const siteConfig = {  name: "Portafolio de Alfonso",
     "Ingeniero TI con experiencia en soporte técnico, redes, sistemas y ciberseguridad. Buscando nuevos retos.",
   url: "https://alfonsom.vercel.app",
   links: {
-    Linkedin: "www.linkedin.com/in/alfonso-ángel-mosquera-a-4a919b341",
+    Linkedin: "https://www.linkedin.com/in/alfonso-mosquera-4a919b341/",
     github: "https://github.com/fonroot01",
   },
   ogImage: "/alfonsoimage.jpg",

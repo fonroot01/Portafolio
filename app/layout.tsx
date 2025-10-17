@@ -10,6 +10,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
+import dynamic from "next/dynamic";
+const ClientProviders = dynamic(() => import("../providers/ClientProviders"), { ssr: false });
 import ScrollToHashEffect from "@/components/ScrollToHashEffect";
 
 const fontSans = localFont({
@@ -137,11 +139,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             "synthwave",
           ]}
         >
-          <ScrollToHashEffect />
-          {children}
-          <Analytics />
-          <Toaster />
-          <ModalProvider />
+          <ClientProviders>
+            <ScrollToHashEffect />
+            {children}
+            <Analytics />
+            <Toaster />
+            <ModalProvider />
+          </ClientProviders>
         </ThemeProvider>
       </body>
       {GA_ID && <GoogleAnalytics gaId={GA_ID} />}

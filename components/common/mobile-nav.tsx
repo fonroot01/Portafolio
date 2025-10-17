@@ -43,6 +43,14 @@ export function MobileNav({ items, children }: MobileNavProps) {
             <polyline points="8 6 2 12 8 18" />
           </svg>
         );
+      case "laboratorios":
+      case "labs":
+      case "laboratorios de ciberseguridad":
+        return (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        );
       case "trayectoria":
         return (
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>

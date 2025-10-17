@@ -1,15 +1,19 @@
+'use client';
 import React from "react";
 import { ContactForm } from "../forms/contact-form";
 import { ScrollButton } from "../common/scroll-button";
 import { Icons } from "../common/icons";
 import { Mail } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const ContactSection: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="min-h-screen flex items-center justify-center" id="contacto">
       <div className="w-full max-w-xl p-8 rounded-xl shadow-lg bg-white/90 dark:bg-gray-800/90">        <h2 className="font-heading text-4xl tracking-tight text-center text-foreground mb-6">
           <Mail className="inline-block w-8 h-8 mr-3 animate-bounce" />
-          Contacta conmigo
+          {t('contact.title')}
         </h2>
         <ContactForm />
 
@@ -27,7 +31,7 @@ const ContactSection: React.FC = () => {
               <Icons.gitHub className="w-5 h-5 text-primary group-hover:text-primary" />
             </a>
             <a
-              href="https://www.linkedin.com/in/alfonso-%C3%A1ngel-mosquera-a-4a919b341/"
+              href="https://www.linkedin.com/in/alfonso-mosquera-4a919b341/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110 hover:bg-primary/20 hover:border-primary/50"

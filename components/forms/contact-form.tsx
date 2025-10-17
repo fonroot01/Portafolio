@@ -18,20 +18,22 @@ import { useForm as useFormspree, ValidationError } from '@formspree/react';
 import { useEffect, useCallback } from "react";
 import { useModalStore } from "@/store/use-modal-store";
 import { SuccessModal } from "@/components/modals/success-modal";
+import { useTranslation } from "@/hooks/useTranslation";
+
+export function ContactForm() {
+  const { t } = useTranslation();
+  const [formspreeState, handleSubmitFormspree] = useFormspree('xqaqoygp');
+  const { openModal } = useModalStore();
 
 const formSchema = z.object({
   name: z.string().min(3, {
-    message: "El nombre debe tener al menos 3 caracteres.",
+    message: t('contact.validation.name_min'),
   }),
-  email: z.string().email("Por favor ingresa un correo válido."),
+  email: z.string().email(t('contact.validation.email_invalid')),
   message: z.string().min(10, {
-    message: "Por favor escribe un mensaje más descriptivo.",
+    message: t('contact.validation.message_min'),
   }),
 });
-
-export function ContactForm() {
-  const [formspreeState, handleSubmitFormspree] = useFormspree('xqaqoygp');
-  const { openModal } = useModalStore();
 
   const form = useHookForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -93,10 +95,10 @@ export function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Nombre</FormLabel>
+                <FormLabel className="text-foreground">{t('contact.name')}</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder="Ingresa tu nombre" 
+                    placeholder={t('contact.name_placeholder')} 
                     {...field} 
                     className="bg-black/20 dark:bg-black/40 backdrop-blur-sm border border-white/20 text-foreground placeholder:text-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
                   />
@@ -116,10 +118,10 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Correo electrónico</FormLabel>
+                <FormLabel className="text-foreground">{t('contact.email')}</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder="Ingresa tu correo electrónico" 
+                    placeholder={t('contact.email_placeholder')} 
                     type="email" 
                     {...field} 
                     className="bg-black/20 dark:bg-black/40 backdrop-blur-sm border border-white/20 text-foreground placeholder:text-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
@@ -140,10 +142,10 @@ export function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Mensaje</FormLabel>
+                <FormLabel className="text-foreground">{t('contact.message')}</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Escribe tu mensaje aquí"
+                    placeholder={t('contact.message_placeholder')}
                     className="resize-y w-full h-[100px] min-h-[100px] max-h-[400px] bg-black/20 dark:bg-black/40 backdrop-blur-sm border border-white/20 text-foreground placeholder:text-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
                     {...field}
                   />
@@ -163,7 +165,7 @@ export function ContactForm() {
             className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             disabled={formspreeState.submitting}
           >
-            {formspreeState.submitting ? "Enviando..." : "Enviar"}
+            {formspreeState.submitting ? t('contact.sending') : t('contact.send')}
           </Button>
         </form>
       </Form>

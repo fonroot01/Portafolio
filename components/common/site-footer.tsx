@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import * as React from "react";
 
@@ -6,8 +7,11 @@ import CustomTooltip from "@/components/ui/custom-tooltip";
 import { SocialLinks } from "@/config/socials";
 import { cn } from "@/lib/utils";
 import { HeartBeat } from "@/components/common/heartbeat";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
+  const { t } = useTranslation();
+  
   return (
     <footer className={cn(className)}>
       <div className="container flex items-center justify-center mt-10 py-10 md:h-24">

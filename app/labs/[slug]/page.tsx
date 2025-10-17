@@ -23,9 +23,18 @@ export default function LabDetailPage({ params }: { params: { slug: string } }) 
     <AnimatedPageTransition>
       <div className="container py-10">
         <Link
-          href="/#proyectos"
+          href="/#labs"
           className="mb-6 inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors"
-          replace={true}
+          onClick={() => {
+            // Restaurar scroll al volver
+            const scrollPos = sessionStorage.getItem('labsScrollPosition');
+            if (scrollPos) {
+              setTimeout(() => {
+                window.scrollTo(0, parseInt(scrollPos));
+                sessionStorage.removeItem('labsScrollPosition');
+              }, 100);
+            }
+          }}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 mr-2">
             <path d="M19 12H5M12 19l-7-7 7-7"/>

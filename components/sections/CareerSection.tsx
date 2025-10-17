@@ -1,6 +1,8 @@
+'use client';
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Briefcase } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 // Define una interfaz para las props del componente CompanyIcon
 interface CompanyIconProps {
@@ -22,24 +24,19 @@ const CompanyIcon: React.FC<CompanyIconProps> = ({ children, isActive = false })
 );
 
 const ExperienceSection = () => {
+  const { t } = useTranslation();
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
 
   const experiences = [
     {
       id: 1,
-      role: "Profesional Universitario - Auxiliar Administrativo de Sistemas",
-      company: "Universidad Tecnológica del Chocó",
-      dates: "sep. 2025 - presente",
-      duration: "actual",
-      description: [
-        "Actualmente mis labores comprenden en:",
-        "Soporte técnico a dependencias administrativas",
-        "Gestión de plataformas institucionales",
-        "Administración de redes y servicios digitales",
-        "Respaldo y seguridad de la información institucional",
-        "Documentación de procesos y asistencia a usuarios",
-      ],
+      key: "utch",
+      role: t('experience.items.utch.role'),
+      company: t('experience.items.utch.company'),
+      dates: t('experience.items.utch.dates'),
+      duration: t('experience.items.utch.duration'),
+      description: t('experience.items.utch.description') as unknown as string[],
       color: "from-blue-500 to-indigo-500",
       icon: (
         <Image
@@ -64,18 +61,12 @@ const ExperienceSection = () => {
     },
     {
       id: 2,
-      role: "Auxiliar de Plataformas Tecnológicas",
-      company: "Zeuss S.A.S",
-      dates: "oct. 2022 - ene. 2023",
-      duration: "4 meses",
-      description: [
-        "Como auxiliar de plataformas tecnológicas, mis responsabilidades incluyeron:",
-        "Configurar y monitorear sistemas de telefonía IP (3CX).",
-        "Gestión de usuarios y permisos en Directorio Activo.",
-        "Realizar backup de información y verificación de licencias en ecosistema MS365",
-        "Mantenimiento y seguimiento de plataformas (ERP, DMS).",
-        "Brindar soporte técnico a usuarios internos y externos.",
-      ],
+      key: "zeuss_tech",
+      role: t('experience.items.zeuss_tech.role'),
+      company: t('experience.items.zeuss_tech.company'),
+      dates: t('experience.items.zeuss_tech.dates'),
+      duration: t('experience.items.zeuss_tech.duration'),
+      description: t('experience.items.zeuss_tech.description') as unknown as string[],
       color: "from-blue-500 to-cyan-500",
       icon: (
         <Image
@@ -100,18 +91,12 @@ const ExperienceSection = () => {
     },
     {
       id: 3,
-      role: "Aprendiz de Soporte y Servicio TI",
-      company: "Zeuss S.A.S",
-      dates: "abr. 2022 - oct. 2022",
-      duration: "6 meses",
-      description: [
-        "Como auxiliar de soporte y servicio TI, mis tareas fueron:",
-        "Brindar soporte técnico",
-        "Realizar actividades de mantenimiento preventivo y correctivo a equipos",
-        "Tareas de supervisión de servidores en plantas y estaciones de servicio.",
-        "Documentar procedimientos y sesiones básicas de capacitación a usuarios.",
-        "Gestionar y actualizar inventario de equipos tecnológicos",
-      ],
+      key: "zeuss_support",
+      role: t('experience.items.zeuss_support.role'),
+      company: t('experience.items.zeuss_support.company'),
+      dates: t('experience.items.zeuss_support.dates'),
+      duration: t('experience.items.zeuss_support.duration'),
+      description: t('experience.items.zeuss_support.description') as unknown as string[],
       color: "from-purple-500 to-pink-500",
       icon: (
         <Image
@@ -169,7 +154,7 @@ const ExperienceSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold mb-3 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">
             <Briefcase className="w-8 h-8 animate-bounce" />
-            Experiencia Laboral
+            {t('experience.title') || 'Experiencia Laboral'}
           </h2>
           <div className="w-16 h-0.5 bg-primary/50 mx-auto mt-4 rounded-full"></div>
         </div>
@@ -265,7 +250,7 @@ const ExperienceSection = () => {
                   `}>
                     {/* Description */}
                     <div className="mb-6 relative z-10">
-                      {exp.description.map((line, descIndex) => (
+                      {(Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
                         <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-base'}`}>
                           {descIndex === 0 ? (
                             <span className="text-xl font-extrabold text-foreground font-heading block">{line}</span>
@@ -289,15 +274,15 @@ const ExperienceSection = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
             <div className="text-3xl font-extrabold text-primary mb-2 font-heading">2</div>
-            <div className="text-sm text-muted-foreground font-heading">Empresas</div>
+            <div className="text-sm text-muted-foreground font-heading">{t('experience.companies') || 'Empresas'}</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
             <div className="text-3xl font-extrabold text-primary mb-2 font-heading">10</div>
-            <div className="text-sm text-muted-foreground font-heading">Meses de Experiencia</div>
+            <div className="text-sm text-muted-foreground font-heading">{t('experience.months') || 'Meses de Experiencia'}</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
             <div className="text-3xl font-extrabold text-primary mb-2 font-heading">15+</div>
-            <div className="text-sm text-muted-foreground font-heading">Habilidades Técnicas</div>
+            <div className="text-sm text-muted-foreground font-heading">{t('skills.title')}</div>
           </div>
         </div>
       </div>

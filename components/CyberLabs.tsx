@@ -1,11 +1,29 @@
+'use client';
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { labsData } from "@/config/labs";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const CyberLabs = () => {
+  const { t } = useTranslation();
   const [showAllLabs, setShowAllLabs] = useState(false);
   const visibleLabs = showAllLabs ? labsData : labsData.slice(0, 3);
   const hasMoreLabs = labsData.length > 3;
+
+  // Mapeo de slugs a keys de traducción
+  const labTranslationKeys: Record<string, string> = {
+    'metasploit': 'metasploit',
+    'armitage': 'armitage',
+    'airgeddon': 'airgeddon',
+    'evillimiter': 'evillimiter',
+    'john-the-ripper': 'john_the_ripper'
+  };
+
+  const handleLabClick = () => {
+    // Guardar posición del scroll antes de navegar
+    sessionStorage.setItem('labsScrollPosition', window.scrollY.toString());
+  };
 
   return (
     <section className="space-y-8 container mx-auto py-8 px-4">
@@ -35,17 +53,17 @@ const CyberLabs = () => {
 
             {/* Título del laboratorio */}
             <span className="font-semibold text-base text-foreground text-center leading-tight mb-2">
-              {lab.title}
+              {t(`labs.items.${labTranslationKeys[lab.slug]}.title`) || lab.title}
             </span>
 
             {/* Descripción breve */}
             <p className="text-base text-foreground text-center leading-relaxed mb-3 line-clamp-3">
-              {lab.description}
+              {t(`labs.items.${labTranslationKeys[lab.slug]}.description`) || lab.description}
             </p>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-1.5 justify-center mb-2">
-              {lab.badges?.map(badge => (
+              {(t(`labs.items.${labTranslationKeys[lab.slug]}.badges`) as unknown as string[] || lab.badges || []).map((badge: string) => (
                 <span 
                   key={badge}
                   className="text-base bg-primary/10 text-primary px-2 py-1 rounded-full font-medium"
@@ -60,9 +78,10 @@ const CyberLabs = () => {
               href={`/labs/${lab.slug}`}
               scroll={false}
               shallow={true}
+              onClick={handleLabClick}
               className="text-primary underline underline-offset-2 text-sm hover:text-primary/80 transition-colors"
             >
-              Ver laboratorio
+              {t('labs.view_lab') || 'Ver laboratorio'}
             </Link>
           </div>
         ))}
@@ -74,7 +93,7 @@ const CyberLabs = () => {
             onClick={() => setShowAllLabs(!showAllLabs)}
             className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-md flex items-center justify-center gap-2"
           >
-            <span>{showAllLabs ? 'Ver menos' : 'Ver más laboratorios'}</span>
+            <span>{showAllLabs ? t('labs.show_less') : t('labs.show_more')}</span>
             <svg
               className={`w-5 h-5 transition-transform duration-300 ${
                 showAllLabs ? 'rotate-180' : ''

@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-
-import PageContainer from "@/components/common/page-container";
-import TechStackCarousel from "@/components/skills/TechStackCarousel";
+import dynamic from "next/dynamic";
 import { pagesConfig } from "@/config/pages";
 
 export const metadata: Metadata = {
@@ -9,14 +7,8 @@ export const metadata: Metadata = {
   description: pagesConfig.skills.metadata.description,
 };
 
+const SkillsPageClient = dynamic(() => import("./SkillsPageClient"), { ssr: false });
+
 export default function SkillsPage() {
-  return (
-    <PageContainer
-      title={pagesConfig.skills.title}
-      description={pagesConfig.skills.description}
-    >
-      <TechStackCarousel />
-      {/* <SkillsCard skills={skills} /> */}
-    </PageContainer>
-  );
+  return <SkillsPageClient />;
 }

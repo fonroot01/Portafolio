@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
+import { useTranslation } from "@/hooks/useTranslation";
 import { cn } from "@/lib/utils";
 // Usamos SVGs locales minimalistas en /public/icons para mantener estilo outline
 
@@ -11,6 +12,7 @@ const FloatingNav = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
   const { isOpen: isMobileMenuOpen } = useMobileMenu();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +28,7 @@ const FloatingNav = () => {
   const links = [
     {
       href: "/#perfil",
-      label: "Perfil",
+      label: t('nav.profile'),
       icon: (
         <svg className="w-5 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -36,28 +38,30 @@ const FloatingNav = () => {
     },
     {
       href: "/#proyectos",
-      label: "Proyectos",
+      label: t('nav.projects'),
       icon: (
         <i className="fi fi-sr-terminal w-6 h-6 flex items-center justify-center"></i>
       ),
     },
     {
-      href: "/#laboratorios-de-ciberseguridad",
-      label: "Laboratorios",
+      href: "/#labs",
+      label: t('nav.labs'),
       icon: (
-        <i className="fi fi-rs-flask-potion w-6 h-6 flex items-center justify-center"></i>
+        <svg className="w-5 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
       ),
     },
     {
       href: "/#trayectoria",
-      label: "Experiencia",
+      label: t('nav.experience'),
       icon: (
         <i className="fi fi-rr-business-time w-6 h-6 flex items-center justify-center"></i>
       ),
     },
     {
       href: "/#contacto",
-      label: "Contacto",
+      label: t('nav.contact'),
       icon: (
         <i className="fi fi-rr-envelope w-6 h-6 flex items-center justify-center"></i>
       ),
@@ -185,7 +189,7 @@ const FloatingNav = () => {
           transition: { duration: 0.1 }
         }}
       >
-        <span className="hidden sm:inline font-heading">Portafolio</span>
+        <span className="hidden sm:inline font-heading">{t('nav.portfolio')}</span>
         <span className="sm:hidden font-heading">P</span>
       </motion.a>
     </AnimatePresence>

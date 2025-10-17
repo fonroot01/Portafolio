@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,11 +7,13 @@ import { ScrollText } from "lucide-react";
 import { User, Briefcase, GraduationCap, Code, Mail, FileText } from "lucide-react";
 import certificates from "../../config/certificates";
 import ScrollToSavedHash from "../common/ScrollToSavedHash";
+import { useTranslation } from "@/hooks/useTranslation";
 
 // Componente memoizado para cada tarjeta de certificado
 
 const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
   const [imgError, setImgError] = useState(false);
+  const { t } = useTranslation();
   // Toggle para mostrar el texto completo del badge
   const [showFullBadge, setShowFullBadge] = useState(false);
 
@@ -85,12 +88,12 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
             }}
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M12 3v18" /></svg>
-            Ver
+            {t('profile.certificates.view_more')}
           </Link>
 
           <a href={cert.pdfPath} target="_blank" rel="noreferrer" className="pdf-button inline-flex items-center gap-2 px-3 py-2 bg-primary text-primary-foreground rounded-md text-sm hover:opacity-95 transition h-9 min-w-[88px] leading-none">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v14M5 9l7 7 7-7" /></svg>
-            Abrir PDF
+            {t('common.open')} PDF
           </a>
         </div>
       </div>
@@ -103,6 +106,7 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
 
 const ProfileSection = () => {
   const [showAll, setShowAll] = useState(false);
+  const { t } = useTranslation();
 
   // Usar la lista centralizada de config
   const certificatesToShow = showAll ? certificates : certificates.slice(0, 4);
@@ -116,7 +120,7 @@ const ProfileSection = () => {
         <div className="mt-12 pb-12">
           <h2 className="text-3xl font-bold mb-10 text-center text-foreground flex items-center justify-center gap-4">
             <ScrollText className="w-8 h-8 animate-bounce" />
-            Diplomas y Certificados
+            {t('profile.certificates.title')}
           </h2>
           {/* Grid de certificados */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -135,14 +139,14 @@ const ProfileSection = () => {
               >
                 {showAll ? (
                   <>
-                    <span>Ver menos</span>
+                    <span>{t('common.show_less')}</span>
                     <svg className="w-4 h-4 ml-2 inline-block transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </>
                 ) : (
                   <>
-                    <span>Ver más certificados</span>
+                    <span>{t('profile.certificates.view_more')}</span>
                     <svg className="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
