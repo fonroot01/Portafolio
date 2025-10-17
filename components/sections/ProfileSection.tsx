@@ -113,7 +113,7 @@ const ProfileSection = () => {
   const hasMoreCertificates = certificates.length > 4;
 
   return (
-    <section className="min-h-screen flex flex-col">
+    <section className="min-h-screen flex flex-col max-w-full overflow-x-hidden">
       <ScrollToSavedHash />
       <div className="container mx-auto pt-8 px-4">
         <AboutMe />

@@ -391,6 +391,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+    overflow-x: hidden;
+    width: 100%;
   }
   
   body {
@@ -398,6 +400,9 @@
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   h1, h2, h3, h4, h5, h6 {

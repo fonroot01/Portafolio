@@ -8,12 +8,12 @@ export function ControlPanel() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col md:flex-row items-center gap-2">
+      <ModeToggle />
       <LanguageSelector 
         currentLanguage={language} 
         onLanguageChange={setLanguage} 
       />
-      <ModeToggle />
     </div>
   );
 }

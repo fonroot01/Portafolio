@@ -16,7 +16,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
 
   return (
     <LanguageProvider>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col overflow-x-hidden">
         <FloatingNav />
         <div
           className={cn(
@@ -29,7 +29,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
         >
           <ControlPanel />
         </div>
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
         <SiteFooter />
       </div>
     </LanguageProvider>

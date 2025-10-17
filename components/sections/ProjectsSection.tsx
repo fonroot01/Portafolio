@@ -212,7 +212,7 @@ const ProjectsSection = () => {
   const hasMoreLabs = labs.length > 4;
 
   return (
-    <section className="min-h-screen">
+    <section className="min-h-screen max-w-full overflow-x-hidden">
       <div className="container mx-auto py-20 px-4">
         {/* Sección de Proyectos */}
         <div className="mb-20">          <h2 className="text-4xl font-extrabold mb-12 text-center text-foreground font-heading tracking-tight flex items-center justify-center gap-4">

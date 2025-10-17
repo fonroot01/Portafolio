@@ -142,7 +142,7 @@ const ExperienceSection = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 bg-background relative overflow-hidden">
+    <section className="py-16 px-4 bg-background relative overflow-hidden max-w-full">
       {/* Decorative background elements - más sutiles y sin reflejo */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl"></div>

@@ -10,8 +10,8 @@ const AboutMe = () => {
   const { t } = useTranslation();
   
   return (
-  <section id="about" className="w-full max-w-4xl mx-auto px-4 bg-background py-2 transition-colors duration-300">
-    <div className="mx-auto flex max-w-[58rem] flex-col md:flex-row items-stretch justify-between w-full">
+  <section id="about" className="w-full max-w-4xl mx-auto px-4 bg-background py-2 transition-colors duration-300 overflow-x-hidden">
+    <div className="mx-auto flex max-w-[58rem] flex-col md:flex-row items-stretch justify-between w-full overflow-x-hidden">
       <div className="flex-1 text-left w-full md:w-1/2 flex flex-col justify-center items-start">
         <div className="flex flex-col items-start mb-2 h-full justify-center">
           <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl text-left text-primary font-bold transition-colors duration-300 flex items-center gap-2">

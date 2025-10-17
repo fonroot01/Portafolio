@@ -25,7 +25,7 @@ export default function IndexPage() {
   
   return (
     <>
-      {/* Sección de bienvenida */}      <section id="inicio" className="min-h-screen flex flex-col items-center justify-center px-4 pt-16 bg-background transition-colors duration-300">
+      {/* Sección de bienvenida */}      <section id="inicio" className="min-h-screen flex flex-col items-center justify-center px-4 pt-16 bg-background transition-colors duration-300 max-w-full overflow-x-hidden">
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
           <div className="mb-6">
             <ProfileSpecialties src={alfonsoImg} alt="Alfonso Mosquera" size={180} />
