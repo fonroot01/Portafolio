@@ -33,7 +33,7 @@ export const certificates: Certificate[] = [
     previewImage: "/imagenes diplomados/Diplomado_en_seguridad_informatica.png",
     institution: "Corporación Universitaria Americana",
     year: "2023",
-    category: "Diplomado Electiva Profesional",
+    category: "Diplomado Electiva",
     title: "Diplomado en Seguridad Informática",
   },
   {
@@ -58,7 +58,7 @@ export const certificates: Certificate[] = [
     id: 6,
     pdfPath: "/Fundamentos de la ciberseguridad.pdf",
     previewImage: "/imagenes diplomados/Fundamentos de la ciberseguridad.png",
-    institution: "Google Certified",
+    institution: "Google",
     year: "2025",
     category: "Curso de Ciberseguridad de Google",
     title: "Fundamentos de la Ciberseguridad",
@@ -67,7 +67,7 @@ export const certificates: Certificate[] = [
     id: 7,
     pdfPath: "/Juega a los Seguro, Gestiona los riesgos de seguridad.pdf",
     previewImage: "/imagenes diplomados/Juega a los seguro.png",
-    institution: "Google Certified",
+    institution: "Google",
     year: "2025",
     category: "Curso de Ciberseguridad de Google",
     title: "Juega a los Seguro",
@@ -87,7 +87,7 @@ export const certificates: Certificate[] = [
     previewImage: "/imagenes diplomados/Introducción a la programación en Python I.png",
     institution: "Universidad Católica de Chile",
     year: "2025",
-    category: "Curso de Python I",
+    category: "Python I",
     title: "Introducción a la programación en Python I",
   }
 ];
