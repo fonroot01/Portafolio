@@ -277,7 +277,7 @@ const ExperienceSection = () => {
             <div className="text-sm text-muted-foreground font-heading">{t('experience.companies') || 'Empresas'}</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">10</div>
+            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">9</div>
             <div className="text-sm text-muted-foreground font-heading">{t('experience.months') || 'Meses de Experiencia'}</div>
           </div>
           <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
