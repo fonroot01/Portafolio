@@ -1,17 +1,16 @@
 'use client';
-import React, { useState, memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AboutMe from "../AboutMe";
 import { ScrollText } from "lucide-react";
 import { User, Briefcase, GraduationCap, Code, Mail, FileText } from "lucide-react";
 import certificates from "../../config/certificates";
-import ScrollToSavedHash from "../common/ScrollToSavedHash";
 import { useTranslation } from "@/hooks/useTranslation";
 
 // Componente memoizado para cada tarjeta de certificado
 
-const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
+const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert: any; showAll: boolean }) {
   const [imgError, setImgError] = useState(false);
   const { t } = useTranslation();
   // Toggle para mostrar el texto completo del badge
@@ -22,7 +21,6 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
 
   return (
     <div 
-      id={`cert-${cert.id}`}
       key={cert.id}
       className="bg-card rounded-xl overflow-hidden flex flex-col md:flex-row items-stretch h-full shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group border border-border"
       aria-label={`Certificado: ${cert.title}`}
@@ -80,8 +78,9 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
             className="inline-flex items-center gap-2 px-3 py-2 border border-border rounded-md text-sm text-primary hover:bg-primary/5 transition"
             onClick={() => {
               try {
-                sessionStorage.setItem('returnPath', window.location.pathname + window.location.search);
-                sessionStorage.setItem('returnHash', `#cert-${cert.id}`);
+                // Guardar posición del scroll y estado de expansión
+                sessionStorage.setItem('certificatesScrollPosition', window.scrollY.toString());
+                sessionStorage.setItem('certificatesExpanded', showAll.toString());
               } catch (e) {
                 // ignore (server-side or privacy settings)
               }
@@ -97,9 +96,6 @@ const CertificateCard = memo(function CertificateCard({ cert }: { cert: any }) {
           </a>
         </div>
       </div>
-      
-      {/* Enlace a la página del certificado (evita modal problemático) */}
-
     </div>
   );
 });
@@ -108,13 +104,24 @@ const ProfileSection = () => {
   const [showAll, setShowAll] = useState(false);
   const { t } = useTranslation();
 
+  // Restaurar el estado de expansión desde sessionStorage al montar
+  useEffect(() => {
+    try {
+      const savedShowAll = sessionStorage.getItem('certificatesExpanded');
+      if (savedShowAll === 'true') {
+        setShowAll(true);
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, []);
+
   // Usar la lista centralizada de config
   const certificatesToShow = showAll ? certificates : certificates.slice(0, 4);
   const hasMoreCertificates = certificates.length > 4;
 
   return (
     <section className="min-h-screen flex flex-col max-w-full overflow-x-hidden">
-      <ScrollToSavedHash />
       <div className="container mx-auto pt-8 px-4">
         <AboutMe />
         <div className="mt-12 pb-12">
@@ -125,14 +132,23 @@ const ProfileSection = () => {
           {/* Grid de certificados */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {certificatesToShow.map((cert) => (
-              <CertificateCard cert={cert} key={cert.id} />
+              <CertificateCard cert={cert} showAll={showAll} key={cert.id} />
             ))}
           </div>
           {/* Botón Ver más/Ver menos */}
           {hasMoreCertificates && (
             <div className="flex justify-center mt-8">
               <button
-                onClick={() => setShowAll(!showAll)}
+                onClick={() => {
+                  const newShowAll = !showAll;
+                  setShowAll(newShowAll);
+                  // Guardar el nuevo estado en sessionStorage
+                  try {
+                    sessionStorage.setItem('certificatesExpanded', newShowAll.toString());
+                  } catch (e) {
+                    // ignore
+                  }
+                }}
                 className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-md"
                 aria-expanded={showAll}
                 aria-controls="certificados-lista"

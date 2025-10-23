@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import GitHubButton from "@/components/common/GitHubButton";
 import Image from "next/image";
@@ -210,6 +210,18 @@ const ProjectsSection = () => {
   const [showAllLabs, setShowAllLabs] = useState(false);
   const labsToShow = showAllLabs ? labs : labs.slice(0, 4);
   const hasMoreLabs = labs.length > 4;
+
+  // Restaurar el estado de expansión de laboratorios desde sessionStorage
+  useEffect(() => {
+    try {
+      const savedShowAllLabs = sessionStorage.getItem('labsExpanded');
+      if (savedShowAllLabs === 'true') {
+        setShowAllLabs(true);
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, []);
 
   return (
     <section className="min-h-screen max-w-full overflow-x-hidden">
@@ -431,8 +443,9 @@ const ProjectsSection = () => {
                 <Link
                   href={lab.link}
                   onClick={() => {
-                    // Guardar posición del scroll antes de navegar
+                    // Guardar posición del scroll y estado de expansión antes de navegar
                     sessionStorage.setItem('labsScrollPosition', window.scrollY.toString());
+                    sessionStorage.setItem('labsExpanded', showAllLabs.toString());
                   }}
                   className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center cursor-pointer text-center"
                 >                  <div className="transform scale-90 group-hover:scale-100 transition-transform duration-300 mb-3">
@@ -450,7 +463,16 @@ const ProjectsSection = () => {
           {hasMoreLabs && (
             <div className="flex justify-center mt-8">
               <button
-                onClick={() => setShowAllLabs(!showAllLabs)}
+                onClick={() => {
+                  const newShowAllLabs = !showAllLabs;
+                  setShowAllLabs(newShowAllLabs);
+                  // Guardar el nuevo estado en sessionStorage
+                  try {
+                    sessionStorage.setItem('labsExpanded', newShowAllLabs.toString());
+                  } catch (e) {
+                    // ignore
+                  }
+                }}
                 className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-md"
               >
                 {showAllLabs ? (

@@ -1,24 +1,24 @@
 "use client";
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function BackToList() {
-  const router = useRouter();
-
-  const handleBack = () => {
-    try {
-      const path = sessionStorage.getItem('returnPath') || '/';
-      const hash = sessionStorage.getItem('returnHash') || '';
-      router.push(path + (hash || ''));
-      // do not remove items here; ScrollToSavedHash will clear after scrolling
-    } catch (e) {
-      router.back();
-    }
-  };
-
   return (
-    <button onClick={handleBack} className="px-3 py-2 text-sm text-primary hover:underline">
+    <Link
+      href="/#perfil"
+      className="px-3 py-2 text-sm text-primary hover:underline"
+      onClick={() => {
+        // Restaurar scroll al volver
+        const scrollPos = sessionStorage.getItem('certificatesScrollPosition');
+        if (scrollPos) {
+          setTimeout(() => {
+            window.scrollTo(0, parseInt(scrollPos));
+            sessionStorage.removeItem('certificatesScrollPosition');
+          }, 100);
+        }
+      }}
+    >
       Volver
-    </button>
+    </Link>
   );
 }
