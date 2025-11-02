@@ -36,6 +36,7 @@ const ExperienceSection = () => {
       company: t('experience.items.utch.company'),
       dates: t('experience.items.utch.dates'),
       duration: t('experience.items.utch.duration'),
+      subtitle: t('experience.items.utch.subtitle'),
       description: t('experience.items.utch.description') as unknown as string[],
       color: "from-blue-500 to-indigo-500",
       icon: (
@@ -250,18 +251,33 @@ const ExperienceSection = () => {
                   `}>
                     {/* Description */}
                     <div className="mb-6 relative z-10">
-                      {(Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
-                        <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-base'}`}>
-                          {descIndex === 0 ? (
-                            <span className="text-xl font-extrabold text-foreground font-heading block">{line}</span>
-                          ) : (
-                            <span className="flex items-start gap-2">
-                              <span className="text-primary mt-1.5 text-xs">▶</span>
-                              <span className="text-foreground/90">{line.replace('• ', '')}</span>
-                            </span>
-                          )}
-                        </p>
-                      ))}
+                      {/* Renderizado especial para UTCH con subtitle */}
+                      {exp.key === 'utch' && exp.subtitle ? (
+                        <>
+                          <h4 className="text-xl font-extrabold text-foreground font-heading mb-4 leading-relaxed">
+                            {exp.subtitle}
+                          </h4>
+                          {(Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
+                            <p key={descIndex} className="text-base text-foreground/90 leading-relaxed mb-2 last:mb-0">
+                              {line}
+                            </p>
+                          ))}
+                        </>
+                      ) : (
+                        /* Renderizado normal para otras experiencias */
+                        (Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
+                          <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-base'}`}>
+                            {descIndex === 0 ? (
+                              <span className="text-xl font-extrabold text-foreground font-heading block">{line}</span>
+                            ) : (
+                              <span className="flex items-start gap-2">
+                                <span className="text-primary mt-1.5 text-xs">▶</span>
+                                <span className="text-foreground/90">{line.replace('• ', '')}</span>
+                              </span>
+                            )}
+                          </p>
+                        ))
+                      )}
                     </div>
                   </div>
                 </div>
