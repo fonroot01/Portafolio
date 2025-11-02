@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, memo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import AboutMe from "../AboutMe";
 import { ScrollText } from "lucide-react";
 import { User, Briefcase, GraduationCap, Code, Mail, FileText } from "lucide-react";
@@ -13,6 +13,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert: any; showAll: boolean }) {
   const [imgError, setImgError] = useState(false);
   const { t } = useTranslation();
+  const router = useRouter();
   // Toggle para mostrar el texto completo del badge
   const [showFullBadge, setShowFullBadge] = useState(false);
 
@@ -73,22 +74,24 @@ const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert:
         </div>
 
         <div className="mt-2 flex items-center gap-3">
-          <Link
-            href={`/certificados/${cert.id}`}
-            className="inline-flex items-center gap-2 px-3 py-2 border border-border rounded-md text-sm text-primary hover:bg-primary/5 transition"
-            onClick={() => {
+          <button
+            onClick={(e) => {
+              e.preventDefault();
               try {
-                // Guardar posición del scroll y estado de expansión
+                // Guardar posición actual del scroll y estado de expansión
                 sessionStorage.setItem('certificatesScrollPosition', window.scrollY.toString());
                 sessionStorage.setItem('certificatesExpanded', showAll.toString());
               } catch (e) {
                 // ignore (server-side or privacy settings)
               }
+              // Navegar al certificado
+              router.push(`/certificados/${cert.id}`);
             }}
+            className="inline-flex items-center gap-2 px-3 py-2 border border-border rounded-md text-sm text-primary hover:bg-primary/5 transition cursor-pointer"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             {t('profile.certificates.view_more')}
-          </Link>
+          </button>
 
           <a href={cert.pdfPath} target="_blank" rel="noreferrer" className="pdf-button inline-flex items-center gap-2 px-3 py-2 bg-primary text-primary-foreground rounded-md text-sm hover:opacity-95 transition h-9 min-w-[88px] leading-none">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -104,12 +107,31 @@ const ProfileSection = () => {
   const [showAll, setShowAll] = useState(false);
   const { t } = useTranslation();
 
-  // Restaurar el estado de expansión desde sessionStorage al montar
+  // Restaurar el estado de expansión y scroll desde sessionStorage al montar
   useEffect(() => {
     try {
       const savedShowAll = sessionStorage.getItem('certificatesExpanded');
       if (savedShowAll === 'true') {
         setShowAll(true);
+      }
+
+      // Verificar si estamos volviendo de ver un certificado
+      const returningFromCert = sessionStorage.getItem('returningFromCertificate');
+      const scrollPos = sessionStorage.getItem('certificatesScrollPosition');
+      
+      if (returningFromCert === 'true' && scrollPos) {
+        // Restaurar el scroll después de que el DOM se haya renderizado
+        const timeoutId = setTimeout(() => {
+          window.scrollTo({
+            top: parseInt(scrollPos, 10),
+            behavior: 'instant' // Sin animación para evitar saltos visuales
+          });
+          // Limpiar los flags
+          sessionStorage.removeItem('returningFromCertificate');
+          sessionStorage.removeItem('certificatesScrollPosition');
+        }, 100);
+
+        return () => clearTimeout(timeoutId);
       }
     } catch (e) {
       // ignore
