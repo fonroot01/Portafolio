@@ -26,7 +26,7 @@
     "devops": "DevOps",
     "about_me": {
       "title": "About me",
-      "description": "I combine technical experience in corporate environments with a practical focus on cybersecurity, automation and responsible use of AI. As a Systems Engineer, I have managed key platforms, ensuring continuous support and applying my knowledge in solutions that work and make technology more accessible."
+      "description": "I am a Systems Engineer with hands-on experience developing solutions with Python. I focus on automating processes, applying cybersecurity principles, and creating functional tools that address real-world needs and improve technological efficiency."
     },
     "certificates": {
       "title": "Diplomas and Certificates",
@@ -118,7 +118,7 @@
       "utch": {
         "role": "University Professional - Systems Administrative Assistant",
         "company": "Technological University of Chocó",
-        "dates": "Sep. 2025 - In Progress",
+        "dates": "Sep. 2025 - In Progress the vinculation",
         "duration": "",
         "description": [
           "Currently my duties include:",
@@ -217,7 +217,7 @@
       "description": "Key skills that define my professional identity."
     },
     "experience": {
-      "title": "Projects",
+      "title": "Experience",
       "description": "Highlighting professional journey and impactful projects."
     },
     "resume": {
@@ -227,6 +227,26 @@
     "career": {
       "title": "Career",
       "description": "My professional path and work experiences."
+    },
+    "about": {
+      "title": "About",
+      "description": "Learn more about my background and professional journey."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "A showcase of my best projects and work samples."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Professional services I offer to help you achieve your goals."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Thoughts, tutorials, and insights about technology and development."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with me for collaborations or just to say hello!"
     }
   }
 }

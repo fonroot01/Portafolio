@@ -245,10 +245,16 @@ const ProjectsSection = () => {
                       src={project.image}
                       alt={`${project.title} preview`}
                       fill
-                      style={{ objectFit: "cover" }}
-                      className="transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105"
+                      style={{
+                        objectPosition: 'top center',
+                        willChange: 'transform',
+                      }}
                       priority={project.id === 1}
-                      quality={100}
+                      quality={90}
+                      placeholder="blur"
+                      blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZmIi8+PC9zdmc+"
                     />
                   </div>
                   {/* Overlay con título */}
