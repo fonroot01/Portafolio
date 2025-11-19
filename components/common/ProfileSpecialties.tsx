@@ -52,10 +52,10 @@ export default function ProfileSpecialties({ src, alt = 'Perfil', size = 180 }: 
       <div className={`absolute left-full ml-4 top-1/2 -translate-y-1/2 w-48 p-3 rounded-md shadow-md transition-all duration-200 ${open ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 pointer-events-none'}`}>
         <h4 className="text-sm font-semibold mb-2">Áreas</h4>
         <ul className="text-sm space-y-1">
+          <li>Soporte Técnico</li>
+          <li>Automatización-Python</li>
           <li>Ciberseguridad</li>
-          <li>Automatización</li>
-          <li>Soporte</li>
-          <li>Infraestructura</li>
+          <li>Redes</li>
         </ul>
       </div>
     </div>
