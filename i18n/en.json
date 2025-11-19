@@ -116,13 +116,13 @@
     "months": "Months of Experience",
     "items": {
       "utch": {
-        "role": "University Professional - Systems Administrative Assistant",
+        "role": "Auxiliary of support technical",
         "company": "UBPD",
-        "dates": "Sep. 2025 - In Progress (vinculation)",
-        "duration": "",
-        "subtitle": "Vinculation Process (expected for 2026)",
+        "dates": "Nov. 2025",
+        "duration": "1 week",
+        "subtitle": "Proyect of temporary support in UBPD",
         "description": [
-          "The planned functions include user support, network administration, institutional data backup, process documentation, and assistance on digital platforms."
+          "TI performed a complete system check and setup of the headquarters' equipment, validating network points, domain, antivirus, and overall functionality. I installed and configured IP phones and printers, as well as rack switching to ensure connectivity. I provided user support for network issues, slow performance, and system failures, making quick hardware and software adjustments as needed. All activities were documented in the technical reports required by the organization."
         ]
       },
       "zeuss_tech": {
