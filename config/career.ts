@@ -37,7 +37,7 @@ export const careerExperiences: CareerExperienceInterface[] = [
     ],
     skills: ["Active Directory", "SQL Server", "Microsoft 365", "Virtualización"],
     companyUrl: undefined,
-    logo: "/career/logoutch.png"
+    logo: "/career/ubpd.png"
   },
   {
     id: "aprendiz-soporte-ti",

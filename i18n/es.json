@@ -116,13 +116,13 @@
     "months": "Meses de Experiencia",
     "items": {
       "utch": {
-        "role": "Profesional Universitario - Auxiliar Administrativo de Sistemas",
-        "company": "Universidad Tecnológica del Chocó",
-        "dates": "sep. 2025 - En proceso de vinculación",
-        "duration": "",
-        "subtitle": "Proceso de vinculación (previsto para 2026)",
+        "role": "Auxiliar de Soporte Técnico",
+        "company": "Unidad de Busqueda de Personas Desaparecidas (Quibdó)",
+        "dates": "nov. 2025",
+        "duration": "1 Semana",
+        "subtitle": "Proyecto de soporte temporal en UBDP",
         "description": [
-          "Las funciones previstas incluyen soporte a usuarios, administración de redes, respaldo de información institucional, documentación de procesos y asistencia en plataformas digitales."
+          "Realicé la revisión y puesta a punto de los equipos de la sede, validando puntos de red, dominio, antivirus y funcionamiento general. Ejecuté la instalación y configuración de teléfonos IP e impresoras, además de la conmutación en rack para garantizar la conectividad. Brindé soporte a usuarios frente a incidencias de red, lentitud y fallas del sistema, realizando ajustes rápidos de hardware y software cuando fue necesario. Todas las actividades quedaron documentadas en las actas técnicas requeridas por la entidad."
         ]
       },
       "zeuss_tech": {

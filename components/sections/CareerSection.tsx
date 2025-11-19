@@ -41,8 +41,8 @@ const ExperienceSection = () => {
       color: "from-blue-500 to-indigo-500",
       icon: (
         <Image
-          src="/career/logoutch.png" 
-          alt="UTCh Logo" 
+          src="/career/ubpd.png" 
+          alt="UBPD Logo" 
           width={32}
           height={32}
           className="object-contain"
