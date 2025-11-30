@@ -120,10 +120,14 @@
         "company": "UBPD",
         "dates": "Nov. 2025",
         "duration": "1 week",
-        "subtitle": "Proyect of temporary support in UBPD",
-        "description": [
-          "TI performed a complete system check and setup of the headquarters' equipment, validating network points, domain, antivirus, and overall functionality. I installed and configured IP phones and printers, as well as rack switching to ensure connectivity. I provided user support for network issues, slow performance, and system failures, making quick hardware and software adjustments as needed. All activities were documented in the technical reports required by the organization."
-        ]
+          "subtitle": "Temporary support project in UBPD (Quibdó)",
+          "description": [
+            "Validation of network points, domain and general functioning.",
+            "Installation and configuration of IP phones and printers.",
+            "Rack switching to ensure connectivity.",
+            "User support with basic network, slowness and system failure issues.",
+            "Documentation in the technical records required by the entity."
+          ]
       },
       "zeuss_tech": {
         "role": "Technology Platforms Assistant",

@@ -258,8 +258,9 @@ const ExperienceSection = () => {
                             {exp.subtitle}
                           </h4>
                           {(Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
-                            <p key={descIndex} className="text-base text-foreground/90 leading-relaxed mb-2 last:mb-0">
-                              {line}
+                            <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed text-base`}>
+                              <span className="text-primary mt-1.5 text-xs">▶</span>
+                              <span className="text-foreground/90 ml-2">{String(line).replace('• ', '')}</span>
                             </p>
                           ))}
                         </>
