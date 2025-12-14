@@ -26,7 +26,7 @@
     "devops": "DevOps",
     "about_me": {
       "title": "About me",
-      "description": "I am a Systems Engineer with experience in computer repair and maintenance, software installation, and both on-site and remote technical support. I am interested in process automation with Python, basic network management, and the application of cybersecurity best practices. I focus my skills on improving the efficiency and reliability of technological environments by providing practical, results-oriented solutions."
+      "description": "I am a Systems Engineer with experience in technical support and management of technology platforms. I focus on process automation with Python, basic network management, and the application of cybersecurity best practices, providing practical solutions aimed at improving the efficiency and reliability of technological environments."
     },
     "certificates": {
       "title": "Diplomas and Certificates",
@@ -64,6 +64,10 @@
       "winpyx": {
         "title": "WinPyX",
         "description": "Tool to clean temporary files, delete browser history and empty the recycle bin in Windows."
+      },
+      "activacion_windows_office": {
+        "title": "Activation - Windows and Office",
+        "description": "Complete guide for activating Windows and Office through KMS servers."
       }
     }
   },

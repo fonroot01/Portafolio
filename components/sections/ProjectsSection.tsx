@@ -68,6 +68,15 @@ const ProjectsSection = () => {
       tags: ["Python", "Tkinter"],
       image: "/portadasp/winpyx.webp",
     },
+    {
+      id: 7,
+      key: "activacion_windows_office",
+      title: t('projects.items.activacion_windows_office.title'),
+      description: t('projects.items.activacion_windows_office.description'),
+      githubUrl: "https://github.com/fonroot01/activacion-windows-office",
+      tags: ["Documentación", "KMS Server", "Microsoft"],
+      image: "/portadasp/activacion_windows_office.webp",
+    },
   ];
   // Helper function para obtener badges como array
   const getBadges = (key: string): string[] => {
