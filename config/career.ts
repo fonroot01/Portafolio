@@ -16,6 +16,28 @@ export interface CareerExperienceInterface {
 
 export const careerExperiences: CareerExperienceInterface[] = [
   {
+    id: "platinum-solutions",
+    position: "Ingeniero de Soporte TI",
+    company: "Platinum Solutions",
+    location: "Colombia",
+    startDate: new Date("2025-06-01"),
+    endDate: "Present",
+    description: [
+      "Soporte técnico de segundo nivel a usuarios y sistemas",
+      "Administración de redes, servidores y servicios en la nube",
+      "Gestión y resolución de incidentes mediante sistema de tickets",
+      "Mantenimiento preventivo y correctivo de equipos y estaciones de trabajo",
+      "Documentación de procedimientos y formación a usuarios"
+    ],
+    achievements: [
+      "Reducción de los tiempos de respuesta en soporte técnico",
+      "Mejoras en la disponibilidad de servicios críticos"
+    ],
+    skills: ["Active Directory", "Microsoft 365", "Virtualización", "linux"],
+    companyUrl: undefined,
+    logo: "/career/logoplatinum.png"
+  },
+  {
     id: "profesional-universitario",
     position: "Profesional Universitario - Auxiliar Administrativo de Sistemas",
     company: "Instituto Tecnológico del Putumayo",

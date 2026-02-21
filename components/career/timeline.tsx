@@ -173,7 +173,10 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
   const sortedExperiences = [...experiences].sort((a, b) => {
     const dateA = a.endDate === "Present" ? new Date() : a.endDate;
     const dateB = b.endDate === "Present" ? new Date() : b.endDate;
-    return dateB.getTime() - dateA.getTime();
+    const diff = dateB.getTime() - dateA.getTime();
+    if (diff !== 0) return diff;
+    // If end dates are equal (e.g., both "Present"), prefer the item with more recent startDate
+    return (b.startDate.getTime() || 0) - (a.startDate.getTime() || 0);
   });
 
   // Auto-expand the first item on initial load

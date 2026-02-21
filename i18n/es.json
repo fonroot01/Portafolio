@@ -136,8 +136,8 @@
       "zeuss_tech": {
         "role": "Auxiliar de Plataformas Tecnológicas",
         "company": "Zeuss S.A.S",
-        "dates": "oct. 2022 - ene. 2023",
-        "duration": "3 meses",
+        "dates": "abril. 2022 - ene. 2023",
+        "duration": "9 meses",
         "description": [
           "Como auxiliar de plataformas tecnológicas, mis responsabilidades incluyeron:",
           "Configurar y monitorear sistemas de telefonía IP (3CX).",
@@ -147,18 +147,19 @@
           "Brindar soporte técnico a usuarios internos y externos."
         ]
       },
-      "zeuss_support": {
-        "role": "Aprendiz de Soporte y Servicio TI",
-        "company": "Zeuss S.A.S",
-        "dates": "abr. 2022 - oct. 2022",
-        "duration": "6 meses",
+      
+      "platinum": {
+        "role": "Ingeniero de Soporte TI",
+        "company": "Platinum Solutions",
+        "dates": "ene. 2026 - Actual",
         "description": [
-          "Como auxiliar de soporte y servicio TI, mis tareas fueron:",
-          "Brindar soporte técnico",
-          "Realizar actividades de mantenimiento preventivo y correctivo a equipos",
-          "Tareas de supervisión de servidores en plantas y estaciones de servicio.",
-          "Documentar procedimientos y sesiones básicas de capacitación a usuarios.",
-          "Gestionar y actualizar inventario de equipos tecnológicos"
+          "Principales responsabilidades:",
+          "Atención y resolución de incidencias.",
+          "Diagnosticar y solucionar problemas de hardware, software y redes.",
+          "Instalación y configuración de equipos y aplicaciones.",
+          "Soporte remoto y presencial.",
+          "Documentación de procedimientos técnicos.",
+          "Mantenimiento preventivo y capacitación básica a usuarios en buenas prácticas."
         ]
       }
     }

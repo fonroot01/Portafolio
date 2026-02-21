@@ -1,8 +1,9 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Briefcase } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
+import { skills } from "@/config/skills";
 
 // Define una interfaz para las props del componente CompanyIcon
 interface CompanyIconProps {
@@ -31,6 +32,30 @@ const ExperienceSection = () => {
   const experiences = [
     {
       id: 1,
+      key: "platinum",
+      role: t('experience.items.platinum.role'),
+      company: t('experience.items.platinum.company'),
+      dates: t('experience.items.platinum.dates') || 'ene. 2026 - Actual',
+      // no duration property for platinum (ocultamos si no existe)
+      description: t('experience.items.platinum.description') as unknown as string[],
+      color: "from-green-500 to-emerald-500",
+      icon: (
+        <Image
+          src="/career/logoplatinum.png"
+          alt="Platinum Logo"
+          width={32}
+          height={32}
+          className="object-contain"
+        />
+      ),
+      fallbackIcon: (
+        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+        </svg>
+      ),
+    },
+    {
+      id: 2,
       key: "utch",
       role: t('experience.items.utch.role'),
       company: t('experience.items.utch.company'),
@@ -46,12 +71,6 @@ const ExperienceSection = () => {
           width={32}
           height={32}
           className="object-contain"
-          onError={(e) => {
-            // Fallback to SVG icon if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            (e.currentTarget as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-          }}
         />
       ),
       fallbackIcon: (
@@ -61,7 +80,7 @@ const ExperienceSection = () => {
       ),
     },
     {
-      id: 2,
+      id: 3,
       key: "zeuss_tech",
       role: t('experience.items.zeuss_tech.role'),
       company: t('experience.items.zeuss_tech.company'),
@@ -76,50 +95,15 @@ const ExperienceSection = () => {
           width={32}
           height={32}
           className="object-contain"
-          onError={(e) => {
-            // Fallback to SVG icon if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            (e.currentTarget as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-          }}
         />
       ),
       fallbackIcon: (
         <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
         </svg>
       ),
     },
-    {
-      id: 3,
-      key: "zeuss_support",
-      role: t('experience.items.zeuss_support.role'),
-      company: t('experience.items.zeuss_support.company'),
-      dates: t('experience.items.zeuss_support.dates'),
-      duration: t('experience.items.zeuss_support.duration'),
-      description: t('experience.items.zeuss_support.description') as unknown as string[],
-      color: "from-purple-500 to-pink-500",
-      icon: (
-        <Image
-          src="/career/logozeuss.png" 
-          alt="Zeuss Logo" 
-          width={32}
-          height={32}
-          className="object-contain"
-          onError={(e) => {
-            // Fallback to SVG icon if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            target.nextElementSibling?.classList.remove('hidden');
-          }}
-        />
-      ),
-      fallbackIcon: (
-        <svg className="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
-        </svg>
-      ),
-    },
+    
   ];
 
   // Intersection Observer para animaciones al hacer scroll
@@ -168,20 +152,15 @@ const ExperienceSection = () => {
           </div>
 
           {experiences.map((exp, index) => (
-            <div 
-              key={exp.id} 
+            <div
+              key={exp.id}
               data-card-id={exp.id}
-              className={`
-                mb-16 relative transition-all duration-1000 ease-out
-                ${visibleCards.has(exp.id) 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-                }
+              className={`mb-16 relative transition-all duration-1000 ease-out
+                ${visibleCards.has(exp.id) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
               `}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Experience card con fondo más sólido */}
-              <div 
+              <div
                 className={`
                   ml-16 md:ml-0 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 md:items-start max-w-5xl mx-auto
                   bg-card/95 backdrop-blur-sm rounded-xl shadow-sm
@@ -190,16 +169,8 @@ const ExperienceSection = () => {
                 onMouseEnter={() => setActiveCard(exp.id)}
                 onMouseLeave={() => setActiveCard(null)}
               >
-                {/* Company info */}
-                <div className={`
-                  mb-6 md:mb-0 ${index % 2 === 0 ? '' : 'md:col-start-2 md:text-right'}
-                  transform transition-all duration-500 ease-out p-4
-                  ${activeCard === exp.id ? 'scale-105' : ''}
-                `}>
-                  <div className={`
-                    flex items-center gap-4 mb-4
-                    ${index % 2 === 0 ? '' : 'md:flex-row-reverse md:justify-end'}
-                  `}>
+                <div className={`mb-6 md:mb-0 ${index % 2 === 0 ? '' : 'md:col-start-2 md:text-right'} transform transition-all duration-500 ease-out p-4 ${activeCard === exp.id ? 'scale-105' : ''}`}>
+                  <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? '' : 'md:flex-row-reverse md:justify-end'}`}>
                     <CompanyIcon isActive={activeCard === exp.id}>
                       {exp.icon}
                       {exp.fallbackIcon}
@@ -213,50 +184,31 @@ const ExperienceSection = () => {
                       </p>
                     </div>
                   </div>
-                  
-                  <div className={`
-                    flex items-center gap-4 text-sm text-muted-foreground
-                    ${index % 2 === 0 ? '' : 'md:justify-end'}
-                  `}>
+
+                  <div className={`flex items-center gap-4 text-sm text-muted-foreground ${index % 2 === 0 ? '' : 'md:justify-end'}`}>
                     <span className="flex items-center gap-1">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 11H7v8h2v-8zm4 0h-2v8h2v-8zm4 0h-2v8h2v-8zm2.5-9L21 4v2h-1.5l-2.5 14H7L4.5 6H3V4l1.5-2h12zM6.5 8h11l-1 6h-9l-1-6z"/>
                       </svg>
                       {exp.dates}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 17.5c-3.04 0-5.5-2.46-5.5-5.5 0-.55.45-1 1-1s1 .45 1 1c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-.55.45-1 1-1s1 .45 1 1c0 3.04-2.46 5.5-5.5 5.5z"/>
-                      </svg>
-                      {exp.duration}
-                    </span>
+                    {exp.duration && (
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 17.5c-3.04 0-5.5-2.46-5.5-5.5 0-.55.45-1 1-1s1 .45 1 1c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-.55.45-1 1-1s1 .45 1 1c0 3.04-2.46 5.5-5.5 5.5z"/>
+                        </svg>
+                        {exp.duration}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                {/* Experience details */}
-                <div className={`
-                  ${index % 2 === 0 ? '' : 'md:col-start-1'}
-                  transform transition-all duration-500 ease-out
-                  ${activeCard === exp.id ? 'scale-105' : ''}
-                `}>
-                  <div className={`
-                    relative p-6 sm:p-8 rounded-2xl transition-all duration-500 ease-out
-                    bg-card/80 backdrop-blur-sm
-                    border border-border
-                    h-full
-                    ${activeCard === exp.id 
-                      ? 'bg-primary/5' 
-                      : ''
-                    }
-                  `}>
-                    {/* Description */}
+                <div className={`${index % 2 === 0 ? '' : 'md:col-start-1'} transform transition-all duration-500 ease-out ${activeCard === exp.id ? 'scale-105' : ''}`}>
+                  <div className={`relative p-6 sm:p-8 rounded-2xl transition-all duration-500 ease-out bg-card/80 backdrop-blur-sm border border-border h-full ${activeCard === exp.id ? 'bg-primary/5' : ''}`}>
                     <div className="mb-6 relative z-10">
-                      {/* Renderizado especial para UTCH con subtitle */}
                       {exp.key === 'utch' && exp.subtitle ? (
                         <>
-                          <h4 className="text-xl font-extrabold text-foreground font-heading mb-4 leading-relaxed">
-                            {exp.subtitle}
-                          </h4>
+                          <h4 className="text-xl font-extrabold text-foreground font-heading mb-4 leading-relaxed">{exp.subtitle}</h4>
                           {(Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
                             <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed text-base`}>
                               <span className="text-primary mt-1.5 text-xs">▶</span>
@@ -265,7 +217,6 @@ const ExperienceSection = () => {
                           ))}
                         </>
                       ) : (
-                        /* Renderizado normal para otras experiencias */
                         (Array.isArray(exp.description) ? exp.description : (exp.description ? [String(exp.description)] : [])).map((line, descIndex) => (
                           <p key={descIndex} className={`mb-2 last:mb-0 leading-relaxed ${descIndex === 0 ? 'mb-4' : 'text-base'}`}>
                             {descIndex === 0 ? (
@@ -287,20 +238,44 @@ const ExperienceSection = () => {
           ))}
         </div>
 
-        {/* Stats section con fondo sólido */}
+        {/* Stats section con fondo sólido - dinámico */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-          <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">2</div>
-            <div className="text-sm text-muted-foreground font-heading">{t('experience.companies') || 'Empresas'}</div>
-          </div>
-          <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">9</div>
-            <div className="text-sm text-muted-foreground font-heading">{t('experience.months') || 'Meses de Experiencia'}</div>
-          </div>
-          <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
-            <div className="text-3xl font-extrabold text-primary mb-2 font-heading">15+</div>
-            <div className="text-sm text-muted-foreground font-heading">{t('skills.title')}</div>
-          </div>
+          {(() => {
+            // Calcular contadores dinámicos (empresas únicas)
+            const companiesCount = new Set(experiences.map((e) => String(e.company))).size;
+
+            const parseDurationToMonths = (text: string) => {
+              if (!text) return 0;
+              const lower = String(text).toLowerCase();
+              const numMatch = lower.match(/\d+/);
+              const num = numMatch ? parseInt(numMatch[0], 10) : 0;
+              if (lower.includes('año') || lower.includes('year')) return num * 12;
+              if (lower.includes('sem') || lower.includes('week')) return Math.round(num / 4);
+              // mes / months
+              return num;
+            };
+
+            const monthsCount = experiences.reduce((acc, e) => acc + parseDurationToMonths(String(e.duration)), 0);
+            // Mostrar al menos 20 para la sección de habilidades (ej. "20+")
+            const skillsCount = Math.max(skills.length, 20);
+
+            return (
+              <>
+                <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
+                  <div className="text-3xl font-extrabold text-primary mb-2 font-heading">{companiesCount}</div>
+                  <div className="text-sm text-muted-foreground font-heading">{t('experience.companies') || 'Empresas'}</div>
+                </div>
+                <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
+                  <div className="text-3xl font-extrabold text-primary mb-2 font-heading">{monthsCount}</div>
+                  <div className="text-sm text-muted-foreground font-heading">{t('experience.months') || 'Meses de Experiencia'}</div>
+                </div>
+                <div className="text-center p-6 bg-card/95 backdrop-blur-sm rounded-xl border border-border/50 shadow-sm">
+                  <div className="text-3xl font-extrabold text-primary mb-2 font-heading">{skillsCount}+</div>
+                  <div className="text-sm text-muted-foreground font-heading">{t('skills.title')}</div>
+                </div>
+              </>
+            );
+          })()}
         </div>
       </div>
 

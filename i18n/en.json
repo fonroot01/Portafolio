@@ -136,8 +136,8 @@
       "zeuss_tech": {
         "role": "Technology Platforms Assistant",
         "company": "Zeuss S.A.S",
-        "dates": "Oct. 2022 - Jan. 2023",
-        "duration": "3 months",
+        "dates": "Apr. 2022 - Jan. 2023",
+        "duration": "9 months",
         "description": [
           "As a technology platforms assistant, my responsibilities included:",
           "Configure and monitor IP telephony systems (3CX).",
@@ -147,18 +147,19 @@
           "Provide technical support to internal and external users."
         ]
       },
-      "zeuss_support": {
-        "role": "IT Support and Service Apprentice",
-        "company": "Zeuss S.A.S",
-        "dates": "Apr. 2022 - Oct. 2022",
-        "duration": "6 months",
+      "platinum": {
+        "role": "IT Support Engineer",
+        "company": "Platinum Solutions",
+        "dates": "Jan. 2026 - Present",
         "description": [
-          "As an IT support and service assistant, my tasks were:",
-          "Provide technical support",
-          "Perform preventive and corrective maintenance activities on equipment",
-          "Server supervision tasks at plants and service stations.",
-          "Document procedures and basic training sessions for users.",
-          "Manage and update inventory of technological equipment"
+          "Main responsibilities:",
+          "Incident handling and resolution.",
+          "Diagnosing and resolving hardware.",
+           "software, and network problems.",
+          "Installing and configuring equipment and applications.",
+          "Providing remote and on-site support.",
+          "Documenting technical procedures.",
+          "Performing preventative maintenance and providing basic user training on best practices."
         ]
       }
     }

@@ -14,8 +14,8 @@ const AboutMe = () => {
     <div className="mx-auto flex max-w-[58rem] flex-col md:flex-row items-stretch justify-between w-full overflow-x-hidden">
       <div className="flex-1 text-left w-full md:w-1/2 flex flex-col justify-center items-start">
         <div className="flex flex-col items-start mb-2 h-full justify-center">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl text-left text-primary font-bold transition-colors duration-300 flex items-center gap-2">
-            <User className="w-8 h-8 inline-block animate-bounce" />
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl text-left text-primary font-bold transition-colors duration-300 flex items-center gap-2 overflow-visible">
+            <User className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 animate-bounce" />
             {t('profile.about_me.title')}
           </h2>
         </div>
