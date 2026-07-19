@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useLayoutEffect, memo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import AboutMe from "../AboutMe";
@@ -22,6 +22,7 @@ const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert:
 
   return (
     <div 
+      id={`cert-${cert.id}`}
       key={cert.id}
       className="bg-card rounded-xl overflow-hidden flex flex-col md:flex-row items-stretch h-full shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group border border-border"
       aria-label={`Certificado: ${cert.title}`}
@@ -78,9 +79,13 @@ const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert:
             onClick={(e) => {
               e.preventDefault();
               try {
-                // Guardar posición actual del scroll y estado de expansión
-                sessionStorage.setItem('certificatesScrollPosition', window.scrollY.toString());
+                // Guardar estado de expansión
                 sessionStorage.setItem('certificatesExpanded', showAll.toString());
+
+                // Intentar guardar la posición exacta de la tarjeta (más fiable que window.scrollY)
+                const el = document.getElementById(`cert-${cert.id}`);
+                const top = el ? (el.getBoundingClientRect().top + window.scrollY) : window.scrollY;
+                sessionStorage.setItem('certificatesScrollPosition', top.toString());
               } catch (e) {
                 // ignore (server-side or privacy settings)
               }
@@ -107,8 +112,8 @@ const ProfileSection = () => {
   const [showAll, setShowAll] = useState(false);
   const { t } = useTranslation();
 
-  // Restaurar el estado de expansión y scroll desde sessionStorage al montar
-  useEffect(() => {
+  // Restaurar el estado de expansión y scroll desde sessionStorage antes del primer paint
+  useLayoutEffect(() => {
     try {
       const savedShowAll = sessionStorage.getItem('certificatesExpanded');
       if (savedShowAll === 'true') {
@@ -118,20 +123,26 @@ const ProfileSection = () => {
       // Verificar si estamos volviendo de ver un certificado
       const returningFromCert = sessionStorage.getItem('returningFromCertificate');
       const scrollPos = sessionStorage.getItem('certificatesScrollPosition');
-      
-      if (returningFromCert === 'true' && scrollPos) {
-        // Restaurar el scroll después de que el DOM se haya renderizado
-        const timeoutId = setTimeout(() => {
-          window.scrollTo({
-            top: parseInt(scrollPos, 10),
-            behavior: 'instant' // Sin animación para evitar saltos visuales
-          });
-          // Limpiar los flags
-          sessionStorage.removeItem('returningFromCertificate');
-          sessionStorage.removeItem('certificatesScrollPosition');
-        }, 100);
 
-        return () => clearTimeout(timeoutId);
+      if (returningFromCert === 'true' && scrollPos) {
+        // Restaurar el scroll inmediatamente antes del primer paint para evitar parpadeos
+        // Calcular un offset dinámico basado en la altura del header (si existe)
+        const raw = parseInt(scrollPos, 10) || 0;
+        const headerEl = document.querySelector('header');
+        const headerHeight = headerEl ? (headerEl as HTMLElement).offsetHeight : 120;
+        const EXTRA = 40; // espacio extra para separación visual
+        const top = Math.max(0, raw - headerHeight - EXTRA);
+        try {
+          // Usar el método sin animación para que la posición sea inmediata
+          window.scrollTo(0, top);
+        } catch (err) {
+          // fallback silencioso
+          window.scrollTo(0, top);
+        }
+
+        // Limpiar los flags
+        sessionStorage.removeItem('returningFromCertificate');
+        sessionStorage.removeItem('certificatesScrollPosition');
       }
     } catch (e) {
       // ignore
