@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useLayoutEffect, memo } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import AboutMe from "../AboutMe";
 import { ScrollText } from "lucide-react";
 import { User, Briefcase, GraduationCap, Code, Mail, FileText } from "lucide-react";
@@ -13,7 +12,6 @@ import { useTranslation } from "@/hooks/useTranslation";
 const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert: any; showAll: boolean }) {
   const [imgError, setImgError] = useState(false);
   const { t } = useTranslation();
-  const router = useRouter();
   // Toggle para mostrar el texto completo del badge
   const [showFullBadge, setShowFullBadge] = useState(false);
 
@@ -75,32 +73,9 @@ const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert:
         </div>
 
         <div className="mt-2 flex items-center gap-3">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              try {
-                // Guardar estado de expansión
-                sessionStorage.setItem('certificatesExpanded', showAll.toString());
-
-                // Intentar guardar la posición exacta de la tarjeta (más fiable que window.scrollY)
-                const el = document.getElementById(`cert-${cert.id}`);
-                const top = el ? (el.getBoundingClientRect().top + window.scrollY) : window.scrollY;
-                sessionStorage.setItem('certificatesScrollPosition', top.toString());
-              } catch (e) {
-                // ignore (server-side or privacy settings)
-              }
-              // Navegar al certificado
-              router.push(`/certificados/${cert.id}`);
-            }}
-            className="inline-flex items-center gap-2 px-3 py-2 border border-border rounded-md text-sm text-primary hover:bg-primary/5 transition cursor-pointer"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            {t('profile.certificates.view_more')}
-          </button>
-
           <a href={cert.pdfPath} target="_blank" rel="noreferrer" className="pdf-button inline-flex items-center gap-2 px-3 py-2 bg-primary text-primary-foreground rounded-md text-sm hover:opacity-95 transition h-9 min-w-[88px] leading-none">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            {t('common.open')} PDF
+            Ver credencial
           </a>
         </div>
       </div>
@@ -110,6 +85,7 @@ const CertificateCard = memo(function CertificateCard({ cert, showAll }: { cert:
 
 const ProfileSection = () => {
   const [showAll, setShowAll] = useState(false);
+  const [isRestoring, setIsRestoring] = useState(false);
   const { t } = useTranslation();
 
   // Restaurar el estado de expansión y scroll desde sessionStorage antes del primer paint
@@ -125,6 +101,8 @@ const ProfileSection = () => {
       const scrollPos = sessionStorage.getItem('certificatesScrollPosition');
 
       if (returningFromCert === 'true' && scrollPos) {
+        // Marcar que estamos en proceso de restauración para ocultar contenido
+        setIsRestoring(true);
         // Restaurar el scroll inmediatamente antes del primer paint para evitar parpadeos
         // Calcular un offset dinámico basado en la altura del header (si existe)
         const raw = parseInt(scrollPos, 10) || 0;
@@ -133,16 +111,33 @@ const ProfileSection = () => {
         const EXTRA = 40; // espacio extra para separación visual
         const top = Math.max(0, raw - headerHeight - EXTRA);
         try {
-          // Usar el método sin animación para que la posición sea inmediata
-          window.scrollTo(0, top);
+          // Efecto disimulado: primero posicionar un poco antes (inmediato),
+          // luego animar suavemente hasta la posición objetivo.
+          const PRE_OFFSET = 30;
+          const immediate = Math.max(0, top - PRE_OFFSET);
+          // posicionamiento inmediato antes del paint
+          window.scrollTo(0, immediate);
+
+          // animar al target en el siguiente frame para que la transición se vea natural
+          requestAnimationFrame(() => {
+            try {
+              window.scrollTo({ top, behavior: 'smooth' });
+            } catch (err) {
+              window.scrollTo(0, top);
+            }
+          });
         } catch (err) {
-          // fallback silencioso
+          // fallback inmediato si algo falla
           window.scrollTo(0, top);
         }
 
         // Limpiar los flags
         sessionStorage.removeItem('returningFromCertificate');
         sessionStorage.removeItem('certificatesScrollPosition');
+
+        // Después de un breve delay permitir que el contenido sea visible
+        // (esperamos a que termine la animación smooth)
+        setTimeout(() => setIsRestoring(false), 400);
       }
     } catch (e) {
       // ignore
@@ -155,7 +150,7 @@ const ProfileSection = () => {
 
   return (
     <section className="min-h-screen flex flex-col max-w-full overflow-x-hidden">
-      <div className="container mx-auto pt-8 px-4">
+      <div className="container mx-auto pt-8 px-4" style={{ visibility: isRestoring ? 'hidden' : 'visible' }}>
         <AboutMe />
         <div className="mt-12 pb-12">
           <h2 className="text-3xl font-bold mb-10 text-center text-foreground flex items-center justify-center gap-4">
