@@ -51,7 +51,7 @@ export default function IndexPage() {
               <Icons.gitHub className="w-4 h-4 mr-2" /> GitHub
             </Link>
             <Link
-              href="https://www.linkedin.com/in/alfonso-mosquera-4a919b341/"
+              href="https://www.linkedin.com/in/alfonso-ángel-mosquera-4a919b341"
               target="_blank"
               className={buttonVariants({ size: "default" }) + " flex items-center justify-center w-full sm:w-44 px-4 py-2"}
               aria-label="LinkedIn"

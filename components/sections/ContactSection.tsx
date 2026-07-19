@@ -31,7 +31,7 @@ const ContactSection: React.FC = () => {
               <Icons.gitHub className="w-5 h-5 text-primary group-hover:text-primary" />
             </a>
             <a
-              href="https://www.linkedin.com/in/alfonso-mosquera-4a919b341/"
+              href="https://www.linkedin.com/in/alfonso-ángel-mosquera-4a919b341"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110 hover:bg-primary/20 hover:border-primary/50"
