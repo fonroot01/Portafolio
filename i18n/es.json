@@ -149,23 +149,24 @@
       },
       
       "platinum": {
-        "role": "Ingeniero de Soporte TI",
+        "role": "Gestor de Tecnología",
         "company": "Platinum Solutions",
         "dates": "ene. 2026 - Actual",
         "description": [
           "Principales responsabilidades:",
-          "Atención y resolución de incidencias.",
-          "Diagnosticar y solucionar problemas de hardware, software y redes.",
-          "Instalación y configuración de equipos y aplicaciones.",
-          "Soporte remoto y presencial.",
-          "Documentación de procedimientos técnicos.",
-          "Mantenimiento preventivo y capacitación básica a usuarios en buenas prácticas."
+          "Administración Cloud",
+          "Gestión de Identidades",
+          "Seguridad TI",
+          "Infraestructura TI",
+          "Gestión de Activos",
+          "Continuidad Operativa"
         ]
       }
     }
   },
   "skills": {
     "title": "Habilidades Técnicas",
+    "tech_stack": "Stack Tecnológico",
     "languages": "Lenguajes de Programación",
     "frameworks": "Frameworks y Librerías",
     "tools": "Herramientas",

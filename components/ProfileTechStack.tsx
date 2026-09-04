@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Cog } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const techs1 = [
   { name: "Python", src: "/logos_svg_stacks/python.svg" },
@@ -41,11 +43,13 @@ function InfiniteCarousel({ techs, direction = "right" }: { techs: { name: strin
 }
 
 export default function ProfileTechStack() {
+  const { t } = useTranslation();
+
   return (
     <section className="w-full max-w-4xl mx-auto my-10 select-none overflow-x-hidden">
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
         <Cog className="w-8 h-8 animate-[spin_3s_linear_infinite]" />
-        Stack Tecnológico
+        {t('skills.tech_stack')}
       </h2>
       <div className="group overflow-x-hidden">
         <InfiniteCarousel techs={techs1} direction="right" />

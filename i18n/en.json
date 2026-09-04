@@ -153,19 +153,19 @@
         "dates": "Jan. 2026 - Present",
         "description": [
           "Main responsibilities:",
-          "Incident handling and resolution.",
-          "Diagnosing and resolving hardware.",
-           "software, and network problems.",
-          "Installing and configuring equipment and applications.",
-          "Providing remote and on-site support.",
-          "Documenting technical procedures.",
-          "Performing preventative maintenance and providing basic user training on best practices."
+          "Cloud Administration",
+          "Identity Management",
+           "IT Security",
+          "IT Infrastructure",
+          "Asset Management",
+          "Operational Continuity"
         ]
       }
     }
   },
   "skills": {
     "title": "Technical Skills",
+    "tech_stack": "Technology Stack",
     "languages": "Programming Languages",
     "frameworks": "Frameworks and Libraries",
     "tools": "Tools",

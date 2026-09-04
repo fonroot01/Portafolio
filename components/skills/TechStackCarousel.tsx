@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Code2 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const techs = [
   { name: "Bash", src: "/logos_svg_stacks/bash.svg" },
@@ -38,11 +40,13 @@ function InfiniteCarousel({ direction = "right" }: { direction?: "right" | "left
 }
 
 export default function TechStackCarousel() {
+  const { t } = useTranslation();
+
   return (
     <section className="w-full max-w-5xl mx-auto my-12">
       <h2 className="text-3xl font-bold mb-8 text-center flex items-center justify-center gap-4">
         <Code2 className="w-8 h-8 animate-bounce" />
-        Stack Tecnológico
+        {t('skills.tech_stack')}
       </h2>
       <InfiniteCarousel direction="right" />
       <InfiniteCarousel direction="left" />
